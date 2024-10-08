@@ -17,18 +17,24 @@ public class Player : MonoBehaviour
     // アニメーション
     [SerializeField]
     private Animator animatior;
+    [SerializeField]
+    private float animSpeed = 1.0f;
+    private bool isMoving;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-
+        animatior = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // アニメーションの再生スピード
+        animatior.speed = animSpeed;
+
         // 仮移動
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -38,6 +44,26 @@ public class Player : MonoBehaviour
             vertical = 0;
         }
         moveDir = new Vector3(horizontal, vertical).normalized;
+
+        if (horizontal != 0 || vertical != 0)
+        {
+            Debug.Log(isMoving);
+            animatior.SetFloat("InputX", horizontal);
+            animatior.SetFloat("InputY", vertical);
+            if (!isMoving)
+            {
+                isMoving = true;
+                animatior.SetBool("IsMoving", isMoving);
+            }
+        }
+        else
+        {
+            if (isMoving)
+            {
+                isMoving = false;
+                animatior.SetBool("IsMoving", isMoving);
+            }
+        }
     }
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
