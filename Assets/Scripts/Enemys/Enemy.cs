@@ -48,30 +48,25 @@ public class Enemy : MonoBehaviour
 
     private void Update()
     {
-        if (player != null)
+        if (player == null) return;
+
+        Vector2 endPosition = player.position;
+        Vector2 delta = player.position - transform.position;
+
+        if (Mathf.Abs(delta.x) > Mathf.Abs(delta.y))
         {
-            float step = speed * Time.deltaTime;
-            float threshold = .1f;
-
-            // Only calculate new position if we are under the "threshold"
-            if (Vector2.Distance(transform.position, newPosition) < threshold)
-            {
-                newPosition = player.position - transform.position;
-
-                if (Mathf.Abs(newPosition.x) > Mathf.Abs(newPosition.y))
-                {
-                    newPosition.x = player.position.x;
-                    newPosition.y = transform.position.y;
-                }
-                else
-                {
-                    newPosition.x = transform.position.x;
-                    newPosition.y = player.position.y;
-                }
-            }
-
-            transform.position = Vector2.MoveTowards(transform.position, newPosition, step);
+            // Y is the smaller delta => move only in Y
+            // => keep your current X
+            endPosition.x = transform.position.x;
         }
+        else
+        {
+            // X is the smaller delta => move only in X
+            // => keep your current Y
+            endPosition.y = transform.position.y;
+        }
+
+        transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+
     }
 }
-
