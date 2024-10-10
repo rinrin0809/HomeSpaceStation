@@ -75,3 +75,5 @@ crashlytics-build.properties
 /Assets/TextMesh Pro/Resources/*.ttf
 /Assets/TextMesh Pro/Resources/*.otf
 
+Assets/TextMesh Pro/Glyph Report.txt.meta
+Assets/TextMesh Pro/Fonts/NotoSansJP-Medium SDF.asset
