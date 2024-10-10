@@ -195,7 +195,7 @@ MonoBehaviour:
   m_text: "\u3042\u304B\u3055\u305F\u306A\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e05a3a629abed44ab58c2d6d842a540, type: 2}
-  m_sharedMaterial: {fileID: 3343050466252103918, guid: 8e05a3a629abed44ab58c2d6d842a540, type: 2}
+  m_sharedMaterial: {fileID: 8308081589411158152, guid: 8e05a3a629abed44ab58c2d6d842a540, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
