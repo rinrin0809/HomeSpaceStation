@@ -2,17 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item : MonoBehaviour
+[CreateAssetMenu]
+public class Item : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [field: SerializeField]
+    public string Name { get; set; } // アイテム名
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [field: SerializeField]
+    [field: TextArea]
+    public string Descripton { get; set; } // アイテム説明
+
+    [field: SerializeField]
+    public Sprite ItemSprite { get; set; } = null; // アイテム画像
 }

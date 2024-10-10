@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
 
         if (horizontal != 0 || vertical != 0)
         {
-            Debug.Log(isMoving);
+            //Debug.Log(isMoving);
             animatior.SetFloat("InputX", horizontal);
             animatior.SetFloat("InputY", vertical);
             if (!isMoving)
@@ -71,6 +71,27 @@ public class Player : MonoBehaviour
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
         rb.velocity = moveDir * moveSpeed * Time.fixedDeltaTime;
 
+    }
+
+    // “–‚½‚è”»’è
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Key")
+        {
+            Debug.Log("Œ®‚ª‚ ‚è‚Ü‚·");
+        }
+        //if (collision.gameObject.CompareTag("Key"))
+        //{
+        //    Debug.Log("Œ®‚ª‚ ‚è‚Ü‚·");
+        //}
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Key")
+        {
+            Debug.Log("Œ®‚ª‚ ‚è‚Ü‚¹‚ñ");
+        }
     }
 
 }
