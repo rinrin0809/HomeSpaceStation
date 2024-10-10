@@ -2,16 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class PathState : IState
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Enter(Enemy parent)
+    {
+        
+    }
+
+    public void Exit()
     {
         
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
         
     }
