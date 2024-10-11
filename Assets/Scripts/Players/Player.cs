@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -21,12 +22,27 @@ public class Player : MonoBehaviour
     private float animSpeed = 1.0f;
     private bool isMoving;
 
+    // テキスト
+    public TextMeshProUGUI text;
+
+    // アイテムの近くかどうかのフラグ
+    private bool isNearItem = false;
+    // 近くのアイテムを入れる
+    private GameObject NearItem = null;
+
+
+    // 仮インベントリ
+    [SerializeField]
+    private List<GameObject> itemList = new List<GameObject>();
+    [SerializeField]
+    private List<Item> itemData = new List<Item>();
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
+        text.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -64,6 +80,16 @@ public class Player : MonoBehaviour
                 animatior.SetBool("IsMoving", isMoving);
             }
         }
+
+        if (isNearItem = true && Input.GetKeyDown(KeyCode.E)&&NearItem!=null)
+        {
+            text.text = "アイテムを拾いました";
+            itemList.Add(NearItem);  
+        }
+        else
+        {
+            text.text = "アイテムがありません";
+        }
     }
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
@@ -73,24 +99,34 @@ public class Player : MonoBehaviour
 
     }
 
-    // 当たり判定
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Key")
         {
-            Debug.Log("鍵があります");
+            text.gameObject.SetActive(true);
+            text.text = "Eボタンでアイテムを拾う";
+            isNearItem = true;
+            NearItem = collision.gameObject;
+
+            //if(Input.GetKeyDown(KeyCode.E))
+            //{
+            //    Debug.Log("鍵をポケットに入れます");
+            //    itemList.Add(collision.gameObject);
+            //    //Destroy(collision.gameObject);
+            //}
+           
+         
         }
-        //if (collision.gameObject.CompareTag("Key"))
-        //{
-        //    Debug.Log("鍵があります");
-        //}
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Key")
         {
+            text.gameObject.SetActive(false);
             Debug.Log("鍵がありません");
+            isNearItem = false;
+            NearItem = null;
         }
     }
 

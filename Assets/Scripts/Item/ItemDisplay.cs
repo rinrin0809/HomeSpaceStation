@@ -21,6 +21,11 @@ public class ItemDisplay : MonoBehaviour
         }    
     }
 
+    public void PickUpItem()
+    {
+        
+    }
+
     // Update is called once per frame
     void Update()
     {

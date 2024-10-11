@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: maptile_renga_brown_01_0
+  m_Name: Normal
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -374449033269388468, guid: 856412e58f45a574fa4f82150d5cd2f2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

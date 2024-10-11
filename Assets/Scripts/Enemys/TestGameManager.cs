@@ -20,7 +20,6 @@ public class TestGameManager : MonoBehaviour
 
     private void Target()
     {
-        RaycastHit2D hit2d;
 
        
     }
