@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: maptile_renga_white_01_0
+  m_Name: Wall
   m_EditorClassIdentifier: 
   m_Sprite: {fileID: -3458608868044224346, guid: f7377572ed0144c408ca6c9b7b66fab8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
