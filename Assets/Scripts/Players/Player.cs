@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Player : MonoBehaviour
 {
@@ -21,6 +22,14 @@ public class Player : MonoBehaviour
     private float animSpeed = 1.0f;
     private bool isMoving;
 
+    // テキスト
+    public TextMeshProUGUI text;
+
+    // 仮インベントリ
+    [SerializeField]
+    private List<GameObject> itemList = new List<GameObject>();
+    [SerializeField]
+    private List<Item> itemData = new List<Item>();
 
     // Start is called before the first frame update
     void Start()
@@ -73,25 +82,30 @@ public class Player : MonoBehaviour
 
     }
 
-    // 当たり判定
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Key")
         {
-            Debug.Log("鍵があります");
+            text.text = "Eボタンでアイテムを拾う";
+            if(Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("鍵をポケットに入れます");
+                itemList.Add(collision.gameObject);
+                //Destroy(collision.gameObject);
+            }
+           
+         
         }
-        //if (collision.gameObject.CompareTag("Key"))
-        //{
-        //    Debug.Log("鍵があります");
-        //}
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Key")
         {
             Debug.Log("鍵がありません");
         }
     }
+
+  
 
 }
