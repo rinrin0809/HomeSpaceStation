@@ -25,6 +25,12 @@ public class Player : MonoBehaviour
     // テキスト
     public TextMeshProUGUI text;
 
+    // アイテムの近くかどうかのフラグ
+    private bool isNearItem = false;
+    // 近くのアイテムを入れる
+    private GameObject NearItem = null;
+
+
     // 仮インベントリ
     [SerializeField]
     private List<GameObject> itemList = new List<GameObject>();
@@ -36,6 +42,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
+        text.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -73,6 +80,16 @@ public class Player : MonoBehaviour
                 animatior.SetBool("IsMoving", isMoving);
             }
         }
+
+        if (isNearItem = true && Input.GetKeyDown(KeyCode.E)&&NearItem!=null)
+        {
+            text.text = "アイテムを拾いました";
+            itemList.Add(NearItem);  
+        }
+        else
+        {
+            text.text = "アイテムがありません";
+        }
     }
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
@@ -86,13 +103,17 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Key")
         {
+            text.gameObject.SetActive(true);
             text.text = "Eボタンでアイテムを拾う";
-            if(Input.GetKeyDown(KeyCode.E))
-            {
-                Debug.Log("鍵をポケットに入れます");
-                itemList.Add(collision.gameObject);
-                //Destroy(collision.gameObject);
-            }
+            isNearItem = true;
+            NearItem = collision.gameObject;
+
+            //if(Input.GetKeyDown(KeyCode.E))
+            //{
+            //    Debug.Log("鍵をポケットに入れます");
+            //    itemList.Add(collision.gameObject);
+            //    //Destroy(collision.gameObject);
+            //}
            
          
         }
@@ -102,10 +123,11 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Key")
         {
+            text.gameObject.SetActive(false);
             Debug.Log("鍵がありません");
+            isNearItem = false;
+            NearItem = null;
         }
     }
-
-  
 
 }
