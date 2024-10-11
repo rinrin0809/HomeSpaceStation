@@ -22,13 +22,10 @@ class FollowState : IState
 
         if (parent.Target != null)
         {
-
-
             //•ûŒü‚ğ’T‚é
             parent.Direction = (parent.Target.transform.position - parent.transform.position).normalized;
             //“G‚ğƒ^[ƒQƒbƒg‚ÉŒü‚©‚í‚¹‚é
             parent.transform.position = Vector2.MoveTowards(parent.transform.position, parent.Target.position, parent.Speed * Time.deltaTime);
-
         }
         else
         {
