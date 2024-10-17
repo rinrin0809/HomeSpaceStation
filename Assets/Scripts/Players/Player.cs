@@ -26,16 +26,20 @@ public class Player : MonoBehaviour
     public TextMeshProUGUI text;
 
     // アイテムの近くかどうかのフラグ
-    private bool isNearItem = false;
+    public bool isNearItem = false;
     // 近くのアイテムを入れる
+    
     private GameObject NearItem = null;
 
 
     // 仮インベントリ
     [SerializeField]
     private List<GameObject> itemList = new List<GameObject>();
+
+    public InventryData inventory;
     [SerializeField]
-    private List<Item> itemData = new List<Item>();
+    private ItemDisplay itemDisplay;
+   
 
     // Start is called before the first frame update
     void Start()
@@ -81,10 +85,18 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (isNearItem = true && Input.GetKeyDown(KeyCode.E)&&NearItem!=null)
+        if (/*isNearItem = true && */Input.GetKeyDown(KeyCode.E) && NearItem != null)
         {
             text.text = "アイテムを拾いました";
-            itemList.Add(NearItem);  
+
+            itemList.Add(NearItem);
+            itemDisplay.PickUpItem();
+          
+            NearItem.gameObject.SetActive(false);
+
+            //inventory.AddItem()
+            //Destroy(NearItem);
+            
         }
         else
         {
@@ -105,16 +117,8 @@ public class Player : MonoBehaviour
         {
             text.gameObject.SetActive(true);
             text.text = "Eボタンでアイテムを拾う";
-            isNearItem = true;
+            
             NearItem = collision.gameObject;
-
-            //if(Input.GetKeyDown(KeyCode.E))
-            //{
-            //    Debug.Log("鍵をポケットに入れます");
-            //    itemList.Add(collision.gameObject);
-            //    //Destroy(collision.gameObject);
-            //}
-           
          
         }
     }
@@ -125,8 +129,23 @@ public class Player : MonoBehaviour
         {
             text.gameObject.SetActive(false);
             Debug.Log("鍵がありません");
-            isNearItem = false;
+            //isNearItem = false;
             NearItem = null;
+            
+        }
+    }
+
+    // アイテム受け取り
+    public void AddItemInventory(Item item)
+    {
+        if (inventory != null)
+        {
+            inventory.AddItem(item);
+            Debug.Log(item.Name + "がインベントリに追加されました");
+        }
+        else
+        {
+            Debug.Log("インベントリが設定されてない");
         }
     }
 
