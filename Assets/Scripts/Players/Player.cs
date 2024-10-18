@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     
     private GameObject NearItem = null;
 
+    private Item itemData;
 
     // 仮インベントリ
     [SerializeField]
@@ -47,11 +48,14 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
         text.gameObject.SetActive(false);
+       
     }
 
     // Update is called once per frame
     void Update()
     {
+     
+
         // アニメーションの再生スピード
         animatior.speed = animSpeed;
 
@@ -87,21 +91,27 @@ public class Player : MonoBehaviour
 
         if (/*isNearItem = true && */Input.GetKeyDown(KeyCode.E) && NearItem != null)
         {
-            text.text = "アイテムを拾いました";
+            ItemDisplay itemHolder = NearItem.GetComponent<ItemDisplay>();
+            if (itemHolder!=null &&itemHolder.itemData!=null)
+            {
+                text.text = "アイテムを拾いました";
+                itemList.Add(NearItem);
+                itemDisplay.PickUpItem(itemHolder.itemData);
 
-            itemList.Add(NearItem);
-            itemDisplay.PickUpItem();
-          
-            NearItem.gameObject.SetActive(false);
+                NearItem.gameObject.SetActive(false);
+            }
+            else
+            {
+                text.text = "アイテムがありません";
+            }
+            //Debug.Log(NearItem.name + "を受け取ります");
+
 
             //inventory.AddItem()
             //Destroy(NearItem);
-            
+
         }
-        else
-        {
-            text.text = "アイテムがありません";
-        }
+       
     }
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
@@ -121,6 +131,15 @@ public class Player : MonoBehaviour
             NearItem = collision.gameObject;
          
         }
+
+        if (collision.gameObject.tag == "Apple")
+        {
+            //Debug.Log("アップルがある");
+            text.gameObject.SetActive(true);
+            text.text = "Eボタンでアイテムを拾う";
+            NearItem = collision.gameObject;
+         
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -132,6 +151,15 @@ public class Player : MonoBehaviour
             //isNearItem = false;
             NearItem = null;
             
+        }
+
+        if (collision.gameObject.tag == "Apple")
+        {
+            text.gameObject.SetActive(false);
+            Debug.Log("鍵がありません");
+            //isNearItem = false;
+            NearItem = null;
+
         }
     }
 

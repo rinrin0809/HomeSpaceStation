@@ -7,8 +7,8 @@ using static UnityEditor.Progress;
 
 public class ItemDisplay : MonoBehaviour
 {
-    [SerializeField]
-    private Item itemData; // アイテムデータ参照
+    
+    public Item itemData; // アイテムデータ参照
 
     [SerializeField]
     private SpriteRenderer sp;
@@ -29,12 +29,12 @@ public class ItemDisplay : MonoBehaviour
 
     }
 
-    public void PickUpItem()
+    public void PickUpItem(Item item)
     {
         if (itemData != null && player != null)
         {
-            player.AddItemInventory(itemData);
-            Debug.Log("アイテムインベントリに追加しました");
+            player.AddItemInventory(item);
+            Debug.Log(item.name+"アイテムインベントリに追加しました");
         }
         else if(itemData != null)
         {

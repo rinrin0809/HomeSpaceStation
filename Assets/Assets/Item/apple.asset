@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3e3b71542f1d847914ab417896627e, type: 3}
   m_Name: apple
   m_EditorClassIdentifier: 
-  <Name>k__BackingField: 
-  <Descripton>k__BackingField: 
-  <ItemSprite>k__BackingField: {fileID: 0}
+  <Name>k__BackingField: "\u30EA\u30F3\u30B4"
+  <Descripton>k__BackingField: a
+  <ItemSprite>k__BackingField: {fileID: 7827455986073298376, guid: 3c8b8fd79de71a148ba26f2fb68a9f4d, type: 3}
