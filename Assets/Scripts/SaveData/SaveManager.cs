@@ -44,15 +44,15 @@ public class SaveManager : MonoBehaviour
         string DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
 
         // MaterialExporter フォルダのパスを取得
-        string folderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
+        string FolderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
 
         // フォルダが存在しない場合は作成
-        if (!Directory.Exists(folderPath))
+        if (!Directory.Exists(FolderPath))
         {
-            Directory.CreateDirectory(folderPath);
+            Directory.CreateDirectory(FolderPath);
         }
 
         // Jsonデータをファイルに保存
-        File.WriteAllText(folderPath + Name, Json);
+        File.WriteAllText(FolderPath + Name, Json);
     }
 }

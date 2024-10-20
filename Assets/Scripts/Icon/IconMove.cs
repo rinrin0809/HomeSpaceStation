@@ -91,7 +91,7 @@ public class IconMove : MonoBehaviour
                 {
                     Time = MAX_TIME;
                     SideNum--;
-                    Debug.Log("SideNum" + SideNum);
+                    //Debug.Log("SideNum" + SideNum);
                 }
             }
         }
@@ -103,7 +103,7 @@ public class IconMove : MonoBehaviour
                 if (Input.GetKey(KeyCode.RightArrow))
                 {
                     SideNum++;
-                    Debug.Log("SideNum" + SideNum);
+                    //Debug.Log("SideNum" + SideNum);
                 }
             }
         }
@@ -122,7 +122,7 @@ public class IconMove : MonoBehaviour
                 {
                     Time = MAX_TIME;
                     LengthNum--;
-                    Debug.Log("LengthNum" + LengthNum);
+                    //Debug.Log("LengthNum" + LengthNum);
                 }
             }
         }
@@ -135,7 +135,7 @@ public class IconMove : MonoBehaviour
                 {
                     Time = MAX_TIME;
                     LengthNum++;
-                    Debug.Log("LengthNum" + LengthNum);
+                    //Debug.Log("LengthNum" + LengthNum);
                 }
             }
         }
