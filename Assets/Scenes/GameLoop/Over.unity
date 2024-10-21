@@ -184,7 +184,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1713725421}
         m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: ChangeLoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -822,7 +822,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1713725421}
         m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: NewGameOrTitle
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1285,7 +1285,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1713725421}
         m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: ChangeLoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1720,7 +1720,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1713725421}
         m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeScene
+        m_MethodName: ChangeLoadScene
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

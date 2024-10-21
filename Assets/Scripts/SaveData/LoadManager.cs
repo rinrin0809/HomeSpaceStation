@@ -76,12 +76,7 @@ public class LoadManager : MonoBehaviour
     {
         GameObj = GameObject.FindGameObjectWithTag("Player");
 
-        // デスクトップのパスを取得
-        string DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-
-        string FolderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
-
-        string JsonPath = FolderPath + Name;
+        string JsonPath = LoadPath(Name);
 
         // ファイルが存在する場合、読み込みと位置の復元
         if (File.Exists(JsonPath))
@@ -92,12 +87,6 @@ public class LoadManager : MonoBehaviour
             // 読み込んだデータをプレイヤーの位置に反映
             Vector3 position = new Vector3(data.PosX, data.PosY, data.PosZ);
             GameObj.transform.position = position;
-
-            //Debug.Log("Player position loaded: " + Json);
-        }
-        else
-        {
-            //Debug.LogWarning("Save file not found.");
         }
     }
 
@@ -146,8 +135,21 @@ public class LoadManager : MonoBehaviour
 
     //LoadGameボタンが押された時
     public void LoadGameButtonPush()
-{
+    {
         NewGamePushFlg = false;
         Debug.Log("NewGamePushFlg" + NewGamePushFlg);
+    }
+
+    //パスの取得
+    public string LoadPath(string Name)
+    {
+        // デスクトップのパスを取得
+        string DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
+
+        string FolderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
+
+        string JsonPath = FolderPath + Name;
+
+        return JsonPath;
     }
 }
