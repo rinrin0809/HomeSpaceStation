@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.IO;
 
 //シーンでの画面の種類
 public enum SceneType
@@ -95,10 +96,77 @@ public class TitleSceneManager : MonoBehaviour
         //Debug.Log("Close LoadMenu");
     }
 
-    //Nameシーンへ遷移
-    public void ChangeScene(string Name)
+    //NewGameシーン
+    public void NewGameOrTitle(string Name)
     {
-        //ゲームシーンに遷移
         SceneManager.LoadScene(Name);
+    }
+
+    //Nameシーンへ遷移
+    public void ChangeLoadScene(string Name)
+    {
+        if (LoadManager.Instance.GetSideFlg())
+        {
+            string FileName = "";
+            switch (LoadManager.Instance.GetSideNum())
+            {
+                case 0:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData1.json");
+                    if (File.Exists(FileName))
+                    {
+                        //ゲームシーンに遷移
+                        SceneManager.LoadScene(Name);
+                    }
+                    break;
+                case 1:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData2.json");
+                    if (File.Exists(FileName))
+                    {
+                        //ゲームシーンに遷移
+                        SceneManager.LoadScene(Name);
+                    }
+                    break;
+                case 2:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData3.json");
+                    if (File.Exists(FileName))
+                    {
+                        //ゲームシーンに遷移
+                        SceneManager.LoadScene(Name);
+                    }
+                    break;
+            }
+        }
+
+        else
+        {
+            string FileName = "";
+            switch (LoadManager.Instance.GetLengthNum())
+            {
+                case 0:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData1.json");
+                    if (File.Exists(FileName))
+                    {
+                        //ゲームシーンに遷移
+                        SceneManager.LoadScene(Name);
+                    }
+                    break;
+                case 1:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData2.json");
+                    if (File.Exists(FileName))
+                    {
+                        //ゲームシーンに遷移
+                        SceneManager.LoadScene(Name);
+                    }
+                    break;
+                case 2:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData3.json");
+                    if (File.Exists(FileName))
+                    {
+                        //ゲームシーンに遷移
+                        SceneManager.LoadScene(Name);
+                    }
+                    break;
+            }
+        }
     }
 }

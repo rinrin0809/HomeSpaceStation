@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.IO;
 
 //メニューの種類
 public enum MenuType
@@ -120,12 +121,79 @@ public class MenuManager : MonoBehaviour
     //メニューを閉じる
     public void CloseMenu()
     {
-        MainMenuPanel.SetActive(false);
-        ItemMenuPanel.SetActive(false);
-        SaveMenuPanel.SetActive(false);
-        LoadMenuPanel.SetActive(false);
-        OpenMenuFlg = false;
-        ActiveMenu = MenuType.MainMenu;
-        Time.timeScale = 1;
+        //ロードメニューの時
+        if(ActiveMenu == MenuType.LoadMenu)
+        {
+            string FileName = "";
+            switch (LoadManager.Instance.GetSideNum())
+            {
+                case 0:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData1.json");
+                    if (File.Exists(FileName))
+                    {
+                        MainMenuPanel.SetActive(false);
+                        ItemMenuPanel.SetActive(false);
+                        SaveMenuPanel.SetActive(false);
+                        LoadMenuPanel.SetActive(false);
+                        OpenMenuFlg = false;
+                        ActiveMenu = MenuType.MainMenu;
+                        Time.timeScale = 1;
+                    }
+
+                    else
+                    {
+                        BackToMenu();
+                    }
+                    break;
+                case 1:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData2.json");
+                    if (File.Exists(FileName))
+                    {
+                        MainMenuPanel.SetActive(false);
+                        ItemMenuPanel.SetActive(false);
+                        SaveMenuPanel.SetActive(false);
+                        LoadMenuPanel.SetActive(false);
+                        OpenMenuFlg = false;
+                        ActiveMenu = MenuType.MainMenu;
+                        Time.timeScale = 1;
+                    }
+
+                    else
+                    {
+                        BackToMenu();
+                    }
+                    break;
+                case 2:
+                    FileName = LoadManager.Instance.LoadPath("/PlayerData3.json");
+                    if (File.Exists(FileName))
+                    {
+                        MainMenuPanel.SetActive(false);
+                        ItemMenuPanel.SetActive(false);
+                        SaveMenuPanel.SetActive(false);
+                        LoadMenuPanel.SetActive(false);
+                        OpenMenuFlg = false;
+                        ActiveMenu = MenuType.MainMenu;
+                        Time.timeScale = 1;
+                    }
+
+                    else
+                    {
+                        BackToMenu();
+                    }
+                    break;
+            }
+        }
+
+        //それ以外の時
+        else
+        {
+            MainMenuPanel.SetActive(false);
+            ItemMenuPanel.SetActive(false);
+            SaveMenuPanel.SetActive(false);
+            LoadMenuPanel.SetActive(false);
+            OpenMenuFlg = false;
+            ActiveMenu = MenuType.MainMenu;
+            Time.timeScale = 1;
+        }
     }
 }
