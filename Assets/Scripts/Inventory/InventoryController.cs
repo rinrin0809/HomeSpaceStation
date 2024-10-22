@@ -17,7 +17,7 @@ public class InventoryController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        PrepareUI();
     }
 
     // Update is called once per frame
@@ -28,6 +28,9 @@ public class InventoryController : MonoBehaviour
 
     private void PrepareUI()
     {
-        
+        inventoryUI.InitializeInventoryUI(inventoryData.Size);
+        //Debug.Log("サイズをセット" + inventoryData.Size);
     }
+
+  
 }

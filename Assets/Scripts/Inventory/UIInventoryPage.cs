@@ -19,10 +19,12 @@ public class UIInventoryPage : MonoBehaviour
     // inventoryのインスタンスを保持
     public InventryData inventory;
 
+    List<UIInventoryItem> listUIItems = new List<UIInventoryItem>();
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory.OnInventoryUpdated += UpdateUI;
     }
 
     private void Awake()
@@ -30,9 +32,40 @@ public class UIInventoryPage : MonoBehaviour
         itemDescription.ResetDescription();
     }
 
-    // Update is called once per frame
-    void Update()
+    // 設定しているサイズ分スロット複製
+    public void InitializeInventoryUI(int inventorysize)
     {
+        for(int i = 0; i < inventorysize; i++)
+        {
+            UIInventoryItem uiItem = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity);
+            uiItem.transform.SetParent(contentPanel);
+            listUIItems.Add(uiItem);
+        }
+       
         
     }
+
+    // 説明文更新
+    internal void UpdateDescription(int itemIndex, string name, string description)
+    {
+        itemDescription.SetDescription(name, description);
+       
+    }
+
+    // インベントリ―更新
+    private void UpdateUI(Dictionary<int, InventoryItem> updateInventory)
+    {
+        foreach(var entory in updateInventory)
+        {
+            int index = entory.Key; // インベントリ内のアイテムインデックス
+            InventoryItem item = entory.Value; // インベントリ内のアイテム
+
+            UIInventoryItem uiItem = listUIItems[index]; //　UiInventoryItemのリストから対応するUIInventoryItemを取得
+            uiItem.SetData(item.item.name);
+
+        }
+    }
+
+   
+
 }

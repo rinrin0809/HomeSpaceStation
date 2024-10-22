@@ -46,7 +46,8 @@ public class InventryData : ScriptableObject
                 item = item
             };
             // インベントリが更新されたことを通知
-            //OnInventoryChanged?.Invoke(GetCurrentInventoryState());
+            OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
+            
         }
         else
         {

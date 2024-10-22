@@ -12,6 +12,7 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
     [SerializeField]
     private TMP_Text itemNameText;
 
+
     // 選択しているのをわかりやすくするUI
     //[SerializeField]
     //private Image borderImage;
@@ -60,4 +61,6 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
             OnItemClicked?.Invoke(this); // 通常クリック処理
         }
     }
+
+   
 }
