@@ -172,8 +172,10 @@ public class Player : MonoBehaviour
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
         rb.velocity = moveDir * moveSpeed * Time.fixedDeltaTime;
 
-        // Hキーが押されたか確認 (KeyCode.H はHキー)
-        if (Input.GetKey(KeyCode.H) && stamina > minStamina && !zeroStaminaFlg)
+        //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+        //スタミナ最小値より大きい時かつスタミナが0になっていない時
+        if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+            stamina > minStamina && !zeroStaminaFlg)
         {
             //移動処理
             Move(dashMoveSpeed, Time.fixedDeltaTime);

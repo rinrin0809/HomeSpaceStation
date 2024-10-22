@@ -152,4 +152,36 @@ public class LoadManager : MonoBehaviour
 
         return JsonPath;
     }
+
+    // SideNum に応じたファイルパス取得
+    public string GetFilePathBySideNum(int sideNum)
+    {
+        switch (sideNum)
+        {
+            case 0:
+                return LoadManager.Instance.LoadPath("/PlayerData1.json");
+            case 1:
+                return LoadManager.Instance.LoadPath("/PlayerData2.json");
+            case 2:
+                return LoadManager.Instance.LoadPath("/PlayerData3.json");
+            default:
+                return "";
+        }
+    }
+
+    // LengthNum に応じたファイルパス取得
+    public string GetFilePathByLengthNum(int lengthNum)
+    {
+        switch (lengthNum)
+        {
+            case 0:
+                return LoadManager.Instance.LoadPath("/PlayerData1.json");
+            case 1:
+                return LoadManager.Instance.LoadPath("/PlayerData2.json");
+            case 2:
+                return LoadManager.Instance.LoadPath("/PlayerData3.json");
+            default:
+                return "";
+        }
+    }
 }

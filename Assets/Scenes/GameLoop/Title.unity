@@ -907,6 +907,123 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
+--- !u!1001 &928473000
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 253628025567704648, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: fadePanel
+      value: 
+      objectReference: {fileID: 1720862389}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2548415701796931201, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_Name
+      value: FadeOutCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8665330439449098496, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 2221789886899490514, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+--- !u!114 &928473001 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 253628025567704648, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+  m_PrefabInstance: {fileID: 928473000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26229e21289e38e498b555926308671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &935214169
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1137,9 +1254,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1460786620}
-        m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeLoadScene
+      - m_Target: {fileID: 928473001}
+        m_TargetAssemblyTypeName: FadeOutSceneLoader, Assembly-CSharp
+        m_MethodName: LoadGameCallCoroutine
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1825,9 +1942,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1460786620}
-        m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeLoadScene
+      - m_Target: {fileID: 928473001}
+        m_TargetAssemblyTypeName: FadeOutSceneLoader, Assembly-CSharp
+        m_MethodName: LoadGameCallCoroutine
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2023,6 +2140,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1693714046}
   m_CullTransparentMesh: 1
+--- !u!114 &1720862389 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8665330439449098496, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+  m_PrefabInstance: {fileID: 928473000}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1784604574
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,9 +2246,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1460786620}
-        m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: NewGameOrTitle
+      - m_Target: {fileID: 928473001}
+        m_TargetAssemblyTypeName: FadeOutSceneLoader, Assembly-CSharp
+        m_MethodName: NewGameCallCoroutine
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2532,9 +2660,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1460786620}
-        m_TargetAssemblyTypeName: TitleSceneManager, Assembly-CSharp
-        m_MethodName: ChangeLoadScene
+      - m_Target: {fileID: 928473001}
+        m_TargetAssemblyTypeName: FadeOutSceneLoader, Assembly-CSharp
+        m_MethodName: LoadGameCallCoroutine
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2605,3 +2733,4 @@ SceneRoots:
   - {fileID: 1509536495}
   - {fileID: 1460786619}
   - {fileID: 881486729}
+  - {fileID: 928473000}
