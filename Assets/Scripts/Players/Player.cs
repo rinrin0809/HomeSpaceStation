@@ -60,7 +60,11 @@ public class Player : MonoBehaviour
         get { return itemList; }
     }
 
-    // インベントリ
+    public void SetItemList(List<GameObject> List)
+    {
+        itemList = new List<GameObject>(List);
+    }
+
     public InventryData inventory;
     [SerializeField]
     private ItemDisplay itemDisplay;
@@ -119,8 +123,6 @@ public class Player : MonoBehaviour
                 }
             }
         }
-        //シーン遷移する判定に当たった時のフラグをfalse
-        ChangeSceneFlg = false;
     }
 
     // Update is called once per frame
@@ -131,7 +133,8 @@ public class Player : MonoBehaviour
         {
             //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
             //スタミナ最小値より大きい時かつスタミナが0になっていない時
-            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ && stamina >= minStamina && !zeroStaminaFlg)
+            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+                stamina >= minStamina && !zeroStaminaFlg)
             {
                 AnimMove(dashAnimSpeed);
             }
@@ -189,13 +192,20 @@ public class Player : MonoBehaviour
             //Destroy(NearItem);
 
         }
+
+        if (SceneManager.GetActiveScene().name == "Title" || SceneManager.GetActiveScene().name == "Over")
+        {
+            //シーン遷移する判定に当たった時のフラグをfalse
+            ChangeSceneFlg = false;
+        }
     }
+
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
     {
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
-        
+
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
         rb.velocity = moveDir * moveSpeed * Time.fixedDeltaTime;
 
@@ -257,7 +267,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Key")
+        if (collision.gameObject.tag == "Key" && text != null)
         {
             text.gameObject.SetActive(false);
             Debug.Log("鍵がありません");
@@ -266,7 +276,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Apple")
+        if (collision.gameObject.tag == "Apple" && text != null)
         {
             text.gameObject.SetActive(false);
             Debug.Log("鍵がありません");
@@ -347,6 +357,8 @@ public class Player : MonoBehaviour
             ChangeSceneFlg = true;
             //フェードアウト後にシーン遷移
             fadeOutSceneLoader.NewGameCallCoroutine("Title");
+            //fadeOutSceneLoader.FadeOutAndChangeRoomScene("Title");
+
         }
     }
 
