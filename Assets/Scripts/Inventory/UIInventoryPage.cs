@@ -52,6 +52,14 @@ public class UIInventoryPage : MonoBehaviour
        
     }
 
+    internal void UpdateData(int itemIndex,string itemName)
+    {
+        if (listUIItems.Count > itemIndex != null)
+        {
+            listUIItems[itemIndex].SetData(itemName);
+        }
+    }
+
     // インベントリ―更新
     private void UpdateUI(Dictionary<int, InventoryItem> updateInventory)
     {
@@ -66,6 +74,18 @@ public class UIInventoryPage : MonoBehaviour
         }
     }
 
-   
+   public void Show()
+    {
+        gameObject.SetActive(true);
+        Time.timeScale = 0.0f;
+    }
+    
+    public void Hide()
+    {
+        gameObject.SetActive(false);
+        Time.timeScale = 1.0f;
+    }
+
+
 
 }

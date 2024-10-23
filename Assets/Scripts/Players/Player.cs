@@ -60,6 +60,7 @@ public class Player : MonoBehaviour
         get { return itemList; }
     }
 
+    // ƒCƒ“ƒxƒ“ƒgƒŠ
     public InventryData inventory;
     [SerializeField]
     private ItemDisplay itemDisplay;

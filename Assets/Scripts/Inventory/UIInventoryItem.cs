@@ -36,15 +36,9 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
 
     public void SetData(string ItemName)
     {
-        if (!string.IsNullOrEmpty(ItemName))
-        {
-            itemNameText.text = ItemName;
-            empty = false;
-        }
-        else
-        {
-            ResetData();
-        }
+        itemNameText.text = ItemName;
+        empty = string.IsNullOrEmpty(ItemName);
+      
     }
 
     // クリックイベント処理
