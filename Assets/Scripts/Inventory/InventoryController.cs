@@ -16,6 +16,8 @@ public class InventoryController : MonoBehaviour
     // 仮置きのインベントリを開くボタン
     [SerializeField]
     private Button inventoryButton;
+    [SerializeField]
+    private Button inventoryResetButton;
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,7 @@ public class InventoryController : MonoBehaviour
         PrepareUI();
         inventoryButton.onClick.AddListener(OnClickButton);
         inventoryUI.gameObject.SetActive(false);
+        inventoryResetButton.onClick.AddListener(OnClickResetButton);
     }
 
     // Update is called once per frame
@@ -60,5 +63,10 @@ public class InventoryController : MonoBehaviour
         ToggleInventoryUI();
     }
 
-     
+    private void OnClickResetButton()
+    {
+        inventoryData.ResetInventory();
+    }
+
+
 }

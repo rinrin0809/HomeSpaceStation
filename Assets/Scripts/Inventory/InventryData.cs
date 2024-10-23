@@ -107,6 +107,9 @@ public class InventryData : ScriptableObject
         }
         OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
     }
+
+  
+
 }
 
 [System.Serializable]
