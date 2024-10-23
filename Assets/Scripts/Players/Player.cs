@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class Player : MonoBehaviour
 {
@@ -45,7 +46,7 @@ public class Player : MonoBehaviour
     // アイテムの近くかどうかのフラグ
     public bool isNearItem = false;
     // 近くのアイテムを入れる
-    
+
     private GameObject NearItem = null;
 
     private Item itemData;
@@ -54,10 +55,24 @@ public class Player : MonoBehaviour
     [SerializeField]
     private List<GameObject> itemList = new List<GameObject>();
 
+    public List<GameObject> GetItemList
+    {
+        get { return itemList; }
+    }
+
     public InventryData inventory;
     [SerializeField]
     private ItemDisplay itemDisplay;
-   
+
+    //鍵を持っている時（仮）
+    public bool HasKeyFlg = false;
+    //ギミックに当たった時（仮）
+    public bool GimicHitFlg = false;
+
+    //フェードアウト
+    private FadeOutSceneLoader fadeOutSceneLoader;
+    //シーン遷移する判定に当たった時のフラグ
+    private bool ChangeSceneFlg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +80,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
 
-        if(text != null)
+        if (text != null)
         {
             text.gameObject.SetActive(false);
         }
@@ -77,10 +92,12 @@ public class Player : MonoBehaviour
             slider.value = stamina;
         }
 
+        fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
+
         //ゲームシーンの時
         if (SceneManager.GetActiveScene().name == "Game")
         {
-            if(LoadManager.Instance != null)
+            if (LoadManager.Instance != null)
             {
                 //NewGameボタンが押された時のフラグ
                 if (LoadManager.Instance.NewGamePushFlg)
@@ -101,20 +118,27 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        //シーン遷移する判定に当たった時のフラグをfalse
+        ChangeSceneFlg = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Hキーが押されたか確認 (KeyCode.H はHキー)
-        if (Input.GetKey(KeyCode.H) && stamina >= minStamina && !zeroStaminaFlg)
+        //シーン遷移する判定に当たった時のフラグfalseの時
+        if (!ChangeSceneFlg)
         {
-            AnimMove(dashAnimSpeed);
-        }
+            //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+            //スタミナ最小値より大きい時かつスタミナが0になっていない時
+            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ && stamina >= minStamina && !zeroStaminaFlg)
+            {
+                AnimMove(dashAnimSpeed);
+            }
 
-        else
-        {
-            AnimMove(animSpeed);
+            else
+            {
+                AnimMove(animSpeed);
+            }
         }
 
         if (slider != null)
@@ -145,12 +169,12 @@ public class Player : MonoBehaviour
         if (/*isNearItem = true && */Input.GetKeyDown(KeyCode.E) && NearItem != null)
         {
             ItemDisplay itemHolder = NearItem.GetComponent<ItemDisplay>();
-            if (itemHolder!=null &&itemHolder.itemData!=null)
+            if (itemHolder != null && itemHolder.itemData != null)
             {
                 text.text = "アイテムを拾いました";
                 itemList.Add(NearItem);
                 itemDisplay.PickUpItem(itemHolder.itemData);
-
+                HasKeyFlg = true;
                 NearItem.gameObject.SetActive(false);
             }
             else
@@ -164,11 +188,13 @@ public class Player : MonoBehaviour
             //Destroy(NearItem);
 
         }
-       
     }
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
     {
+        //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
+        if (ChangeSceneFlg) return;
+        
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
         rb.velocity = moveDir * moveSpeed * Time.fixedDeltaTime;
 
@@ -213,9 +239,9 @@ public class Player : MonoBehaviour
         {
             text.gameObject.SetActive(true);
             text.text = "Eボタンでアイテムを拾う";
-            
+
             NearItem = collision.gameObject;
-         
+
         }
 
         if (collision.gameObject.tag == "Apple")
@@ -224,7 +250,7 @@ public class Player : MonoBehaviour
             text.gameObject.SetActive(true);
             text.text = "Eボタンでアイテムを拾う";
             NearItem = collision.gameObject;
-         
+
         }
     }
 
@@ -236,7 +262,7 @@ public class Player : MonoBehaviour
             Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;
-            
+
         }
 
         if (collision.gameObject.tag == "Apple")
@@ -305,4 +331,63 @@ public class Player : MonoBehaviour
     {
         rb.velocity = moveDir * moveSpeed * deltaTime;
     }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("108RoomColl"))
+        {
+            GimicHitFlg = true;
+            Debug.Log(GimicHitFlg);
+        }
+
+        if (other.gameObject.CompareTag("108RoomScene"))
+        {
+            //シーン遷移する判定に当たった時のフラグをtrue
+            ChangeSceneFlg = true;
+            //フェードアウト後にシーン遷移
+            fadeOutSceneLoader.NewGameCallCoroutine("Title");
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other)
+    {
+        if (other.gameObject.CompareTag("108RoomColl"))
+        {
+            GimicHitFlg = false;
+            Debug.Log(GimicHitFlg);
+        }
+    }
+
+    //↓はこの処理で間違いないか確認してからコメントアウトします。
+    ////同じ名前のインベントリ内にあるアイテム取得（今後タグに変更予定）
+    //public GameObject GetItemByName(string itemName)
+    //{
+    //    // itemList の中から名前が一致する GameObject を探す
+    //    foreach (GameObject item in itemList)
+    //    {
+    //        if (item != null && item.name == itemName)
+    //        {
+    //            return item; // 一致した GameObject を返す
+    //        }
+    //    }
+
+    //    return null; // 一致するものがなければ null を返す
+    //}
+
+    ////破棄処理
+    //public void RemoveGameObjectByName(List<GameObject> ItemList)
+    //{
+    //    // itemList 内の全てのGameObjectを削除
+    //    foreach (GameObject item in itemList)
+    //    {
+    //        if (item != null)
+    //        {
+    //            // GameObject を破棄
+    //            Destroy(item);
+    //        }
+    //    }
+
+    //    // リストをクリアして初期化
+    //    itemList.Clear();
+    //}
 }
