@@ -716,7 +716,7 @@ MonoBehaviour:
   inventoryUI: {fileID: 1347472101}
   inventoryData: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
   initialItems: []
-  inventoryButton: {fileID: 1968475070}
+  inventoryButton: {fileID: 6162618964063515030}
   inventoryResetButton: {fileID: 1132763022}
 --- !u!1 &154847616
 GameObject:
@@ -998,8 +998,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u3042\u304B\u3055\u305F\u306A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef6ddc10795a66144b82e5070c877368, type: 2}
-  m_sharedMaterial: {fileID: 2775898730848198525, guid: ef6ddc10795a66144b82e5070c877368, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -1546,8 +1546,8 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1065720361}
   m_HandleRect: {fileID: 1065720360}
   m_Direction: 2
-  m_Value: 0
-  m_Size: 1
+  m_Value: 1
+  m_Size: 0.98241097
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1942,8 +1942,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef6ddc10795a66144b82e5070c877368, type: 2}
-  m_sharedMaterial: {fileID: 2775898730848198525, guid: ef6ddc10795a66144b82e5070c877368, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2849,8 +2849,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 0.00012316232, y: 0}
-  m_SizeDelta: {x: 175.68211, y: 0}
+  m_AnchoredPosition: {x: 0.025455149, y: -0.025455149}
+  m_SizeDelta: {x: 201.68211, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1472100253
 MonoBehaviour:
@@ -3406,8 +3406,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: ef6ddc10795a66144b82e5070c877368, type: 2}
-  m_sharedMaterial: {fileID: 2775898730848198525, guid: ef6ddc10795a66144b82e5070c877368, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -3637,7 +3637,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1968475069
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4266,6 +4266,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7424462295907417019, guid: a2d4da63f4006914fa2616146e210844, type: 3}
   m_PrefabInstance: {fileID: 6162618964063515028}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6162618964063515030 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3894336291199923820, guid: a2d4da63f4006914fa2616146e210844, type: 3}
+  m_PrefabInstance: {fileID: 6162618964063515028}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7760166566631678025
 PrefabInstance:
   m_ObjectHideFlags: 0
