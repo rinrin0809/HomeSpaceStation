@@ -12,6 +12,8 @@ public class LoadManager : MonoBehaviour
     private int SideNum = 0;
     private bool SideFlg = false;
 
+    [SerializeField] private InventryData Inventory;
+
     public void SetSideNum(int Num)
     {
         SideNum = Num;
@@ -87,6 +89,7 @@ public class LoadManager : MonoBehaviour
             // 読み込んだデータをプレイヤーの位置に反映
             Vector3 position = new Vector3(data.PosX, data.PosY, data.PosZ);
             GameObj.transform.position = position;
+            Inventory.SetInventoryItems(data.InventoryItems);
         }
     }
 

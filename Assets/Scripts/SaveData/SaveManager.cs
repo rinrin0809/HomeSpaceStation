@@ -6,6 +6,7 @@ using System.IO;
 public class SaveManager : MonoBehaviour
 {
     [SerializeField] public GameObject GameObj;
+    [SerializeField] private InventryData Inventory;
 
     // プレイヤーデータを保存
     public void SavePlayerData1()
@@ -34,7 +35,8 @@ public class SaveManager : MonoBehaviour
         {
             PosX = GameObj.transform.position.x,
             PosY = GameObj.transform.position.y,
-            PosZ = GameObj.transform.position.z
+            PosZ = GameObj.transform.position.z,
+            InventoryItems = Inventory.GetInventoryItems()
         };
 
         // SaveDataをJson形式に変換

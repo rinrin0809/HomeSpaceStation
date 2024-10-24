@@ -1,11 +1,14 @@
-[System.Serializable]
+using System.Collections;
+using System.Collections.Generic;
 
-//セーブデータに残しておきたいデータ
+[System.Serializable]
 public class SaveData
 {
-    //プレイヤーの位置
+    // プレイヤーの位置
     public float PosX;
     public float PosY;
     public float PosZ;
-    //追加↓
+
+    // インベントリデータ
+    public List<InventoryItem> InventoryItems;
 }

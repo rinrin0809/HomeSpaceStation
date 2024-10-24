@@ -31,12 +31,6 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // キー入力などでタブを押した場合
-        if (Input.GetKeyDown(KeyCode.Tab))
-        {
-            // ToggleInventoryUI() を呼び出す
-            ToggleInventoryUI();
-        }
     }
 
     private void PrepareUI()
@@ -72,6 +66,4 @@ public class InventoryController : MonoBehaviour
     {
         inventoryData.ResetInventory();
     }
-
-
 }

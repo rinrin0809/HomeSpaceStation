@@ -361,10 +361,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Text
+  m_text: "\u3042\u304B\u3055\u305F\u306A"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 753e659b7c909df45870b3bb0cbb7056, type: 2}
+  m_sharedMaterial: {fileID: -4145425865906810829, guid: 753e659b7c909df45870b3bb0cbb7056, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -388,8 +388,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 1
-  m_fontSizeBase: 1
+  m_fontSize: 36
+  m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 195.68211
+      value: 202.68211
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -522,11 +522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.0028486673
+      value: 0.000014084966
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000009775162
+      value: 0.0000025629997
       objectReference: {fileID: 0}
     - target: {fileID: 5623741512705266474, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_Name
@@ -556,6 +556,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6296179287519671579, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
+      propertyPath: slotPrefab
+      value: 
+      objectReference: {fileID: 9061505004901707583, guid: c5fc683b5f5b05d48bf5263e2cfd1ab2, type: 3}
     - target: {fileID: 6667456104625623699, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -979,6 +983,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3928563222921547207, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+    - target: {fileID: 3928563222921547207, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
+      propertyPath: inventoryData
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+    - target: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+    - target: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
+      propertyPath: inventoryData
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
     - target: {fileID: 8234563833354275691, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: m_Name
       value: SaveDataManager
@@ -1987,6 +2007,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ResetButton
       objectReference: {fileID: 0}
+    - target: {fileID: 421934742231941549, guid: 7c60f5c1d68e6b44db0248401bcd98b8, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1500030524883093249, guid: 7c60f5c1d68e6b44db0248401bcd98b8, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2084,6 +2108,10 @@ PrefabInstance:
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 2006723960}
+    - target: {fileID: 609174701076771048, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 1205666336985862753, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -2195,6 +2223,10 @@ PrefabInstance:
     - target: {fileID: 2301614178009422913, guid: a2d4da63f4006914fa2616146e210844, type: 3}
       propertyPath: m_Name
       value: Button (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2301614178009422913, guid: a2d4da63f4006914fa2616146e210844, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3894336291199923820, guid: a2d4da63f4006914fa2616146e210844, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

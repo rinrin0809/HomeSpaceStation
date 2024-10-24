@@ -11,6 +11,18 @@ public class InventryData : ScriptableObject
     [SerializeField]
     private List<InventoryItem> inventoryItems;
 
+    //アイテムのセッター
+    public void SetInventoryItems(List<InventoryItem> Item)
+    {
+        inventoryItems = Item;
+    }
+
+    //アイテムのゲッター
+    public List<InventoryItem> GetInventoryItems()
+    {
+        return inventoryItems;
+    }
+
     // スロット数
     [field: SerializeField]
     public int Size;
@@ -107,9 +119,6 @@ public class InventryData : ScriptableObject
         }
         OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
     }
-
-  
-
 }
 
 [System.Serializable]
