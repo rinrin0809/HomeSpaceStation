@@ -16,8 +16,16 @@ public enum MenuType
 
 public class MenuManager : MonoBehaviour
 {
+    public static MenuManager Instance;
+
     //メニューを開いているかのフラグ
-    bool OpenMenuFlg = false;
+    private bool OpenMenuFlg = false;
+
+    //メニューを開いているフラグ取得
+    public bool GetOpenMenuFlg()
+    {
+        return OpenMenuFlg;
+    }
 
     //各種パネルの宣言
     [SerializeField] GameObject MainMenuPanel;
@@ -32,6 +40,11 @@ public class MenuManager : MonoBehaviour
     public MenuType GetActiveMenu()
     {
         return ActiveMenu;
+    }
+
+    void Start()
+    {
+        Instance = this;
     }
 
     //更新処理
@@ -122,7 +135,7 @@ public class MenuManager : MonoBehaviour
     public void CloseMenu()
     {
         //ロードメニューの時
-        if(ActiveMenu == MenuType.LoadMenu)
+        if (ActiveMenu == MenuType.LoadMenu)
         {
             string FileName = "";
             switch (LoadManager.Instance.GetSideNum())

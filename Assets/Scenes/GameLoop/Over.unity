@@ -2352,10 +2352,18 @@ PrefabInstance:
       propertyPath: GameObj
       value: 
       objectReference: {fileID: 693666993}
+    - target: {fileID: 3928563222921547207, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
     - target: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: GameObj
       value: 
       objectReference: {fileID: 693666993}
+    - target: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
+      propertyPath: Inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
     - target: {fileID: 8234563833354275691, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: m_Name
       value: SaveDataManager

@@ -514,7 +514,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 202.68211
+      value: 210.68211
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_SizeDelta.y
@@ -522,11 +522,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.000014084966
+      value: 0.0000036499669
       objectReference: {fileID: 0}
     - target: {fileID: 3188467069529495286, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.0000025629997
+      value: -0.000008106232
       objectReference: {fileID: 0}
     - target: {fileID: 5623741512705266474, guid: 191d89c3f910f6c4abe3861ab070785c, type: 3}
       propertyPath: m_Name
@@ -1784,6 +1784,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fe5dfbd4e581447a52d91c75decbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Inventory: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
 --- !u!4 &1673023007
 Transform:
   m_ObjectHideFlags: 0

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    [SerializeField] private InventryData Inventory;
+
     // Update is called once per frame
     void Update()
     {
@@ -14,17 +16,22 @@ public class GameManager : MonoBehaviour
     //Nameシーンへ遷移
     public void ChangeSceneName(string Name, string Name2)
     {
-        // Bキーが押されたか確認 (KeyCode.B はBキー)
-        if (Input.GetKeyDown(KeyCode.B))
+        if (!MenuManager.Instance.GetOpenMenuFlg())
         {
-            //Nameシーンに遷移
-            SceneManager.LoadScene(Name);
-        }
+            // Bキーが押されたか確認 (KeyCode.B はBキー)
+            if (Input.GetKeyDown(KeyCode.B))
+            {
+                Inventory.ResetInventory();
+                //Nameシーンに遷移
+                SceneManager.LoadScene(Name);
+            }
 
-        if (Input.GetKeyDown(KeyCode.V))
-        {
-            //Nameシーンに遷移
-            SceneManager.LoadScene(Name2);
+            if (Input.GetKeyDown(KeyCode.V))
+            {
+                Inventory.ResetInventory();
+                //Nameシーンに遷移
+                SceneManager.LoadScene(Name2);
+            }
         }
     }
 }
