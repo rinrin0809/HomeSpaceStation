@@ -33,9 +33,5 @@ public class UIInventoryDescription : MonoBehaviour
         description.text = itemdescription;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

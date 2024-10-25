@@ -117,6 +117,8 @@ public class InventryData : ScriptableObject
         {
             inventoryItems[i] = InventoryItem.GetEmptyItem();
         }
+
+        
         OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
     }
 }

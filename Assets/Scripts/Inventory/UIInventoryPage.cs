@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using static UnityEditor.Progress;
 
 public class UIInventoryPage : MonoBehaviour
 {
@@ -54,6 +55,7 @@ public class UIInventoryPage : MonoBehaviour
 
     internal void UpdateData(int itemIndex,string itemName)
     {
+       
         if (listUIItems.Count > itemIndex != null)
         {
             listUIItems[itemIndex].SetData(itemName);
@@ -63,14 +65,20 @@ public class UIInventoryPage : MonoBehaviour
     // インベントリ―更新
     private void UpdateUI(Dictionary<int, InventoryItem> updateInventory)
     {
-        foreach(var entory in updateInventory)
+       
+        for (int i = 0; i < listUIItems.Count; i++)
         {
-            int index = entory.Key; // インベントリ内のアイテムインデックス
-            InventoryItem item = entory.Value; // インベントリ内のアイテム
-
-            UIInventoryItem uiItem = listUIItems[index]; //　UiInventoryItemのリストから対応するUIInventoryItemを取得
-            uiItem.SetData(item.item.name);
-
+            if (updateInventory.ContainsKey(i))
+            {
+                InventoryItem item = updateInventory[i]; // インベントリ内のアイテム
+                UIInventoryItem uiItem = listUIItems[i]; // UiInventoryItemのリストから対応するUIInventoryItemを取得
+                uiItem.SetData(item.item.name);
+            }
+            else
+            {
+                // アイテムがない場合、スロットをリセット
+                listUIItems[i].ResetData();
+            }
         }
     }
 
@@ -78,6 +86,7 @@ public class UIInventoryPage : MonoBehaviour
     {
         gameObject.SetActive(true);
         itemDescription.ResetDescription();
+        
         Time.timeScale = 0.0f;
     }
     

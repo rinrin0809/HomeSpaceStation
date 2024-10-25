@@ -25,7 +25,7 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
 
     public void Awake()
     {
-        
+        ResetData();
     }
 
     public void ResetData()

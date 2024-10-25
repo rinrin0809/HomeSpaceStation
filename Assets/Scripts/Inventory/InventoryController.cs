@@ -11,13 +11,15 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private InventryData inventoryData;
 
-    public List<InventoryItem> initialItems = new List<InventoryItem>();
+    private List<InventoryItem> initialItems = new List<InventoryItem>();
 
     // 仮置きのインベントリを開くボタン
     [SerializeField]
     private Button inventoryButton;
     [SerializeField]
     private Button inventoryResetButton;
+
+  
 
     // Start is called before the first frame update
     void Start()
@@ -44,6 +46,7 @@ public class InventoryController : MonoBehaviour
         if (inventoryUI.isActiveAndEnabled)
         {
             inventoryUI.Hide();
+            
         }
         else
         {
