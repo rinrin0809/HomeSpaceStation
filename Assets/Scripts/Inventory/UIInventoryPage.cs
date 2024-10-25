@@ -77,6 +77,7 @@ public class UIInventoryPage : MonoBehaviour
    public void Show()
     {
         gameObject.SetActive(true);
+        itemDescription.ResetDescription();
         Time.timeScale = 0.0f;
     }
     
