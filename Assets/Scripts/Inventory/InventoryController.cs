@@ -54,6 +54,7 @@ public class InventoryController : MonoBehaviour
            
             foreach(var item in inventoryData.GetCurrentInventoryState())
             {
+               
                 inventoryUI.UpdateData(item.Key,
                     item.Value.item.Name);
             }

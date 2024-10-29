@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using static UnityEditor.Progress;
+using System.Runtime.CompilerServices;
 
 public class UIInventoryPage : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class UIInventoryPage : MonoBehaviour
     // 説明文
     [SerializeField]
     private UIInventoryDescription itemDescription;
+  
 
     // inventoryのインスタンスを保持
     public InventryData inventory;
@@ -58,6 +60,7 @@ public class UIInventoryPage : MonoBehaviour
        
         if (listUIItems.Count > itemIndex != null)
         {
+            Debug.Log("1");
             listUIItems[itemIndex].SetData(itemName);
         }
     }
@@ -93,6 +96,11 @@ public class UIInventoryPage : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
+        // 全スロットのデータをリセット
+        foreach (var item in listUIItems)
+        {
+            item.ResetData();                            
+        }
         Time.timeScale = 1.0f;
     }
 
