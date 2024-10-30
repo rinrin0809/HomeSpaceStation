@@ -8,9 +8,35 @@ public class MoveEnemy : MonoBehaviour
     public float speed = 5f; // 敵の移動速度
     private int targetIndex = 0; // 現在のターゲットノードのインデックス
     private List<Node> path; // 現在の追跡経路
+    public Vector2 pos;
+    public float k = 0;
+
+    // 移動可能な座標のリスト
+    private List<Vector2> spawnPositions = new List<Vector2>
+    {
+        new Vector2(-4, -5),
+        new Vector2(-4, 4),
+        new Vector2(4, 4)
+    };
+
 
     private void Start()
     {
+        // 50%の確率で初期位置を変更する
+        bool shouldChangePosition = Random.value > k;
+
+        if (shouldChangePosition && spawnPositions.Count > 0)
+        {
+            // spawnPositionsリストからランダムな位置を選択して配置
+            Vector2 randomPosition = spawnPositions[Random.Range(0, spawnPositions.Count)];
+            transform.position = randomPosition;
+            Debug.Log("Position changed to: " + randomPosition);
+        }
+        else
+        {
+            Debug.Log("Position not changed, using initial position.");
+        }
+
         // 初期パスの設定
         if (grid.FinalPath != null && grid.FinalPath.Count > 0)
         {
