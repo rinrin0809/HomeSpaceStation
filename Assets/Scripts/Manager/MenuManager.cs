@@ -27,9 +27,17 @@ public class MenuManager : MonoBehaviour
         return OpenMenuFlg;
     }
 
+    //アイテムメニューを開いているかのフラグ
+    private bool OpenItemMenuFlg = false;
+
+    //アイテムメニューを開いているフラグ取得
+    public bool GetOpenItemMenuFlg()
+    {
+        return OpenItemMenuFlg;
+    }
+
     //各種パネルの宣言
     [SerializeField] GameObject MainMenuPanel;
-    [SerializeField] GameObject ItemMenuPanel;
     [SerializeField] GameObject SaveMenuPanel;
     [SerializeField] GameObject LoadMenuPanel;
 
@@ -52,24 +60,20 @@ public class MenuManager : MonoBehaviour
     {
         //メニュー表示
         OpenMenu();
-        //Debug.Log("Player position saved: " + ActiveMenu);
     }
 
     //メニューが表示されているかのフラグの状態取得
     public bool GetOpenFlg()
     {
-        //Mキー（仮）が押されてOpenMenuFlgがfalseの時はtrue
         if (Input.GetKeyDown(KeyCode.M) && !OpenMenuFlg)
         {
             OpenMenuFlg = true;
         }
 
-        //Mキー（仮）が押されてOpenMenuFlgがtrueの時はfalse
-        else if (Input.GetKeyDown(KeyCode.M) && OpenMenuFlg)
+        else if (Input.GetKeyDown(KeyCode.Backspace) && OpenMenuFlg && ActiveMenu != MenuType.ItemMenu)
         {
             OpenMenuFlg = false;
         }
-
         return OpenMenuFlg;
     }
 
@@ -79,7 +83,7 @@ public class MenuManager : MonoBehaviour
         //OpenMenuFlgがtrueの時は最初のメニュー表示
         if (GetOpenFlg())
         {
-            if (!SaveMenuPanel.activeSelf && !LoadMenuPanel.activeSelf && !ItemMenuPanel.activeSelf)
+            if (!SaveMenuPanel.activeSelf && !LoadMenuPanel.activeSelf && !OpenItemMenuFlg/*ItemMenuPanel.activeSelf*/)
             {
                 MainMenuPanel.SetActive(true);
             }
@@ -101,7 +105,7 @@ public class MenuManager : MonoBehaviour
     public void ItemMenuDescription()
     {
         MainMenuPanel.SetActive(false);
-        ItemMenuPanel.SetActive(true);
+        OpenItemMenuFlg = true;
         ActiveMenu = MenuType.ItemMenu;
     }
 
@@ -125,7 +129,7 @@ public class MenuManager : MonoBehaviour
     public void BackToMenu()
     {
         MainMenuPanel.SetActive(true);
-        ItemMenuPanel.SetActive(false);
+        OpenItemMenuFlg = false;
         SaveMenuPanel.SetActive(false);
         LoadMenuPanel.SetActive(false);
         ActiveMenu = MenuType.MainMenu;
@@ -145,7 +149,7 @@ public class MenuManager : MonoBehaviour
                     if (File.Exists(FileName))
                     {
                         MainMenuPanel.SetActive(false);
-                        ItemMenuPanel.SetActive(false);
+                        OpenItemMenuFlg = false;
                         SaveMenuPanel.SetActive(false);
                         LoadMenuPanel.SetActive(false);
                         OpenMenuFlg = false;
@@ -163,7 +167,7 @@ public class MenuManager : MonoBehaviour
                     if (File.Exists(FileName))
                     {
                         MainMenuPanel.SetActive(false);
-                        ItemMenuPanel.SetActive(false);
+                        OpenItemMenuFlg = false;
                         SaveMenuPanel.SetActive(false);
                         LoadMenuPanel.SetActive(false);
                         OpenMenuFlg = false;
@@ -181,7 +185,7 @@ public class MenuManager : MonoBehaviour
                     if (File.Exists(FileName))
                     {
                         MainMenuPanel.SetActive(false);
-                        ItemMenuPanel.SetActive(false);
+                        OpenItemMenuFlg = false;
                         SaveMenuPanel.SetActive(false);
                         LoadMenuPanel.SetActive(false);
                         OpenMenuFlg = false;
@@ -197,11 +201,10 @@ public class MenuManager : MonoBehaviour
             }
         }
 
-        //それ以外の時
         else
         {
             MainMenuPanel.SetActive(false);
-            ItemMenuPanel.SetActive(false);
+            OpenItemMenuFlg = false;
             SaveMenuPanel.SetActive(false);
             LoadMenuPanel.SetActive(false);
             OpenMenuFlg = false;

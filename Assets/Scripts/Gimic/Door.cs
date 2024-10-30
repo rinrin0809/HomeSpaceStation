@@ -14,7 +14,7 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (/*player.GetItemByName("key") != null*/player.HasKeyFlg && player.GimicHitFlg && Input.GetKeyDown(KeyCode.Return))
+        if (/*player.GetItemByName("key") != null*/player.HasKeyFlg && player.GimicHitFlg)
         {
             gameObject.SetActive(false);
             player.HasKeyFlg = false;

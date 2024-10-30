@@ -30,20 +30,20 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
 
     public void ResetData()
     {
-        Debug.Log("reset");
+        //Debug.Log("reset");
         itemNameText.text = "";
         empty = true;
     }
 
     public void textReset()
     {
-        Debug.Log("reset");
+        //Debug.Log("reset");
         itemNameText.text = "";
     }
 
     public void SetData(string ItemName)
     {
-        Debug.Log("3");
+        //Debug.Log("3");
         itemNameText.text = ItemName;
         empty = string.IsNullOrEmpty(ItemName);
       

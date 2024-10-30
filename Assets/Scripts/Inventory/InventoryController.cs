@@ -17,22 +17,32 @@ public class InventoryController : MonoBehaviour
     [SerializeField]
     private Button inventoryButton;
     [SerializeField]
-    private Button inventoryResetButton;
-
-  
+    private Button inventoryMenuButton;
+    [SerializeField]
+    GameObject obj;
 
     // Start is called before the first frame update
     void Start()
     {
         PrepareUI();
         inventoryButton.onClick.AddListener(OnClickButton);
+        inventoryMenuButton.onClick.AddListener(OnClickButton);
         inventoryUI.gameObject.SetActive(false);
-        inventoryResetButton.onClick.AddListener(OnClickResetButton);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(MenuManager.Instance.GetOpenItemMenuFlg())
+        {
+            obj.SetActive(true);
+            OnClick();
+        }
+
+        else
+        {
+            obj.SetActive(false);
+        }
     }
 
     private void PrepareUI()
@@ -66,8 +76,14 @@ public class InventoryController : MonoBehaviour
         ToggleInventoryUI();
     }
 
-    private void OnClickResetButton()
+    //âüÇ≥ÇÍÇΩéûÇÃèàóù
+    void OnClick()
     {
-        inventoryData.ResetInventory();
+        if (Input.GetKeyUp(KeyCode.Backspace) && MenuManager.Instance.GetOpenItemMenuFlg())
+        {
+            Debug.Log("Closing only the Item Menu, keeping Main Menu active");
+            inventoryMenuButton.onClick.Invoke();  // Toggle item menu button if necessary
+            MenuManager.Instance.BackToMenu();
+        }
     }
 }
