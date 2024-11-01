@@ -33,7 +33,7 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MenuManager.Instance.GetOpenItemMenuFlg())
+        if(MenuManager.Instance.GetOpenMenuFlg())
         {
             obj.SetActive(true);
             OnClick();

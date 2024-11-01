@@ -60,6 +60,14 @@ public class MenuManager : MonoBehaviour
     {
         //メニュー表示
         OpenMenu();
+
+        if (Input.GetKeyUp(KeyCode.Backspace))
+        {
+            if (ActiveMenu == MenuType.SaveMenu || ActiveMenu == MenuType.LoadMenu)
+            {
+                BackToMenu();
+            }
+        }
     }
 
     //メニューが表示されているかのフラグの状態取得
@@ -70,7 +78,7 @@ public class MenuManager : MonoBehaviour
             OpenMenuFlg = true;
         }
 
-        else if (Input.GetKeyDown(KeyCode.Backspace) && OpenMenuFlg && ActiveMenu != MenuType.ItemMenu)
+        else if (Input.GetKeyDown(KeyCode.Backspace) && OpenMenuFlg && ActiveMenu == MenuType.MainMenu)
         {
             OpenMenuFlg = false;
         }

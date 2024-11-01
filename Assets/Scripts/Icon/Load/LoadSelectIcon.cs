@@ -38,12 +38,17 @@ public class LoadSelectIcon : MonoBehaviour
         MenuType Type = MenuManagerIns.GetActiveMenu();
 
         //ロードメニューの時
-        if (Type == MenuType.LoadMenu)
+        if (Type == MenuType.LoadMenu && !Input.GetKey(KeyCode.Backspace) && !Input.GetKeyDown(KeyCode.Backspace))
         {
             //移動処理
             RectTransformIns.position = IconMoveIns.Move(SideFlg, RectTransformIns.position);
             //押された時の処理
             OnClick();
+
+            if (Input.GetKeyUp(KeyCode.Backspace))
+            {
+                IconMoveIns.ResetNum();
+            }
         }
     }
 
@@ -51,7 +56,7 @@ public class LoadSelectIcon : MonoBehaviour
     void OnClick()
     {
         // エンターキーが押されたか確認 (KeyCode.Return はエンターキー)
-        if (Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.Backspace) && !Input.GetKeyDown(KeyCode.Backspace))
         {
             // 横移動の場合
             if (SideFlg)
@@ -72,6 +77,7 @@ public class LoadSelectIcon : MonoBehaviour
                 // ボタンが設定されている場合、ボタンのonClickイベントを呼び出す
                 if (Buttons[LengthNum] != null)
                 {
+                    IconMoveIns.ResetNum();
                     Buttons[LengthNum].onClick.Invoke(); // ボタンのクリックイベントを呼び出す
                 }
             }

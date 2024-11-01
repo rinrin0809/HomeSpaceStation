@@ -1,21 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class IconMove : MonoBehaviour
 {
     //矢印の位置
-    [SerializeField] Vector2[] Pos;
+    [SerializeField] GameObject[] Obj;
     //矢印で選択できる数の最大値
     [SerializeField] int MaxPosNum;
     //移動時のインターバルの時間上限
     const float MAX_TIME = 63.0f;
     //移動時のインターバルの時間
     float Time = 0.0f;
+    //X座標の補正値
+    private float CorX = 0.0f;
     //横移動時の配列の番号
     private int SideNum;
     //横移動時の配列の上限番号
     [SerializeField] private int MaxSideNum;
+
     //横移動時の配列の番号設定
     public void SetSideNum(int Num)
     {
@@ -50,7 +54,7 @@ public class IconMove : MonoBehaviour
         // 横移動の場合
         if (SideFlg)
         {
-            Vector2 SidePos = Pos[SideNum];
+            Vector3 SidePos = Obj[SideNum].GetComponent<Transform>().position;
             // 横移動処理
             SideMove();
 
@@ -58,13 +62,13 @@ public class IconMove : MonoBehaviour
             NewPos = Position;
 
             // X, Y座標を更新
-            NewPos.x = SidePos.x;
+            NewPos.x = SidePos.x - CorX;
             NewPos.y = SidePos.y;
         }
 
         else
         {
-            Vector2 LengthPos = Pos[LengthNum];
+            Vector3 LengthPos = Obj[LengthNum].GetComponent<Transform>().position;
 
             // 縦移動処理
             LengthMove();
@@ -73,7 +77,7 @@ public class IconMove : MonoBehaviour
             NewPos = Position;
 
             // X, Y座標を更新
-            NewPos.x = LengthPos.x;
+            NewPos.x = LengthPos.x - CorX;
             NewPos.y = LengthPos.y;
         }
         // 新しいポジションを返す
@@ -139,5 +143,11 @@ public class IconMove : MonoBehaviour
                 }
             }
         }
+    }
+
+    public void ResetNum()
+    {
+        LengthNum = 0;
+        SideNum = 0;
     }
 }
