@@ -38,12 +38,17 @@ public class MainSelectIcon : MonoBehaviour
         MenuType Type = MenuManagerIns.GetActiveMenu();
         
         //メインメニューの時
-        if (Type == MenuType.MainMenu)
+        if (Type == MenuType.MainMenu && !Input.GetKey(KeyCode.Backspace) && !Input.GetKeyDown(KeyCode.Backspace))
         {
             //移動処理
             RectTransformIns.position = IconMoveIns.Move(SideFlg, RectTransformIns.position);
             //押された時の処理
             OnClick();
+
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                IconMoveIns.ResetNum();
+            }
         }
     }
 
@@ -61,6 +66,7 @@ public class MainSelectIcon : MonoBehaviour
                 // ボタンが設定されている場合、ボタンのonClickイベントを呼び出す
                 if (Buttons[SideNum] != null)
                 {
+                    IconMoveIns.ResetNum();
                     Buttons[SideNum].onClick.Invoke(); // ボタンのクリックイベントを呼び出す
                 }
             }
@@ -71,9 +77,15 @@ public class MainSelectIcon : MonoBehaviour
                 // ボタンが設定されている場合、ボタンのonClickイベントを呼び出す
                 if (Buttons[LengthNum] != null)
                 {
+                    IconMoveIns.ResetNum();
                     Buttons[LengthNum].onClick.Invoke(); // ボタンのクリックイベントを呼び出す
                 }
             }
+        }
+
+        else if(MenuManagerIns.GetOpenFlg() && Input.GetKeyDown(KeyCode.M))
+        {
+            IconMoveIns.ResetNum();
         }
     }
 }
