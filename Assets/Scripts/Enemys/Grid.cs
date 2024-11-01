@@ -102,7 +102,7 @@ public class Grid : MonoBehaviour
                     wall = true;
                 }
                 grid[x, y] = new Node(wall, WorldPoint, x, y);
-                Debug.Log($"Node at ({x}, {y}): Is wall = {wall}"); // ’Ç‰Á
+               // Debug.Log($"Node at ({x}, {y}): Is wall = {wall}"); // ’Ç‰Á
             }
         }
     }

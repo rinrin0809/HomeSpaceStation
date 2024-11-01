@@ -21,7 +21,7 @@ public class Pathfinding : MonoBehaviour
 
         if (grid == null)
         {
-            Debug.LogError("Grid component not found on the GameObject.");
+           // Debug.LogError("Grid component not found on the GameObject.");
         }
     }
     private void Start()
@@ -30,7 +30,7 @@ public class Pathfinding : MonoBehaviour
         enemyMovement = FindObjectOfType<MoveEnemy>(); // 敵の追従スクリプトを取得
         if (enemyMovement == null)
         {
-            Debug.LogError("EnemyFollowPath script not found in the scene.");
+           // Debug.LogError("EnemyFollowPath script not found in the scene.");
         }
     }
     private void Update()
@@ -57,7 +57,7 @@ public class Pathfinding : MonoBehaviour
         // プレイヤーの位置を取得
         if (TargetPosition == null)
         {
-            Debug.LogError("TargetPosition is not set.");
+           // Debug.LogError("TargetPosition is not set.");
             return;
         }
 
@@ -94,11 +94,11 @@ public class Pathfinding : MonoBehaviour
         Node StartNode = grid.NodeFromWorldPosition(a_Startpos);
         Node TargetNode = grid.NodeFromWorldPosition(a_Targetpos);
 
-        Debug.Log($"Start Node: {StartNode.Position}, Target Node: {TargetNode.Position}"); // 追加
+       // Debug.Log($"Start Node: {StartNode.Position}, Target Node: {TargetNode.Position}"); // 追加
 
         if (TargetNode.Iswall)
         {
-            Debug.Log("Target node is a wall, finding nearest walkable node.");
+           // Debug.Log("Target node is a wall, finding nearest walkable node.");
             TargetNode = GetNearestWalkableNode(TargetNode);
         }
 
@@ -157,7 +157,7 @@ public class Pathfinding : MonoBehaviour
 
         //Debug.Log("Path not found, could not reach the target node.");
 
-        Debug.Log("Searching for path...");
+        //Debug.Log("Searching for path...");
     }
 
 
