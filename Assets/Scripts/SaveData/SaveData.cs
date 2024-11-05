@@ -9,6 +9,9 @@ public class SaveData
     public float PosY;
     public float PosZ;
 
+    //シーン名
+    public string SceneName = "";
+
     // インベントリデータ
     public List<InventoryItem> InventoryItems;
 }
