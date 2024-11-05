@@ -15,7 +15,6 @@ public class MoveEnemy : MonoBehaviour
 
     private void Start()
     {
-        //SetInitialPosition();
         InitializePath();
     }
 
@@ -23,23 +22,6 @@ public class MoveEnemy : MonoBehaviour
     {
         FollowPath();
     }
-
-    //private void SetInitialPosition()
-    //{
-    //    string currentSceneName = SceneManager.GetActiveScene().name;
-    //    SceneSpawnData.SceneWarpData warpData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
-
-    //    if (warpData != null && warpData.warpPositions.Count > 0 && Random.value < spawnProbability)
-    //    {
-    //        Vector2 randomPosition = warpData.warpPositions[Random.Range(0, warpData.warpPositions.Count)];
-    //        transform.position = randomPosition;
-    //        Debug.Log("Position changed to: " + randomPosition);
-    //    }
-    //    else
-    //    {
-    //        Debug.Log("Position not changed, using initial position.");
-    //    }
-    //}
 
     private void InitializePath()
     {
@@ -66,47 +48,7 @@ public class MoveEnemy : MonoBehaviour
         }
     }
 
-    //public void WarpToRandomPositionWithDelay(float delay)
-    //{
-    //    StartCoroutine(WarpAfterDelay(delay));
-    //}
-
-    //private IEnumerator WarpAfterDelay(float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-
-    //    string currentSceneName = SceneManager.GetActiveScene().name;
-    //    SceneSpawnData.SceneWarpData warpData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
-
-    //    if (warpData != null && warpData.warpPositions.Count > 0)
-    //    {
-    //        Vector2 randomPosition = warpData.warpPositions[Random.Range(0, warpData.warpPositions.Count)];
-    //        transform.position = randomPosition;
-    //        Debug.Log("Warped to position: " + randomPosition);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("No spawn data found for scene: " + currentSceneName);
-    //    }
-    //}
-
-    //private void ExecuteWarp()
-    //{
-    //    string currentSceneName = SceneManager.GetActiveScene().name;
-    //    SceneSpawnData.SceneWarpData warpData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
-
-    //    if (warpData != null && warpData.warpPositions.Count > 0)
-    //    {
-    //        Vector2 randomPosition = warpData.warpPositions[Random.Range(0, warpData.warpPositions.Count)];
-    //        transform.position = randomPosition;
-    //        Debug.Log("Warped to position: " + randomPosition);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("No spawn data found for scene: " + currentSceneName);
-    //    }
-    //}
-
+   
     public void UpdatePath(List<Node> newPath)
     {
         path = newPath;

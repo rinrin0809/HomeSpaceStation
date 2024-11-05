@@ -81,34 +81,6 @@ public class WarpManager : MonoBehaviour
         yield return new WaitForSeconds(delay);
         WarpEnemyToRandomPosition(enemy);
     }
-    //private IEnumerator WarpAfterDelay(float delay)
-    //{
-    //    yield return new WaitForSeconds(delay);
-    //    if (moveEnemy != null)
-    //    {
-    //        moveEnemy.WarpToRandomPosition();
-    //    }
-    //}
-
-
-    //public void ChangePosition()
-    //{
-    //    // 現在のシーン名を取得
-    //    string currentSceneName = SceneManager.GetActiveScene().name;
-    //    // 現在のシーンに対応する SceneSpawnData を取得
-    //    SceneSpawnData.SceneWarpData spawnData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
-
-    //    // 現在のシーン名に対応する座標リストが存在する場合
-    //    if (shouldChangePosition && spawnData != null && spawnData.warpPositions.Count > 0)
-    //    {
-    //        Vector2 randomPosition = spawnData.warpPositions[Random.Range(0, spawnData.warpPositions.Count)];
-    //        transform.position = randomPosition;
-    //        Debug.Log("Position changed to: " + randomPosition);
-    //    }
-    //    else
-    //    {
-    //        Debug.LogWarning("Spawn positions not found for scene: " + currentSceneName);
-    //    }
-    //}
+   
 }
 

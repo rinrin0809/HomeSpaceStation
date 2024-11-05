@@ -16,5 +16,12 @@ MonoBehaviour:
   - sceneName: roby(second)
     warpPositions:
     - {x: 0.5, y: 2.6}
+    - {x: 0.5, y: 2.6}
+    - {x: 0.5, y: 2.6}
     preWarpWaitTimes:
-    - 10
+    - 0.9
+  - sceneName: Roby
+    warpPositions:
+    - {x: 16.5, y: 3.5}
+    preWarpWaitTimes:
+    - 0.9
