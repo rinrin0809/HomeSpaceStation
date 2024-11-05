@@ -8,18 +8,38 @@ public class ActionEvent : MonoBehaviour
     public Transform ActionObject;
     public Vector3 offset = new Vector3(0, 1, 0);
 
-    private GameObject exclamationMarkClone;
+    private GameObject exclamationMarkClone; // クローン参照
+    [SerializeField]
+    private Canvas canvas; // canvas 参照
+    float scale = 0.5f;
+
     // Start is called before the first frame update
     void Start()
     {
-        exclamationMarkClone = Instantiate(exclamationMark, Vector3.zero, Quaternion.identity);
-        exclamationMarkClone.SetActive(false);
+        // Canvasの取得
+        canvas = FindObjectOfType<Canvas>();
+     
+
+        // Canvasの存在確認
+        if (canvas != null)
+        {
+            exclamationMarkClone = Instantiate(exclamationMark,canvas.transform);
+            exclamationMarkClone.transform.localScale *= scale;
+            exclamationMarkClone.SetActive(false);
+        }
+        else
+        {
+            Debug.Log("canvasがない");
+        }
+     
+        
     }
 
     // Update is called once per frame
     void Update()
     {
         exclamationMarkClone.transform.position = Camera.main.WorldToScreenPoint(ActionObject.transform.position + offset);
+       
     }
 
     // 当たり判定
