@@ -27,6 +27,11 @@ public class InventryData : ScriptableObject
     [field: SerializeField]
     public int Size;
 
+    public int GetSize()
+    {
+        return Size;
+    }
+
     public event Action OnInventoryChanged; // 全体通知
     public event Action<Dictionary<int, InventoryItem>> OnInventoryUpdated;
     public event Action<int> OnItemRemoved;
@@ -47,7 +52,7 @@ public class InventryData : ScriptableObject
     }
 
     // アイテムをインベントリに追加
-    public void AddItem(Item item)
+    public void AddItem(Item item, bool Flg)
     {
         // 新しいスロットにアイテムを追加
         int emptySlotIndex = FindEmptySlot();
@@ -55,7 +60,8 @@ public class InventryData : ScriptableObject
         {
             inventoryItems[emptySlotIndex] = new InventoryItem()
             {
-                item = item
+                item = item,
+                ItemFlg = Flg
             };
             // インベントリが更新されたことを通知
             OnInventoryUpdated?.Invoke(GetCurrentInventoryState());
@@ -64,7 +70,7 @@ public class InventryData : ScriptableObject
         else
         {
             // 新しいスロットがない場合追加を追加
-            AddItem(item);
+            AddItem(item,Flg);
         }
     }
 
@@ -130,6 +136,8 @@ public struct InventoryItem
 
     //[SerializeField]
     public bool IsEmpty => item == null;
+
+    public bool ItemFlg;
 
     // 新しいアイテムを設定
     public InventoryItem SetItem(Item newItem)

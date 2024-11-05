@@ -66,6 +66,13 @@ public class Player : MonoBehaviour
     }
 
     public InventryData inventory;
+
+    public InventryData GetInventory()
+    {
+        return inventory;
+    }
+
+
     [SerializeField]
     private ItemDisplay itemDisplay;
 
@@ -291,7 +298,7 @@ public class Player : MonoBehaviour
     {
         if (inventory != null)
         {
-            inventory.AddItem(item);
+            inventory.AddItem(item, true);
             Debug.Log(item.Name + "‚ªƒCƒ“ƒxƒ“ƒgƒŠ‚É’Ç‰Á‚³‚ê‚Ü‚µ‚½");
         }
         else

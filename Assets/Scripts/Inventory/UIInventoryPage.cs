@@ -60,6 +60,7 @@ public class UIInventoryPage : MonoBehaviour
        
         if (listUIItems.Count > itemIndex != null)
         {
+            Debug.Log("1");
             listUIItems[itemIndex].SetData(itemName);
         }
     }

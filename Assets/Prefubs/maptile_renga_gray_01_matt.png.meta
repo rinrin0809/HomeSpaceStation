@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 2792895afa0cc634ab0da29749cb5047
+guid: 98e3870091ae5c84081a3714d5f8ce70
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6550481699471223441
-    second: maptile_renga_brown_01_matt_0
+      213: -6510947624435114964
+    second: maptile_renga_gray_01_matt_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -113,7 +113,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: maptile_renga_brown_01_matt_0
+      name: maptile_renga_gray_01_matt_0
       rect:
         serializedVersion: 2
         x: 0
@@ -127,8 +127,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 19aeda4566cf7ea50800000000000000
-      internalID: 6550481699471223441
+      spriteID: c2c1f5ec1a774a5a0800000000000000
+      internalID: -6510947624435114964
       vertices: []
       indices: 
       edges: []
@@ -144,7 +144,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      maptile_renga_brown_01_matt_0: 6550481699471223441
+      maptile_renga_gray_01_matt_0: -6510947624435114964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

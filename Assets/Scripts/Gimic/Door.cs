@@ -14,11 +14,20 @@ public class Door : MonoBehaviour
 
     void Update()
     {
-        if (/*player.GetItemByName("key") != null*/player.HasKeyFlg && player.GimicHitFlg)
+        if (player.GimicHitFlg)
         {
-            gameObject.SetActive(false);
-            player.HasKeyFlg = false;
-            ///player.RemoveGameObjectByName(player.GetItemList);
+            for (int i = 0; i < player.GetInventory().GetSize(); i++)
+            {
+                foreach (var item in player.GetInventory().GetCurrentInventoryState())
+                {
+                    // インベントリのアイテムを取得して、ItemFlg をチェック
+                    if (item.Value.item.Name == "key")
+                    {
+                        gameObject.SetActive(false);
+                        break; // 一つ見つかったらループを抜ける
+                    }
+                }
+            }
         }
     }
 }
