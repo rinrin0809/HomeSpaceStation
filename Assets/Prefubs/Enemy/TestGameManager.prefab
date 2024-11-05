@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3640279642974175316}
   - component: {fileID: 6927678002758523353}
   - component: {fileID: 8961415027264628163}
+  - component: {fileID: 3417137220735229544}
   m_Layer: 0
   m_Name: TestGameManager
   m_TagString: Untagged
@@ -66,3 +67,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPosition: {fileID: 0}
   TargetPosition: {fileID: 0}
+--- !u!114 &3417137220735229544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086535114837748287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20fcfb1c6417bf4f8432a978797bc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
+  shouldChangePosition: 1
+  moveEnemy: {fileID: 0}

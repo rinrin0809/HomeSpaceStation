@@ -35,25 +35,7 @@ public class Pathfinding : MonoBehaviour
     }
     private void Update()
     {
-        ////UpdatePathToPlayer();
-
-        //if (!pathFound)
-        //{
-        //    enemyMovement.UpdatePath(grid.FinalPath);
-        //    FindPath(StartPosition.position, TargetPosition.position);
-        //    UpdatePathToPlayer();
-
-        //    pathFound = true;
-        //}
-
-        //timeSinceLastUpdate += Time.deltaTime;
-
-        //// 一定時間ごとに経路を再計算
-        //if (timeSinceLastUpdate >= pathUpdateInterval)
-        //{
-        //    timeSinceLastUpdate = 0f; // タイマーをリセット
-        //    UpdatePathToPlayer();
-        //}
+        
         // プレイヤーの位置を取得
         if (TargetPosition == null)
         {
