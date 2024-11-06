@@ -2819,13 +2819,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 161c9d624592f1947b24afcd3472d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 2016348527}
   labeledConversationLists:
   - label: 0
     conversations:
     - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
+      content: '!!!!!!!!!!!!'
+    - entryLabel: 1
+      content: ???????????????
     - entryLabel: 0
       content: 
     - entryLabel: 0

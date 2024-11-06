@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
+//[CreateAssetMenu]
+//public class TalkManager : ScriptableObject
 public class TalkManager : MonoBehaviour
 {
     //// 会話データリスト
@@ -36,47 +38,7 @@ public class TalkManager : MonoBehaviour
 
     //----------------------------------------------------------
 
-    // public TextMeshProUGUI text;
-
-    //[SerializeField] private List<ActionTalkData> actionTalkList;
-
-    //public static TalkManager Instance { get; private set; }
-
-    //private void Awake()
-    //{
-    //    if (Instance == null)
-    //    {
-    //        Instance = this;
-    //        DontDestroyOnLoad(gameObject);
-    //    }
-    //    else
-    //    {
-    //        Destroy(gameObject);
-    //    }
-    //}
-
-    //// ラベル（Action）とインデックスで会話データを取得するメソッド
-    //public string GetConversation(ActionTalkData.Action actionLabel, int index)
-    //{
-    //    ActionTalkData actionData = actionTalkList.Find(data => data.action == actionLabel);
-
-    //    if (actionData != null && index >= 0 && index < actionData.Conversations.Count)
-    //    {
-    //        return actionData.Conversations[index];
-    //    }
-    //    return "会話データが存在しません";
-    //}
-
-    //// 会話を開始する
-    //public void StartConversation(ActionTalkData.Action actionLabel, int index)
-    //{
-    //    string conversation = GetConversation(actionLabel, index);
-    //    // 会話内容を表示するUIの更新コードをここに追加
-    //    text.text = conversation;
-    //    Debug.Log("表示する会話内容: " + conversation);
-    //}
-
-    //-----------------------------------------------------------------------
+    public TextMeshProUGUI text;
 
     [System.Serializable]
     public class ConversationEntry
@@ -165,5 +127,25 @@ public class TalkManager : MonoBehaviour
         string conversation = GetConversation(sceneLabel, entryLabel);
         Debug.Log("表示する会話内容: " + conversation);
         // UIの表示処理などをここに追加
+        text.text = conversation;
     }
 }
+
+//namespace TalkManager
+//{
+//    [System.Serializable]
+//    public class ConversationEntry
+//    {
+//        // 会話内容のラベル（各シーン内での識別用）
+//        public enum ConversationEntryLabel
+//        {
+//            Test1,   // 受付会話1
+//            Test2,   // 受付会話2
+//            Enemy1,  // エネミー戦1
+//            Enemy2   // エネミー戦2
+//        }
+
+//        public ConversationEntryLabel entryLabel;  // 会話のラベル
+//        [TextArea] public string content;          // 実際の会話内容
+//    }
+//}

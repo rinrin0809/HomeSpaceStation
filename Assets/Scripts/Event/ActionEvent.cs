@@ -60,7 +60,8 @@ public class ActionEvent : MonoBehaviour
             // 会話データのインデックスを取得して会話内容表示
             //conversationText = TalkManager.Instance.GetTalk(0);
             //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 0);
-            TalkManager.Instance.StartConversation(ConversationLabel.Reception, ConversationEntryLabel.Greeting);
+            TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Greeting);
+            //text.text = conversationText;
             //Debug.Log(conversationText);
             //text.text = conversationText;
             Debug.Log("！マーク表示");
@@ -75,6 +76,7 @@ public class ActionEvent : MonoBehaviour
             exclamationMarkClone.SetActive(false);
             //conversationText = TalkManager.Instance.GetTalk(1);
             //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 1);
+            TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Warning);
             //Debug.Log(conversationText);
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
