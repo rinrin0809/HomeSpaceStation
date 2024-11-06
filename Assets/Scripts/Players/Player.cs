@@ -130,6 +130,30 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        else
+        {
+            if (LoadManager.Instance != null)
+            {
+                //NewGameボタンが押された時のフラグ
+                if (LoadManager.Instance.NewGamePushFlg)
+                {
+                    //初期位置の設定
+                    Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                    Transform objectTransform = gameObject.GetComponent<Transform>();
+                    objectTransform.position = targetPosition;
+                    Debug.Log(objectTransform.position);
+                }
+
+                //LoadGameボタンが押された時のフラグ
+                else
+                {
+                    // セーブデータを読み込み、プレイヤーの位置を設定
+                    LoadManager.Instance.TitleToGameLoadData();
+                    Debug.Log("Load");
+                }
+            }
+        }
     }
 
     // Update is called once per frame

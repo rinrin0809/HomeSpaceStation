@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class SaveManager : MonoBehaviour
 {
@@ -36,7 +37,8 @@ public class SaveManager : MonoBehaviour
             PosX = GameObj.transform.position.x,
             PosY = GameObj.transform.position.y,
             PosZ = GameObj.transform.position.z,
-            InventoryItems = Inventory.GetInventoryItems()
+            InventoryItems = Inventory.GetInventoryItems(),
+            SceneName = SceneManager.GetActiveScene().name
         };
 
         // SaveData‚ðJsonŒ`Ž®‚É•ÏŠ·

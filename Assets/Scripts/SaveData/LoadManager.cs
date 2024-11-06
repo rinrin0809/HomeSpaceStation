@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using UnityEngine.SceneManagement;
 
 public class LoadManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class LoadManager : MonoBehaviour
 
     [SerializeField] private InventryData Inventory;
 
+    [SerializeField] public string NextSceneName = "";
     public void SetSideNum(int Num)
     {
         SideNum = Num;
@@ -90,6 +92,7 @@ public class LoadManager : MonoBehaviour
             Vector3 position = new Vector3(data.PosX, data.PosY, data.PosZ);
             GameObj.transform.position = position;
             Inventory.SetInventoryItems(data.InventoryItems);
+            NextSceneName = data.SceneName;
         }
     }
 
