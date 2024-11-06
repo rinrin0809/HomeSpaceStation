@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 using static UnityEditor.Progress;
 using System.Runtime.CompilerServices;
@@ -17,12 +18,22 @@ public class UIInventoryPage : MonoBehaviour
     // 説明文
     [SerializeField]
     private UIInventoryDescription itemDescription;
-  
+
 
     // inventoryのインスタンスを保持
     public InventryData inventory;
 
-    List<UIInventoryItem> listUIItems = new List<UIInventoryItem>();
+    public List<UIInventoryItem> listUIItems = new List<UIInventoryItem>();
+
+    [SerializeField]
+    private int Num = 0;
+
+    //移動時のインターバルの時間上限
+    const float MAX_TIME = 100.0f;
+    //移動時のインターバルの時間
+    float time = MAX_TIME;
+
+    private string ShowName = "";
 
     // Start is called before the first frame update
     void Start()
@@ -35,29 +46,32 @@ public class UIInventoryPage : MonoBehaviour
         itemDescription.ResetDescription();
     }
 
+    private void Update()
+    {
+        MoveNum();
+    }
+
     // 設定しているサイズ分スロット複製
     public void InitializeInventoryUI(int inventorysize)
     {
-        for(int i = 0; i < inventorysize; i++)
+        for (int i = 0; i < inventorysize; i++)
         {
             UIInventoryItem uiItem = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity);
             uiItem.transform.SetParent(contentPanel);
             listUIItems.Add(uiItem);
         }
-       
-        
     }
 
     // 説明文更新
-    internal void UpdateDescription(int itemIndex, string name, string description)
+    internal void UpdateDescription(string name, string description)
     {
         itemDescription.SetDescription(name, description);
-       
+
     }
 
-    internal void UpdateData(int itemIndex,string itemName)
+    internal void UpdateData(int itemIndex, string itemName)
     {
-       
+
         if (listUIItems.Count > itemIndex != null)
         {
             Debug.Log("1");
@@ -68,7 +82,7 @@ public class UIInventoryPage : MonoBehaviour
     // インベントリ―更新
     private void UpdateUI(Dictionary<int, InventoryItem> updateInventory)
     {
-       
+
         for (int i = 0; i < listUIItems.Count; i++)
         {
             if (updateInventory.ContainsKey(i))
@@ -85,25 +99,88 @@ public class UIInventoryPage : MonoBehaviour
         }
     }
 
-   public void Show()
+    public void Show()
     {
         gameObject.SetActive(true);
         itemDescription.ResetDescription();
-        
+
         Time.timeScale = 0.0f;
     }
-    
+
     public void Hide()
     {
         gameObject.SetActive(false);
         // 全スロットのデータをリセット
         foreach (var item in listUIItems)
         {
-            item.ResetData();                            
+            item.ResetData();
         }
         Time.timeScale = 1.0f;
     }
 
 
+    private void MoveNum()
+    {
+        time--;
 
+        if (MenuManager.Instance.GetActiveMenu() == MenuType.ItemMenu)
+        {
+            if (Num > 0)
+            {
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                {
+                    if (time < 0.0f)
+                    {
+                        time = MAX_TIME;
+                        Num -= 1;
+                    }
+                }
+            }
+
+            else if (Num < listUIItems.Count - 1)
+            {
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                {
+                    if (time < 0.0f)
+                    {
+                        time = MAX_TIME;
+                        Num += 1;
+                    }
+                }
+            }
+
+            if (Input.GetKeyDown(KeyCode.Backspace))
+            {
+                Num = 0;
+            }
+
+            else
+            {
+                UpdateItemColors();
+            }
+        }
+
+        //for(int i =0;i<listUIItems.Count;i++)
+        //{
+        //    UIInventoryItem item = listUIItems[i];
+        //    Debug.Log("item:" + item);
+        //}
+
+        ShowName = inventory.GetInventoryItems()[Num].item.Name;
+        Debug.Log("ShowName " + ShowName);
+    }
+
+    private void UpdateItemColors()
+    {
+        for (int i = 0; i < listUIItems.Count; i++)
+        {
+            Image itemImage = listUIItems[i].GetComponent<Image>();
+
+            if (itemImage != null)
+            {
+                // Num番目のアイテムは緑、それ以外は白に設定
+                itemImage.color = (i == Num) ? Color.green : Color.white;
+            }
+        }
+    }
 }
