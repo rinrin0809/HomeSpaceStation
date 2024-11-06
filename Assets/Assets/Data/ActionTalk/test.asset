@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04b2126078e86d94d9ab7601958af91c, type: 3}
+  m_Script: {fileID: 11500000, guid: 99dd4c02d4d54904a87f5690dae51d12, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  <Conversation>k__BackingField: 
+  <Conversation>k__BackingField: "\u304A\u307E\u3048\u306F\u3060\u308C\u3060\uFF01"

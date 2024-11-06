@@ -76,6 +76,8 @@ public class UIInventoryPage : MonoBehaviour
                 InventoryItem item = updateInventory[i]; // インベントリ内のアイテム
                 UIInventoryItem uiItem = listUIItems[i]; // UiInventoryItemのリストから対応するUIInventoryItemを取得
                 uiItem.SetData(item.item.name);
+
+               
             }
             else
             {

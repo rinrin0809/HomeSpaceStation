@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [CreateAssetMenu]
-public class TalkData : ScriptableObject
+public class EventTalkData : ScriptableObject
 {
     [System.Serializable]
     public class DialogueLine
