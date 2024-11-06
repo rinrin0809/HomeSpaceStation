@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using static TalkManager;
 
 public class ActionEvent : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class ActionEvent : MonoBehaviour
     public TextMeshProUGUI text;
 
     string conversationText;
+
+    private TalkManager talkManager;
 
     // Start is called before the first frame update
     void Start()
@@ -55,9 +58,11 @@ public class ActionEvent : MonoBehaviour
         {
             exclamationMarkClone.SetActive(true);
             // 会話データのインデックスを取得して会話内容表示
-            conversationText = TalkManager.Instance.GetTalk(0);
-            Debug.Log(conversationText);
-            text.text = conversationText;
+            //conversationText = TalkManager.Instance.GetTalk(0);
+            //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 0);
+            TalkManager.Instance.StartConversation(ConversationLabel.Reception, ConversationEntryLabel.Greeting);
+            //Debug.Log(conversationText);
+            //text.text = conversationText;
             Debug.Log("！マーク表示");
         }
     }
@@ -68,9 +73,10 @@ public class ActionEvent : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             exclamationMarkClone.SetActive(false);
-            conversationText = TalkManager.Instance.GetTalk(1);
-            Debug.Log(conversationText);
-            text.text = conversationText;
+            //conversationText = TalkManager.Instance.GetTalk(1);
+            //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 1);
+            //Debug.Log(conversationText);
+            //text.text = conversationText;
             Debug.Log("！マーク非表示");
         }
     }

@@ -12,4 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99dd4c02d4d54904a87f5690dae51d12, type: 3}
   m_Name: test
   m_EditorClassIdentifier: 
-  <Conversation>k__BackingField: "\u304A\u307E\u3048\u306F\u3060\u308C\u3060\uFF01"
+  action: 0
+  Conversations:
+  - '!!!!!'
+  - ??????????????
