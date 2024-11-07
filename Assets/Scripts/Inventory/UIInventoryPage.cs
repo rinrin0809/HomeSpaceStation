@@ -91,7 +91,7 @@ public class UIInventoryPage : MonoBehaviour
                 UIInventoryItem uiItem = listUIItems[i]; // UiInventoryItem‚ÌƒŠƒXƒg‚©‚ç‘Î‰ž‚·‚éUIInventoryItem‚ðŽæ“¾
                 uiItem.SetData(item.item.name);
 
-               
+
             }
             else
             {

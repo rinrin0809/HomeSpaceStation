@@ -175,8 +175,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //シーン遷移する判定に当たった時のフラグfalseの時
-        if (!ChangeSceneFlg)
+        //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
+        if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
         {
             //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
             //スタミナ最小値より大きい時かつスタミナが0になっていない時
