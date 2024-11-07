@@ -22,8 +22,12 @@ public class ActionEvent : MonoBehaviour
 
     private TalkManager talkManager;
 
-    public int talkListnum = 0;
-    public int talkListindex = 0;
+    // 会話全体のリストのインデックス
+    // どの会話のリストを選んでるかをこの変数を変えることで変更できる
+    public int taklEventIndex = 0;
+    // 会話ごとのリストのインデックス
+    public int actionEventIndex = 0;
+
     public int talknum=0;
     public int listnum = 0;
     public bool testFlag = false;
@@ -57,9 +61,9 @@ public class ActionEvent : MonoBehaviour
         exclamationMarkClone.transform.position = Camera.main.WorldToScreenPoint(ActionObject.transform.position + offset);
         if (Input.GetKeyDown(KeyCode.Space)&&testFlag==true)
         {
-            talkListindex += 1;
-            conversationText = TestTalkManager.Instance.GetTalk(talkListnum, talkListindex);
-            Debug.Log("index:" + talkListnum + talkListindex);
+            actionEventIndex += 1;
+            conversationText = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex);
+            Debug.Log("index:" + taklEventIndex + actionEventIndex);
             Debug.Log(conversationText);
             text.text = conversationText;
             Debug.Log("space押した");
@@ -86,7 +90,7 @@ public class ActionEvent : MonoBehaviour
             exclamationMarkClone.SetActive(true);
             Debug.Log("！マーク表示");
             // 会話データのインデックスを取得して会話内容表示
-            conversationText = TestTalkManager.Instance.GetTalk(talkListnum, talkListindex);
+            conversationText = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex);
             text.text = conversationText;
             testFlag = true;
             Debug.Log("flag" + testFlag);
@@ -105,11 +109,15 @@ public class ActionEvent : MonoBehaviour
         {
             //talkListnum =talknum;
             //talkListindex = listnum;
-            exclamationMarkClone.SetActive(false);
+            if (exclamationMarkClone == true)
+            {
+                exclamationMarkClone.SetActive(false);
+            }
+           
             //conversationText = TestTalkManager.Instance.GetTalk(talkListnum,listnum);
             //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 1);
             //TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Warning);
-            Debug.Log(conversationText);
+            text.text = "";
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
             testFlag = false;

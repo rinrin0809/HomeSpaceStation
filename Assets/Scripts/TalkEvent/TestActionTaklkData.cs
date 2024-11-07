@@ -9,7 +9,7 @@ public class TestActionTalkData : ScriptableObject
     //[field: SerializeField]
     //[field: TextArea]
     public string Conversation { get; set; }
-
+    public string listName;
 
     public enum Action
     {
