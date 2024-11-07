@@ -105,11 +105,9 @@ public class Player : MonoBehaviour
         }
 
         fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
-
-        //ゲームシーンの時
-        if (SceneManager.GetActiveScene().name == "Game")
+        if (LoadManager.Instance != null)
         {
-            if (LoadManager.Instance != null)
+            if(LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
             {
                 //NewGameボタンが押された時のフラグ
                 if (LoadManager.Instance.NewGamePushFlg)
@@ -301,7 +299,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Key" && text != null)
         {
             text.gameObject.SetActive(false);
-            Debug.Log("鍵がありません");
+            //Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;
 
@@ -310,7 +308,7 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Apple" && text != null)
         {
             text.gameObject.SetActive(false);
-            Debug.Log("鍵がありません");
+            //Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;
 
@@ -401,37 +399,4 @@ public class Player : MonoBehaviour
             Debug.Log(GimicHitFlg);
         }
     }
-
-    //↓はこの処理で間違いないか確認してからコメントアウトします。
-    ////同じ名前のインベントリ内にあるアイテム取得（今後タグに変更予定）
-    //public GameObject GetItemByName(string itemName)
-    //{
-    //    // itemList の中から名前が一致する GameObject を探す
-    //    foreach (GameObject item in itemList)
-    //    {
-    //        if (item != null && item.name == itemName)
-    //        {
-    //            return item; // 一致した GameObject を返す
-    //        }
-    //    }
-
-    //    return null; // 一致するものがなければ null を返す
-    //}
-
-    ////破棄処理
-    //public void RemoveGameObjectByName(List<GameObject> ItemList)
-    //{
-    //    // itemList 内の全てのGameObjectを削除
-    //    foreach (GameObject item in itemList)
-    //    {
-    //        if (item != null)
-    //        {
-    //            // GameObject を破棄
-    //            Destroy(item);
-    //        }
-    //    }
-
-    //    // リストをクリアして初期化
-    //    itemList.Clear();
-    //}
 }
