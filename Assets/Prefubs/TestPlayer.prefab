@@ -198,9 +198,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 100
+  stamina: 0
+  slider: {fileID: 0}
   rb: {fileID: 8729504305012934866}
   animatior: {fileID: 0}
   animSpeed: 0.5
+  text: {fileID: 0}
+  isNearItem: 0
+  itemList: []
+  inventory: {fileID: 0}
+  itemDisplay: {fileID: 0}
+  HasKeyFlg: 0
+  GimicHitFlg: 0
+  startingPosition: {fileID: 0}
+  sceneTransitions: {fileID: 0}
 --- !u!95 &4935541057062217796
 Animator:
   serializedVersion: 7

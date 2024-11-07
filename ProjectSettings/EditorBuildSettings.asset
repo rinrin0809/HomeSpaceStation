@@ -15,7 +15,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Room/Roby.unity
     guid: 3e65390dc2028454b8c3df59625d88b9
   - enabled: 1
-    path: Assets/Scenes/Room/roby(second).unity
+    path: Assets/Scenes/Room/Roby2.unity
     guid: a6ce67c4cf0bfd943bc676ecf63ef6ac
   - enabled: 1
     path: Assets/Scenes/GameLoop/Game.unity

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8961415027264628163}
   - component: {fileID: 3417137220735229544}
   m_Layer: 0
-  m_Name: TestGameManager
+  m_Name: EnemyManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

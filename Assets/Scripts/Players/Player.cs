@@ -51,9 +51,14 @@ public class Player : MonoBehaviour
 
     private Item itemData;
 
+    bool isstaripos = false;
+
     // 仮インベントリ
     [SerializeField]
     private List<GameObject> itemList = new List<GameObject>();
+
+    //シーン移動
+    public VectorValue startingPosition;
 
     public List<GameObject> GetItemList
     {
@@ -91,6 +96,15 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
+
+        if(isstaripos)
+        {
+            new Vector3(0, 0, 0);
+            isstaripos = true;
+        }
+
+        //シーン遷移先の位置指定
+        transform.position = startingPosition.initialValue;
 
         if (text != null)
         {
