@@ -1009,7 +1009,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryUI: {fileID: 1264344052}
-  inventoryData: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+  inventoryData: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
   inventoryButton: {fileID: 282399010}
   inventoryMenuButton: {fileID: 382755421}
   obj: {fileID: 640422651}
@@ -2288,7 +2288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35fe5dfbd4e581447a52d91c75decbeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Inventory: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+  Inventory: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
 --- !u!4 &1673023007
 Transform:
   m_ObjectHideFlags: 0
@@ -2730,11 +2730,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4167366891096087456, guid: ca4e62c4e6858ea41b674f59719afada, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.007998977
+      value: 0.0003606087
       objectReference: {fileID: 0}
     - target: {fileID: 4167366891096087456, guid: ca4e62c4e6858ea41b674f59719afada, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.000045776367
+      value: -0.00036060836
       objectReference: {fileID: 0}
     - target: {fileID: 6280881448376260368, guid: ca4e62c4e6858ea41b674f59719afada, type: 3}
       propertyPath: m_AnchorMax.x
@@ -2764,6 +2764,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -4.9983
       objectReference: {fileID: 0}
+    - target: {fileID: 6585139528874480658, guid: ca4e62c4e6858ea41b674f59719afada, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
     - target: {fileID: 6734234644718266510, guid: ca4e62c4e6858ea41b674f59719afada, type: 3}
       propertyPath: m_Name
       value: Panel
@@ -2847,11 +2851,15 @@ PrefabInstance:
     - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: inventory
       value: 
-      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+      objectReference: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
     - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: itemDisplay
       value: 
       objectReference: {fileID: 1816012434}
+    - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
+      propertyPath: startingPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
     - target: {fileID: 6186427244352246080, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: m_Name
       value: player2_1

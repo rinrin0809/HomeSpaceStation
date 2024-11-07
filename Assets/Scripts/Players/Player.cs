@@ -51,7 +51,7 @@ public class Player : MonoBehaviour
 
     private Item itemData;
 
-    bool isstaripos = false;
+    //bool isstaripos = false;
 
     // 仮インベントリ
     [SerializeField]
@@ -91,24 +91,39 @@ public class Player : MonoBehaviour
     //シーン遷移する判定に当たった時のフラグ
     private bool ChangeSceneFlg = false;
 
+    // プレイヤーの位置と向きを保存するための変数
+    [SerializeField]
+    private VectorValue playerStorage;  
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
 
-        if(isstaripos)
-        {
-            new Vector3(0, 0, 0);
-            isstaripos = true;
-        }
+        //if(isstaripos)
+        //{
+        //    new Vector3(0, 0, 0);
+        //    isstaripos = true;
+        //}
 
         //シーン遷移先の位置指定
         if (startingPosition != null)
         {
+            transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
+            playerStorage.playerRotation = transform.rotation; // プレイヤーの向きを保存
+        }
+
+        // プレイヤーの位置を設定
+        if (startingPosition != null)
+        {
             transform.position = startingPosition.initialValue;
         }
-      
+
+        // プレイヤーの向きを設定
+        if (playerStorage != null)
+        {
+            transform.rotation = playerStorage.playerRotation;  // 保存された向きを適用
+        }
 
         if (text != null)
         {
@@ -288,6 +303,15 @@ public class Player : MonoBehaviour
             {
                 stamina += staminaSpeed * Time.fixedDeltaTime;
             }
+        }
+    }
+
+    //プレイヤーの向き調整
+    public void SavePlayerRotation()
+    {
+        if (playerStorage != null)
+        {
+            playerStorage.playerRotation = transform.rotation;  // プレイヤーの向きを保存
         }
     }
 
