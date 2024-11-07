@@ -9,11 +9,13 @@ public class LoadManager : MonoBehaviour
     public static LoadManager Instance;
 
     [SerializeField] public GameObject GameObj;
+
     private int SideNum = 0;
     private bool SideFlg = false;
-    [SerializeField] private InventryData Inventory;
-    [SerializeField] public string NextSceneName = "";
 
+    [SerializeField] private InventryData Inventory;
+
+    [SerializeField] public string NextSceneName = "";
     public void SetSideNum(int Num)
     {
         SideNum = Num;
@@ -46,29 +48,32 @@ public class LoadManager : MonoBehaviour
         return LengthNum;
     }
 
+    //NewGameボタンが押された時のフラグ
     public bool NewGamePushFlg = false;
+
     void Start()
     {
+        //初期化
         Instance = this;
         NewGamePushFlg = false;
     }
 
+    // セーブデータを読み込み、プレイヤーのデータを復元する
     public void LoadPlayerData1()
     {
         LoadData("/PlayerData1.json");
-        Debug.Log("PlayerData1");
     }
 
+    // セーブデータを読み込み、プレイヤーのデータを復元する
     public void LoadPlayerData2()
     {
         LoadData("/PlayerData2.json");
-        Debug.Log("PlayerData2");
     }
 
+    // セーブデータを読み込み、プレイヤーのデータを復元する
     public void LoadPlayerData3()
     {
         LoadData("/PlayerData3.json");
-        Debug.Log("PlayerData3");
     }
 
     public void LoadData(string Name)
@@ -77,17 +82,21 @@ public class LoadManager : MonoBehaviour
 
         string JsonPath = LoadPath(Name);
 
+        // ファイルが存在する場合、読み込みと位置の復元
         if (File.Exists(JsonPath))
         {
             string Json = File.ReadAllText(JsonPath);
             SaveData data = JsonUtility.FromJson<SaveData>(Json);
 
+            // 読み込んだデータをプレイヤーの位置に反映
             Vector3 position = new Vector3(data.PosX, data.PosY, data.PosZ);
             GameObj.transform.position = position;
             Inventory.SetInventoryItems(data.InventoryItems);
+            NextSceneName = data.SceneName;
         }
     }
 
+    //タイトルからゲームシーンに遷移した際のロード
     public void TitleToGameLoadData()
     {
         if (SideFlg)
@@ -105,6 +114,7 @@ public class LoadManager : MonoBehaviour
                     break;
             }
         }
+
         else
         {
             switch (LengthNum)
@@ -122,48 +132,34 @@ public class LoadManager : MonoBehaviour
         }
     }
 
-    public void LoadSavedScene()
-    {
-        // シーン遷移の前にセーブデータをロードしておく
-        TitleToGameLoadData();
-
-        // シーンを非同期でロードする
-        StartCoroutine(LoadSceneCoroutine());
-    }
-
-    private IEnumerator LoadSceneCoroutine()
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(NextSceneName);
-
-        // シーンがロードされるまで待機
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        TitleToGameLoadData();
-    }
-
+    //NewGameボタンが押された時
     public void NewGameButtonPush()
     {
         NewGamePushFlg = true;
-        Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
+        Debug.Log("NewGamePushFlg" + NewGamePushFlg);
     }
 
+    //LoadGameボタンが押された時
     public void LoadGameButtonPush()
     {
         NewGamePushFlg = false;
-        Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
+        Debug.Log("NewGamePushFlg" + NewGamePushFlg);
     }
 
+    //パスの取得
     public string LoadPath(string Name)
     {
+        // デスクトップのパスを取得
         string DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
+
         string FolderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
+
         string JsonPath = FolderPath + Name;
+
         return JsonPath;
     }
 
+    // SideNum に応じたファイルパス取得
     public string GetFilePathBySideNum(int sideNum)
     {
         switch (sideNum)
@@ -179,6 +175,7 @@ public class LoadManager : MonoBehaviour
         }
     }
 
+    // LengthNum に応じたファイルパス取得
     public string GetFilePathByLengthNum(int lengthNum)
     {
         switch (lengthNum)

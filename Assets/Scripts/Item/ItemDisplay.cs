@@ -21,7 +21,7 @@ public class ItemDisplay : MonoBehaviour
         if (itemData != null)
         {
             sp.sprite = itemData.ItemSprite;
-            //Debug.Log("アイテムの画像が設定されました");
+            Debug.Log("アイテムの画像が設定されました");
         }
 
         player = FindObjectOfType<Player>();

@@ -42,8 +42,6 @@ public class LoadSelectIcon : MonoBehaviour
         {
             //移動処理
             RectTransformIns.position = IconMoveIns.Move(SideFlg, RectTransformIns.position);
-            int LengthNum = IconMoveIns.GetLengthNum();
-            LoadManager.Instance.SetLengthNum(LengthNum);
             //押された時の処理
             OnClick();
 
@@ -69,8 +67,6 @@ public class LoadSelectIcon : MonoBehaviour
                 {
                     Buttons[SideNum].onClick.Invoke(); // ボタンのクリックイベントを呼び出す
                 }
-                LoadManager.Instance.SetSideNum(SideNum);
-                LoadManager.Instance.SetSideFlg(SideFlg);
             }
 
             else
@@ -84,8 +80,6 @@ public class LoadSelectIcon : MonoBehaviour
                     IconMoveIns.ResetNum();
                     Buttons[LengthNum].onClick.Invoke(); // ボタンのクリックイベントを呼び出す
                 }
-                LoadManager.Instance.SetLengthNum(LengthNum);
-                LoadManager.Instance.SetSideFlg(SideFlg);
             }
         }
     }
