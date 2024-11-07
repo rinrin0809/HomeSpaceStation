@@ -11,8 +11,6 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ChangeSceneName("Title","Over");
-
-        Debug.Log(LoadManager.Instance.NextSceneName);
     }
 
     //NameƒV[ƒ“‚Ö‘JˆÚ
