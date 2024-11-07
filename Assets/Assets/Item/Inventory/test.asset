@@ -15,11 +15,11 @@ MonoBehaviour:
   inventoryItems:
   - item: {fileID: 11400000, guid: 50babfa995851c34ebdb2a0a2c998ab2, type: 2}
     ItemFlg: 1
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 029d9038dc3498a46a91feb329f9eb4e, type: 2}
+    ItemFlg: 1
+  - item: {fileID: 11400000, guid: 029d9038dc3498a46a91feb329f9eb4e, type: 2}
     ItemFlg: 0
-  - item: {fileID: 0}
-    ItemFlg: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 50babfa995851c34ebdb2a0a2c998ab2, type: 2}
     ItemFlg: 0
   - item: {fileID: 0}
     ItemFlg: 0

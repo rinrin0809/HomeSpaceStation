@@ -14,9 +14,9 @@ public class FadeOutSceneLoader : MonoBehaviour
         StartCoroutine(FadeOutAndNewGameOrTitle(Name));
     }
 
-    public void LoadGameCallCoroutine(string Name)
+    public void LoadGameCallCoroutine()
     {
-        StartCoroutine(FadeOutAndLoadScene(Name));
+        StartCoroutine(FadeOutAndLoadScene());
     }
 
     // フェードアウトアニメーション処理
@@ -47,7 +47,7 @@ public class FadeOutSceneLoader : MonoBehaviour
     }
 
     // プレイヤーデータのロードとシーン遷移処理
-    public IEnumerator FadeOutAndLoadScene(string Name)
+    public IEnumerator FadeOutAndLoadScene()
     {
         string filePath = "";
 
@@ -63,7 +63,7 @@ public class FadeOutSceneLoader : MonoBehaviour
         if (File.Exists(filePath))
         {
             yield return StartCoroutine(FadeOut());
-            SceneManager.LoadScene(Name);
+            SceneManager.LoadScene(LoadManager.Instance.NextSceneName);
         }
     }
 }

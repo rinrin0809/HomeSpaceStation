@@ -42,6 +42,8 @@ public class TitleOverLoadIcon : MonoBehaviour
         {
             //ˆÚ“®ˆ—
             RectTransformIns.position = IconMoveIns.Move(SideFlg, RectTransformIns.position);
+            int LengthNum = IconMoveIns.GetLengthNum(); 
+            LoadManager.Instance.SetLengthNum(LengthNum);
             //‰Ÿ‚³‚ê‚½‚Ìˆ—
             OnClick();
             //Debug.Log("LoadIconMove");

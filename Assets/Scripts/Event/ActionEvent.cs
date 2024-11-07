@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using static TalkManager;
 
 public class ActionEvent : MonoBehaviour
 {
@@ -12,6 +14,13 @@ public class ActionEvent : MonoBehaviour
     [SerializeField]
     private Canvas canvas; // canvas 参照
     float scale = 0.5f;
+
+    //public TextMeshProUGUI text;
+    public TextMeshProUGUI text;
+
+    string conversationText;
+
+    private TalkManager talkManager;
 
     // Start is called before the first frame update
     void Start()
@@ -48,6 +57,13 @@ public class ActionEvent : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             exclamationMarkClone.SetActive(true);
+            // 会話データのインデックスを取得して会話内容表示
+            //conversationText = TalkManager.Instance.GetTalk(0);
+            //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 0);
+            TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Greeting);
+            //text.text = conversationText;
+            //Debug.Log(conversationText);
+            //text.text = conversationText;
             Debug.Log("！マーク表示");
         }
     }
@@ -58,6 +74,11 @@ public class ActionEvent : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             exclamationMarkClone.SetActive(false);
+            //conversationText = TalkManager.Instance.GetTalk(1);
+            //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 1);
+            TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Warning);
+            //Debug.Log(conversationText);
+            //text.text = conversationText;
             Debug.Log("！マーク非表示");
         }
     }
