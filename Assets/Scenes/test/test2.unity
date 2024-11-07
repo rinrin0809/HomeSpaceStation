@@ -868,6 +868,8 @@ MonoBehaviour:
   offset: {x: 0, y: 1.5, z: 0}
   canvas: {fileID: 1652164037}
   text: {fileID: 2016348527}
+  taklEventIndex: 0
+  actionEventIndex: 0
   talknum: 0
   listnum: 1
   testFlag: 0
@@ -1680,7 +1682,9 @@ MonoBehaviour:
   offset: {x: 0, y: 1.5, z: 0}
   canvas: {fileID: 1652164037}
   text: {fileID: 2016348527}
-  talknum: 0
+  taklEventIndex: 1
+  actionEventIndex: 0
+  talknum: 1
   listnum: 0
   testFlag: 0
 --- !u!1 &623466103
@@ -2605,7 +2609,7 @@ PrefabInstance:
       objectReference: {fileID: 344035604}
     - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: itemList.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6186427244352246080, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: m_Name
@@ -2853,9 +2857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1636f0c7be5383428fbc43706dfb614, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TestactionTalkList:
-  - {fileID: 11400000, guid: af86dc7f0346b2340b23b3e2bb48f626, type: 2}
-  - {fileID: 11400000, guid: 448cb6251a9765a489d3d1b5c22eb12b, type: 2}
+  talklist: {fileID: 11400000, guid: 46127fe6d9d31264b9fadf0b1d9075d4, type: 2}
 --- !u!1 &1758416622
 GameObject:
   m_ObjectHideFlags: 0

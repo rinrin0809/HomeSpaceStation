@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a81378f129e9344b7d7e5019627121, type: 3}
   m_Name: test1
   m_EditorClassIdentifier: 
+  listName: "\u53D7\u4ED8"
   action: 0
   Conversations:
   - 0
