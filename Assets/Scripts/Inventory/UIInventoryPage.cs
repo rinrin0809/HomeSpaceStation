@@ -129,7 +129,7 @@ public class UIInventoryPage : MonoBehaviour
         {
             if (Num > 0)
             {
-                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
                 {
                     if (time < 0.0f)
                     {
@@ -139,14 +139,37 @@ public class UIInventoryPage : MonoBehaviour
                 }
             }
 
-            else if (Num < listUIItems.Count - 1)
+            else if (Num == 0)
             {
-                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                if (Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.W))
+                {
+                    time = MAX_TIME;
+
+                    // Find the first non-null item in inventory and set it to Num
+                    for (int i = 0; i < inventory.GetInventoryItems().Count; i++)
+                    {
+                        if (inventory.GetInventoryItems()[i].item != null)
+                        {
+                            Num = i;
+                        }
+                    }
+                }
+            }
+
+            if (Num < listUIItems.Count - 1)
+            {
+                if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
                 {
                     if (time < 0.0f)
                     {
                         time = MAX_TIME;
                         Num += 1;
+
+                        // Check if the selected item is null
+                        if (inventory.GetInventoryItems()[Num].item == null)
+                        {
+                            Num = 0; // Reset Num if the item at the current index is null
+                        }
                     }
                 }
             }
@@ -161,14 +184,7 @@ public class UIInventoryPage : MonoBehaviour
                 UpdateItemColors();
             }
         }
-
-        //for(int i =0;i<listUIItems.Count;i++)
-        //{
-        //    UIInventoryItem item = listUIItems[i];
-        //    Debug.Log("item:" + item);
-        //}
-
-        ShowName = inventory.GetInventoryItems()[Num].item.Name;
+        UpdateDescription(ShowName, inventory.GetInventoryItems()[Num].item.Descripton);
         Debug.Log("ShowName " + ShowName);
     }
 
