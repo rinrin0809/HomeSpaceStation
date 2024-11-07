@@ -104,7 +104,11 @@ public class Player : MonoBehaviour
         }
 
         //シーン遷移先の位置指定
-        transform.position = startingPosition.initialValue;
+        if (startingPosition != null)
+        {
+            transform.position = startingPosition.initialValue;
+        }
+      
 
         if (text != null)
         {

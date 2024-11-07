@@ -1,23 +1,23 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-using System;
+//using System.Collections;
+//using System.Collections.Generic;
+//using UnityEngine;
+//using System;
 
-[CreateAssetMenu]
-public class EventTalkData : ScriptableObject
-{
-    [System.Serializable]
-    public class DialogueLine
-    {
-        // 会話内容
-        [field: SerializeField]
-        [field: TextArea]
-        public string Conversation { get; set; }
-    }
+//[CreateAssetMenu]
+//public class EventTalkData : ScriptableObject
+//{
+//    [System.Serializable]
+//    public class DialogueLine
+//    {
+//        // 会話内容
+//        [field: SerializeField]
+//        [field: TextArea]
+//        public string Conversation { get; set; }
+//    }
 
-    public DialogueLine[] dialogueLines;
+//    public DialogueLine[] dialogueLines;
 
-    public DialogueLine[] dialogueLinesYES;
-    public DialogueLine[] dialogueLinesNO;
+//    public DialogueLine[] dialogueLinesYES;
+//    public DialogueLine[] dialogueLinesNO;
 
-}
+//}

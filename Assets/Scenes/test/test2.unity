@@ -868,6 +868,9 @@ MonoBehaviour:
   offset: {x: 0, y: 1.5, z: 0}
   canvas: {fileID: 1652164037}
   text: {fileID: 2016348527}
+  talknum: 0
+  listnum: 1
+  testFlag: 0
 --- !u!61 &200455729
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1677,6 +1680,9 @@ MonoBehaviour:
   offset: {x: 0, y: 1.5, z: 0}
   canvas: {fileID: 1652164037}
   text: {fileID: 2016348527}
+  talknum: 0
+  listnum: 0
+  testFlag: 0
 --- !u!1 &623466103
 GameObject:
   m_ObjectHideFlags: 0
@@ -2800,6 +2806,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1701143609}
   - component: {fileID: 1701143608}
+  - component: {fileID: 1701143610}
   m_Layer: 0
   m_Name: testTalk
   m_TagString: Untagged
@@ -2814,55 +2821,11 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1701143607}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 161c9d624592f1947b24afcd3472d9db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 2016348527}
-  labeledConversationLists:
-  - label: 0
-    conversations:
-    - entryLabel: 0
-      content: '!!!!!!!!!!!!'
-    - entryLabel: 1
-      content: ???????????????
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-  - label: 1
-    conversations:
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-  - label: 1
-    conversations:
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
-    - entryLabel: 0
-      content: 
 --- !u!4 &1701143609
 Transform:
   m_ObjectHideFlags: 0
@@ -2878,6 +2841,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1701143610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701143607}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1636f0c7be5383428fbc43706dfb614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TestactionTalkList:
+  - {fileID: 11400000, guid: af86dc7f0346b2340b23b3e2bb48f626, type: 2}
+  - {fileID: 11400000, guid: 448cb6251a9765a489d3d1b5c22eb12b, type: 2}
 --- !u!1 &1758416622
 GameObject:
   m_ObjectHideFlags: 0
@@ -3250,8 +3228,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: New Text
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 753e659b7c909df45870b3bb0cbb7056, type: 2}
+  m_sharedMaterial: {fileID: 2775898730848198525, guid: 753e659b7c909df45870b3bb0cbb7056, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
