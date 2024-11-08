@@ -191,19 +191,42 @@ public class Player : MonoBehaviour
     void Update()
     {
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
-        if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
+        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
         {
-            //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
-            //スタミナ最小値より大きい時かつスタミナが0になっていない時
-            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
-                stamina >= minStamina && !zeroStaminaFlg)
+            if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
             {
-                AnimMove(dashAnimSpeed);
+                //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+                //スタミナ最小値より大きい時かつスタミナが0になっていない時
+                if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+                    stamina >= minStamina && !zeroStaminaFlg)
+                {
+                    AnimMove(dashAnimSpeed);
+                }
+
+                else
+                {
+                    AnimMove(animSpeed);
+                }
             }
 
-            else
+        }
+
+        else
+        {
+            if (!ChangeSceneFlg)
             {
-                AnimMove(animSpeed);
+                //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+                //スタミナ最小値より大きい時かつスタミナが0になっていない時
+                if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+                    stamina >= minStamina && !zeroStaminaFlg)
+                {
+                    AnimMove(dashAnimSpeed);
+                }
+
+                else
+                {
+                    AnimMove(animSpeed);
+                }
             }
         }
 
@@ -427,7 +450,7 @@ public class Player : MonoBehaviour
             //シーン遷移する判定に当たった時のフラグをtrue
             ChangeSceneFlg = true;
             //フェードアウト後にシーン遷移
-            fadeOutSceneLoader.NewGameCallCoroutine("Title");
+            fadeOutSceneLoader.NewGameCallCoroutine("Game2");
             //fadeOutSceneLoader.FadeOutAndChangeRoomScene("Title");
 
         }

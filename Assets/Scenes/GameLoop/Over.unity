@@ -144,7 +144,7 @@ Transform:
   m_GameObject: {fileID: 477814}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100, y: 0, z: 0}
+  m_LocalPosition: {x: -100, y: -20, z: 0}
   m_LocalScale: {x: 1.20295, y: 1.20295, z: 1.20295}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -535,7 +535,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -20}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &307674100
@@ -614,7 +614,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7634936489924690996, guid: b90d0e05c86c4cf49884e8fa547847df, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7c152d95f676e54499613c8fd17acccd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -951,7 +951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -46.3}
+  m_AnchoredPosition: {x: 0, y: -80}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &592313611
@@ -1030,8 +1030,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 7c24a9f785a49594ab4605908f8036ed, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1091,6 +1091,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
+      propertyPath: inventory
+      value: 
+      objectReference: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
+    - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
+      propertyPath: playerStorage
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
+    - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
+      propertyPath: startingPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
     - target: {fileID: 6186427244352246080, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: m_Name
       value: player2_1
@@ -1614,14 +1626,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.4415095, g: 0.0024990742, b: 0.004947055, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 176160234808770350, guid: d572cc364bb059c4ba434dbbd21aafb5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2180,7 +2192,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Title
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2471,7 +2483,7 @@ PrefabInstance:
     - target: {fileID: 3928563222921547207, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: Inventory
       value: 
-      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+      objectReference: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
     - target: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: GameObj
       value: 
@@ -2479,7 +2491,7 @@ PrefabInstance:
     - target: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: Inventory
       value: 
-      objectReference: {fileID: 11400000, guid: bf2db6dac431a38478a12ededbdf300f, type: 2}
+      objectReference: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
     - target: {fileID: 8234563833354275691, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
       propertyPath: m_Name
       value: SaveDataManager
@@ -2889,7 +2901,7 @@ Transform:
   m_GameObject: {fileID: 1752675352}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -100, y: -47, z: 0}
+  m_LocalPosition: {x: -100, y: -80, z: 0}
   m_LocalScale: {x: 1.20295, y: 1.20295, z: 1.20295}
   m_ConstrainProportionsScale: 0
   m_Children: []

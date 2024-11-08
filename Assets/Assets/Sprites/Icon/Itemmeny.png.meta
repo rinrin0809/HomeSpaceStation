@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 8ba525d4fcca3ab4ba8621459f6e460e
+guid: 4b6521306a9070b44abd64479dbe6313
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -522367714226421056
-    second: Save_0
+      213: -6121373110511450646
+    second: Itemmeny_0
   - first:
-      213: 6585832013086971214
-    second: Save_1
+      213: -4251236335101996871
+    second: Itemmeny_1
   - first:
-      213: -2341359323266322967
-    second: Save_2
+      213: -7310757444687333411
+    second: Itemmeny_2
   - first:
-      213: -4789897373589555142
-    second: Save_3
+      213: -4856480499730371444
+    second: Itemmeny_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Save_0
+      name: Itemmeny_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 53
-        height: 89
+        width: 45
+        height: 85
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,62 +123,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0c2c66fd45d20c8f0800000000000000
-      internalID: -522367714226421056
+      spriteID: ae54652a6938c0ba0800000000000000
+      internalID: -6121373110511450646
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Save_1
+      name: Itemmeny_1
       rect:
         serializedVersion: 2
-        x: 54
+        x: 48
         y: 0
-        width: 50
-        height: 90
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: e45d17a9253956b50800000000000000
-      internalID: 6585832013086971214
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Save_2
-      rect:
-        serializedVersion: 2
-        x: 107
-        y: 0
-        width: 54
-        height: 87
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9ed692db912d18fd0800000000000000
-      internalID: -2341359323266322967
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Save_3
-      rect:
-        serializedVersion: 2
-        x: 161
-        y: 1
         width: 49
-        height: 88
+        height: 81
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,8 +144,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a383e9877bdd68db0800000000000000
-      internalID: -4789897373589555142
+      spriteID: 9b01306c3139005c0800000000000000
+      internalID: -4251236335101996871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Itemmeny_2
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 3
+        width: 50
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd77e5e86d8fa8a90800000000000000
+      internalID: -7310757444687333411
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Itemmeny_3
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 0
+        width: 48
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8ca5fa57b05a9cb0800000000000000
+      internalID: -4856480499730371444
       vertices: []
       indices: 
       edges: []
@@ -203,10 +203,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Save_0: -522367714226421056
-      Save_1: 6585832013086971214
-      Save_2: -2341359323266322967
-      Save_3: -4789897373589555142
+      Itemmeny_0: -6121373110511450646
+      Itemmeny_1: -4251236335101996871
+      Itemmeny_2: -7310757444687333411
+      Itemmeny_3: -4856480499730371444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
