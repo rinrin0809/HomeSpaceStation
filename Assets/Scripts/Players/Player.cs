@@ -8,6 +8,7 @@ using System.Linq;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance;
     // 移動
     public float moveSpeed; // 移動速度
     private float dashMoveSpeed = 450.0f;
@@ -38,6 +39,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float animSpeed = 1.0f;
     private float dashAnimSpeed = 2.0f;
+    [SerializeField]
     private bool isMoving;
 
     // テキスト
@@ -77,6 +79,10 @@ public class Player : MonoBehaviour
         return inventory;
     }
 
+    public bool GetisMoving()
+    {
+        return isMoving;
+    }
 
     [SerializeField]
     private ItemDisplay itemDisplay;
@@ -97,6 +103,8 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Instance = this;
+
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
 
