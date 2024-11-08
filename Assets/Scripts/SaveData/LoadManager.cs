@@ -13,7 +13,7 @@ public class LoadManager : MonoBehaviour
     private bool SideFlg = false;
     [SerializeField] private InventryData Inventory;
     [SerializeField] public string NextSceneName = "";
-
+    public SaveData data;
     public void SetSideNum(int Num)
     {
         SideNum = Num;
@@ -80,7 +80,7 @@ public class LoadManager : MonoBehaviour
         if (File.Exists(JsonPath))
         {
             string Json = File.ReadAllText(JsonPath);
-            SaveData data = JsonUtility.FromJson<SaveData>(Json);
+            data = JsonUtility.FromJson<SaveData>(Json);
 
             Vector3 position = new Vector3(data.PosX, data.PosY, data.PosZ);
             GameObj.transform.position = position;

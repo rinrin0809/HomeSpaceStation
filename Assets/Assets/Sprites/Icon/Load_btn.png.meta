@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: b90d0e05c86c4cf49884e8fa547847df
+guid: b12af87f153a8ae4caacfb3800fa6486
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7634936489924690996
-    second: LoadGame_0
+      213: -6765173268175055119
+    second: Load_btn_0
+  - first:
+      213: -2137919040449872500
+    second: Load_btn_1
+  - first:
+      213: 7228981367841890550
+    second: Load_btn_2
+  - first:
+      213: 5201177187302532364
+    second: Load_btn_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -100,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LoadGame_0
+      name: Load_btn_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 450
-        height: 102
+        y: 11
+        width: 48
+        height: 84
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +123,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 43401a4394eb4f960800000000000000
-      internalID: 7634936489924690996
+      spriteID: 1f6157a81c64d12a0800000000000000
+      internalID: -6765173268175055119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Load_btn_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 2
+        width: 49
+        height: 93
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8df07bb5f59452e0800000000000000
+      internalID: -2137919040449872500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Load_btn_2
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 3
+        width: 48
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f02226d040825460800000000000000
+      internalID: 7228981367841890550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Load_btn_3
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 1
+        width: 45
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c056807481b4e2840800000000000000
+      internalID: 5201177187302532364
       vertices: []
       indices: 
       edges: []
@@ -123,7 +195,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -131,7 +203,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LoadGame_0: 7634936489924690996
+      Load_btn_0: -6765173268175055119
+      Load_btn_1: -2137919040449872500
+      Load_btn_2: 7228981367841890550
+      Load_btn_3: 5201177187302532364
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
