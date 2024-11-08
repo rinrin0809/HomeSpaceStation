@@ -13,12 +13,12 @@ public class SceneTransitions : MonoBehaviour
     {
         if (collision.CompareTag("Player")&&!collision.isTrigger)
         {
-            // プレイヤーの向きを保存
-            Player player = collision.GetComponent<Player>();
-            if (player != null)
-            {
-                player.SavePlayerRotation(); // プレイヤーの向きを保存
-            }
+            //// プレイヤーの向きを保存
+            //Player player = collision.GetComponent<Player>();
+            //if (player != null)
+            //{
+            //    player.SavePlayerRotation(); // プレイヤーの向きを保存
+            //}
 
             // プレイヤーの位置を保存し、シーンを切り替え
             playerStorage.initialValue = playerPosition;

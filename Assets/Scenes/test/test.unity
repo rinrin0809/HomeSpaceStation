@@ -135,6 +135,14 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 653215744}
+    - target: {fileID: 1720734719071528900, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+      propertyPath: playerStorage
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
+    - target: {fileID: 1720734719071528900, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+      propertyPath: startingPosition
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
     - target: {fileID: 6186427244352246080, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_Name
       value: TestPlayer
@@ -685,13 +693,17 @@ PrefabInstance:
       propertyPath: grid
       value: 
       objectReference: {fileID: 1015933480}
+    - target: {fileID: 5338991592500946058, guid: 9ee767182bb7dbe4aadd26749e661bfd, type: 3}
+      propertyPath: sceneSpawnData
+      value: 
+      objectReference: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
     - target: {fileID: 5633440143711639364, guid: 9ee767182bb7dbe4aadd26749e661bfd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.47
+      value: -16.68
       objectReference: {fileID: 0}
     - target: {fileID: 5633440143711639364, guid: 9ee767182bb7dbe4aadd26749e661bfd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.49
+      value: 24.62
       objectReference: {fileID: 0}
     - target: {fileID: 5633440143711639364, guid: 9ee767182bb7dbe4aadd26749e661bfd, type: 3}
       propertyPath: m_LocalPosition.z
