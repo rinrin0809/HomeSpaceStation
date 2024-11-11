@@ -14,6 +14,8 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private InventryData Inventory;
     [SerializeField] public string NextSceneName = "";
     public SaveData data;
+    private bool LoadPlayerFlg = false;
+
     public void SetSideNum(int Num)
     {
         SideNum = Num;
@@ -47,6 +49,17 @@ public class LoadManager : MonoBehaviour
     }
 
     public bool NewGamePushFlg = false;
+
+    public void SetLoadPlayerFlg(bool Flg)
+    {
+        LoadPlayerFlg = Flg;
+    }
+
+    public bool GetLoadPlayerFlg()
+    {
+        return LoadPlayerFlg;
+    }
+
     void Start()
     {
         Instance = this;
@@ -147,12 +160,14 @@ public class LoadManager : MonoBehaviour
     public void NewGameButtonPush()
     {
         NewGamePushFlg = true;
+        LoadPlayerFlg = false;
         Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
     }
 
     public void LoadGameButtonPush()
     {
         NewGamePushFlg = false;
+        LoadPlayerFlg = true;
         Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
     }
 

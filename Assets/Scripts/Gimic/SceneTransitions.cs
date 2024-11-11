@@ -13,6 +13,7 @@ public class SceneTransitions : MonoBehaviour
     {
         if (collision.CompareTag("Player")&&!collision.isTrigger)
         {
+            LoadManager.Instance.SetLoadPlayerFlg(false);
             //// ƒvƒŒƒCƒ„[‚ÌŒü‚«‚ğ•Û‘¶
             //Player player = collision.GetComponent<Player>();
             //if (player != null)
