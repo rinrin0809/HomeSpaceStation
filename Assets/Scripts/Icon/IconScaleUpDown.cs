@@ -23,6 +23,9 @@ public class IconScaleUpDown : MonoBehaviour
     private bool UpDownFlg = false;
     //変化速度
     private float ScaleSpeed = 0.5f;
+
+    Color RED_COLOR = new Color(1f, 0f, 0f, 1f);
+    Color DEFAULT_COLOR = new Color(1f, 1f, 1f, 1f);
     // Start is called before the first frame update
     void Start()
     {
@@ -56,6 +59,21 @@ public class IconScaleUpDown : MonoBehaviour
         {
             RectTransform rectTransform = Buttons[i].gameObject.GetComponent<RectTransform>();
             rectTransform.localScale = (i == Num) ? ScaleXY : DEFAULT_SCALE_XY;
+        }
+
+        //色を変える
+        ColorChange(Buttons, Num);
+    }
+
+    //色を変える
+    public void ColorChange(Button[] Buttons, int Num)
+    {
+        if (Num < 0 || Num >= Buttons.Length) return; // 範囲外チェック
+
+        for (int i = 0; i < Buttons.Length; i++)
+        {
+            Image image = Buttons[i].gameObject.GetComponent<Image>();
+            image.color = (i == Num) ? RED_COLOR : DEFAULT_COLOR;
         }
     }
 
