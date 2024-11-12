@@ -6041,6 +6041,10 @@ PrefabInstance:
       propertyPath: Inventory
       value: 
       objectReference: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
+    - target: {fileID: 7215875811954985572, guid: 49b6a07f5efe4a0418b05616976bbbb6, type: 3}
+      propertyPath: LoadPlayerFlg
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8234563833354275691, guid: 49b6a07f5efe4a0418b05616976bbbb6, type: 3}
       propertyPath: m_Name
       value: SaveDataManager
@@ -10746,11 +10750,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.35
+      value: -1.15
       objectReference: {fileID: 0}
     - target: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.03
+      value: -1.97
       objectReference: {fileID: 0}
     - target: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_LocalPosition.z

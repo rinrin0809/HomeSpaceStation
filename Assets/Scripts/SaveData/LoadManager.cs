@@ -14,6 +14,7 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private InventryData Inventory;
     [SerializeField] public string NextSceneName = "";
     public SaveData data;
+    [SerializeField]
     private bool LoadPlayerFlg = false;
 
     public void SetSideNum(int Num)

@@ -137,11 +137,10 @@ public class Player : MonoBehaviour
         {
             if (LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
             {
-                if(LoadManager.Instance.GetLoadPlayerFlg())
+                 //NewGameボタンが押された時のフラグ
+                if(LoadManager.Instance.NewGamePushFlg || LoadManager.Instance.GetLoadPlayerFlg())
                 {
-                    //NewGameボタンが押された時のフラグ
-                    if (LoadManager.Instance.NewGamePushFlg)
-                    {
+                   
                         //初期位置の設定
                         Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
                         Transform objectTransform = gameObject.GetComponent<Transform>();
@@ -172,7 +171,7 @@ public class Player : MonoBehaviour
                 }
             }
         }
-    }
+    
 
     // Update is called once per frame
     void Update()
