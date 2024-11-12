@@ -51,16 +51,6 @@ public class LoadManager : MonoBehaviour
 
     public bool NewGamePushFlg = false;
 
-    public void SetLoadPlayerFlg(bool Flg)
-    {
-        LoadPlayerFlg = Flg;
-    }
-
-    public bool GetLoadPlayerFlg()
-    {
-        return LoadPlayerFlg;
-    }
-
     void Start()
     {
         Instance = this;
@@ -161,14 +151,12 @@ public class LoadManager : MonoBehaviour
     public void NewGameButtonPush()
     {
         NewGamePushFlg = true;
-        LoadPlayerFlg = false;
         Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
     }
 
     public void LoadGameButtonPush()
     {
         NewGamePushFlg = false;
-        LoadPlayerFlg = true;
         Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
     }
 

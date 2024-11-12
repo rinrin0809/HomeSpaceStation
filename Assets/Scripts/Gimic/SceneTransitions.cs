@@ -11,9 +11,11 @@ public class SceneTransitions : MonoBehaviour
     //シーン遷移
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player")&&!collision.isTrigger)
+        if (collision.CompareTag("Player") && !collision.isTrigger)
         {
-            LoadManager.Instance.SetLoadPlayerFlg(false);
+            //名前が悪いけどstarPositionに移動するフラグをtrue
+            LoadManager.Instance.NewGamePushFlg = true;
+            Debug.Log(LoadManager.Instance.NewGamePushFlg);
             //// プレイヤーの向きを保存
             //Player player = collision.GetComponent<Player>();
             //if (player != null)
