@@ -3273,6 +3273,23 @@ Transform:
   m_Children: []
   m_Father: {fileID: 685814137}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &920566278 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8234563833354275691, guid: 49b6a07f5efe4a0418b05616976bbbb6, type: 3}
+  m_PrefabInstance: {fileID: 1627529033}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &920566288
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 920566278}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 543ed9942c4a89146b2c6e699af4b3f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &923604828
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3295,7 +3312,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 221008582486592043, guid: 94f793c56d01bae4dabf6be8cc176e33, type: 3}
       propertyPath: sceneToLoad
-      value: Roby2
+      value: Lobby2
       objectReference: {fileID: 0}
     - target: {fileID: 221008582486592043, guid: 94f793c56d01bae4dabf6be8cc176e33, type: 3}
       propertyPath: playerStorage
@@ -6047,7 +6064,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8234563833354275691, guid: 49b6a07f5efe4a0418b05616976bbbb6, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 920566288}
   m_SourcePrefab: {fileID: 100100000, guid: 49b6a07f5efe4a0418b05616976bbbb6, type: 3}
 --- !u!1 &1652071043
 GameObject:
@@ -10458,11 +10478,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1.15
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -1.97
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_LocalPosition.z
