@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"PosX":0.0,"PosY":3.7599966526031496,"PosZ":0.0,"SceneName":"Lobby","InventoryItems":[{"item":{"instanceID":0},"ItemFlg":true},{"item":{"instanceID":0},"ItemFlg":true},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false}]}
+=======
+{"PosX":-1.35,"PosY":-2.03,"PosZ":0.0,"SceneName":"Lobby","InventoryItems":[{"item":{"instanceID":0},"ItemFlg":true},{"item":{"instanceID":0},"ItemFlg":true},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false},{"item":{"instanceID":0},"ItemFlg":false}]}
+>>>>>>> b28187164440bca43dd12e259eea70826c7a1b35
