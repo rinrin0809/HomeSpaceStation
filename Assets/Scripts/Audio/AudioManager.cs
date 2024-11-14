@@ -8,7 +8,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioSource seAudioSource;
 
     [SerializeField] List<BGMSoundData> bgmSoundDatas;
-    [SerializeField] List<SESoundData> seSoundDatas;
+    [SerializeField] private List<SESoundData> seSoundDatas;
 
     public float masterVolume = 1;
     public float bgmMasterVolume = 1;
@@ -71,8 +71,9 @@ public class BGMSoundData
     public float volume = 1;
 }
 
+[CreateAssetMenu]
 [System.Serializable]
-public class SESoundData
+public class SESoundData : ScriptableObject
 {
     public enum SE
     {
