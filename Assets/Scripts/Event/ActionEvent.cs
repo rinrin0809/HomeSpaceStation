@@ -24,8 +24,10 @@ public class ActionEvent : MonoBehaviour
 
     // 会話全体のリストのインデックス
     // どの会話のリストを選んでるかをこの変数を変えることで変更できる
+    [Header("会話リストを選ぶインデックス")]
     public int taklEventIndex = 0;
     // 会話ごとのリストのインデックス
+    [Header("会話リストの中のインデックス")]
     public int actionEventIndex = 0;
 
     public int talknum=0;

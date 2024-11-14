@@ -165,7 +165,11 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
+        if (BGMSoundData.BGM.Title != null)
+        {
+            AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
+        }
+       
 
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
