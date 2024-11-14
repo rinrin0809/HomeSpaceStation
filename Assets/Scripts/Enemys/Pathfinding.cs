@@ -15,6 +15,8 @@ public class Pathfinding : MonoBehaviour
     private float timeSinceLastUpdate = 0f;
     private bool pathFound = false;
 
+    [SerializeField]
+    private float Rafieldofvisionnge = 10f;
     private void Awake()
     {
         grid = GetComponent<Grid>();
@@ -49,7 +51,7 @@ public class Pathfinding : MonoBehaviour
         float distanceToPlayer = Vector2.Distance(StartPosition.position, TargetPosition.position);
 
         // 一定の距離内でかつ、経路更新の間隔が経過した場合に経路を再計算
-        if (distanceToPlayer < 10f && timeSinceLastUpdate >= pathUpdateInterval) // 10fは適宜調整
+        if (distanceToPlayer < Rafieldofvisionnge && timeSinceLastUpdate >= pathUpdateInterval) // 10fは適宜調整
         {
             timeSinceLastUpdate = 0f; // タイマーをリセット
             FindPath(StartPosition.position, TargetPosition.position);

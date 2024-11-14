@@ -16,7 +16,8 @@ public class Grid : MonoBehaviour
 
     float Nodediameter;
     int gridsizeX, gridsizeY;
-   
+
+    private int Half = 2;
     private void Start()
     {
         Nodediameter = Noderadios * 2;
@@ -27,8 +28,8 @@ public class Grid : MonoBehaviour
 
     public Node NodeFromWorldPosition(Vector2 a_WorldPosition)
     {
-        float xpoint = ((a_WorldPosition.x + Gridworldsize.x / 2) / Gridworldsize.x);
-        float ypoint = ((a_WorldPosition.y + Gridworldsize.y / 2) / Gridworldsize.y);
+        float xpoint = ((a_WorldPosition.x + Gridworldsize.x /Half) / Gridworldsize.x);
+        float ypoint = ((a_WorldPosition.y + Gridworldsize.y / Half) / Gridworldsize.y);
 
         xpoint = Mathf.Clamp01(xpoint);
         ypoint = Mathf.Clamp01(ypoint);
@@ -87,7 +88,7 @@ public class Grid : MonoBehaviour
     private void CreateGrid()
     {
         grid = new Node[gridsizeX, gridsizeY];
-        Vector2 BottomLeft = (Vector2)transform.position - Vector2.right * Gridworldsize.x / 2 - Vector2.up * Gridworldsize.y / 2;
+        Vector2 BottomLeft = (Vector2)transform.position - Vector2.right * Gridworldsize.x / Half - Vector2.up * Gridworldsize.y / Half;
 
         for (int y = 0; y < gridsizeY; y++)
         {

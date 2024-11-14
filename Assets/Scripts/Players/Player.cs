@@ -99,7 +99,7 @@ public class Player : MonoBehaviour
 
     // プレイヤーの位置と向きを保存するための変数
     [SerializeField]
-    private VectorValue playerStorage;  
+    private VectorValue playerStorage;
     // Start is called before the first frame update
     void Start()
     {
@@ -112,20 +112,6 @@ public class Player : MonoBehaviour
         //{
         //    new Vector3(0, 0, 0);
         //    isstaripos = true;
-        //}
-
-        //シーン遷移先の位置指定
-        if (startingPosition != null)
-        {
-            transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
-            Debug.Log("positio" + transform.position);
-           // playerStorage.playerRotation = transform.rotation; // プレイヤーの向きを保存
-        }
-
-        // プレイヤーの位置を設定
-        //if (startingPosition != null)
-        //{
-        //    transform.position = startingPosition.initialValue;
         //}
 
         // プレイヤーの向きを設定
@@ -147,54 +133,33 @@ public class Player : MonoBehaviour
         }
 
         fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
-        //if (LoadManager.Instance != null)
-        //{
-        //    if(LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
-        //    {
-        //        //NewGameボタンが押された時のフラグ
-        //        if (LoadManager.Instance.NewGamePushFlg)
-        //        {
-        //            //初期位置の設定
-        //            Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
-        //            Transform objectTransform = gameObject.GetComponent<Transform>();
-        //            objectTransform.position = targetPosition;
-        //            Debug.Log(objectTransform.position);
-        //        }
 
-        //        //LoadGameボタンが押された時のフラグ
-        //        else
-        //        {
-        //            // セーブデータを読み込み、プレイヤーの位置を設定
-        //            LoadManager.Instance.TitleToGameLoadData();
-        //            Debug.Log("Load");
-        //        }
-        //    }
-        //}
+                    Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
+                    Transform objectTransform = gameObject.GetComponent<Transform>();
+        if (LoadManager.Instance != null)
+        {
+            if (LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
+            {
+                Debug.Log("LoadManager.Instance.NewGamePushFlg" + LoadManager.Instance.NewGamePushFlg);
 
-        //else
-        //{
-        //    if (LoadManager.Instance != null)
-        //    {
-        //        //NewGameボタンが押された時のフラグ
-        //        if (LoadManager.Instance.NewGamePushFlg)
-        //        {
-        //            //初期位置の設定
-        //            Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
-        //            Transform objectTransform = gameObject.GetComponent<Transform>();
-        //            objectTransform.position = targetPosition;
-        //            Debug.Log(objectTransform.position);
-        //        }
+                //NewGameボタンが押された時のフラグ
+                if (LoadManager.Instance.NewGamePushFlg)
+                {
+                    //初期位置の設定
+                    objectTransform.position = targetPosition;
+                    transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
+                    Debug.Log(objectTransform.position);
+                }
 
-        //        //LoadGameボタンが押された時のフラグ
-        //        else
-        //        {
-        //            // セーブデータを読み込み、プレイヤーの位置を設定
-
-        //            LoadManager.Instance.TitleToGameLoadData();
-        //            Debug.Log("Load");
-        //        }
-        //    }
-        //}
+                //LoadGameボタンが押された時のフラグ
+                else
+                {
+                    // セーブデータを読み込み、プレイヤーの位置を設定
+                    LoadManager.Instance.TitleToGameLoadData();
+                    Debug.Log("Load");
+                }
+            }
+        }
     }
 
     // Update is called once per frame

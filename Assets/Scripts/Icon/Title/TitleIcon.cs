@@ -11,6 +11,8 @@ public class TitleIconMove : MonoBehaviour
     RectTransform RectTransformIns;
     //アイコン（矢印）の移動
     IconMove IconMoveIns;
+    //アイコンの大きさ
+    IconScaleUpDown IconScaleIns;
     //タイトルシーンの管理クラス
     private TitleSceneManager SceneManagerIns;
     //ボタンの配列
@@ -22,6 +24,8 @@ public class TitleIconMove : MonoBehaviour
         RectTransformIns = gameObject.GetComponent<RectTransform>();
         //アイコンの移動取得
         IconMoveIns = gameObject.GetComponent<IconMove>();
+        //アイコンの大きさ取得
+        IconScaleIns = gameObject.GetComponent<IconScaleUpDown>();
         // SceneManager の取得
         if (SceneManagerIns == null)
         {
@@ -41,6 +45,19 @@ public class TitleIconMove : MonoBehaviour
             RectTransformIns.position = IconMoveIns.Move(SideFlg, RectTransformIns.position);
             //押された時の処理
             OnClick();
+            if (SideFlg)
+            {
+                int SideNum = IconMoveIns.GetSideNum();
+                IconScaleIns.ScaleRaise(Buttons, SideNum);
+            }
+
+            else
+            {
+                //Debug.Log("Title Enter key pressed Load");
+
+                int LengthNum = IconMoveIns.GetLengthNum();
+                IconScaleIns.ScaleRaise(Buttons, LengthNum);
+            }
             //Debug.Log("TitleIconMove");
         }
     }
@@ -59,6 +76,7 @@ public class TitleIconMove : MonoBehaviour
                 if (Buttons[SideNum] != null)
                 {
                     Buttons[SideNum].onClick.Invoke(); // ボタンのクリックイベントを呼び出す
+                    IconScaleIns.ScaleRaise(Buttons, SideNum);
                 }
             }
 
