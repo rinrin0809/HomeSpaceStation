@@ -15,3 +15,6 @@ MonoBehaviour:
   TalkEventList:
   - {fileID: 11400000, guid: af86dc7f0346b2340b23b3e2bb48f626, type: 2}
   - {fileID: 11400000, guid: 448cb6251a9765a489d3d1b5c22eb12b, type: 2}
+  - {fileID: 11400000, guid: 194fe95bda8fa314a8f6fd575a3a57ee, type: 2}
+  List:
+  - {fileID: 11400000, guid: dccfbfc60f22d2142a15bc0d9d5ed6a6, type: 2}

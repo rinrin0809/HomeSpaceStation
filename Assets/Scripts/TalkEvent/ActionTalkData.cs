@@ -1,24 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
+using static ActionTalkData.testList;
 
-//[CreateAssetMenu]
-//public class ActionTalkData : ScriptableObject
-//{
-//    // 会話内容
-//    //[field: SerializeField]
-//    //[field: TextArea]
-//    public string Conversation { get; set; }
-//    public enum Action
-//    {
-//        Reception,    // 例: 受付での会話
-//        EnemyAppears, // 例: エネミーが出現した時の会話
-//        // 必要に応じて他のシーンも追加
-//    }
+[CreateAssetMenu]
+public class ActionTalkData : ScriptableObject
+{
+    [field: SerializeField]
+    private List<testList> test;
 
-//    public Action action;
+    //public string CharacterName;
+    
+    [System.Serializable]
+    public struct testList
+    {
+        [SerializeField]
+        public CharacterName character;
 
-//    [SerializeField, TextArea]
-//    public List<string> Conversations; // 複数の会話内容を格納
-//}
+
+        [SerializeField, TextArea]
+        public string Conversations;
+
+        public enum CharacterName
+        {
+            player,
+            enemy,
+        }
+
+    }
+
+}
+
+public class testList : MonoBehaviour
+{
+    public static testList instance { get; private set; }
+    public string PlayerName;
+    //private ActionTalkData action;
+
+    TextMeshProUGUI text;
+    private void Awake()
+    {
+        instance = this;
+    }
+
+    public void Update()
+    {
+        
+    }
+
+    public void test(ActionTalkData.testList.CharacterName charaname)
+    {
+        if (CharacterName.player!=null)
+        {
+            Debug.Log("プレイヤーが選択されました");
+        }
+    }
+
+    public void GetCharacterName(string name)
+    {
+        PlayerName = name;
+    }
+
+
+}
+
 

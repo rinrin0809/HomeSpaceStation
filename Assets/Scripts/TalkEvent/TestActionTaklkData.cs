@@ -6,8 +6,6 @@ using UnityEngine;
 public class TestActionTalkData : ScriptableObject
 {
     // 会話内容
-    //[field: SerializeField]
-    //[field: TextArea]
     public string Conversation { get; set; }
     public string listName;
 
@@ -20,9 +18,18 @@ public class TestActionTalkData : ScriptableObject
 
     public Action action;
 
+    //public enum CharacterName
+    //{
+    //    // 仮
+    //    Player, // 主人公
+    //    Enemy, // 敵
+    //    Okami, // 女将
+    //    // 必要に応じて追加
+    //}
+
+
     [SerializeField, TextArea]
     public List<string> Conversations; // 複数の会話内容を格納
 
- 
 }
 

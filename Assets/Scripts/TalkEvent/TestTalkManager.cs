@@ -7,7 +7,10 @@ public class TestTalkManager : MonoBehaviour
     // 会話データリスト
     [SerializeField]
     public TalkManagerList talklist;
+
     public static TestTalkManager Instance { get; private set; }
+
+    //testList test;
 
     private void Awake()
     {
@@ -30,6 +33,7 @@ public class TestTalkManager : MonoBehaviour
             var actiontalk = talklist.TalkEventList[actionIndex];
             if(talkIndex>=0&&talkIndex< actiontalk.Conversations.Count)
             {
+                //testList.instance.test(ActionTalkData.testList.CharacterName.player);
                 return actiontalk.Conversations[talkIndex];
             }
            
@@ -40,8 +44,10 @@ public class TestTalkManager : MonoBehaviour
 
 [System.Serializable]
 [CreateAssetMenu]
-public class TalkManagerList :ScriptableObject
+public class TalkManagerList : ScriptableObject
 {
-    public List<TestActionTalkData> TalkEventList=new List<TestActionTalkData>();
+    //public List<TestActionTalkData> TalkEventList=new List<TestActionTalkData>();
+    public List<TestActionTalkData> TalkEventList;
+    public List<ActionTalkData> List;
     
 }

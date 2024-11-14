@@ -32,12 +32,13 @@ public class ActionEvent : MonoBehaviour
     public int listnum = 0;
     public bool testFlag = false;
 
+    string characterName;
+
     // Start is called before the first frame update
     void Start()
     {
         // Canvasの取得
         canvas = FindObjectOfType<Canvas>();
-     
 
         // Canvasの存在確認
         if (canvas != null)
@@ -51,8 +52,6 @@ public class ActionEvent : MonoBehaviour
             Debug.Log("canvasがない");
         }
 
-      
-        
     }
 
     // Update is called once per frame
@@ -70,16 +69,6 @@ public class ActionEvent : MonoBehaviour
         }
     }
 
-    //public void test()
-    //{
-    //    talkListindex += 1;
-
-    //    Debug.Log("呼び出し:" + talkListindex);
-
-    //    talkListnum++;
-    //}
-
-
     // 当たり判定
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -95,10 +84,6 @@ public class ActionEvent : MonoBehaviour
             testFlag = true;
             Debug.Log("flag" + testFlag);
 
-            //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 0);
-            //TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Greeting);
-            //text.text = conversationText;
-
         }
     }
 
@@ -113,15 +98,18 @@ public class ActionEvent : MonoBehaviour
             {
                 exclamationMarkClone.SetActive(false);
             }
-           
-            //conversationText = TestTalkManager.Instance.GetTalk(talkListnum,listnum);
-            //TalkManager.Instance.StartConversation(ActionTalkData.Action.Reception, 1);
-            //TalkManager.Instance.StartConversation(TalkManager.ConversationLabel.Reception, TalkManager.ConversationEntryLabel.Warning);
-            text.text = "";
+
+           text.text = "";
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
             testFlag = false;
             Debug.Log("flag" + testFlag);
         }
     }
+}
+
+[System.Serializable]
+public class ConversEntry
+{
+    public TestActionTalkData CharacterName;
 }
