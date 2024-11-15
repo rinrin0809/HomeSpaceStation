@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using static TalkManager;
 
 public class ActionEvent : MonoBehaviour
 {
@@ -20,7 +19,7 @@ public class ActionEvent : MonoBehaviour
 
     string conversationText;
 
-    private TalkManager talkManager;
+   // private TalkManager talkManager;
 
     // 会話全体のリストのインデックス
     // どの会話のリストを選んでるかをこの変数を変えることで変更できる

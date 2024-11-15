@@ -8,6 +8,7 @@ public class TestTalkManager : MonoBehaviour
     [SerializeField]
     public TalkManagerList talklist;
 
+
     public static TestTalkManager Instance { get; private set; }
 
     //testList test;
@@ -46,8 +47,11 @@ public class TestTalkManager : MonoBehaviour
 [CreateAssetMenu]
 public class TalkManagerList : ScriptableObject
 {
+
     //public List<TestActionTalkData> TalkEventList=new List<TestActionTalkData>();
+
     public List<TestActionTalkData> TalkEventList;
-    public List<ActionTalkData> List;
+    
+    //public List<ActionTalkData> List;
     
 }

@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class BGMplay : MonoBehaviour
 {
+    [SerializeField] private SESoundData.SE selectedSe;
+    
     // Start is called before the first frame update
     void Start()
     {
-        AudioManager.Instance.PlaySE(SESoundData.SE.EnemyDamage);
+        AudioManager.Instance.PlaySE(selectedSe);
         
     }
 
