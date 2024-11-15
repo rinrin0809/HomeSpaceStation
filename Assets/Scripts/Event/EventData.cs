@@ -14,12 +14,25 @@ public class EventData : ScriptableObject
     public int Size = 8;
 
     //イベントの名前
-    private string[] EventNames;
+    private string[] EventNames =
+{
+    "車故障",
+    "黒い影を発見",
+    "黒い影が逃げる",
+    "旅館を見つけた時の会話",
+    "女将との会話",
+    "主人公・友人・女将との会話",
+    "お面の初登場",
+    "主人公と主人公の彼女が中庭で分かれる"
+};
 
     public void Initialize()
     {
         Events = new Event[Size];
+        //イベントの番号設定
         SetEventNumber();
+        //イベントの名前設定
+        SetEventName(EventNames);
     }
 
     // 特定のイベントフラグを設定
@@ -47,12 +60,71 @@ public class EventData : ScriptableObject
         return false;
     }
 
+    //イベントが終了した時のフラグを設定
+    public void SetEventActionFlg(string Name, bool Flg)
+    {
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EventName == Name)
+            {
+                Events[i].EndEventFlg = Flg;
+            }
+        }
+    }
+
+    //イベントが終了した時のフラグを取得
+    public bool GetNameEventActionFlg(string Name)
+    {
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EventName == Name)
+            {
+                return Events[i].EndEventFlg;
+            }
+        }
+        return false;
+    }
+
+    //イベント中に何かカメラの動作とかが必要な時のフラグを設定
+    public void SetEventEndEventFlg(string Name, bool Flg)
+    {
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EventName == Name)
+            {
+                Events[i].EventActionFlg = Flg;
+            }
+        }
+    }
+
+    //イベント中に何かカメラの動作とかが必要な時のフラグを取得
+    public bool GetNameEndEventFlg(string Name)
+    {
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EventName == Name)
+            {
+                return Events[i].EventActionFlg;
+            }
+        }
+        return false;
+    }
+
     //イベントの番号設定
     public void SetEventNumber()
     {
         for (int i = 0; i < Size; i++)
         {
             Events[i].EventNumber = i;
+        }
+    }
+
+    //イベントの名前設定
+    public void SetEventName(string[] EventNames)
+    {
+        for (int i = 0; i < Size; i++)
+        {
+            Events[i].EventName = EventNames[i];
         }
     }
 }

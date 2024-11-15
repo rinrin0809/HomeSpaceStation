@@ -9,16 +9,14 @@ public class TransparentWall : MonoBehaviour
     [SerializeField]
     public GameObject Wall;
 
-    // Start is called before the first frame update
     void Start()
     {
         Event.Initialize();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!Event.GetNameEventFlg("çïÇ¢âeÇî≠å©"))
+        if (!Event.GetNameEventFlg("é‘åÃè·"))
         {
             Wall.SetActive(false);
         }
@@ -27,10 +25,5 @@ public class TransparentWall : MonoBehaviour
         {
             Wall.SetActive(true);
         }
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        
     }
 }
