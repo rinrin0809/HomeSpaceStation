@@ -6,8 +6,18 @@ public class CameraManager : MonoBehaviour
 {
     // 追従する対象を決める変数
     public GameObject target;
+
+    //お面
+    public GameObject Enemy;
+
     // カメラの初期位置を記憶するための変数
-    Vector3 pos;             
+    Vector3 pos;
+
+    // カメラ移動速度
+    public float cameraSpeed = 0.5f;
+
+    //イベント
+    public EventData Event;
 
     // Start is called before the first frame update
     void Start()
@@ -19,20 +29,70 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Event.GetNameEventActionFlg("お面の初登場"))
+        {
+            //お面の初登場時のカメラ演出
+            LockOnEnemyCamera();
+        }
+
+        else if(!Event.GetNameEventActionFlg("お面の初登場") && !Event.GetNameEventFlg("お面の初登場"))
+        {
+            //プレイヤーにカメラを追従する
+            LockOnPlayerCamera();
+        }
+
+        //for (int i = 0; i < Event.GetEvents().Length; i++)
+        //{
+        //    //イベントの時は追従しない
+        //    if(!Event.GetEvents()[i].EventFlag)
+        //    {
+               
+        //    }
+        //}
+    }
+
+    //プレイヤーにカメラを追従する
+    public void LockOnPlayerCamera()
+    {
         // cameraPosという変数を作り、追従する対象の位置を入れる
-        Vector3 cameraPos = target.transform.position; 
+        Vector3 cameraPos = target.transform.position;
 
         // もし対象の縦位置が0より大きい場合
         if (target.transform.position.y > 0)
         {
             // カメラの縦位置に対象の位置を入れる
-            cameraPos.y = target.transform.position.y;   
+            cameraPos.y = target.transform.position.y;
         }
 
         // カメラの奥行きの位置に-10を入れる
-        cameraPos.z = -10; 
+        cameraPos.z = -10;
         //　カメラの位置に変数cameraPosの位置を入れる
-        Camera.main.gameObject.transform.position = cameraPos; 
+        Camera.main.gameObject.transform.position = cameraPos;
+    }
 
+    //お面の初登場時のカメラ演出
+    private void LockOnEnemyCamera()
+    {
+        // 現在のカメラ位置
+        Vector3 currentCameraPos = Camera.main.gameObject.transform.position;
+
+        // 目標位置（お面の少し前方）
+        Vector3 targetCameraPos = Enemy.transform.position;
+        targetCameraPos.z = -10; // カメラの奥行きを設定
+
+        // カメラを徐々にお面に移動させる
+        Vector3 smoothedPosition = Vector3.Lerp(currentCameraPos, targetCameraPos, Time.deltaTime * cameraSpeed);
+
+        ////会話の番号でcurrentCameraPosとtargetCameraPosを反転にする
+        //if()
+        //{
+
+        //}
+
+        //else
+        //{
+
+        //}
+        Camera.main.gameObject.transform.position = smoothedPosition;
     }
 }

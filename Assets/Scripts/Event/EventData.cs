@@ -26,6 +26,11 @@ public class EventData : ScriptableObject
     "主人公と主人公の彼女が中庭で分かれる"
 };
 
+    public Event[] GetEvents()
+    {
+        return Events;
+    }
+
     public void Initialize()
     {
         Events = new Event[Size];
@@ -61,7 +66,7 @@ public class EventData : ScriptableObject
     }
 
     //イベントが終了した時のフラグを設定
-    public void SetEventActionFlg(string Name, bool Flg)
+    public void SetEndEventFlg(string Name, bool Flg)
     {
         for (int i = 0; i < Events.Length; i++)
         {
@@ -73,7 +78,7 @@ public class EventData : ScriptableObject
     }
 
     //イベントが終了した時のフラグを取得
-    public bool GetNameEventActionFlg(string Name)
+    public bool GetNameEndEventActionFlg(string Name)
     {
         for (int i = 0; i < Events.Length; i++)
         {
@@ -98,7 +103,7 @@ public class EventData : ScriptableObject
     }
 
     //イベント中に何かカメラの動作とかが必要な時のフラグを取得
-    public bool GetNameEndEventFlg(string Name)
+    public bool GetNameEventActionFlg(string Name)
     {
         for (int i = 0; i < Events.Length; i++)
         {

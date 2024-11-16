@@ -431,7 +431,7 @@ public class Player : MonoBehaviour
             //シーン遷移する判定に当たった時のフラグをtrue
             ChangeSceneFlg = true;
             //フェードアウト後にシーン遷移
-            fadeOutSceneLoader.NewGameCallCoroutine("Game2");
+            fadeOutSceneLoader.NewGameCallCoroutine("Title");
             //fadeOutSceneLoader.FadeOutAndChangeRoomScene("Title");
 
         }

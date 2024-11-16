@@ -29,7 +29,7 @@ public class EventBlackShadowMove : MonoBehaviour
     //ˆÚ“®ˆ—
     private void Move()
     {
-        if(Event.GetNameEndEventFlg("•‚¢‰e‚ª“¦‚°‚é"))
+        if(Event.GetNameEventActionFlg("•‚¢‰e‚ª“¦‚°‚é"))
         {
             //x‚¾‚¯ŒÅ’è
             MovePos.x = GetTransform.position.x;

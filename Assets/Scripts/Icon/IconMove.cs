@@ -143,6 +143,34 @@ public class IconMove : MonoBehaviour
                 }
             }
         }
+
+        // LengthNum ‚ª 0 ‚Ìê‡‚ÉÅ‘å’l‚ğİ’è
+        if (LengthNum == 0)
+        {
+            if (Time < 0.0f)
+            {
+                if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W))
+                {
+                    Time = MAX_TIME;
+                    LengthNum = MaxLengthNum;
+                    // Debug.Log("LengthNum set to MaxLengthNum: " + LengthNum);
+                }
+            }
+        }
+
+        // LengthNum ‚ª MaxLengthNum ‚Ìê‡‚É 0 ‚ğİ’è
+        if (LengthNum == MaxLengthNum)
+        {
+            if (Time < 0.0f)
+            {
+                if (Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S))
+                {
+                    Time = MAX_TIME;
+                    LengthNum = 0;
+                    // Debug.Log("LengthNum set to 0");
+                }
+            }
+        }
     }
 
     public void ResetNum()
