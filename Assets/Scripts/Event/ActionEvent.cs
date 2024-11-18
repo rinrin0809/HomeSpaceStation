@@ -27,8 +27,9 @@ public class ActionEvent : MonoBehaviour
     // 会話ごとのリストのインデックス
     public int actionEventIndex = 0;
 
-    public int talknum=0;
-    public int listnum = 0;
+    //public int talknum=0;
+    //public int listnum = 0;
+
     public bool testFlag = false;
 
     string characterName;
