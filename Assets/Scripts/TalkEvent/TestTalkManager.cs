@@ -43,15 +43,3 @@ public class TestTalkManager : MonoBehaviour
     }
 }
 
-[System.Serializable]
-[CreateAssetMenu]
-public class TalkManagerList : ScriptableObject
-{
-
-    //public List<TestActionTalkData> TalkEventList=new List<TestActionTalkData>();
-
-    public List<TestActionTalkData> TalkEventList;
-    
-    //public List<ActionTalkData> List;
-    
-}
