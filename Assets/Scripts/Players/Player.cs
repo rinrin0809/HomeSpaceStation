@@ -9,6 +9,10 @@ using System.Linq;
 public class Player : MonoBehaviour
 {
     public static Player Instance;
+
+    //イベント
+    public EventData Event;
+
     // 移動
     public float moveSpeed; // 移動速度
     private float dashMoveSpeed = 450.0f;
@@ -100,6 +104,7 @@ public class Player : MonoBehaviour
     // プレイヤーの位置と向きを保存するための変数
     [SerializeField]
     private VectorValue playerStorage;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -133,9 +138,9 @@ public class Player : MonoBehaviour
         }
 
         fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
-
-                    Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
-                    Transform objectTransform = gameObject.GetComponent<Transform>();
+        Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
+        Transform objectTransform = gameObject.GetComponent<Transform>();
+        
         if (LoadManager.Instance != null)
         {
             if (LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
@@ -169,8 +174,9 @@ public class Player : MonoBehaviour
         //{
         //    AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
         //}
-       
 
+        //イベントが発生している時は処理をしない
+        if (Event.IsEvent()) return;
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
         {
@@ -269,6 +275,8 @@ public class Player : MonoBehaviour
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
     {
+        //イベントが発生している時は処理をしない
+        if (Event.IsEvent()) return;
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
 

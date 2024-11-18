@@ -132,6 +132,17 @@ public class EventData : ScriptableObject
             Events[i].EventName = EventNames[i];
         }
     }
+
+    //総当たりでイベントが発生しているかチェック
+    public bool IsEvent()
+    {
+        for(int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EventFlag) return true;
+        }
+
+        return false;
+    }
 }
 
 // イベントの構造体
