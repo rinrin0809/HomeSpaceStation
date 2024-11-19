@@ -7,7 +7,7 @@ public class TestTalkManager : MonoBehaviour
     // 会話データリスト
     [SerializeField]
     public TalkManagerList talklist;
-    public ActionEvent actionEvent;
+    //public ActionEvent actionEvent;
 
     public static TestTalkManager Instance { get; private set; }
 
