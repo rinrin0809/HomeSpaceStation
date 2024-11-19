@@ -14,7 +14,7 @@ public class IconOff : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Player.Instance.GetisMoving())
+        if(Player.Instance.GetisMoving() || MenuManager.Instance.GetOpenMenuFlg())
         {
             GameObj.SetActive(false);
         }

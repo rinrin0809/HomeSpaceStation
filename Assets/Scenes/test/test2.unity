@@ -2314,6 +2314,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7232f618765d40043a6dd0bf9ef42fd1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedSe: 0
 --- !u!4 &1201982370
 Transform:
   m_ObjectHideFlags: 0
@@ -2838,6 +2839,10 @@ PrefabInstance:
       propertyPath: text
       value: 
       objectReference: {fileID: 207276938}
+    - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
+      propertyPath: Event
+      value: 
+      objectReference: {fileID: 11400000, guid: 490020c95d5f2c64695564c2a3acf4ca, type: 2}
     - target: {fileID: 1720734719071528900, guid: 9f1a07f0c775a4e4db561e0fd9c84d4a, type: 3}
       propertyPath: inventory
       value: 

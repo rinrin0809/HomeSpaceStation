@@ -25,8 +25,8 @@ public class InventoryController : MonoBehaviour
     void Start()
     {
         PrepareUI();
-        inventoryButton.onClick.AddListener(OnClickButton);
-        inventoryMenuButton.onClick.AddListener(OnClickButton);
+        if(inventoryButton) inventoryButton.onClick.AddListener(OnClickButton);
+        if(inventoryMenuButton) inventoryMenuButton.onClick.AddListener(OnClickButton);
         inventoryUI.gameObject.SetActive(false);
     }
 
@@ -82,7 +82,7 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Backspace) && MenuManager.Instance.GetOpenItemMenuFlg())
         {
             Debug.Log("Closing only the Item Menu, keeping Main Menu active");
-            inventoryMenuButton.onClick.Invoke();  // Toggle item menu button if necessary
+            if (inventoryMenuButton) inventoryMenuButton.onClick.Invoke();  // Toggle item menu button if necessary
             MenuManager.Instance.BackToMenu();
         }
     }
