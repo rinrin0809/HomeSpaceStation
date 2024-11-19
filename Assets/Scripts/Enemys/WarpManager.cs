@@ -4,83 +4,121 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class WarpManager : MonoBehaviour
 {
+    //[SerializeField]
+    //private SceneSpawnData sceneSpawnData; // シーンごとのスポーンデータ
+    //[SerializeField]
+    //private MoveEnemy moveEnemy; // MoveEnemyの参照（敵オブジェクト）
+
+    //private void Awake()
+    //{
+    //    Debug.Log("Start method called in WarpManager.");
+    //    StartCoroutine(StartWarpSequenceWithDelay(2f)); // 2秒遅延後にワープシーケンスを開始
+    //}
+
+    //private IEnumerator StartWarpSequenceWithDelay(float delay)
+    //{
+    //    Debug.Log("Waiting for " + delay + " seconds before starting warp sequence.");
+    //    yield return new WaitForSeconds(delay); // 指定秒数待機
+    //    StartWarpSequence(); // 遅延後にワープシーケンスを開始
+    //}
+
+    //private void StartWarpSequence()
+    //{
+    //    string currentSceneName = SceneManager.GetActiveScene().name;
+    //    SceneSpawnData.SceneWarpData spawnData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
+
+    //    if (spawnData != null && spawnData.preWarpWaitTimes.Count > 0)
+    //    {
+    //        Debug.Log("Starting warp sequence with multiple delays.");
+    //        StartCoroutine(ExecuteWarpSequence(spawnData)); // ワープシーケンスコルーチン開始
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("No spawn data or wait times for scene: " + currentSceneName);
+    //    }
+    //}
+
+    //private IEnumerator ExecuteWarpSequence(SceneSpawnData.SceneWarpData spawnData)
+    //{
+    //    for (int i = 0; i < spawnData.preWarpWaitTimes.Count; i++)
+    //    {
+    //        float waitTime = spawnData.preWarpWaitTimes[i];
+    //        Debug.Log("Waiting for " + waitTime + " seconds before warp #" + (i + 1));
+    //        yield return new WaitForSeconds(waitTime);
+
+    //        // 敵をワープさせる
+    //        if (moveEnemy != null)
+    //        {
+    //            WarpEnemyToRandomPositionWithDelay(moveEnemy, waitTime); // 遅延を適用してワープ
+    //        }
+    //    }
+    //}
+
+    //public void WarpEnemyToRandomPosition(MoveEnemy enemy)
+    //{
+    //    string currentSceneName = SceneManager.GetActiveScene().name;
+    //    SceneSpawnData.SceneWarpData warpData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
+
+    //    if (warpData != null && warpData.warpPositions.Count > 0)
+    //    {
+    //        Vector2 randomPosition = warpData.warpPositions[Random.Range(0, warpData.warpPositions.Count)];
+    //        enemy.transform.position = randomPosition; // 敵の位置を更新
+    //        Debug.Log("Warped to position: " + randomPosition);
+    //    }
+    //    else
+    //    {
+    //        Debug.LogWarning("No spawn data found for scene: " + currentSceneName);
+    //    }
+    //}
+
+    //public void WarpEnemyToRandomPositionWithDelay(MoveEnemy enemy, float delay)
+    //{
+    //    StartCoroutine(WarpAfterDelay(enemy, delay));
+    //}
+
+    //private IEnumerator WarpAfterDelay(MoveEnemy enemy, float delay)
+    //{
+    //    yield return new WaitForSeconds(delay);
+    //    WarpEnemyToRandomPosition(enemy);
+    //}
+
     [SerializeField]
-    private SceneSpawnData sceneSpawnData; // シーンごとのスポーンデータ
-    [SerializeField]
-    private MoveEnemy moveEnemy; // MoveEnemyの参照（敵オブジェクト）
+    private MoveEnemy moveEnemy;
+    private Transform player;
 
     private void Awake()
     {
-        Debug.Log("Start method called in WarpManager.");
-        StartCoroutine(StartWarpSequenceWithDelay(2f)); // 2秒遅延後にワープシーケンスを開始
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    private IEnumerator StartWarpSequenceWithDelay(float delay)
+    private void OnDestroy()
     {
-        Debug.Log("Waiting for " + delay + " seconds before starting warp sequence.");
-        yield return new WaitForSeconds(delay); // 指定秒数待機
-        StartWarpSequence(); // 遅延後にワープシーケンスを開始
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void StartWarpSequence()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneSpawnData.SceneWarpData spawnData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
-
-        if (spawnData != null && spawnData.preWarpWaitTimes.Count > 0)
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
         {
-            Debug.Log("Starting warp sequence with multiple delays.");
-            StartCoroutine(ExecuteWarpSequence(spawnData)); // ワープシーケンスコルーチン開始
+            player = playerObject.transform;
         }
         else
         {
-            Debug.LogWarning("No spawn data or wait times for scene: " + currentSceneName);
+            Debug.LogError("Player not found in the new scene.");
+            return;
         }
-    }
 
-    private IEnumerator ExecuteWarpSequence(SceneSpawnData.SceneWarpData spawnData)
-    {
-        for (int i = 0; i < spawnData.preWarpWaitTimes.Count; i++)
+        // 敵をプレイヤーの近くにワープさせ、追跡を再開
+        if (moveEnemy != null)
         {
-            float waitTime = spawnData.preWarpWaitTimes[i];
-            Debug.Log("Waiting for " + waitTime + " seconds before warp #" + (i + 1));
-            yield return new WaitForSeconds(waitTime);
-
-            // 敵をワープさせる
-            if (moveEnemy != null)
-            {
-                WarpEnemyToRandomPositionWithDelay(moveEnemy, waitTime); // 遅延を適用してワープ
-            }
-        }
-    }
-
-    public void WarpEnemyToRandomPosition(MoveEnemy enemy)
-    {
-        string currentSceneName = SceneManager.GetActiveScene().name;
-        SceneSpawnData.SceneWarpData warpData = sceneSpawnData.sceneWarpDataList.Find(data => data.sceneName == currentSceneName);
-
-        if (warpData != null && warpData.warpPositions.Count > 0)
-        {
-            Vector2 randomPosition = warpData.warpPositions[Random.Range(0, warpData.warpPositions.Count)];
-            enemy.transform.position = randomPosition; // 敵の位置を更新
-            Debug.Log("Warped to position: " + randomPosition);
+            Vector2 newPosition = player.position; // プレイヤーの現在位置
+            moveEnemy.WarpToPosition(newPosition); // 敵をプレイヤーの位置にワープ
+            Debug.Log($"Enemy warped to new position near player: {newPosition}");
         }
         else
         {
-            Debug.LogWarning("No spawn data found for scene: " + currentSceneName);
+            Debug.LogError("MoveEnemy reference is missing in WarpManager.");
         }
     }
-
-    public void WarpEnemyToRandomPositionWithDelay(MoveEnemy enemy, float delay)
-    {
-        StartCoroutine(WarpAfterDelay(enemy, delay));
-    }
-
-    private IEnumerator WarpAfterDelay(MoveEnemy enemy, float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        WarpEnemyToRandomPosition(enemy);
-    }
-   
 }
-
