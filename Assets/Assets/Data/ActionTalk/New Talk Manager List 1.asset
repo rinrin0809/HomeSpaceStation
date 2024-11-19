@@ -12,4 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6723ab4b42a3b8447b420114381ee893, type: 3}
   m_Name: New Talk Manager List 1
   m_EditorClassIdentifier: 
-  TalkEventList: []
+  TalkEventList:
+  - {fileID: 11400000, guid: af86dc7f0346b2340b23b3e2bb48f626, type: 2}
+  - {fileID: 11400000, guid: 448cb6251a9765a489d3d1b5c22eb12b, type: 2}

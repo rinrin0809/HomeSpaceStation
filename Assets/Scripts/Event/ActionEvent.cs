@@ -28,7 +28,13 @@ public class ActionEvent : MonoBehaviour
     public int actionEventIndex = 0;
 
     //public int talknum=0;
-    //public int listnum = 0;
+    [SerializeField]
+    public  int listnum = 0;
+
+
+    // 会話が終了しているのかのフラグ
+    [SerializeField]
+    private bool finishtalk = false; 
 
     public bool testFlag = false;
 
@@ -58,14 +64,36 @@ public class ActionEvent : MonoBehaviour
     void Update()
     {
         exclamationMarkClone.transform.position = Camera.main.WorldToScreenPoint(ActionObject.transform.position + offset);
-        if (Input.GetKeyDown(KeyCode.Space)&&testFlag==true)
+        //if (Input.GetKeyDown(KeyCode.Space)&&testFlag==true)
+        //{
+        //    actionEventIndex += 1;
+        //    listnum= actionEventIndex;
+        //    conversationText = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex);
+        //    Debug.Log("index:" + taklEventIndex + actionEventIndex);
+        //    Debug.Log(conversationText);
+        //    text.text = conversationText;
+        //    Debug.Log("space押した");
+        //    Debug.Log("listnnum" + listnum);    
+        //}
+
+        // 会話を進める
+        if (Input.GetKeyDown(KeyCode.Space) && testFlag && !finishtalk)
         {
-            actionEventIndex += 1;
-            conversationText = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex);
-            Debug.Log("index:" + taklEventIndex + actionEventIndex);
-            Debug.Log(conversationText);
-            text.text = conversationText;
-            Debug.Log("space押した");
+            string nextConversation = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex + 1);
+
+            if (string.IsNullOrEmpty(nextConversation))
+            {
+                Debug.Log("会話終了");
+                finishtalk = true; // 会話終了フラグを立てる
+                text.text = "会話が終了しました";
+            }
+            else
+            {
+                actionEventIndex++;
+                conversationText = nextConversation;
+                Debug.Log("会話内容: " + conversationText);
+                text.text = conversationText;
+            }
         }
     }
 
@@ -74,8 +102,6 @@ public class ActionEvent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            
-
             exclamationMarkClone.SetActive(true);
             Debug.Log("！マーク表示");
             // 会話データのインデックスを取得して会話内容表示
@@ -83,7 +109,7 @@ public class ActionEvent : MonoBehaviour
             text.text = conversationText;
             testFlag = true;
             Debug.Log("flag" + testFlag);
-
+            UpdatefinishFlag();
         }
     }
 
@@ -98,12 +124,24 @@ public class ActionEvent : MonoBehaviour
             {
                 exclamationMarkClone.SetActive(false);
             }
-
-           text.text = "";
+            text.text = "";
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
             testFlag = false;
             Debug.Log("flag" + testFlag);
+            UpdatefinishFlag();
+        }
+    }
+
+
+    private void UpdatefinishFlag()
+    {
+        if (finishtalk)
+        {
+            actionEventIndex = 0;
+            text.text = "";
+            finishtalk = false;
+            Debug.Log("fisish: " + finishtalk+ "actionIndex: "+actionEventIndex);
         }
     }
 }
