@@ -10,8 +10,6 @@ TagManager:
   - 108RoomColl
   - 108RoomScene
   - Transparent Wall
-  - GameManager
-  - EnemyManager
   layers:
   - Default
   - TransparentFX

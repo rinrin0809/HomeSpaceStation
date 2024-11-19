@@ -5,7 +5,6 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "SceneSpawnData", menuName = "SpawnData/SceneSpawnData")]
 public class SceneSpawnData : ScriptableObject
 {
-   
     [System.Serializable]
     public class SceneWarpData
     {

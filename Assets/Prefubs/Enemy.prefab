@@ -13,8 +13,6 @@ GameObject:
   - component: {fileID: 3540936648155397215}
   - component: {fileID: -1040904906287625812}
   - component: {fileID: 5338991592500946058}
-  - component: {fileID: -842429245038989634}
-  - component: {fileID: 5665623757444945767}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -176,34 +174,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe8dfd35e68d5e46b9ad5641327e721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 6927678002758523353, guid: bf0c423bc9743b74e838f31a0f236e27, type: 3}
-  speed: 2
-  spawnProbability: 0.5
-  sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
-  pathfinding: {fileID: 0}
---- !u!114 &-842429245038989634
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7749985292251452890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f20fcfb1c6417bf4f8432a978797bc1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
-  moveEnemy: {fileID: 5338991592500946058}
---- !u!114 &5665623757444945767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7749985292251452890}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc38dae81d72ba64eae7046831e5fbfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  grid: {fileID: 0}
+  speed: 5

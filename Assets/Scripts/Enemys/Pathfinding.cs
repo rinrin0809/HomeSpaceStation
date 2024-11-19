@@ -9,14 +9,14 @@ public class Pathfinding : MonoBehaviour
     public Transform StartPosition;
     public Transform TargetPosition;
     //private bool pathFound = false;
-    [SerializeField]
     private MoveEnemy enemyMovement; // 敵の追従スクリプトを参照する変数
 
     private float pathUpdateInterval = 0.5f; // 経路更新の間隔
     private float timeSinceLastUpdate = 0f;
     private bool pathFound = false;
 
-    public float Rafieldofvisionnge = 10f;
+    [SerializeField]
+    private float Rafieldofvisionnge = 10f;
     private void Awake()
     {
         grid = GetComponent<Grid>();
@@ -28,43 +28,11 @@ public class Pathfinding : MonoBehaviour
     }
     private void Start()
     {
-        //// 手動で設定されていない場合、自動取得を試みる
-        //if (enemyMovement == null)
-        //{
-        //    enemyMovement = FindObjectOfType<MoveEnemy>();
-        //    if (enemyMovement == null)
-        //    {
-        //        Debug.LogError("MoveEnemy script not found in the scene. Please assign it in the inspector.");
-        //    }
-        //}
-
-        //// プレイヤーを動的に取得
-        //if (TargetPosition == null)
-        //{
-        //    GameObject playerObject = GameObject.FindWithTag("Player");
-        //    if (playerObject != null)
-        //    {
-        //        TargetPosition = playerObject.transform;
-        //    }
-        //}
-        //enemyMovement = FindObjectOfType<MoveEnemy>(); // 敵の追従スクリプトを取得
-        //if (enemyMovement == null)
-
-        // プレイヤーの位置を取得
-        GameObject playerObject = GameObject.FindWithTag("Player");
-        if (playerObject != null)
-        {
-            TargetPosition = playerObject.transform; // 新しいターゲットを設定
-        }
-        else
-        {
-            Debug.LogError("Player not found in the scene.");
-        }
-
-        // MoveEnemy の参照を自動で取得
+       
+        enemyMovement = FindObjectOfType<MoveEnemy>(); // 敵の追従スクリプトを取得
         if (enemyMovement == null)
         {
-            enemyMovement = FindObjectOfType<MoveEnemy>();
+           // Debug.LogError("EnemyFollowPath script not found in the scene.");
         }
     }
     private void Update()
