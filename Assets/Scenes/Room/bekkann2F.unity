@@ -513,11 +513,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6710211975063067097, guid: e63e2b54bc9f5794ea95aa7532f53337, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00024982737
+      value: 0.000053201184
       objectReference: {fileID: 0}
     - target: {fileID: 6710211975063067097, guid: e63e2b54bc9f5794ea95aa7532f53337, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.00000333786
+      value: -0.000068254885
       objectReference: {fileID: 0}
     - target: {fileID: 7769251824786303006, guid: e63e2b54bc9f5794ea95aa7532f53337, type: 3}
       propertyPath: m_AnchorMax.y
@@ -2078,17 +2078,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f46cff9ea3534d444a386c8ef4950faf, type: 3}
---- !u!114 &724353041 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9163604396379423001, guid: f46cff9ea3534d444a386c8ef4950faf, type: 3}
-  m_PrefabInstance: {fileID: 724353040}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &869372380
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5408,10 +5397,6 @@ PrefabInstance:
       propertyPath: Event
       value: 
       objectReference: {fileID: 11400000, guid: 490020c95d5f2c64695564c2a3acf4ca, type: 2}
-    - target: {fileID: 1720734719071528900, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 724353041}
     - target: {fileID: 1720734719071528900, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: inventory
       value: 
