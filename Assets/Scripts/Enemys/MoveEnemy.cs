@@ -13,8 +13,48 @@ public class MoveEnemy : MonoBehaviour
     [SerializeField]
     private SceneSpawnData sceneSpawnData; // シーンごとのスポーンデータ
 
+    [SerializeField]
+    private Pathfinding pathfinding;
+
+    private Transform player; // プレイヤーのTransform参照
+    //private void Awake()
+    //{
+    //    DontDestroyOnLoad(gameObject); // シーン間でこのオブジェクトを保持
+    //}
+
+    //public bool IsChasingPlayer
+    //{
+    //    get
+    //    {
+    //        if (player == null)
+    //        {
+    //            GameObject playerObject = GameObject.FindWithTag("Player");
+    //            if (playerObject != null)
+    //            {
+    //                player = playerObject.transform;
+    //            }
+    //            else
+    //            {
+    //                return false; // プレイヤーが見つからない場合は追跡不可
+    //            }
+    //        }
+    //        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+    //        return distanceToPlayer <= pathfinding.Rafieldofvisionnge; // 一定距離内ならtrue
+    //    }
+    //}
+
     private void Start()
     {
+        GameObject playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            player = playerObject.transform;
+            pathfinding.TargetPosition = player; // プレイヤーを追跡対象に設定
+        }
+        else
+        {
+            Debug.LogWarning("Player not found in the scene.");
+        }
         InitializePath();
     }
 
@@ -23,7 +63,7 @@ public class MoveEnemy : MonoBehaviour
         FollowPath();
     }
 
-    private void InitializePath()
+    public void InitializePath()
     {
         if (grid.FinalPath != null && grid.FinalPath.Count > 0)
         {
@@ -53,5 +93,11 @@ public class MoveEnemy : MonoBehaviour
     {
         path = newPath;
         targetIndex = 0; // パスの最初から再スタート
+    }
+
+    public void WarpToPosition(Vector2 newPosition)
+    {
+        transform.position = newPosition;
+        InitializePath(); // 新しい位置から経路を再計算
     }
 }
