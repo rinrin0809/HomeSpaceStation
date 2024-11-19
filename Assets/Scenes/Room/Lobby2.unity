@@ -898,6 +898,7 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1720734719071528900, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+<<<<<<< HEAD
       propertyPath: Event
       value: 
       objectReference: {fileID: 11400000, guid: 490020c95d5f2c64695564c2a3acf4ca, type: 2}
@@ -906,6 +907,8 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1149453806}
     - target: {fileID: 1720734719071528900, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+=======
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
       propertyPath: playerStorage
       value: 
       objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
@@ -919,7 +922,11 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
     - target: {fileID: 6186427244352246080, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_Name
+<<<<<<< HEAD
       value: TestPlayer
+=======
+      value: TestPlayer (1)
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
       objectReference: {fileID: 0}
     - target: {fileID: 6308343864004658930, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
       propertyPath: m_SortingOrder
@@ -3514,6 +3521,16 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &799022313 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8217548313982860384, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+  m_PrefabInstance: {fileID: 1401392253}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &804253410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3469444701671388318, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+  m_PrefabInstance: {fileID: 1401392253}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &977748918
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3737,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
 --- !u!1001 &1034208409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3958,6 +3976,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 --- !u!1 &1183647848
 GameObject:
   m_ObjectHideFlags: 0
@@ -4114,6 +4134,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
 --- !u!1001 &1217402245
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4194,6 +4215,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e121a88297568034787199da25b838ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 --- !u!1 &1306524775
 GameObject:
   m_ObjectHideFlags: 0
@@ -5199,6 +5222,117 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+<<<<<<< HEAD
+=======
+--- !u!114 &1325678641 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8665330439449098496, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+  m_PrefabInstance: {fileID: 316410328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1001 &1401392253
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3266131416746522787, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4894213666848445334, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+      propertyPath: m_Name
+      value: GameMenu
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 --- !u!1 &1404519878
 GameObject:
   m_ObjectHideFlags: 0
@@ -5627,6 +5761,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 597927853}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+<<<<<<< HEAD
 --- !u!1001 &1642052668
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5781,6 +5916,13 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7286ad003ab94a74eb85be69194a7734, type: 3}
+=======
+--- !u!1 &1658023836 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5212458180289220297, guid: e02bc42acc7a2c34798f0bfdf586263c, type: 3}
+  m_PrefabInstance: {fileID: 1401392253}
+  m_PrefabAsset: {fileID: 0}
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 --- !u!114 &1683060231 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 221008582486592043, guid: 94f793c56d01bae4dabf6be8cc176e33, type: 3}
@@ -6139,6 +6281,7 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.32, y: 0.32}
   m_EdgeRadius: 0
+<<<<<<< HEAD
 --- !u!1001 &1747850443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6226,6 +6369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c80b892c857a534599d688ce1f29ac8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+=======
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 --- !u!1001 &1767885670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6329,7 +6474,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
   moveEnemy: {fileID: 1578377561}
+<<<<<<< HEAD
 --- !u!1001 &1881872040
+=======
+--- !u!1001 &1915363918
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -6341,7 +6490,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 1616345786246923758, guid: b4bb2fe68c6c1bd48b27d7057a023534, type: 3}
+=======
+    - target: {fileID: 5550440889747093841, guid: d0f0e7505d193ea4aa4d1465b3319b2b, type: 3}
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -6402,6 +6555,7 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+<<<<<<< HEAD
     - target: {fileID: 793168889417616244, guid: afcc77a0ae371054fba80551602cda5b, type: 3}
       propertyPath: m_Name
       value: UI
@@ -6413,6 +6567,23 @@ PrefabInstance:
     - target: {fileID: 5786393981397776582, guid: afcc77a0ae371054fba80551602cda5b, type: 3}
       propertyPath: m_Pivot.y
       value: 0
+=======
+    - target: {fileID: 2697644380307845033, guid: 942561e3760fffe4180f7f0d17336842, type: 3}
+      propertyPath: LoadMenuPanel
+      value: 
+      objectReference: {fileID: 1658023836}
+    - target: {fileID: 2697644380307845033, guid: 942561e3760fffe4180f7f0d17336842, type: 3}
+      propertyPath: MainMenuPanel
+      value: 
+      objectReference: {fileID: 799022313}
+    - target: {fileID: 2697644380307845033, guid: 942561e3760fffe4180f7f0d17336842, type: 3}
+      propertyPath: SaveMenuPanel
+      value: 
+      objectReference: {fileID: 804253410}
+    - target: {fileID: 5561847819261496812, guid: 942561e3760fffe4180f7f0d17336842, type: 3}
+      propertyPath: m_Name
+      value: MenuManager
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
       objectReference: {fileID: 0}
     - target: {fileID: 5786393981397776582, guid: afcc77a0ae371054fba80551602cda5b, type: 3}
       propertyPath: m_AnchorMax.x
@@ -6736,6 +6907,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+<<<<<<< HEAD
 --- !u!1001 &2114448964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6833,6 +7005,100 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf415946f4f5e0f40ae5a9a398c36140, type: 3}
+=======
+--- !u!1 &2074091257
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2074091260}
+  - component: {fileID: 2074091259}
+  - component: {fileID: 2074091258}
+  m_Layer: 0
+  m_Name: Main Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!81 &2074091258
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074091257}
+  m_Enabled: 1
+--- !u!20 &2074091259
+Camera:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074091257}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_projectionMatrixMode: 1
+  m_GateFitMode: 2
+  m_FOVAxisMode: 0
+  m_Iso: 200
+  m_ShutterSpeed: 0.005
+  m_Aperture: 16
+  m_FocusDistance: 10
+  m_FocalLength: 50
+  m_BladeCount: 5
+  m_Curvature: {x: 2, y: 11}
+  m_BarrelClipping: 0.25
+  m_Anamorphism: 0
+  m_SensorSize: {x: 36, y: 24}
+  m_LensShift: {x: 0, y: 0}
+  m_NormalizedViewPortRect:
+    serializedVersion: 2
+    x: 0
+    y: 0
+    width: 1
+    height: 1
+  near clip plane: 0.3
+  far clip plane: 1000
+  field of view: 60
+  orthographic: 1
+  orthographic size: 5
+  m_Depth: -1
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingPath: -1
+  m_TargetTexture: {fileID: 0}
+  m_TargetDisplay: 0
+  m_TargetEye: 3
+  m_HDR: 1
+  m_AllowMSAA: 1
+  m_AllowDynamicResolution: 0
+  m_ForceIntoRT: 0
+  m_OcclusionCulling: 1
+  m_StereoConvergence: 10
+  m_StereoSeparation: 0.022
+--- !u!4 &2074091260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074091257}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
 --- !u!1001 &3502555098005210515
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6920,6 +7186,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1881872040}
   - {fileID: 597927853}
+<<<<<<< HEAD
   - {fileID: 428963200}
   - {fileID: 1743362266}
   - {fileID: 1217402245}
@@ -6936,3 +7203,14 @@ SceneRoots:
   - {fileID: 731286050}
   - {fileID: 1903002671}
   - {fileID: 1149453805}
+=======
+  - {fileID: 1767885670}
+  - {fileID: 1614432265}
+  - {fileID: 316410328}
+  - {fileID: 205241498}
+  - {fileID: 1401392253}
+  - {fileID: 2042783922}
+  - {fileID: 1915363918}
+  - {fileID: 3502555098005210515}
+  - {fileID: 428963200}
+>>>>>>> parent of baa2ce0 (敵のシーン移動)
