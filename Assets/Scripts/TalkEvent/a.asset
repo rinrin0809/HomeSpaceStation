@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6723ab4b42a3b8447b420114381ee893, type: 3}
-  m_Name: New Talk Manager List 1
+  m_Script: {fileID: 11500000, guid: 233aec5094627f644b806501955f19e4, type: 3}
+  m_Name: a
   m_EditorClassIdentifier: 
-  testtalkList:
-  - {fileID: 11400000, guid: de76938f843e2624c99312d6167567df, type: 2}
+  testList: []

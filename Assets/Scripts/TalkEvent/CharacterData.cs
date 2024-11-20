@@ -3,21 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterData 
+[CreateAssetMenu]
+public class CharacterData : ScriptableObject
 {
-    public int Id { get; }
-    public string Name { get; }
-    public string Dialogue { get; }
+    public string CharacterName;
 
-    public CharacterData(string[] dataList)
-    {
-        Id = int.Parse(dataList[0]);
-        Dialogue = dataList[1].Replace("\\n", "\n");
-        Name = dataList[2];
+    public SpriteRenderer sprite;
 
-    }
-    public void DebugParametaView()
-    {
-        Debug.Log(String.Format("{0} id:{1}", Name, Id));
-    }
 }

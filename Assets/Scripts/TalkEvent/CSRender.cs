@@ -11,7 +11,7 @@ public class CSRender : MonoBehaviour
     const string SHEET_ID = "1ONbbb-l-kNiNBFjVsrX8QuKk81k6PhHmy2OoqnYUuFA";
     const string SHEET_NAME = "シート1";
 
-    private List<CharacterData> DialogueDataList;
+    private List<CharacterCSData> DialogueDataList;
     //private Dictionary<int, (string, string, int)> message = new Dictionary<int, (string, string, int)>();
 
     public TextMeshProUGUI text; // 会話表示テキスト
@@ -33,13 +33,19 @@ public class CSRender : MonoBehaviour
         }
         else
         {
+            //List<string[]> characterDataArrayList = ConvertToArrayListFrom(request.downloadHandler.text);
+            //foreach (string[] characterDataArray in characterDataArrayList)
+            //{
+            //    CharacterCSData characterData = new CharacterCSData(characterDataArray);
+            //    characterData.DebugParametaView();
+            //}
             Debug.Log(request.downloadHandler.text);
         }
 
         
     }
 
-    List<string[]> ConvertToArrayList(string _text)
+    List<string[]> ConvertToArrayListFrom(string _text)
     {
         List<string[]> characterDataList = new List<string[]>();
         StringReader render = new StringReader(_text);

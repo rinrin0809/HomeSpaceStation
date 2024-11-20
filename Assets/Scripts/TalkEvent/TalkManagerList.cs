@@ -8,7 +8,7 @@ using UnityEngine;
 public class TalkManagerList : ScriptableObject
 {
 
-    public List<TestActionTalkData> TalkEventList;
+//    public List<TestActionTalkData> TalkEventList;
 
-  
+    public List<testtalk> testtalkList;
 }

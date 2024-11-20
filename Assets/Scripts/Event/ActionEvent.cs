@@ -16,14 +16,18 @@ public class ActionEvent : MonoBehaviour
 
     //public TextMeshProUGUI text;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI nametext;
 
     string conversationText;
+    string nameText;
+    //string nextConversation;
+    //string nextName;
 
    // private TalkManager talkManager;
 
     // 会話全体のリストのインデックス
     // どの会話のリストを選んでるかをこの変数を変えることで変更できる
-    public int taklEventIndex = 0;
+    public int talkEventIndex = 0;
     // 会話ごとのリストのインデックス
     public int actionEventIndex = 0;
 
@@ -67,8 +71,11 @@ public class ActionEvent : MonoBehaviour
         // 会話を進める
         if (Input.GetKeyDown(KeyCode.Space) && testFlag && !finishtalk)
         {
-            string nextConversation = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex + 1);
+            //string nextConversation = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex + 1);
+            string nextConversation = TestTalkManager.Instance.GetTalk(talkEventIndex, actionEventIndex+1);
+            string nextName = TestTalkManager.Instance.GetTalkName(talkEventIndex, actionEventIndex+1);
 
+            actionEventIndex++;
             if (string.IsNullOrEmpty(nextConversation))
             {
                 Debug.Log("会話終了");
@@ -77,10 +84,21 @@ public class ActionEvent : MonoBehaviour
             }
             else
             {
-                actionEventIndex++;
+                
                 conversationText = nextConversation;
                 Debug.Log("会話内容: " + conversationText);
                 text.text = conversationText;
+            }
+
+            if (string.IsNullOrEmpty(nextName))
+            {
+                nametext.text = "";
+                Debug.Log("名前クリア");
+            }
+            else
+            {
+                //conversationText = nextName;
+                nametext.text = nextName;
             }
         }
     }
@@ -90,11 +108,14 @@ public class ActionEvent : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log("actionIndex : " + talkEventIndex);
             exclamationMarkClone.SetActive(true);
             Debug.Log("！マーク表示");
             // 会話データのインデックスを取得して会話内容表示
-            conversationText = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex);
+            conversationText = TestTalkManager.Instance.GetTalk(talkEventIndex, actionEventIndex);
+            nameText = TestTalkManager.Instance.GetTalkName(talkEventIndex, actionEventIndex);
             text.text = conversationText;
+            nametext.text = nameText;
             testFlag = true;
             Debug.Log("flag" + testFlag);
             UpdatefinishFlag();
@@ -113,6 +134,7 @@ public class ActionEvent : MonoBehaviour
                 exclamationMarkClone.SetActive(false);
             }
             text.text = "";
+            nametext.text = "";
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
             testFlag = false;

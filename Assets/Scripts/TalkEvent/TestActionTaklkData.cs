@@ -9,6 +9,7 @@ public class TestActionTalkData : ScriptableObject
     [SerializeField, TextArea]
     public List<string> Conversations; // •¡”‚Ì‰ï˜b“à—e‚ğŠi”[
 
- 
+
+
 }
 
