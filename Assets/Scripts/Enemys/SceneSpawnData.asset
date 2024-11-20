@@ -13,15 +13,8 @@ MonoBehaviour:
   m_Name: SceneSpawnData
   m_EditorClassIdentifier: 
   sceneWarpDataList:
-  - sceneName: roby(second)
-    warpPositions:
-    - {x: 0.5, y: 2.6}
-    - {x: 0.5, y: 2.6}
-    - {x: 0.5, y: 2.6}
-    preWarpWaitTimes:
-    - 0.9
-  - sceneName: Roby
+  - sceneName: Lobby
     warpPositions:
     - {x: -13.5, y: 5}
     preWarpWaitTimes:
-    - 0
+    - 0.9
