@@ -105,6 +105,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     private VectorValue playerStorage;
 
+    //看板とかに当たった時に動きを止めるフラグ（今後データ化予定）
+    public bool ExplainDisplayFlg = false; 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -175,8 +178,8 @@ public class Player : MonoBehaviour
         //    AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
         //}
 
-        //イベントが発生している時は処理をしない
-        if (Event.IsEvent()) return;
+        //イベントが発生している時または看板を読んでいる時は処理をしない
+        if (Event.IsEvent() || ExplainDisplayFlg) return;
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
         {
@@ -275,8 +278,8 @@ public class Player : MonoBehaviour
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
     {
-        //イベントが発生している時は処理をしない
-        if (Event.IsEvent()) return;
+        //イベントが発生している時または看板を読んでいる時は処理をしない
+        if (Event.IsEvent() || ExplainDisplayFlg) return;
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
 
