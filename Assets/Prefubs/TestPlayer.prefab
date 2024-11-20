@@ -184,7 +184,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1720734719071528900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -197,21 +197,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd3a40e7fbc3d0a48972f0d79fb0f2d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Event: {fileID: 0}
   moveSpeed: 100
   stamina: 0
   slider: {fileID: 0}
   rb: {fileID: 8729504305012934866}
   animatior: {fileID: 0}
   animSpeed: 0.5
+  isMoving: 0
   text: {fileID: 0}
   isNearItem: 0
   itemList: []
+  startingPosition: {fileID: 0}
   inventory: {fileID: 0}
   itemDisplay: {fileID: 0}
   HasKeyFlg: 0
   GimicHitFlg: 0
-  startingPosition: {fileID: 0}
-  sceneTransitions: {fileID: 0}
+  playerStorage: {fileID: 0}
 --- !u!95 &4935541057062217796
 Animator:
   serializedVersion: 7
