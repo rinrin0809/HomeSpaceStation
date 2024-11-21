@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da2aa1bd9f749d144a092b6e66a66680, type: 3}
-  m_Name: "\u53CB\u9054\u306E\u604B\u4EBA"
+  m_Name: Yumi
   m_EditorClassIdentifier: 
   charaPost: 3
   CharacterName: "\u7531\u7F8E"
