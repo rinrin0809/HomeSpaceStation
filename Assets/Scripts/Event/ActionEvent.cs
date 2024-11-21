@@ -14,6 +14,9 @@ public class ActionEvent : MonoBehaviour
     private Canvas canvas; // canvas 参照
     float scale = 0.5f;
 
+    //イベント
+    public EventData Event;
+
     //public TextMeshProUGUI text;
     public TextMeshProUGUI text;
     public TextMeshProUGUI nametext;
@@ -65,6 +68,7 @@ public class ActionEvent : MonoBehaviour
             Debug.Log("canvasがない");
         }
 
+        Event.SetEventActionEventFlg("女将との会話", true);
     }
 
     // Update is called once per frame
@@ -85,6 +89,8 @@ public class ActionEvent : MonoBehaviour
             {
                 Debug.Log("会話終了");
                 finishtalk = true; // 会話終了フラグを立てる
+                //透明の壁判定削除
+                Event.SetEventActionEventFlg("女将との会話", false);
                 text.text = "";
             }
             else

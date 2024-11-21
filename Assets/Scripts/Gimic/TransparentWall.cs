@@ -25,5 +25,15 @@ public class TransparentWall : MonoBehaviour
         {
             Wall.SetActive(true);
         }
+
+        if (!Event.GetNameEventActionFlg("—«‚Æ‚Ì‰ï˜b"))
+        {
+            Wall.SetActive(false);
+        }
+
+        else
+        {
+            Wall.SetActive(true);
+        }
     }
 }

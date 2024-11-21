@@ -150,6 +150,7 @@ MonoBehaviour:
   ActionObject: {fileID: 4238547151648287505}
   offset: {x: 0, y: 1.5, z: 0}
   canvas: {fileID: 0}
+  Event: {fileID: 11400000, guid: 490020c95d5f2c64695564c2a3acf4ca, type: 2}
   text: {fileID: 0}
   nametext: {fileID: 0}
   textBox: {fileID: 0}

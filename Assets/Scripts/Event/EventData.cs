@@ -91,7 +91,7 @@ public class EventData : ScriptableObject
     }
 
     //イベント中に何かカメラの動作とかが必要な時のフラグを設定
-    public void SetEventEndEventFlg(string Name, bool Flg)
+    public void SetEventActionEventFlg(string Name, bool Flg)
     {
         for (int i = 0; i < Events.Length; i++)
         {
