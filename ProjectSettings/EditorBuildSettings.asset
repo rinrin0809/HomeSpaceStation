@@ -18,13 +18,19 @@ EditorBuildSettings:
     path: Assets/Scenes/Room/bekkann2F.unity
     guid: 734f1c21ea1666e48a5479c93a5e9b9a
   - enabled: 1
+    path: Assets/Scenes/Room/Mens toilet.unity
+    guid: fd67735af577cca47b001324d8ea521c
+  - enabled: 1
     path: Assets/Scenes/Room/Lobby2.unity
     guid: a6ce67c4cf0bfd943bc676ecf63ef6ac
   - enabled: 1
     path: Assets/Scenes/GameLoop/Game.unity
-    guid: 76717f7a59caec04d8f6881ee4466466
+    guid: 90bea218702102247983b517594b7a88
   - enabled: 1
     path: Assets/Scenes/GameLoop/Over.unity
     guid: a18fc3bc431355a46ac4cdda40257d66
+  - enabled: 1
+    path: Assets/Scenes/Room/Menstoilet.unity
+    guid: fd67735af577cca47b001324d8ea521c
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
