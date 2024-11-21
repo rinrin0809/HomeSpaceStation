@@ -18,3 +18,8 @@ MonoBehaviour:
     - {x: -13.5, y: 5}
     preWarpWaitTimes:
     - 0.9
+  - sceneName: Lobby2
+    warpPositions:
+    - {x: -3, y: 3}
+    preWarpWaitTimes:
+    - 0.9

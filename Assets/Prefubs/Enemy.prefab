@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 7749985292251452890}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.89376694, y: 0.09885793, z: 0}
+  m_LocalPosition: {x: -3, y: -3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -174,5 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8fe8dfd35e68d5e46b9ad5641327e721, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grid: {fileID: 0}
+  grid: {fileID: 6927678002758523353, guid: bf0c423bc9743b74e838f31a0f236e27, type: 3}
   speed: 5
+  playerTransform: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+  chaseRange: 10
+  stopChaseDelay: 2

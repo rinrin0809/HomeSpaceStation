@@ -28,7 +28,7 @@ public class Grid : MonoBehaviour
 
     public Node NodeFromWorldPosition(Vector2 a_WorldPosition)
     {
-        float xpoint = ((a_WorldPosition.x + Gridworldsize.x /Half) / Gridworldsize.x);
+        float xpoint = ((a_WorldPosition.x + Gridworldsize.x / Half) / Gridworldsize.x);
         float ypoint = ((a_WorldPosition.y + Gridworldsize.y / Half) / Gridworldsize.y);
 
         xpoint = Mathf.Clamp01(xpoint);
@@ -98,12 +98,12 @@ public class Grid : MonoBehaviour
                 bool wall = false;
 
 
-                if(Physics2D.OverlapCircle(WorldPoint, Noderadios, WallMask))
+                if (Physics2D.OverlapCircle(WorldPoint, Noderadios, WallMask))
                 {
                     wall = true;
                 }
                 grid[x, y] = new Node(wall, WorldPoint, x, y);
-               // Debug.Log($"Node at ({x}, {y}): Is wall = {wall}"); // ’Ç‰Á
+                // Debug.Log($"Node at ({x}, {y}): Is wall = {wall}"); // ’Ç‰Á
             }
         }
     }

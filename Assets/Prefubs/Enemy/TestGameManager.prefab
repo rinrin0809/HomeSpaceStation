@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3640279642974175316}
   - component: {fileID: 6927678002758523353}
   - component: {fileID: 8961415027264628163}
+  - component: {fileID: -7602694983093951168}
   m_Layer: 0
   m_Name: TestGameManager
   m_TagString: Untagged
@@ -45,7 +46,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51351923437a44549adeb3df9180b62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 0}
+  StartPosition: {fileID: 5633440143711639364, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
   WallMask:
     serializedVersion: 2
     m_Bits: 128
@@ -64,5 +65,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4c7e645f50f929408b64fa6a1c42843, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 0}
-  TargetPosition: {fileID: 0}
+  StartPosition: {fileID: 5633440143711639364, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
+  TargetPosition: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+  Rafieldofvisionnge: 10
+--- !u!114 &-7602694983093951168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086535114837748287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20fcfb1c6417bf4f8432a978797bc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyPrefab: {fileID: 7749985292251452890, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
+  sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
+  moveEnemy: {fileID: 5338991592500946058, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
