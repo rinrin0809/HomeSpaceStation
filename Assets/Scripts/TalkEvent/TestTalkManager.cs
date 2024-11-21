@@ -86,12 +86,5 @@ public class TestTalkManager : MonoBehaviour
     }
 
 
-    //public void UpdateFisishflag()
-    //{
-    //    if (actionEvent.finishtalk)
-    //    {
-    //        actionEvent.finishtalk = false;
-
-    //    }
-    //}
+   
 }

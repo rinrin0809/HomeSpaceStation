@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233aec5094627f644b806501955f19e4, type: 3}
   m_Name: New Testtalk 1
   m_EditorClassIdentifier: 
-  testList: []
+  testList:
+  - charadata: {fileID: 11400000, guid: 376250e56499f5f4396a3696720252db, type: 2}
+    Conversations: 
+  - charadata: {fileID: 0}
+    Conversations: 
+  - charadata: {fileID: 0}
+    Conversations: 
+  - charadata: {fileID: 0}
+    Conversations: 

@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da2aa1bd9f749d144a092b6e66a66680, type: 3}
   m_Name: player
   m_EditorClassIdentifier: 
-  CharacterName: "\u7530\u4E2D"
+  CharacterName: yamada
   sprite: {fileID: 0}

@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15a81378f129e9344b7d7e5019627121, type: 3}
   m_Name: New Test Action Talk Data
   m_EditorClassIdentifier: 
-  listName: 
-  action: 0
+  talkEventName: e
   Conversations:
-  - 
-  - 
-  - 
-  - 
-  - 
+  - 0
+  - 1
+  - 2
+  - 3
+  - 4
