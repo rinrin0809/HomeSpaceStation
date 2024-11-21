@@ -64,7 +64,7 @@ public class Pathfinding : MonoBehaviour
         }
     }
 
-    private void UpdatePathToPlayer()
+    public void UpdatePathToPlayer()
     {
         if (TargetPosition != null)
         {
