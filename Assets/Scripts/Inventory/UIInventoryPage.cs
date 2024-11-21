@@ -105,7 +105,7 @@ public class UIInventoryPage : MonoBehaviour
     {
         gameObject.SetActive(true);
         itemDescription.ResetDescription();
-
+        Debug.Log("true");
         Time.timeScale = 0.0f;
     }
 

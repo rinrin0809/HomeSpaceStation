@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LoadManager : MonoBehaviour
 {
@@ -14,8 +15,8 @@ public class LoadManager : MonoBehaviour
     [SerializeField] private InventryData Inventory;
     [SerializeField] public string NextSceneName = "";
     public SaveData data;
-    [SerializeField]
-    private bool LoadPlayerFlg = false;
+
+    [SerializeField] private bool LoadPlayerFlg = false;
 
     public void SetSideNum(int Num)
     {
@@ -49,7 +50,10 @@ public class LoadManager : MonoBehaviour
         return LengthNum;
     }
 
+    [SerializeField]
     public bool NewGamePushFlg = false;
+
+    public bool OpenLoadMenuFlg = false;
 
     void Start()
     {

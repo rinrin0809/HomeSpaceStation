@@ -8,19 +8,69 @@ public class MoveEnemy : MonoBehaviour
     public float speed = 5f; // 敵の移動速度
     private int targetIndex = 0; // 現在のターゲットノードのインデックス
     private List<Node> path; // 現在の追跡経路
-    public float spawnProbability = 0.5f; // 初期位置を変更する確率（0～1の範囲）
+    public Transform playerTransform; // プレイヤーのTransform
+    public float chaseRange = 10f; // 追跡を開始する範囲
+    public float stopChaseDelay = 2f; // 追跡停止までの遅延時間（秒）
 
-    [SerializeField]
-    private SceneSpawnData sceneSpawnData; // シーンごとのスポーンデータ
+    private static bool _isChasing = false; // 追跡状態を保持するフラグ
+
+    // 追跡フラグのゲッター
+    public static bool IsChasing
+    {
+        get => _isChasing;
+        private set => _isChasing = value;
+    }
+
+    private float timeSincePlayerExitRange = 0f; // プレイヤーが範囲外に出てからの経過時間
 
     private void Start()
     {
         InitializePath();
+
+        // シーン切り替え時に敵を消すためのイベントを登録
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        // シーンがロードされるたびに呼ばれるイベントの解除
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        Destroy(gameObject); // 敵が無効化される際に削除する
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // シーンが読み込まれた後に呼ばれる
+        DestroyEnemy();
     }
 
     private void Update()
     {
-        FollowPath();
+        if (IsChasing)
+        {
+            float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+
+            // 追跡停止条件
+            if (distanceToPlayer > chaseRange)
+            {
+                timeSincePlayerExitRange += Time.deltaTime;
+
+                if (timeSincePlayerExitRange >= stopChaseDelay)
+                {
+                    StopChasing(); // 追跡停止
+                }
+            }
+            else
+            {
+                timeSincePlayerExitRange = 0f; // 範囲内ならタイマーをリセット
+            }
+
+            FollowPath();
+        }
     }
 
     private void InitializePath()
@@ -48,7 +98,33 @@ public class MoveEnemy : MonoBehaviour
         }
     }
 
-   
+    public void StartChasing()
+    {
+        IsChasing = true;
+        timeSincePlayerExitRange = 0f; // 追跡開始時にリセット
+        Debug.Log("Enemy started chasing the player!");
+    }
+
+    public void StopChasing()
+    {
+        IsChasing = false;
+        timeSincePlayerExitRange = 0f; // 追跡停止時にタイマーをリセット
+
+
+        Debug.Log("Enemy stopped chasing the player.");
+    }
+
+    private void DestroyEnemy()
+    {
+        // 敵が存在する場合に削除c
+        if (gameObject != null)
+        {
+            // 必要に応じて非アクティブ化
+            Destroy(gameObject); // 敵を削除
+            Debug.Log("Enemy destroyed after scene change.");
+        }
+    }
+
     public void UpdatePath(List<Node> newPath)
     {
         path = newPath;
