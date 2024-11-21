@@ -58,11 +58,9 @@ public class BGMSoundData
 {
     public enum BGM
     {
-        Title,
-        Dungeon,
-        End,
-        Hoge, // これがラベルになる
-        apple,
+        
+        Title,// これがラベルになる
+        
     }
 
     public BGM bgm;
@@ -73,14 +71,11 @@ public class BGMSoundData
 
 [CreateAssetMenu]
 [System.Serializable]
-public class SESoundData : ScriptableObject
+public class SESoundData 
 {
     public enum SE
     {
-        EnemyDamage,
-        EnemyDead,
-        PlayerDamage,
-        PlayerDead, // これがラベルになる
+        DoorOpen, // これがラベルになる
     }
 
     public SE se;
