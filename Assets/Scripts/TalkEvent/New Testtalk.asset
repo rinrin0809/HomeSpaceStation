@@ -16,6 +16,8 @@ MonoBehaviour:
   - charadata: {fileID: 11400000, guid: 890a5786c4d990846b575d13ce0af4d3, type: 2}
     Conversations: a
   - charadata: {fileID: 11400000, guid: f5e3ba20250ec9b4a801cabfbbc4e7aa, type: 2}
-    Conversations: bbbb
+    Conversations: bb
   - charadata: {fileID: 11400000, guid: 890a5786c4d990846b575d13ce0af4d3, type: 2}
     Conversations: ccc
+  - charadata: {fileID: 11400000, guid: 890a5786c4d990846b575d13ce0af4d3, type: 2}
+    Conversations: dddd

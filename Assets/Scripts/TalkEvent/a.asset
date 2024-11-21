@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 233aec5094627f644b806501955f19e4, type: 3}
   m_Name: a
   m_EditorClassIdentifier: 
-  testList: []
+  testList:
+  - charadata: {fileID: 11400000, guid: f5e3ba20250ec9b4a801cabfbbc4e7aa, type: 2}
+    Conversations: 0
+  - charadata: {fileID: 11400000, guid: 890a5786c4d990846b575d13ce0af4d3, type: 2}
+    Conversations: 1
+  - charadata: {fileID: 11400000, guid: f5e3ba20250ec9b4a801cabfbbc4e7aa, type: 2}
+    Conversations: 2
+  - charadata: {fileID: 11400000, guid: f5e3ba20250ec9b4a801cabfbbc4e7aa, type: 2}
+    Conversations: 3
+  - charadata: {fileID: 11400000, guid: f5e3ba20250ec9b4a801cabfbbc4e7aa, type: 2}
+    Conversations: 4
