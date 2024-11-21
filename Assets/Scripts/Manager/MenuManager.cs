@@ -122,7 +122,7 @@ public class MenuManager : MonoBehaviour
     {
         MainMenuPanel.SetActive(false);
         SaveMenuPanel.SetActive(true);
-        SaveManager.Instance.OpenSaveMenuFlg = true;
+        if (SaveManager.Instance) SaveManager.Instance.OpenSaveMenuFlg = true;
         ActiveMenu = MenuType.SaveMenu;
     }
 
@@ -131,7 +131,7 @@ public class MenuManager : MonoBehaviour
     {
         MainMenuPanel.SetActive(false);
         LoadMenuPanel.SetActive(true);
-        LoadManager.Instance.OpenLoadMenuFlg = true;
+        if(LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = true;
         ActiveMenu = MenuType.LoadMenu;
     }
 
@@ -142,8 +142,8 @@ public class MenuManager : MonoBehaviour
         OpenItemMenuFlg = false;
         SaveMenuPanel.SetActive(false);
         LoadMenuPanel.SetActive(false);
-        SaveManager.Instance.OpenSaveMenuFlg = false;
-        LoadManager.Instance.OpenLoadMenuFlg = false;
+        if (SaveManager.Instance) SaveManager.Instance.OpenSaveMenuFlg = false;
+        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
         ActiveMenu = MenuType.MainMenu;
     }
 
@@ -164,7 +164,7 @@ public class MenuManager : MonoBehaviour
                         OpenItemMenuFlg = false;
                         SaveMenuPanel.SetActive(false);
                         LoadMenuPanel.SetActive(false);
-                        LoadManager.Instance.OpenLoadMenuFlg = false;
+                        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
                         OpenMenuFlg = false;
                         ActiveMenu = MenuType.MainMenu;
                         Time.timeScale = 1;
@@ -183,7 +183,7 @@ public class MenuManager : MonoBehaviour
                         OpenItemMenuFlg = false;
                         SaveMenuPanel.SetActive(false);
                         LoadMenuPanel.SetActive(false);
-                        LoadManager.Instance.OpenLoadMenuFlg = false;
+                        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
                         OpenMenuFlg = false;
                         ActiveMenu = MenuType.MainMenu;
                         Time.timeScale = 1;
@@ -202,7 +202,7 @@ public class MenuManager : MonoBehaviour
                         OpenItemMenuFlg = false;
                         SaveMenuPanel.SetActive(false);
                         LoadMenuPanel.SetActive(false);
-                        LoadManager.Instance.OpenLoadMenuFlg = false;
+                        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
                         OpenMenuFlg = false;
                         ActiveMenu = MenuType.MainMenu;
                         Time.timeScale = 1;
@@ -222,7 +222,7 @@ public class MenuManager : MonoBehaviour
             OpenItemMenuFlg = false;
             SaveMenuPanel.SetActive(false);
             LoadMenuPanel.SetActive(false);
-            LoadManager.Instance.OpenLoadMenuFlg = false;
+            if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
             OpenMenuFlg = false;
             ActiveMenu = MenuType.MainMenu;
             Time.timeScale = 1;

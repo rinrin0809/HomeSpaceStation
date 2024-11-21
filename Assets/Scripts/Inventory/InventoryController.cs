@@ -73,6 +73,7 @@ public class InventoryController : MonoBehaviour
   
     private void OnClickButton()
     {
+        Debug.Log("true2");
         ToggleInventoryUI();
     }
 
