@@ -47,7 +47,7 @@ public class Player : MonoBehaviour
     private bool isMoving;
 
     // テキスト
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
 
     // アイテムの近くかどうかのフラグ
     public bool isNearItem = false;
@@ -128,10 +128,10 @@ public class Player : MonoBehaviour
             transform.rotation = playerStorage.playerRotation;  // 保存された向きを適用
         }
 
-        if (text != null)
-        {
-            text.gameObject.SetActive(false);
-        }
+        //if (text != null)
+        //{
+        //    text.gameObject.SetActive(false);
+        //}
 
         stamina = 100.0f;
 
@@ -250,7 +250,7 @@ public class Player : MonoBehaviour
             ItemDisplay itemHolder = NearItem.GetComponent<ItemDisplay>();
             if (itemHolder != null && itemHolder.itemData != null)
             {
-                text.text = "アイテムを拾いました";
+                //text.text = "アイテムを拾いました";
                 itemList.Add(NearItem);
                 itemDisplay.PickUpItem(itemHolder.itemData);
                 HasKeyFlg = true;
@@ -258,7 +258,7 @@ public class Player : MonoBehaviour
             }
             else
             {
-                text.text = "アイテムがありません";
+                //text.text = "アイテムがありません";
             }
             //Debug.Log(NearItem.name + "を受け取ります");
 
@@ -334,8 +334,8 @@ public class Player : MonoBehaviour
     {
         if (collision.gameObject.tag == "Key")
         {
-            text.gameObject.SetActive(true);
-            text.text = "Eボタンでアイテムを拾う";
+            //text.gameObject.SetActive(true);
+            //text.text = "Eボタンでアイテムを拾う";
 
             NearItem = collision.gameObject;
 
@@ -344,8 +344,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.tag == "Apple")
         {
             //Debug.Log("アップルがある");
-            text.gameObject.SetActive(true);
-            text.text = "Eボタンでアイテムを拾う";
+            //text.gameObject.SetActive(true);
+            //text.text = "Eボタンでアイテムを拾う";
             NearItem = collision.gameObject;
 
         }
@@ -353,18 +353,18 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Key" && text != null)
+        if (collision.gameObject.tag == "Key" )
         {
-            text.gameObject.SetActive(false);
+            //text.gameObject.SetActive(false);
             //Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;
 
         }
 
-        if (collision.gameObject.tag == "Apple" && text != null)
+        if (collision.gameObject.tag == "Apple" )
         {
-            text.gameObject.SetActive(false);
+            
             //Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;

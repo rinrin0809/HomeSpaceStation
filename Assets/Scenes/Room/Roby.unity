@@ -5967,6 +5967,10 @@ PrefabInstance:
       propertyPath: Gridworldsize.x
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 6927678002758523353, guid: bf0c423bc9743b74e838f31a0f236e27, type: 3}
+      propertyPath: WallMask.m_Bits
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8961415027264628163, guid: bf0c423bc9743b74e838f31a0f236e27, type: 3}
       propertyPath: StartPosition
       value: 

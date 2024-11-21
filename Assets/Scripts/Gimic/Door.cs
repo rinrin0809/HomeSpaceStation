@@ -7,6 +7,9 @@ public class Door : MonoBehaviour
 {
     private Player player;
 
+    [SerializeField]
+    public string ItemName = "";
+
     void Start()
     {
         player = FindObjectOfType<Player>();
@@ -21,7 +24,7 @@ public class Door : MonoBehaviour
                 foreach (var item in player.GetInventory().GetCurrentInventoryState())
                 {
                     // インベントリのアイテムを取得して、ItemFlg をチェック
-                    if (item.Value.item.Name == "key")
+                    if (item.Value.item.Name == ItemName)
                     {
                         gameObject.SetActive(false);
                         break; // 一つ見つかったらループを抜ける
