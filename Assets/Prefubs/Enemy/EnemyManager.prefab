@@ -49,7 +49,7 @@ MonoBehaviour:
   StartPosition: {fileID: 0}
   WallMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   Gridworldsize: {x: 30, y: 30}
   Noderadios: 0.1
   Distance: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   StartPosition: {fileID: 0}
   TargetPosition: {fileID: 0}
+  Rafieldofvisionnge: 10
 --- !u!114 &3417137220735229544
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,5 +81,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
-  shouldChangePosition: 1
   moveEnemy: {fileID: 0}
