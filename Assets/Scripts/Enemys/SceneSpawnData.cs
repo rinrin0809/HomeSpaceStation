@@ -13,6 +13,6 @@ public class SceneSpawnData : ScriptableObject
         //public float warpDelay; // ワープの遅延時間（秒単位）
         public List<float> preWarpWaitTimes; // 遅延リスト
     }
-
+    
     public List<SceneWarpData> sceneWarpDataList; // 各シーンごとのデータリスト
 }

@@ -12,7 +12,7 @@ public class Node
     public int Hcost;
     public Node Parent;
     public int Fcost { get { return Gcost + Hcost; } }
-
+    //public int Fcost => Gcost + Hcost;
     public Node(bool a_Iswall,Vector3 a_Pos,int a_gridX,int a_gridY)
     {
 
