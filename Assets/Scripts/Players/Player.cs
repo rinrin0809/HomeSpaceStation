@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
     //シーン移動
     public VectorValue startingPosition;
 
+    private bool startflg = true;
     public List<GameObject> GetItemList
     {
         get { return itemList; }
@@ -106,7 +107,7 @@ public class Player : MonoBehaviour
     private VectorValue playerStorage;
 
     //看板とかに当たった時に動きを止めるフラグ（今後データ化予定）
-    public bool ExplainDisplayFlg = false; 
+    public bool ExplainDisplayFlg = false;
 
     // Start is called before the first frame update
     void Start()
@@ -116,6 +117,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
 
+        Vector3 targetPosition = new Vector3(0.0f, -4.0f, 0.0f);
+       
         //if(isstaripos)
         //{
         //    new Vector3(0, 0, 0);
@@ -131,6 +134,7 @@ public class Player : MonoBehaviour
         if (playerStorage != null)
         {
             Debug.Log("Playerの初期位置: " + playerStorage.initialValue); // ここでデバッグ
+            //startingPosition.initialValue = targetPosition;
             transform.position = playerStorage.initialValue;
         }
         //if (text != null)
@@ -146,9 +150,8 @@ public class Player : MonoBehaviour
         }
 
         fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
-        Vector3 targetPosition = new Vector3(0.0f, 0.0f, 0.0f);
         Transform objectTransform = gameObject.GetComponent<Transform>();
-        
+
         if (LoadManager.Instance != null)
         {
             if (LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
@@ -158,9 +161,13 @@ public class Player : MonoBehaviour
                 //NewGameボタンが押された時のフラグ
                 if (LoadManager.Instance.NewGamePushFlg)
                 {
+
                     //初期位置の設定
                     objectTransform.position = targetPosition;
+                    startflg = false;
+
                     transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
+
                     Debug.Log(objectTransform.position);
                 }
 
@@ -173,8 +180,8 @@ public class Player : MonoBehaviour
                 }
             }
         }
-    }
 
+    }
     // Update is called once per frame
     void Update()
     {

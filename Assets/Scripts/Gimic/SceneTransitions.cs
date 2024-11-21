@@ -15,9 +15,13 @@ public class SceneTransitions : MonoBehaviour
     // 鍵が必要かどうかを判別するフラグ
     public bool requiresKey = false;
 
+    //シーン移動
+    private VectorValue startingPosition;
+
     void Start()
     {
         player = FindObjectOfType<Player>();
+        playerStorage.initialValue = new Vector3(0.0f, -4.0f, 0.0f);
     }
 
 

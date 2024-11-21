@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Room/Lobby.unity
     guid: 3e65390dc2028454b8c3df59625d88b9
   - enabled: 1
+    path: Assets/Scenes/Room/garden.unity
+    guid: 0c5801d955e3e2744b0c7c860c4748e9
+  - enabled: 1
     path: Assets/Scenes/Room/bekkann2F.unity
     guid: 734f1c21ea1666e48a5479c93a5e9b9a
   - enabled: 1
