@@ -20,6 +20,9 @@ public class ActionEvent : MonoBehaviour
 
     string conversationText;
     string nameText;
+
+    public GameObject textBox;
+    
     //string nextConversation;
     //string nextName;
 
@@ -47,6 +50,8 @@ public class ActionEvent : MonoBehaviour
     {
         // Canvasの取得
         canvas = FindObjectOfType<Canvas>();
+
+        textBox.gameObject.SetActive(false);
 
         // Canvasの存在確認
         if (canvas != null)
@@ -109,6 +114,7 @@ public class ActionEvent : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             Debug.Log("actionIndex : " + talkEventIndex);
+            textBox.gameObject.SetActive(true);
             exclamationMarkClone.SetActive(true);
             Debug.Log("！マーク表示");
             // 会話データのインデックスを取得して会話内容表示
@@ -129,6 +135,7 @@ public class ActionEvent : MonoBehaviour
         {
             //talkListnum =talknum;
             //talkListindex = listnum;
+            textBox.gameObject.SetActive(false);
             if (exclamationMarkClone == true)
             {
                 exclamationMarkClone.SetActive(false);
