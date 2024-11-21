@@ -9,7 +9,6 @@ public class Door : MonoBehaviour
 
     [SerializeField]
     public string ItemName = "";
-
     void Start()
     {
         player = FindObjectOfType<Player>();
