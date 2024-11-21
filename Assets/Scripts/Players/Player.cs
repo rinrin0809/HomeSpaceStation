@@ -128,6 +128,11 @@ public class Player : MonoBehaviour
             transform.rotation = playerStorage.playerRotation;  // 保存された向きを適用
         }
 
+        if (playerStorage != null)
+        {
+            Debug.Log("Playerの初期位置: " + playerStorage.initialValue); // ここでデバッグ
+            transform.position = playerStorage.initialValue;
+        }
         //if (text != null)
         //{
         //    text.gameObject.SetActive(false);

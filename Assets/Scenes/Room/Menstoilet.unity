@@ -11163,8 +11163,12 @@ PrefabInstance:
       value: Lobby
       objectReference: {fileID: 0}
     - target: {fileID: 221008582486592043, guid: 94f793c56d01bae4dabf6be8cc176e33, type: 3}
+      propertyPath: playerStorage
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
+    - target: {fileID: 221008582486592043, guid: 94f793c56d01bae4dabf6be8cc176e33, type: 3}
       propertyPath: playerPosition.x
-      value: 17
+      value: -17.51
       objectReference: {fileID: 0}
     - target: {fileID: 221008582486592043, guid: 94f793c56d01bae4dabf6be8cc176e33, type: 3}
       propertyPath: playerPosition.y
