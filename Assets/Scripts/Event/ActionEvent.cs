@@ -135,7 +135,12 @@ public class ActionEvent : MonoBehaviour
         {
             //talkListnum =talknum;
             //talkListindex = listnum;
-            textBox.gameObject.SetActive(false);
+            if (textBox != null)
+            {
+                textBox.gameObject.SetActive(false);
+                Debug.Log("テキストボックス非表示");
+            }
+            
             if (exclamationMarkClone == true)
             {
                 exclamationMarkClone.SetActive(false);

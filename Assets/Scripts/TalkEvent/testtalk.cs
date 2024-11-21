@@ -6,6 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class testtalk : ScriptableObject
 {
+    public string EventName;
 
     public List<testTalk> testList = new List<testTalk>();
 
