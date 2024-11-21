@@ -14,7 +14,10 @@ public class SceneTransitions : MonoBehaviour
         if (collision.CompareTag("Player") && !collision.isTrigger)
         {
             //名前が悪いけどstarPositionに移動するフラグをtrue
-            LoadManager.Instance.NewGamePushFlg = true;
+            if (!LoadManager.Instance)
+            {
+                LoadManager.Instance.NewGamePushFlg = true;
+            }
             Debug.Log(LoadManager.Instance.NewGamePushFlg);
             //// プレイヤーの向きを保存
             //Player player = collision.GetComponent<Player>();

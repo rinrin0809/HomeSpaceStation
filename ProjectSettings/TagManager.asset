@@ -3,7 +3,14 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemy
+  - EnemyManager
+  - SaveButton
+  - LoadButton
+  - Key
+  - 108RoomScene
+  - 108RoomColl
   layers:
   - Default
   - TransparentFX
@@ -11,7 +18,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - wall
   - 
   - 
   - 

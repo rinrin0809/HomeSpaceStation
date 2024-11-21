@@ -46,10 +46,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51351923437a44549adeb3df9180b62f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StartPosition: {fileID: 5633440143711639364, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
+  StartPosition: {fileID: 0}
   WallMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
   Gridworldsize: {x: 30, y: 30}
   Noderadios: 0.1
   Distance: 0
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StartPosition: {fileID: 5633440143711639364, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
-  TargetPosition: {fileID: 7567715008155896253, guid: 51ea39f12667ae94dacd61e92e5ca96a, type: 3}
+  TargetPosition: {fileID: 0}
   Rafieldofvisionnge: 10
 --- !u!114 &-7602694983093951168
 MonoBehaviour:
@@ -80,6 +80,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f20fcfb1c6417bf4f8432a978797bc1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyPrefab: {fileID: 7749985292251452890, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
   sceneSpawnData: {fileID: 11400000, guid: 903af64e6ea9b6d4aa7b98d397713470, type: 2}
-  moveEnemy: {fileID: 5338991592500946058, guid: 56060bc7a1817d143854f945e183b4c4, type: 3}
+  moveEnemy: {fileID: 0}

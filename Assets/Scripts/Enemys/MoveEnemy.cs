@@ -14,6 +14,8 @@ public class MoveEnemy : MonoBehaviour
 
     private static bool _isChasing = false; // 追跡状態を保持するフラグ
 
+    public EventData Event;
+
     // 追跡フラグのゲッター
     public static bool IsChasing
     {
@@ -37,40 +39,42 @@ public class MoveEnemy : MonoBehaviour
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
-    private void OnDisable()
-    {
-        Destroy(gameObject); // 敵が無効化される際に削除する
-    }
+    //private void OnDisable()
+    //{
+    //    Destroy(gameObject); // 敵が無効化される際に削除する
+    //}
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         // シーンが読み込まれた後に呼ばれる
-        DestroyEnemy();
+        //DestroyEnemy();
     }
 
     private void Update()
     {
-        if (IsChasing)
+        //if (IsChasing)
+        //{
+        //    float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+
+        //    // 追跡停止条件
+        //    if (distanceToPlayer > chaseRange)
+        //    {
+        //        timeSincePlayerExitRange += Time.deltaTime;
+
+        //        if (timeSincePlayerExitRange >= stopChaseDelay)
+        //        {
+        //           // StopChasing(); // 追跡停止
+        //        }
+        //    }
+        //    else
+        //    {
+        //        timeSincePlayerExitRange = 0f; // 範囲内ならタイマーをリセット
+        //    }
+        if(Event.GetNameEventFlg("黒い影が逃げる"))
         {
-            float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
-
-            // 追跡停止条件
-            if (distanceToPlayer > chaseRange)
-            {
-                timeSincePlayerExitRange += Time.deltaTime;
-
-                if (timeSincePlayerExitRange >= stopChaseDelay)
-                {
-                    StopChasing(); // 追跡停止
-                }
-            }
-            else
-            {
-                timeSincePlayerExitRange = 0f; // 範囲内ならタイマーをリセット
-            }
-
             FollowPath();
         }
+       // }
     }
 
     private void InitializePath()
