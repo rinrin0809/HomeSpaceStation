@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: talkManager
   m_EditorClassIdentifier: 
   testtalkList:
-  - {fileID: 11400000, guid: de76938f843e2624c99312d6167567df, type: 2}
+  - {fileID: 11400000, guid: 489ff732887d7e74c99ff3b27057e53c, type: 2}
   - {fileID: 11400000, guid: 0da463cf7e2c01544904a23394ba28a8, type: 2}
