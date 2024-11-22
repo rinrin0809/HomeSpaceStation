@@ -63,6 +63,7 @@ public class LoadManager : MonoBehaviour
 
     public void LoadPlayerData1()
     {
+        Inventory.ResetInventory();
         LoadData("/PlayerData1.json");
         Debug.Log("PlayerData1");
     }
@@ -177,12 +178,16 @@ public class LoadManager : MonoBehaviour
         switch (sideNum)
         {
             case 0:
+                Debug.Log("save1");
                 return LoadManager.Instance.LoadPath("/PlayerData1.json");
             case 1:
+                Debug.Log("save2");
                 return LoadManager.Instance.LoadPath("/PlayerData2.json");
             case 2:
+                Debug.Log("save3");
                 return LoadManager.Instance.LoadPath("/PlayerData3.json");
             default:
+                Debug.Log("save4");
                 return "";
         }
     }

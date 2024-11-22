@@ -119,6 +119,7 @@ public class InventryData : ScriptableObject
     // アイテムリセット
     public void ResetInventory()
     {
+        Debug.Log("aaaaaaaaaaaaaa");
         for (int i = 0; i < inventoryItems.Count; i++)
         {
             inventoryItems[i] = InventoryItem.GetEmptyItem();

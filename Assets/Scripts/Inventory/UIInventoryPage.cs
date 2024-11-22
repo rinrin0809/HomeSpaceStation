@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 using System.Runtime.CompilerServices;
 
 public class UIInventoryPage : MonoBehaviour
@@ -74,7 +74,7 @@ public class UIInventoryPage : MonoBehaviour
 
         if (listUIItems.Count > itemIndex != null)
         {
-            Debug.Log("1");
+           
             listUIItems[itemIndex].SetData(itemName);
         }
     }
@@ -185,7 +185,7 @@ public class UIInventoryPage : MonoBehaviour
             }
         }
         UpdateDescription(ShowName, inventory.GetInventoryItems()[Num].item.Descripton);
-        Debug.Log("ShowName " + ShowName);
+       
     }
 
     private void UpdateItemColors()

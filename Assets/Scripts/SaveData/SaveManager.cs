@@ -34,6 +34,7 @@ public class SaveManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+        Inventory.ResetInventory();
     }
 
     private void Update()
