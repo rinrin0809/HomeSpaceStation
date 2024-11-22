@@ -143,6 +143,18 @@ public class EventData : ScriptableObject
 
         return false;
     }
+
+    public void ResetEventflag()
+    {
+        for(int i = 0;i<Events.Length; i++)
+        {
+            if (Events[i].EventActionFlg == true)
+            {
+                Debug.Log("タイトルなのでリセットします");
+                Events[i].EventActionFlg = false;
+            }
+        }
+    }
 }
 
 // イベントの構造体

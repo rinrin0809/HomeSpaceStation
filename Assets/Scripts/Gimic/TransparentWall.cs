@@ -16,24 +16,26 @@ public class TransparentWall : MonoBehaviour
 
     void Update()
     {
-        if (!Event.GetNameEventFlg("ÔŒÌá"))
-        {
-            Wall.SetActive(false);
-        }
+        //if (!Event.GetNameEventFlg("ÔŒÌá"))
+        //{
+        //    Wall.SetActive(false);
+        //}
 
-        else
-        {
-            Wall.SetActive(true);
-        }
+        //else
+        //{
+        //    Wall.SetActive(true);
+        //}
 
         if (!Event.GetNameEventActionFlg("—«‚Æ‚Ì‰ï˜b"))
         {
-            Wall.SetActive(false);
+            Debug.Log("—«‚Æ‰ï˜b‚µ‚½");
+            Wall.SetActive(true);
         }
 
         else
         {
-            Wall.SetActive(true);
+            Debug.Log("21rjkwgnvdsjmblks");
+            Wall.SetActive(false);
         }
     }
 }

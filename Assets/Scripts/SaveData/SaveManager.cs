@@ -107,6 +107,7 @@ public class SaveManager : MonoBehaviour
         {
             case 0:
                 if (SaveButton1) SaveButton1.onClick.AddListener(OnClickButton1);
+                Debug.Log("save");
                 break;
 
             case 1:

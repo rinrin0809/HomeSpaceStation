@@ -1789,6 +1789,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScenePanel: {fileID: 236704352}
   LoadMenuPanel: {fileID: 2093122560}
+  eventflag: {fileID: 11400000, guid: 490020c95d5f2c64695564c2a3acf4ca, type: 2}
 --- !u!1001 &1509536495
 PrefabInstance:
   m_ObjectHideFlags: 0

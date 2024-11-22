@@ -19,6 +19,7 @@ public class TitleSceneManager : MonoBehaviour
 
     [SerializeField] GameObject ScenePanel;
     [SerializeField] GameObject LoadMenuPanel;
+    [SerializeField] EventData eventflag;
 
     // 現在どのシーンが表示されているアクティブかを保持する
     private SceneType ActiveMenu = SceneType.None;
@@ -31,6 +32,8 @@ public class TitleSceneManager : MonoBehaviour
 
     void Start()
     {
+        eventflag.ResetEventflag();
+
         ScenePanel.SetActive(true);
         ActiveMenu = SceneType.TitleMenu;
     }
