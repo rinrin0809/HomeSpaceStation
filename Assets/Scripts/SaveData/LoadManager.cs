@@ -63,7 +63,6 @@ public class LoadManager : MonoBehaviour
 
     public void LoadPlayerData1()
     {
-        Inventory.ResetInventory();
         LoadData("/PlayerData1.json");
         Debug.Log("PlayerData1");
     }
@@ -82,6 +81,9 @@ public class LoadManager : MonoBehaviour
 
     public void LoadData(string Name)
     {
+        Inventory.ResetInventory();
+        NewGamePushFlg = false;
+        Debug.Log("NewGamePushFlg" + NewGamePushFlg);
         GameObj = GameObject.FindGameObjectWithTag("Player");
 
         string JsonPath = LoadPath(Name);
@@ -151,18 +153,6 @@ public class LoadManager : MonoBehaviour
         }
 
         TitleToGameLoadData();
-    }
-
-    public void NewGameButtonPush()
-    {
-        NewGamePushFlg = true;
-        Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
-    }
-
-    public void LoadGameButtonPush()
-    {
-        NewGamePushFlg = false;
-        Debug.Log("NewGamePushFlg: " + NewGamePushFlg);
     }
 
     public string LoadPath(string Name)

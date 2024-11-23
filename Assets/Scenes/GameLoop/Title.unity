@@ -1408,18 +1408,6 @@ MonoBehaviour:
           m_StringArgument: Roby
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1509536496}
-        m_TargetAssemblyTypeName: LoadManager, Assembly-CSharp
-        m_MethodName: LoadGameButtonPush
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1092735930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1871,17 +1859,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
---- !u!114 &1509536496 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7215875811954985572, guid: 0bcd5dc904e4fd94cbecb3ad3329ac7d, type: 3}
-  m_PrefabInstance: {fileID: 1509536495}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c80b892c857a534599d688ce1f29ac8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1533944738
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,18 +2156,6 @@ MonoBehaviour:
           m_StringArgument: Roby
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1509536496}
-        m_TargetAssemblyTypeName: LoadManager, Assembly-CSharp
-        m_MethodName: LoadGameButtonPush
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1687034975
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2459,18 +2424,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1509536496}
-        m_TargetAssemblyTypeName: LoadManager, Assembly-CSharp
-        m_MethodName: NewGameButtonPush
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 928473001}
         m_TargetAssemblyTypeName: FadeOutSceneLoader, Assembly-CSharp
         m_MethodName: NewGameCallCoroutine
@@ -2898,18 +2851,6 @@ MonoBehaviour:
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Roby
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1509536496}
-        m_TargetAssemblyTypeName: LoadManager, Assembly-CSharp
-        m_MethodName: LoadGameButtonPush
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2142980465

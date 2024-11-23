@@ -24,7 +24,6 @@ public class SceneTransitions : MonoBehaviour
         playerStorage.initialValue = new Vector3(0.0f, -4.0f, 0.0f);
     }
 
-
     //シーン遷移
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -33,13 +32,6 @@ public class SceneTransitions : MonoBehaviour
             // 鍵が必要かどうかチェック
             if (!requiresKey || (requiresKey && HasRequiredItem()))
             {
-                //名前が悪いけどstarPositionに移動するフラグをtrue
-                if (!LoadManager.Instance)
-                {
-                    LoadManager.Instance.NewGamePushFlg = true;
-                }
-                Debug.Log(LoadManager.Instance.NewGamePushFlg);
-
                 // プレイヤーの位置を保存し、シーンを切り替え
                 playerStorage.initialValue = playerPosition;
                 SceneManager.LoadScene(sceneToLoad);

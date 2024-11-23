@@ -12,6 +12,7 @@ public class TransparentWall : MonoBehaviour
     void Start()
     {
         Event.Initialize();
+        Wall.SetActive(true);
     }
 
     void Update()
@@ -28,13 +29,7 @@ public class TransparentWall : MonoBehaviour
 
         if (!Event.GetNameEventActionFlg("—«‚Æ‚Ì‰ï˜b"))
         {
-            Debug.Log("—«‚Æ‰ï˜b‚µ‚½");
-            Wall.SetActive(true);
-        }
-
-        else
-        {
-            Debug.Log("21rjkwgnvdsjmblks");
+            //Debug.Log("—«‚Æ‰ï˜b‚µ‚½");
             Wall.SetActive(false);
         }
     }

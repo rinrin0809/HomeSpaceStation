@@ -52,18 +52,21 @@ public class SaveManager : MonoBehaviour
     public void SavePlayerData1()
     {
         SaveData("/PlayerData1.json");
+        Debug.Log("save1");
     }
 
     // プレイヤーデータを保存
     public void SavePlayerData2()
     {
         SaveData("/PlayerData2.json");
+        Debug.Log("save2");
     }
 
     // プレイヤーデータを保存
     public void SavePlayerData3()
     {
         SaveData("/PlayerData3.json");
+        Debug.Log("save3");
     }
 
     private void SaveData(string Name)
@@ -102,22 +105,9 @@ public class SaveManager : MonoBehaviour
     // ボタンの初期設定
     public void ButtonInitialize()
     {
-        // LengthNumに応じてボタンを設定
-        switch (LengthNum)
-        {
-            case 0:
-                if (SaveButton1) SaveButton1.onClick.AddListener(OnClickButton1);
-                Debug.Log("save");
-                break;
-
-            case 1:
-                if (SaveButton2) SaveButton2.onClick.AddListener(OnClickButton2);
-                break;
-
-            case 2:
-                if (SaveButton3) SaveButton3.onClick.AddListener(OnClickButton3);
-                break;
-        }
+        if (SaveButton1) SaveButton1.onClick.AddListener(OnClickButton1);
+        if (SaveButton2) SaveButton2.onClick.AddListener(OnClickButton2);
+        if (SaveButton3) SaveButton3.onClick.AddListener(OnClickButton3);
     }
 
     // 各ボタンが押された時の処理

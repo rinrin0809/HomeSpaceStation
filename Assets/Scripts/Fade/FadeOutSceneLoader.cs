@@ -11,11 +11,13 @@ public class FadeOutSceneLoader : MonoBehaviour
 
     public void NewGameCallCoroutine(string Name)
     {
+        LoadManager.Instance.NewGamePushFlg = true;
         StartCoroutine(FadeOutAndNewGameOrTitle(Name));
     }
 
     public void LoadGameCallCoroutine()
     {
+        LoadManager.Instance.NewGamePushFlg = false;
         StartCoroutine(FadeOutAndLoadScene());
     }
 

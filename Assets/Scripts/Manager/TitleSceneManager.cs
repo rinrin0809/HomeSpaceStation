@@ -32,7 +32,7 @@ public class TitleSceneManager : MonoBehaviour
 
     void Start()
     {
-        eventflag.ResetEventflag();
+        eventflag.ResetEventActionflag();
 
         ScenePanel.SetActive(true);
         ActiveMenu = SceneType.TitleMenu;

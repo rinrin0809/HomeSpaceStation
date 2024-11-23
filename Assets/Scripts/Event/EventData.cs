@@ -144,7 +144,7 @@ public class EventData : ScriptableObject
         return false;
     }
 
-    public void ResetEventflag()
+    public void ResetEventActionflag()
     {
         for(int i = 0;i<Events.Length; i++)
         {
