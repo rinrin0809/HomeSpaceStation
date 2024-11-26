@@ -65,8 +65,8 @@ public class TitleIconMove : MonoBehaviour
     //押された時の処理
     void OnClick()
     {
-        // エンターキーが押されたか確認 (KeyCode.Return はエンターキー)
-        if (Input.GetKeyDown(KeyCode.Return))
+        // Spaceキーが押されたか確認 (KeyCode.Return はエンターキー)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             // 横移動の場合
             if (SideFlg)

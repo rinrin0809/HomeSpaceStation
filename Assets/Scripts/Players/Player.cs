@@ -154,7 +154,7 @@ public class Player : MonoBehaviour
 
         if (LoadManager.Instance != null)
         {
-            if (LoadManager.Instance.NextSceneName != "Title" || LoadManager.Instance.NextSceneName != "Over")
+            if (LoadManager.Instance.NextSceneName != "Title" && LoadManager.Instance.NextSceneName != "Over")
             {
                 Debug.Log("LoadManager.Instance.NewGamePushFlg" + LoadManager.Instance.NewGamePushFlg);
 

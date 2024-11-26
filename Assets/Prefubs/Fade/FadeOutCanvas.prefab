@@ -192,3 +192,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadePanel: {fileID: 8665330439449098496}
   fadeDuration: 1
+  Inventory: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
+  Event: {fileID: 11400000, guid: 490020c95d5f2c64695564c2a3acf4ca, type: 2}

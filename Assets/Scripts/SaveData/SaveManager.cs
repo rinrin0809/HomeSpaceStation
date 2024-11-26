@@ -11,7 +11,8 @@ public class SaveManager : MonoBehaviour
 
     [SerializeField] public GameObject GameObj;
     [SerializeField] private InventryData Inventory;
-
+    //ƒCƒxƒ“ƒg
+    public EventData Event;
     // 3‚Â‚ÌŒÂ•Ê‚ÌButton•Ï”
     [SerializeField] private Button SaveButton1;
     [SerializeField] private Button SaveButton2;
@@ -34,7 +35,6 @@ public class SaveManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-        Inventory.ResetInventory();
     }
 
     private void Update()

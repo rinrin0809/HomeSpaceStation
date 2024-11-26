@@ -144,13 +144,43 @@ public class EventData : ScriptableObject
         return false;
     }
 
+    public void AllResetFlag()
+    {
+        Debug.Log("タイトルなのでリセットします");
+        ResetEventflag();
+        ResetEndEventflag();
+        ResetEventActionflag();
+    }
+
+    public void ResetEventflag()
+    {
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EventFlag == true)
+            {
+                Events[i].EventFlag = false;
+            }
+        }
+    }
+
+    public void ResetEndEventflag()
+    {
+        for (int i = 0; i < Events.Length; i++)
+        {
+            if (Events[i].EndEventFlg == true)
+            {
+                Events[i].EndEventFlg = false;
+            }
+        }
+    }
+
     public void ResetEventActionflag()
     {
         for(int i = 0;i<Events.Length; i++)
         {
             if (Events[i].EventActionFlg == true)
             {
-                Debug.Log("タイトルなのでリセットします");
+                
                 Events[i].EventActionFlg = false;
             }
         }

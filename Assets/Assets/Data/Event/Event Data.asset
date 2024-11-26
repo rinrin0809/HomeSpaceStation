@@ -37,7 +37,7 @@ MonoBehaviour:
     EventNumber: 4
     EventFlag: 0
     EndEventFlg: 0
-    EventActionFlg: 0
+    EventActionFlg: 1
   - EventName: "\u4E3B\u4EBA\u516C\u30FB\u53CB\u4EBA\u30FB\u5973\u5C06\u3068\u306E\u4F1A\u8A71"
     EventNumber: 5
     EventFlag: 0

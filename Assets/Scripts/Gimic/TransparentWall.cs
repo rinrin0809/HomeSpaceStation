@@ -17,16 +17,6 @@ public class TransparentWall : MonoBehaviour
 
     void Update()
     {
-        //if (!Event.GetNameEventFlg("ÔŒÌá"))
-        //{
-        //    Wall.SetActive(false);
-        //}
-
-        //else
-        //{
-        //    Wall.SetActive(true);
-        //}
-
         if (!Event.GetNameEventActionFlg("—«‚Æ‚Ì‰ï˜b"))
         {
             //Debug.Log("—«‚Æ‰ï˜b‚µ‚½");

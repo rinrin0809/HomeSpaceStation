@@ -13,6 +13,8 @@ public class LoadManager : MonoBehaviour
     private int SideNum = 0;
     private bool SideFlg = false;
     [SerializeField] private InventryData Inventory;
+    //ƒCƒxƒ“ƒg
+    public EventData Event;
     [SerializeField] public string NextSceneName = "";
     public SaveData data;
 
@@ -81,7 +83,6 @@ public class LoadManager : MonoBehaviour
 
     public void LoadData(string Name)
     {
-        Inventory.ResetInventory();
         NewGamePushFlg = false;
         Debug.Log("NewGamePushFlg" + NewGamePushFlg);
         GameObj = GameObject.FindGameObjectWithTag("Player");

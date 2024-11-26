@@ -48,6 +48,16 @@ public class ActionEvent : MonoBehaviour
 
     string characterName;
 
+    //会話イベント発生時のセットする為のフラグ（仮）
+    [SerializeField]
+    private bool InitilizeFlg = true;
+
+    //private void Awake()
+    //{
+    //    Event.SetEventActionEventFlg("女将との会話", true);
+    //    Debug.Log("Set true");
+    //}
+
     // Start is called before the first frame update
     void Start()
     {
@@ -67,13 +77,17 @@ public class ActionEvent : MonoBehaviour
         {
             Debug.Log("canvasがない");
         }
-
-        Event.SetEventActionEventFlg("女将との会話", true);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(InitilizeFlg)
+        {
+            Event.SetEventActionEventFlg("女将との会話", true);
+            InitilizeFlg = false;
+        }
+
         exclamationMarkClone.transform.position = Camera.main.WorldToScreenPoint(ActionObject.transform.position + offset);
       
 
@@ -93,9 +107,9 @@ public class ActionEvent : MonoBehaviour
                 Event.SetEventActionEventFlg("女将との会話", false);
                 text.text = "";
             }
+
             else
             {
-                
                 conversationText = nextConversation;
                 Debug.Log("会話内容: " + conversationText);
                 text.text = conversationText;

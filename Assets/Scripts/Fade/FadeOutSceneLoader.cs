@@ -8,16 +8,22 @@ public class FadeOutSceneLoader : MonoBehaviour
 {
     public Image fadePanel;             // フェード用のUIパネル（Image）
     public float fadeDuration = 1.0f;   // フェードの完了にかかる時間
-
+    [SerializeField] private InventryData Inventory;
+    //イベント
+    public EventData Event;
     public void NewGameCallCoroutine(string Name)
     {
         LoadManager.Instance.NewGamePushFlg = true;
+        Inventory.ResetInventory();
+        Event.AllResetFlag();
         StartCoroutine(FadeOutAndNewGameOrTitle(Name));
     }
 
     public void LoadGameCallCoroutine()
     {
         LoadManager.Instance.NewGamePushFlg = false;
+        Inventory.ResetInventory();
+        Event.AllResetFlag();
         StartCoroutine(FadeOutAndLoadScene());
     }
 

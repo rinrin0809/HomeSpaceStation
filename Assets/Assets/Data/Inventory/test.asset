@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: test
   m_EditorClassIdentifier: 
   inventoryItems:
-  - item: {fileID: 11400000, guid: d81d2429dba674a47a6f299abef836ec, type: 2}
-    ItemFlg: 1
+  - item: {fileID: 0}
+    ItemFlg: 0
   - item: {fileID: 0}
     ItemFlg: 0
   - item: {fileID: 0}

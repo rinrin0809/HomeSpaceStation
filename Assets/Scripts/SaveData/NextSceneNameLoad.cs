@@ -22,34 +22,37 @@ public class NextSceneNameLoad : MonoBehaviour
 
     private void UpdateSceneName()
     {
-        if (LoadManager.Instance.GetSideFlg())
+        if(!LoadManager.Instance)
         {
-            switch (LoadManager.Instance.GetSideNum())
+            if (LoadManager.Instance.GetSideFlg())
             {
-                case 0:
-                    LoadPlayerData1();
-                    break;
-                case 1:
-                    LoadPlayerData2();
-                    break;
-                case 2:
-                    LoadPlayerData3();
-                    break;
+                switch (LoadManager.Instance.GetSideNum())
+                {
+                    case 0:
+                        LoadPlayerData1();
+                        break;
+                    case 1:
+                        LoadPlayerData2();
+                        break;
+                    case 2:
+                        LoadPlayerData3();
+                        break;
+                }
             }
-        }
-        else
-        {
-            switch (LoadManager.Instance.GetLengthNum())
+            else
             {
-                case 0:
-                    LoadPlayerData1();
-                    break;
-                case 1:
-                    LoadPlayerData2();
-                    break;
-                case 2:
-                    LoadPlayerData3();
-                    break;
+                switch (LoadManager.Instance.GetLengthNum())
+                {
+                    case 0:
+                        LoadPlayerData1();
+                        break;
+                    case 1:
+                        LoadPlayerData2();
+                        break;
+                    case 2:
+                        LoadPlayerData3();
+                        break;
+                }
             }
         }
     }
