@@ -32,6 +32,7 @@ public class TitleSceneManager : MonoBehaviour
 
     void Start()
     {
+        eventflag.Initialize();
         ScenePanel.SetActive(true);
         ActiveMenu = SceneType.TitleMenu;
     }
@@ -46,8 +47,8 @@ public class TitleSceneManager : MonoBehaviour
     //メニューが表示されているかのフラグの状態取得
     public bool GetOpenLoadMenuFlg()
     {
-        //エンターキーが押されてOpenMenuFlgがfalseの時はtrue
-        if (Input.GetKeyDown(KeyCode.Return) && !OpenLoadMenuFlg)
+        //スペースキーが押されてOpenMenuFlgがfalseの時はtrue
+        if (Input.GetKeyDown(KeyCode.Space) && !OpenLoadMenuFlg)
         {
             OpenLoadMenuFlg = true;
         }

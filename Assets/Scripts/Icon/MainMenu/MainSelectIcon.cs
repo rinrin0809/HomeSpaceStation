@@ -55,8 +55,8 @@ public class MainSelectIcon : MonoBehaviour
     //押された時の処理
     void OnClick()
     {
-        // エンターキーが押されたか確認 (KeyCode.Return はエンターキー)
-        if (Input.GetKeyDown(KeyCode.Return))
+        // スペースキーが押されたか確認 (KeyCode.Return はエンターキー)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Enter key pressed");
             // 横移動の場合

@@ -55,8 +55,8 @@ public class SaveSelectIcon : MonoBehaviour
     //押された時の処理
     void OnClick()
     {
-        // エンターキーが押されたか確認 (KeyCode.Return はエンターキー)
-        if (Input.GetKeyDown(KeyCode.Return) && !Input.GetKey(KeyCode.Backspace) && !Input.GetKeyDown(KeyCode.Backspace))
+        // スペースキーが押されたか確認 (KeyCode.Return はエンターキー)
+        if (Input.GetKeyDown(KeyCode.Space) && !Input.GetKey(KeyCode.Backspace) && !Input.GetKeyDown(KeyCode.Backspace))
         {
             // 横移動の場合
             if (SideFlg)

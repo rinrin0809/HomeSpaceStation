@@ -11,7 +11,6 @@ public class TransparentWall : MonoBehaviour
 
     void Start()
     {
-        Event.Initialize();
         Wall.SetActive(true);
     }
 
