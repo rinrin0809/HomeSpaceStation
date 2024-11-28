@@ -22,7 +22,7 @@ public class NextSceneNameLoad : MonoBehaviour
 
     private void UpdateSceneName()
     {
-        if(!LoadManager.Instance)
+        if(LoadManager.Instance)
         {
             if (LoadManager.Instance.GetSideFlg())
             {

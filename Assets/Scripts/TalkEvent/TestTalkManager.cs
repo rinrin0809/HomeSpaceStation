@@ -11,9 +11,9 @@ public class TestTalkManager : MonoBehaviour
     [SerializeField]
     public TalkManagerList talklist;
 
-    //[SerializeField]
-    //public testtalk test;
-    //public ActionEvent actionEvent;
+    [SerializeField]
+    float textSpeed; 
+
 
     public static TestTalkManager Instance { get; private set; }
 
@@ -32,22 +32,6 @@ public class TestTalkManager : MonoBehaviour
         }
     }
 
-    // 会話データを取得するメソッド
-    //public string GetTalk(int actionIndex, int talkIndex)
-    //{
-    //    if (actionIndex >= 0 && actionIndex < talklist.TalkEventList.Count)
-    //    {
-    //        var actiontalk = talklist.TalkEventList[actionIndex];
-    //        if (talkIndex >= 0 && talkIndex < actiontalk.Conversations.Count)
-    //        {
-    //            //testList.instance.test(ActionTalkData.testList.CharacterName.player);
-    //            Debug.Log("talkindex:" + talkIndex);
-    //            return actiontalk.Conversations[talkIndex];
-    //        }
-    //    }
-
-    //    return "";
-    //}
 
     public string GetTalk(int talkIndex, int actionIndex)
     {
@@ -85,6 +69,6 @@ public class TestTalkManager : MonoBehaviour
         return "";
     }
 
-
+    
    
 }

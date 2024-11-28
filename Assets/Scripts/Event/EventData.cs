@@ -26,6 +26,11 @@ public class EventData : ScriptableObject
     "主人公と主人公の彼女が中庭で分かれる"
 };
 
+    public void SetEvents(Event[] Event)
+    {
+        Events = Event;
+    }
+
     public Event[] GetEvents()
     {
         return Events;
@@ -38,6 +43,8 @@ public class EventData : ScriptableObject
         SetEventNumber();
         //イベントの名前設定
         SetEventName(EventNames);
+        //フラグをリセット
+        AllResetFlag();
     }
 
     // 特定のイベントフラグを設定

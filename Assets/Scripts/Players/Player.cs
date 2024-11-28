@@ -114,6 +114,9 @@ public class Player : MonoBehaviour
     {
         Instance = this;
 
+        //デバッグ用
+        Event.Initialize();
+
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
 

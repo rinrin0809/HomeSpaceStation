@@ -58,6 +58,9 @@ public class IconMove : MonoBehaviour
             // 横移動処理
             SideMove();
 
+            //横移動した時の選択されている番号
+            LoadManager.Instance.SetSideNum(SideNum);
+
             // RectTransformのポジションを取得
             NewPos = Position;
 
@@ -72,6 +75,9 @@ public class IconMove : MonoBehaviour
 
             // 縦移動処理
             LengthMove();
+
+            //縦移動した時の選択されている番号
+            LoadManager.Instance.SetLengthNum(LengthNum);
 
             // RectTransformのポジションを取得
             NewPos = Position;

@@ -80,6 +80,7 @@ public class SaveManager : MonoBehaviour
             PosY = GameObj.transform.position.y,
             PosZ = GameObj.transform.position.z,
             InventoryItems = Inventory.GetInventoryItems(),
+            EventDatas = Event.GetEvents(),
             SceneName = SceneManager.GetActiveScene().name
         };
 

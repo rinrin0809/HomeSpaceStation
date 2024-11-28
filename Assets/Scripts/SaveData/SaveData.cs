@@ -14,4 +14,7 @@ public class SaveData
 
     // インベントリデータ
     public List<InventoryItem> InventoryItems;
+
+    //イベントデータ
+    public Event[] EventDatas;
 }
