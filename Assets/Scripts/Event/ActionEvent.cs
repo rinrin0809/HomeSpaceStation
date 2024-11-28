@@ -25,11 +25,8 @@ public class ActionEvent : MonoBehaviour
     string nameText;
 
     public GameObject textBox;
-    
-    //string nextConversation;
-    //string nextName;
 
-   // private TalkManager talkManager;
+    
 
     // 会話全体のリストのインデックス
     // どの会話のリストを選んでるかをこの変数を変えることで変更できる
@@ -52,13 +49,11 @@ public class ActionEvent : MonoBehaviour
     [SerializeField]
     private bool InitilizeFlg = true;
 
-    //private void Awake()
-    //{
-    //    Event.SetEventActionEventFlg("女将との会話", true);
-    //    Debug.Log("Set true");
-    //}
+    private Coroutine displayTextCoroutine;
 
-    // Start is called before the first frame update
+    //[SerializeField] 
+    private float textSpeed = 0.05f;
+     // 一文字づつ表示する早さ
     void Start()
     {
         // Canvasの取得
@@ -113,11 +108,21 @@ public class ActionEvent : MonoBehaviour
                 conversationText = nextConversation;
                 Debug.Log("会話内容: " + conversationText);
                 text.text = conversationText;
+
+                // 一文字ずつ表示
+                if (displayTextCoroutine != null) StopCoroutine(displayTextCoroutine);
+                displayTextCoroutine = StartCoroutine(DisplayText(conversationText, text));
+
+                //if (!string.IsNullOrEmpty(nameText))
+                //{
+                //    if (displayNameCoroutine != null) StopCoroutine(displayNameCoroutine);
+                //    displayNameCoroutine = StartCoroutine(DisplayTextCoroutine(nameText, nametext));
+                //}
             }
 
             if (string.IsNullOrEmpty(nextName))
             {
-                nametext.text = "";
+                nametext.text = ""; 
                 Debug.Log("名前クリア");
             }
             else
@@ -140,8 +145,19 @@ public class ActionEvent : MonoBehaviour
             // 会話データのインデックスを取得して会話内容表示
             conversationText = TestTalkManager.Instance.GetTalk(talkEventIndex, actionEventIndex);
             nameText = TestTalkManager.Instance.GetTalkName(talkEventIndex, actionEventIndex);
-            text.text = conversationText;
-            nametext.text = nameText;
+
+            // 一文字ずつ表示
+            if (displayTextCoroutine != null) StopCoroutine(displayTextCoroutine);
+            displayTextCoroutine = StartCoroutine(DisplayText(conversationText, text));
+
+            //if (!string.IsNullOrEmpty(nameText))
+            //{
+
+            //}
+
+
+            //text.text = conversationText;
+            //nametext.text = nameText;
             testFlag = true;
             Debug.Log("flag" + testFlag);
             UpdatefinishFlag();
@@ -165,8 +181,7 @@ public class ActionEvent : MonoBehaviour
             {
                 exclamationMarkClone.SetActive(false);
             }
-            text.text = "";
-            nametext.text = "";
+           
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
             testFlag = false;
@@ -174,6 +189,9 @@ public class ActionEvent : MonoBehaviour
             UpdatefinishFlag();
         }
     }
+
+   
+    
 
 
     private void UpdatefinishFlag()
@@ -186,6 +204,20 @@ public class ActionEvent : MonoBehaviour
             Debug.Log("fisish: " + finishtalk+ "actionIndex: "+actionEventIndex);
         }
     }
+
+    private IEnumerator DisplayText(string fullText,TextMeshProUGUI textUI)
+    {
+        Debug.Log("呼び出し");
+        Debug.Log($"Current textSpeed: {textSpeed}");
+        textUI.text = "";
+        
+        foreach(char c in fullText)
+        {
+            textUI.text += c;
+            yield return new WaitForSeconds(textSpeed);
+        }
+    }
+   
 }
 
 [System.Serializable]
