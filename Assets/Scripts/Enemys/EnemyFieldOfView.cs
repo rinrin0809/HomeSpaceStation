@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFieldOfView : MonoBehaviour
 {
-    public float radious = 5;
+    public float radius = 5;
     [Range(1, 360)] public float angle = 45f;
     public LayerMask targetLayer;
     public LayerMask obstructionLayer;
@@ -37,7 +37,7 @@ public class EnemyFieldOfView : MonoBehaviour
     //Ž‹–ì
     private void FOV()
     {
-        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radious, targetLayer);
+        Collider2D[] rangeCheck = Physics2D.OverlapCircleAll(transform.position, radius, targetLayer);
 
         if (rangeCheck.Length > 0)
         {
@@ -71,14 +71,14 @@ public class EnemyFieldOfView : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.white;
-        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radious);
+        UnityEditor.Handles.DrawWireDisc(transform.position, Vector3.forward, radius);
 
         Vector3 angle01 = DirectionFromAngle(-transform.eulerAngles.z, -angle / half);
         Vector3 angle02 = DirectionFromAngle(-transform.eulerAngles.z, angle / half);
 
         Gizmos.color = Color.yellow;
-        Gizmos.DrawLine(transform.position, transform.position + angle01 * radious);
-        Gizmos.DrawLine(transform.position, transform.position + angle02 * radious);
+        Gizmos.DrawLine(transform.position, transform.position + angle01 * radius);
+        Gizmos.DrawLine(transform.position, transform.position + angle02 * radius);
 
         if(CanSeePlayer)
         {
