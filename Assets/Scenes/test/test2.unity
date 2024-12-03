@@ -571,7 +571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 17.539978, y: 19.529999}
+  m_AnchoredPosition: {x: 17.539978, y: 19.53003}
   m_SizeDelta: {x: -517.3308, y: -281.948}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &113971207
@@ -609,7 +609,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -17.699951, y: -0.69039917}
+  m_AnchoredPosition: {x: -17.699951, y: -0.6904297}
   m_SizeDelta: {x: -298.4513, y: -179.1808}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &113971209
@@ -871,7 +871,6 @@ MonoBehaviour:
   text: {fileID: 2016348527}
   nametext: {fileID: 1906332547}
   textBox: {fileID: 888734097}
-  textSpeed: 0
   talkEventIndex: 0
   actionEventIndex: 0
   listnum: 0
@@ -946,7 +945,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1338,7 +1337,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1623,7 +1622,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1690,7 +1689,6 @@ MonoBehaviour:
   text: {fileID: 2016348527}
   nametext: {fileID: 1906332547}
   textBox: {fileID: 888734097}
-  textSpeed: 0
   talkEventIndex: 1
   actionEventIndex: 0
   listnum: 0
@@ -2162,7 +2160,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5486,7 +5484,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5646,7 +5644,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -20.685913, y: -23.100006}
+  m_AnchoredPosition: {x: -20.685913, y: -23.099976}
   m_SizeDelta: {x: -303.9847, y: -66.9758}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8361509931104640184
