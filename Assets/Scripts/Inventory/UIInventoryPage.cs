@@ -184,6 +184,8 @@ public class UIInventoryPage : MonoBehaviour
                 UpdateItemColors();
             }
         }
+
+        // アイテムの説明呼び出し
         UpdateDescription(ShowName, inventory.GetInventoryItems()[Num].item.Descripton);
        
     }
