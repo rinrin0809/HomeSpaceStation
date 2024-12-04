@@ -11,6 +11,8 @@ TagManager:
   - Key
   - 108RoomScene
   - 108RoomColl
+  - RandomPatrolPoint
+  - RandomPatrolFag
   layers:
   - Default
   - TransparentFX

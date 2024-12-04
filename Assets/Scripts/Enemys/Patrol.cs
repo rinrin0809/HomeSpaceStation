@@ -4,33 +4,61 @@ using UnityEngine;
 
 public class Patrol : MonoBehaviour
 {
-    public List<Transform> positions; // 移動するポジションのリスト
+    public List<Transform> positions; // 巡回ポイントのリスト
+    public List<Transform> randomPositions; // ランダム移動先のリスト
     public float speed = 2f; // 移動速度
     public float rotationSpeed = 180f; // 回転速度（度/秒）
-    private int currentTargetIndex = 0; // 現在のターゲットポジションのインデックス
 
+    public float randomPatrolChance = 0.5f;
+
+    private int currentTargetIndex = 0; // 現在のターゲットポジションのインデックス
+    private bool isRandomPatrol = false; // ランダムパトロール状態かどうか
+    private Transform randomTarget; // 現在のランダムターゲット
+
+    private Transform returnPosition; // 一時的な復帰先
+    public Transform randomPatrolFagPosition; // RandomPatrolFag の位置を設定
+    public float detectionRange = 0.5f; // RandomPatrolFag に到達とみなす距離
     void Update()
     {
-        MoveToPosition();
+       
+        if (isRandomPatrol)
+        {
+            MoveToRandomPosition();
+        }
+        else
+        {
+            CheckForRandomPatrolFag();
+            MoveToPosition();
+        }
     }
 
-    void MoveToPosition()
+    private void CheckForRandomPatrolFag()
     {
-        if (positions.Count == 0) return; // ポジションがない場合は何もしない
+        if (randomPatrolFagPosition == null) return;
+
+        // 距離を計算してチェック
+        float distanceToFag = Vector3.Distance(transform.position, randomPatrolFagPosition.position);
+        if (distanceToFag < detectionRange)
+        {
+            Debug.Log("RandomPatrolFag に到達しました");
+
+            // ランダムパトロールへの切り替え
+            if (randomPositions.Count > 0)
+            {
+                randomTarget = randomPositions[Random.Range(0, randomPositions.Count)];
+                Debug.Log($"ランダムターゲット: {randomTarget.name} に移行します");
+
+                isRandomPatrol = true;
+            }
+        }
+    }
+
+        private void MoveToPosition()
+    {
+        if (positions.Count == 0) return;
 
         Transform target = positions[currentTargetIndex];
-        Vector3 direction = (target.position - transform.position).normalized;
-
-        // 移動
-        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-
-        // スムーズにターゲット方向を向く
-        if (direction.magnitude > 0.1f) // ターゲットが近すぎない場合のみ回転
-        {
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // 90度オフセット
-            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle); // ターゲットの回転
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-        }
+        MoveAndRotateTowards(target);
 
         // 現在のターゲットに到達したかをチェック
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
@@ -42,4 +70,69 @@ public class Patrol : MonoBehaviour
             }
         }
     }
+
+    private void MoveToRandomPosition()
+    {
+        if (randomTarget == null) return;
+
+        MoveAndRotateTowards(randomTarget);
+
+        // ランダムターゲットに到達したかをチェック
+        if (Vector3.Distance(transform.position, randomTarget.position) < 0.1f)
+        {
+            Debug.Log("ランダムターゲットに到達しました");
+            isRandomPatrol = false; // ランダムパトロール終了
+        }
+    }
+
+    //private void ReturnToPatrolPosition()
+    //{
+    //    if (returnPosition == null) return;
+
+    //    MoveAndRotateTowards(returnPosition);
+
+    //    // 元の巡回ポジションに到達したかをチェック
+    //    if (Vector3.Distance(transform.position, returnPosition.position) < 0.1f)
+    //    {
+    //        isReturningToPatrol = false; // 通常巡回に戻る
+    //        returnPosition = null;
+    //    }
+    //}
+
+    private void MoveAndRotateTowards(Transform target)
+    {
+        Vector3 direction = (target.position - transform.position).normalized;
+
+        // 移動
+        transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+
+        // スムーズにターゲット方向を向く
+        if (direction.magnitude > 0.1f)
+        {
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // 90度オフセット
+            Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+    //public void OnTriggerEnter2D(Collider2D collision)
+    //{
+    //    // ランダムパトロールへの切り替え処理
+    //    if (collision.CompareTag("RandomPatrolFag"))
+    //    {
+    //        Debug.Log("RandomPatrolFag タグに当たりました");
+    //        if (randomPositions.Count > 0 && !isRandomPatrol)
+    //        {
+    //            if (Random.value < randomPatrolChance)
+    //            {
+    //                Debug.Log("ランダムパトロールに移行します");
+    //                isRandomPatrol = true;
+    //                randomTarget = randomPositions[Random.Range(0, randomPositions.Count)];
+    //            }
+    //            else
+    //            {
+    //                Debug.Log("ランダムパトロールに移行しません");
+    //            }
+    //        }
+    //    }
+    //}
 }
