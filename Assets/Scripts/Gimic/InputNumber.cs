@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
@@ -18,6 +19,12 @@ public class InputNumber : MonoBehaviour
     float time = MAX_TIME;
 
     int columns = 3; // 列の数
+
+    private ExportNumber expNum;
+
+    private int selectNumber;
+
+    TextMeshProUGUI numberText;
 
     // Start is called before the first frame update
     void Start()
@@ -111,6 +118,29 @@ public class InputNumber : MonoBehaviour
                 }
             }
         }
+        else if (Input.GetKeyDown(KeyCode.Return))
+        {
+            string selectedObjectName = inputNum[Num].name;
+
+            if (selectedObjectName != "no")
+            {
+                // 名前を数字に変換して`selectedNumber`に格納
+                if (int.TryParse(selectedObjectName, out int result))
+                {
+                    selectNumber = result;
+                    
+                    Debug.Log($"選択された数字: {selectNumber}");
+                }
+                else
+                {
+                    Debug.LogWarning($"オブジェクト名が数字ではありません: {selectedObjectName}");
+                }
+            }
+            else
+            {
+                Debug.Log("選択されたオブジェクトは 'no' です。何もしません。");
+            }
+        }
 
         // Backspaceでリセット
         if (Input.GetKeyDown(KeyCode.Backspace))
@@ -121,64 +151,66 @@ public class InputNumber : MonoBehaviour
         // アイテムの色を更新
         UpdateItemColors();
 
-        //Time.timeScale = 0.0f;
-        //time--;
+        {
+            //Time.timeScale = 0.0f;
+            //time--;
 
-        //if (Num > 0)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.A))
-        //    {
-        //        if (time < 0.0f)
-        //        {
-        //            time = MAX_TIME;
-        //            Num -= 1;
-        //        }
-        //    }
-        //}
-        //else if (Num == 0)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.A))
-        //    {
-        //        time = MAX_TIME;
+            //if (Num > 0)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.A))
+            //    {
+            //        if (time < 0.0f)
+            //        {
+            //            time = MAX_TIME;
+            //            Num -= 1;
+            //        }
+            //    }
+            //}
+            //else if (Num == 0)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.A))
+            //    {
+            //        time = MAX_TIME;
 
-        //        for(int i = 0; i < inputNum.Count; i++)
-        //        {
-        //            if (inputNum[i].name != null)
-        //            {
-        //                Num = 0;
+            //        for(int i = 0; i < inputNum.Count; i++)
+            //        {
+            //            if (inputNum[i].name != null)
+            //            {
+            //                Num = 0;
 
-        //            }
-        //        }
-        //    }
-        //}
+            //            }
+            //        }
+            //    }
+            //}
 
-        //if (Num < inputNum.Count - 1)
-        //{
-        //    if (Input.GetKeyDown(KeyCode.D))
-        //    {
-        //        if (time < 0.0f)
-        //        {
-        //            time = MAX_TIME;
-        //            Num += 1;
+            //if (Num < inputNum.Count - 1)
+            //{
+            //    if (Input.GetKeyDown(KeyCode.D))
+            //    {
+            //        if (time < 0.0f)
+            //        {
+            //            time = MAX_TIME;
+            //            Num += 1;
 
-        //            // Check if the selected item is null
-        //            if (inputNum[Num] == null)
-        //            {
-        //                Num = 0; // Reset Num if the item at the current index is null
-        //            }
-        //        }
-        //    }
-        //}
+            //            // Check if the selected item is null
+            //            if (inputNum[Num] == null)
+            //            {
+            //                Num = 0; // Reset Num if the item at the current index is null
+            //            }
+            //        }
+            //    }
+            //}
 
-        //if (Input.GetKeyDown(KeyCode.Backspace))
-        //{
-        //    Num = 0;
-        //}
+            //if (Input.GetKeyDown(KeyCode.Backspace))
+            //{
+            //    Num = 0;
+            //}
 
-        //else
-        //{
-        //    UpdateItemColors();
-        //}
+            //else
+            //{
+            //    UpdateItemColors();
+            //}
+        }
 
     }
 
