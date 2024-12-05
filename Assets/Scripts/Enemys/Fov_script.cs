@@ -52,4 +52,6 @@ public class Fov_script : MonoBehaviour
             Debug.Log("“G‚ÌŽ‹ŠEŠO‚Å‚·");
         }
     }
+
+
 }
