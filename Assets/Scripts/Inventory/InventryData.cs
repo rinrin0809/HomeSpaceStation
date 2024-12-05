@@ -140,6 +140,8 @@ public struct InventoryItem
 
     public bool ItemFlg;
 
+    public bool SpriteRenderFlag;
+
     // 新しいアイテムを設定
     public InventoryItem SetItem(Item newItem)
     {

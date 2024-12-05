@@ -10,7 +10,7 @@ public class InputNumber : MonoBehaviour
     [SerializeField]
     private List<GameObject> inputNum = new List<GameObject>();
 
-    [SerializeField]
+    
     private int Num = 0;
 
     //移動時のインターバルの時間上限
@@ -24,13 +24,22 @@ public class InputNumber : MonoBehaviour
 
     private int selectNumber;
 
+    [SerializeField]
+    GameObject numberBox;
+    string inputValue = "";
+    [SerializeField]
     TextMeshProUGUI numberText;
-
+    [SerializeField]
+    TextMeshProUGUI resultText;
+    [SerializeField] int answer = 1234;
     // Start is called before the first frame update
     void Start()
     {
         inputNum.Clear();
 
+        numberText.text = "";
+        resultText.text = "";
+       
         foreach(Transform childin in transform)
         {
             inputNum.Add(childin.gameObject);
@@ -121,97 +130,63 @@ public class InputNumber : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             string selectedObjectName = inputNum[Num].name;
-
-            if (selectedObjectName != "no")
+            ExportNumber exportNum = inputNum[Num].GetComponent<ExportNumber>();
+            if (exportNum != null)
             {
-                // 名前を数字に変換して`selectedNumber`に格納
-                if (int.TryParse(selectedObjectName, out int result))
+                
+                int number = exportNum.ExpNum; // オブジェクトの値を取得
+             
+                if (inputValue.Length < 4)
                 {
-                    selectNumber = result;
-                    
-                    Debug.Log($"選択された数字: {selectNumber}");
+                    inputValue += number.ToString();
+                    numberText.text = inputValue; // 入力された数字を表示
                 }
                 else
                 {
-                    Debug.LogWarning($"オブジェクト名が数字ではありません: {selectedObjectName}");
+                    Debug.Log("すでに4桁入力されています。");
                 }
             }
-            else
-            {
-                Debug.Log("選択されたオブジェクトは 'no' です。何もしません。");
-            }
+
+           
+
         }
 
         // Backspaceでリセット
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            Num = 0;
+            if (inputValue.Length > 0)
+            {
+                inputValue = inputValue.Substring(0, inputValue.Length - 1); // 最後の文字を削除
+                numberText.text = inputValue;                               // 表示を更新
+            }
         }
+
+        if (inputValue.Length == 4 && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
+        {
+            if (int.Parse(inputValue) == answer)
+            {
+                resultText.text = "正解！";
+                Debug.Log("正解！");
+            }
+            else
+            {
+                resultText.text = "不正解";
+                Debug.Log("不正解");
+            }
+
+            // 入力値をリセット
+            inputValue = "";
+            numberText.text = inputValue;
+        }
+
 
         // アイテムの色を更新
         UpdateItemColors();
 
-        {
-            //Time.timeScale = 0.0f;
-            //time--;
+       
 
-            //if (Num > 0)
-            //{
-            //    if (Input.GetKeyDown(KeyCode.A))
-            //    {
-            //        if (time < 0.0f)
-            //        {
-            //            time = MAX_TIME;
-            //            Num -= 1;
-            //        }
-            //    }
-            //}
-            //else if (Num == 0)
-            //{
-            //    if (Input.GetKeyDown(KeyCode.A))
-            //    {
-            //        time = MAX_TIME;
 
-            //        for(int i = 0; i < inputNum.Count; i++)
-            //        {
-            //            if (inputNum[i].name != null)
-            //            {
-            //                Num = 0;
-
-            //            }
-            //        }
-            //    }
-            //}
-
-            //if (Num < inputNum.Count - 1)
-            //{
-            //    if (Input.GetKeyDown(KeyCode.D))
-            //    {
-            //        if (time < 0.0f)
-            //        {
-            //            time = MAX_TIME;
-            //            Num += 1;
-
-            //            // Check if the selected item is null
-            //            if (inputNum[Num] == null)
-            //            {
-            //                Num = 0; // Reset Num if the item at the current index is null
-            //            }
-            //        }
-            //    }
-            //}
-
-            //if (Input.GetKeyDown(KeyCode.Backspace))
-            //{
-            //    Num = 0;
-            //}
-
-            //else
-            //{
-            //    UpdateItemColors();
-            //}
-        }
-
+        //numberBox.gameObject.SetActive(false);
     }
 
     private void UpdateItemColors()
