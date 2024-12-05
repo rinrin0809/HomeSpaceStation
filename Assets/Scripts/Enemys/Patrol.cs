@@ -85,20 +85,6 @@ public class Patrol : MonoBehaviour
         }
     }
 
-    //private void ReturnToPatrolPosition()
-    //{
-    //    if (returnPosition == null) return;
-
-    //    MoveAndRotateTowards(returnPosition);
-
-    //    // 元の巡回ポジションに到達したかをチェック
-    //    if (Vector3.Distance(transform.position, returnPosition.position) < 0.1f)
-    //    {
-    //        isReturningToPatrol = false; // 通常巡回に戻る
-    //        returnPosition = null;
-    //    }
-    //}
-
     private void MoveAndRotateTowards(Transform target)
     {
         Vector3 direction = (target.position - transform.position).normalized;
@@ -114,25 +100,4 @@ public class Patrol : MonoBehaviour
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
     }
-    //public void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    // ランダムパトロールへの切り替え処理
-    //    if (collision.CompareTag("RandomPatrolFag"))
-    //    {
-    //        Debug.Log("RandomPatrolFag タグに当たりました");
-    //        if (randomPositions.Count > 0 && !isRandomPatrol)
-    //        {
-    //            if (Random.value < randomPatrolChance)
-    //            {
-    //                Debug.Log("ランダムパトロールに移行します");
-    //                isRandomPatrol = true;
-    //                randomTarget = randomPositions[Random.Range(0, randomPositions.Count)];
-    //            }
-    //            else
-    //            {
-    //                Debug.Log("ランダムパトロールに移行しません");
-    //            }
-    //        }
-    //    }
-    //}
 }
