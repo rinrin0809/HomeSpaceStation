@@ -109,6 +109,22 @@ public class Player : MonoBehaviour
     //看板とかに当たった時に動きを止めるフラグ（今後データ化予定）
     public bool ExplainDisplayFlg = false;
 
+    private bool SliderUpdateFlg = true;
+
+    void Awake()
+    {
+        // 既にインスタンスが存在する場合、重複したオブジェクトを破棄する
+        if (Instance != null)
+        {
+            Destroy(gameObject); // 重複している場合は削除
+        }
+        else
+        {
+            Instance = this; // インスタンスが設定されていない場合、現在のオブジェクトをインスタンスとして設定
+            DontDestroyOnLoad(gameObject); // シーンをまたいでこのオブジェクトを保持する
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -121,7 +137,7 @@ public class Player : MonoBehaviour
         animatior = GetComponent<Animator>();
 
         Vector3 targetPosition = new Vector3(0.0f, -4.0f, 0.0f);
-       
+
         //if(isstaripos)
         //{
         //    new Vector3(0, 0, 0);
@@ -195,6 +211,16 @@ public class Player : MonoBehaviour
 
         //イベントが発生している時または看板を読んでいる時は処理をしない
         if (Event.IsEvent() || ExplainDisplayFlg) return;
+
+        if (SceneManager.GetActiveScene().name == "Lobby" || SceneManager.GetActiveScene().name == "Lobby2")
+        {
+            if (SliderUpdateFlg)
+            {
+                slider = GameObject.Find("StaminaGause").GetComponent<Slider>();
+                SliderUpdateFlg = false;
+            }
+        }
+
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
         {
@@ -368,7 +394,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Key" )
+        if (collision.gameObject.tag == "Key")
         {
             //text.gameObject.SetActive(false);
             //Debug.Log("鍵がありません");
@@ -377,9 +403,9 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Apple" )
+        if (collision.gameObject.tag == "Apple")
         {
-            
+
             //Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;
