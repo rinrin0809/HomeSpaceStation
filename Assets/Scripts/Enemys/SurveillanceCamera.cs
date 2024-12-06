@@ -4,19 +4,25 @@ using UnityEngine;
 
 public class SurveillanceCamera : MonoBehaviour
 {
-    public float fovAngle = 90f;
-    public Transform fovPoint;
-    public float range = 8f;
-
-    public float rotationSpeed = 30f; // ‰ñ“]‘¬“xi“x/•bj
-    public float minRotation = -45f; // ‰ñ“]‚ÌÅ¬Šp“x
-    public float maxRotation = 45f;  // ‰ñ“]‚ÌÅ‘åŠp“x
-
-    private bool rotatingClockwise = true; // Œv‰ñ‚è‚Ì‰ñ“]’†‚©‚Ç‚¤‚©
-
+    //ƒ^[ƒQƒbƒgİ’è
     private Transform target;
     private string targetname = "Player";
 
+    //‹–ì
+    private int angle = 180;
+    private int anglecorrection = 360;
+    public float fovAngle = 90f;
+    public Transform fovPoint;
+    public float range = 8f;
+   
+    //‰ñ“]
+    public float rotationSpeed = 30f; // ‰ñ“]‘¬“xi“x/•bj
+    public float minRotation = -45f;  // ‰ñ“]‚ÌÅ¬Šp“x
+    public float maxRotation = 45f;   // ‰ñ“]‚ÌÅ‘åŠp“x
+    private bool rotatingClockwise = true; // Œv‰ñ‚è‚Ì‰ñ“]’†‚©‚Ç‚¤‚©
+
+    //ƒMƒYƒ‚—p
+    private int half = 2;            
     void Start()
     {
         // ƒvƒŒƒCƒ„[‚ğ©“®‚Å’T‚·
@@ -66,10 +72,11 @@ public class SurveillanceCamera : MonoBehaviour
         // Œ»İ‚Ìƒ[ƒJƒ‹Z²‚Ì‰ñ“]Šp“x‚ğæ“¾
         float currentRotation = transform.localEulerAngles.z;
 
+       
         // Šp“x‚ğ -180 ` 180 ‚É•â³
-        if (currentRotation > 180)
+        if (currentRotation > angle)
         {
-            currentRotation -= 360;
+               currentRotation -= anglecorrection;
         }
 
         // ‰ñ“]•ûŒü‚ÌØ‚è‘Ö‚¦
@@ -103,11 +110,12 @@ public class SurveillanceCamera : MonoBehaviour
 
     private void DrawFOVGizmo()
     {
-        Vector3 leftBoundary = Quaternion.Euler(0, 0, -fovAngle / 2) * fovPoint.up * range;
-        Vector3 rightBoundary = Quaternion.Euler(0, 0, fovAngle / 2) * fovPoint.up * range;
+        Vector3 leftBoundary = Quaternion.Euler(0, 0, -fovAngle / half) * fovPoint.up * range;
+        Vector3 rightBoundary = Quaternion.Euler(0, 0, fovAngle / half) * fovPoint.up * range;
 
         // ‹–ì‚Ì”ÍˆÍ‚ğîŒ`‚Å•`‰æ
-        Gizmos.color = new Color(0, 1, 0, 0.3f); // ”¼“§–¾‚Ì—Î
+        float transparency = 0.3f;//“§–¾“x
+        Gizmos.color = new Color(0, 1, 0, transparency); // ”¼“§–¾‚Ì—Î
         Gizmos.DrawLine(fovPoint.position, fovPoint.position + leftBoundary);
         Gizmos.DrawLine(fovPoint.position, fovPoint.position + rightBoundary);
 
@@ -117,7 +125,7 @@ public class SurveillanceCamera : MonoBehaviour
 
         for (int i = 0; i <= segments; i++)
         {
-            float angle = -fovAngle / 2 + angleStep * i;
+            float angle = -fovAngle / half + angleStep * i;
             Vector3 segmentDir = Quaternion.Euler(0, 0, angle) * fovPoint.up * range;
             Gizmos.DrawLine(fovPoint.position, fovPoint.position + segmentDir);
         }
