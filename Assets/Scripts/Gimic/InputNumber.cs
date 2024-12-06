@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
 
 public class InputNumber : MonoBehaviour
 {
+
     [SerializeField]
     private List<GameObject> inputNum = new List<GameObject>();
 
@@ -28,10 +30,23 @@ public class InputNumber : MonoBehaviour
     GameObject numberBox;
     string inputValue = "";
     [SerializeField]
+    List<UnityEngine.UI.Image> image = new List<UnityEngine.UI.Image>();
+    [SerializeField]
     TextMeshProUGUI numberText;
     [SerializeField]
     TextMeshProUGUI resultText;
     [SerializeField] int answer = 1234;
+
+
+    //int index;
+
+
+    //string[] ofuzake = {
+    //        "だまされたな　ばーかぁ!" ,
+    //        "だから何もないって！",
+    //        "馬鹿だなあ～",
+
+    //};
     // Start is called before the first frame update
     void Start()
     {
@@ -44,11 +59,9 @@ public class InputNumber : MonoBehaviour
         {
             inputNum.Add(childin.gameObject);
         }
-        // リストの内容を確認（デバッグ用）
-        foreach (var obj in inputNum)
-        {
-            Debug.Log("子オブジェクト: " + obj.name);
-        }
+
+        
+
     }
 
     // Update is called once per frame
@@ -65,7 +78,7 @@ public class InputNumber : MonoBehaviour
         time--;
 
         // 下キー（S）で次の行に移動
-        if (Input.GetKeyDown(KeyCode.S))
+        if (Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.DownArrow))
         {
             if (time < 0.0f)
             {
@@ -81,7 +94,7 @@ public class InputNumber : MonoBehaviour
             }
         }
         // 上キー（W）で前の行に移動
-        else if (Input.GetKeyDown(KeyCode.W))
+        else if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow)) 
         {
             if (time < 0.0f)
             {
@@ -98,7 +111,7 @@ public class InputNumber : MonoBehaviour
         }
 
         // 左キー（A）で前の列に移動
-        else if (Input.GetKeyDown(KeyCode.A))
+        else if (Input.GetKeyDown(KeyCode.A)|| Input.GetKeyDown(KeyCode.LeftArrow))
         {
             if (time < 0.0f)
             {
@@ -113,7 +126,7 @@ public class InputNumber : MonoBehaviour
             }
         }
         // 右キー（D）で次の列に移動
-        else if (Input.GetKeyDown(KeyCode.D))
+        else if (Input.GetKeyDown(KeyCode.D)|| Input.GetKeyDown(KeyCode.RightArrow))
         {
             if (time < 0.0f)
             {
@@ -129,26 +142,43 @@ public class InputNumber : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
+          
+           
             string selectedObjectName = inputNum[Num].name;
             ExportNumber exportNum = inputNum[Num].GetComponent<ExportNumber>();
+          
             if (exportNum != null)
             {
                 
                 int number = exportNum.ExpNum; // オブジェクトの値を取得
-             
-                if (inputValue.Length < 4)
+                string word = exportNum.Exword;
+                Sprite sprite = exportNum.sprite;
+                if (inputValue.Length < 4 && number > 0)
                 {
-                    inputValue += number.ToString();
-                    numberText.text = inputValue; // 入力された数字を表示
+                    //inputValue += number.ToString();
+                    //inputValue += word.ToString();
+                    inputValue += sprite.ToString();
+                    //numberText.text = inputValue; // 入力された数字を表示
+                    //numberText.text = inputValue;
+                    numberText.text = inputValue;
                 }
+                //else if ( number == -1)
+                //{
+                //    if (index < ofuzake.Length) 
+                //    {
+                //        resultText.color = Color.red;
+                //        resultText.fontSize = 20;
+
+                //        resultText.text = ofuzake[index];
+                //    }
+                 
+                //    //resultText.text = ofuzake;
+                //}
                 else
                 {
                     Debug.Log("すでに4桁入力されています。");
                 }
             }
-
-           
-
         }
 
         // Backspaceでリセット
@@ -165,11 +195,15 @@ public class InputNumber : MonoBehaviour
         {
             if (int.Parse(inputValue) == answer)
             {
+                resultText.color = Color.white;
+                resultText.fontSize = 36;
                 resultText.text = "正解！";
                 Debug.Log("正解！");
             }
             else
             {
+                resultText.fontSize = 36;
+                resultText.color = Color.white;
                 resultText.text = "不正解";
                 Debug.Log("不正解");
             }
@@ -183,10 +217,6 @@ public class InputNumber : MonoBehaviour
         // アイテムの色を更新
         UpdateItemColors();
 
-       
-
-
-        //numberBox.gameObject.SetActive(false);
     }
 
     private void UpdateItemColors()

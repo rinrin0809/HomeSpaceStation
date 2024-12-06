@@ -7,4 +7,7 @@ public class ExportNumber : MonoBehaviour
 
     public int ExpNum;
 
+    public string Exword;
+
+    public Sprite sprite;
 }
