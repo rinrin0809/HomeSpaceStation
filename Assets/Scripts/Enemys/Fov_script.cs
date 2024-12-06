@@ -36,7 +36,7 @@ public class Fov_script : MonoBehaviour
         // Šp“x‚ªŽ‹ŠE”ÍˆÍ“à‚©‚Ç‚¤‚©
         if (angle < fovAngle / 2)
         {
-            if (r.collider != null && r.collider.CompareTag("Player"))
+            if (r.collider != null && r.collider.CompareTag(targetname))
             {
                 // ƒvƒŒƒCƒ„[‚ð”­Œ©I
                 Debug.Log("“G‚ÌŽ‹ŠE‚É“ü‚è‚Ü‚µ‚½");
