@@ -56,7 +56,6 @@ public class Mover : MonoBehaviour
         }
         else
         {
-            isAtLimit = false;
             isNearLimit = false; // リミットを離れたらフラグをリセット
         }
 
@@ -73,9 +72,14 @@ public class Mover : MonoBehaviour
             moveDirection = -moveDirection;
             // 時間をリセット
             remainingTime = timeToChangeDirection;
+
+            isAtLimit = false;
         }
 
-        // オブジェクトを移動
-        transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        if(!isAtLimit)
+        {
+            // オブジェクトを移動
+            transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
+        }
     }
 }
