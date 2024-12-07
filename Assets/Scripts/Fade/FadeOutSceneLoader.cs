@@ -13,18 +13,24 @@ public class FadeOutSceneLoader : MonoBehaviour
     public EventData Event;
     public void NewGameCallCoroutine(string Name)
     {
-        LoadManager.Instance.NewGamePushFlg = true;
-        Inventory.ResetInventory();
-        Event.AllResetFlag();
-        StartCoroutine(FadeOutAndNewGameOrTitle(Name));
+        if (LoadManager.Instance != null)
+        {
+            LoadManager.Instance.NewGamePushFlg = true;
+            Inventory.ResetInventory();
+            Event.AllResetFlag();
+            StartCoroutine(FadeOutAndNewGameOrTitle(Name));
+        }
     }
 
     public void LoadGameCallCoroutine()
     {
-        LoadManager.Instance.NewGamePushFlg = false;
-        Inventory.ResetInventory();
-        Event.AllResetFlag();
-        StartCoroutine(FadeOutAndLoadScene());
+        if (LoadManager.Instance != null)
+        {
+            LoadManager.Instance.NewGamePushFlg = false;
+            Inventory.ResetInventory();
+            Event.AllResetFlag();
+            StartCoroutine(FadeOutAndLoadScene());
+        }
     }
 
     // フェードアウトアニメーション処理

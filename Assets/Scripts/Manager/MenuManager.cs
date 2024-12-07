@@ -154,65 +154,71 @@ public class MenuManager : MonoBehaviour
         if (ActiveMenu == MenuType.LoadMenu)
         {
             string FileName = "";
-            switch (LoadManager.Instance.GetSideNum())
+            if (LoadManager.Instance != null)
             {
-                case 0:
-                    FileName = LoadManager.Instance.LoadPath("/PlayerData1.json");
-                    if (File.Exists(FileName))
-                    {
-                        MainMenuPanel.SetActive(false);
-                        OpenItemMenuFlg = false;
-                        SaveMenuPanel.SetActive(false);
-                        LoadMenuPanel.SetActive(false);
-                        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
-                        OpenMenuFlg = false;
-                        ActiveMenu = MenuType.MainMenu;
-                        Time.timeScale = 1;
-                    }
+                switch (LoadManager.Instance.GetSideNum())
+                {
+                    case 0:
+                        FileName = LoadManager.Instance.LoadPath("/PlayerData1.json");
+                        if (File.Exists(FileName))
+                        {
+                            MainMenuPanel.SetActive(false);
+                            OpenItemMenuFlg = false;
+                            SaveMenuPanel.SetActive(false);
+                            LoadMenuPanel.SetActive(false);
+                            if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
+                            OpenMenuFlg = false;
+                            ActiveMenu = MenuType.MainMenu;
+                            Time.timeScale = 1;
+                        }
 
-                    else
-                    {
-                        BackToMenu();
-                    }
-                    break;
-                case 1:
-                    FileName = LoadManager.Instance.LoadPath("/PlayerData2.json");
-                    if (File.Exists(FileName))
-                    {
-                        MainMenuPanel.SetActive(false);
-                        OpenItemMenuFlg = false;
-                        SaveMenuPanel.SetActive(false);
-                        LoadMenuPanel.SetActive(false);
-                        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
-                        OpenMenuFlg = false;
-                        ActiveMenu = MenuType.MainMenu;
-                        Time.timeScale = 1;
-                    }
+                        //å„Ç≈è¡ÇµÇƒÇ‡Ç¢Ç¢
+                        else
+                        {
+                            BackToMenu();
+                        }
+                        break;
+                    case 1:
+                        FileName = LoadManager.Instance.LoadPath("/PlayerData2.json");
+                        if (File.Exists(FileName))
+                        {
+                            MainMenuPanel.SetActive(false);
+                            OpenItemMenuFlg = false;
+                            SaveMenuPanel.SetActive(false);
+                            LoadMenuPanel.SetActive(false);
+                            if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
+                            OpenMenuFlg = false;
+                            ActiveMenu = MenuType.MainMenu;
+                            Time.timeScale = 1;
+                        }
 
-                    else
-                    {
-                        BackToMenu();
-                    }
-                    break;
-                case 2:
-                    FileName = LoadManager.Instance.LoadPath("/PlayerData3.json");
-                    if (File.Exists(FileName))
-                    {
-                        MainMenuPanel.SetActive(false);
-                        OpenItemMenuFlg = false;
-                        SaveMenuPanel.SetActive(false);
-                        LoadMenuPanel.SetActive(false);
-                        if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
-                        OpenMenuFlg = false;
-                        ActiveMenu = MenuType.MainMenu;
-                        Time.timeScale = 1;
-                    }
+                        //å„Ç≈è¡ÇµÇƒÇ‡Ç¢Ç¢
+                        else
+                        {
+                            BackToMenu();
+                        }
+                        break;
+                    case 2:
+                        FileName = LoadManager.Instance.LoadPath("/PlayerData3.json");
+                        if (File.Exists(FileName))
+                        {
+                            MainMenuPanel.SetActive(false);
+                            OpenItemMenuFlg = false;
+                            SaveMenuPanel.SetActive(false);
+                            LoadMenuPanel.SetActive(false);
+                            if (LoadManager.Instance) LoadManager.Instance.OpenLoadMenuFlg = false;
+                            OpenMenuFlg = false;
+                            ActiveMenu = MenuType.MainMenu;
+                            Time.timeScale = 1;
+                        }
 
-                    else
-                    {
-                        BackToMenu();
-                    }
-                    break;
+                        //å„Ç≈è¡ÇµÇƒÇ‡Ç¢Ç¢
+                        else
+                        {
+                            BackToMenu();
+                        }
+                        break;
+                }
             }
         }
 
