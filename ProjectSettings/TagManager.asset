@@ -13,6 +13,7 @@ TagManager:
   - 108RoomColl
   - RandomPatrolPoint
   - RandomPatrolFag
+  - Transparent Wall
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - wall
   - Player
   - Obstruction
-  - 
+  - HitZone
   - 
   - 
   - 
