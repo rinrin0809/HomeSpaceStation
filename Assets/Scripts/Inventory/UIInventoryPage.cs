@@ -123,8 +123,9 @@ public class UIInventoryPage : MonoBehaviour
 
     private void MoveNum()
     {
-        time--;
+        if (inventory.GetInventoryItems().Count == 0) return;
 
+        time--;
         if (MenuManager.Instance.GetActiveMenu() == MenuType.ItemMenu)
         {
             if (Num > 0)
@@ -185,9 +186,11 @@ public class UIInventoryPage : MonoBehaviour
             }
         }
 
-        // アイテムの説明呼び出し
-        UpdateDescription(ShowName, inventory.GetInventoryItems()[Num].item.Descripton);
-       
+        if (inventory.GetInventoryItems()[Num].item != null)
+        {
+            // アイテムの説明呼び出し
+            UpdateDescription(ShowName, inventory.GetInventoryItems()[Num].item.Descripton);
+        }
     }
 
     private void UpdateItemColors()
