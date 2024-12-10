@@ -15,22 +15,32 @@ MonoBehaviour:
   inventoryItems:
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   - item: {fileID: 0}
     ItemFlg: 0
+    SpriteRenderFlag: 0
   Size: 20
