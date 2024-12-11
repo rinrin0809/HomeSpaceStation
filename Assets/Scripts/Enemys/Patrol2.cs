@@ -40,13 +40,13 @@ public class Patrol2 : MonoBehaviour
         float distanceToFag = Vector3.Distance(transform.position, randomPatrolFagPosition.position);
         if (distanceToFag < detectionRange)
         {
-            Debug.Log("RandomPatrolFag に到達しました");
+            //Debug.Log("RandomPatrolFag に到達しました");
 
             // ランダムパトロールへの切り替え
             if (randomPositions.Count > 0)
             {
                 randomTarget = randomPositions[Random.Range(0, randomPositions.Count)];
-                Debug.Log($"ランダムターゲット: {randomTarget.name} に移行します");
+                //Debug.Log($"ランダムターゲット: {randomTarget.name} に移行します");
 
                 isRandomPatrol = true;
             }
@@ -93,7 +93,7 @@ public class Patrol2 : MonoBehaviour
         // ランダムターゲットに到達したかをチェック
         if (Vector3.Distance(transform.position, randomTarget.position) < 0.1f)
         {
-            Debug.Log("ランダムターゲットに到達しました");
+            //Debug.Log("ランダムターゲットに到達しました");
             isRandomPatrol = false; // ランダムパトロール終了
         }
     }

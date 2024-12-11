@@ -67,6 +67,15 @@ public class Player : MonoBehaviour
     public VectorValue startingPosition;
 
     private bool startflg = true;
+
+
+    //シーン遷移
+    //public Transform targetPosition; // Inspectorで設定する場合
+    //[SerializeField]
+    //private string NextSceneObject = "";
+    //[SerializeField]
+    //private string NextScene = "";
+
     public List<GameObject> GetItemList
     {
         get { return itemList; }
@@ -100,7 +109,7 @@ public class Player : MonoBehaviour
     //フェードアウト
     private FadeOutSceneLoader fadeOutSceneLoader;
     //シーン遷移する判定に当たった時のフラグ
-    private bool ChangeSceneFlg = false;
+    public bool ChangeSceneFlg = false;
 
     // プレイヤーの位置と向きを保存するための変数
     [SerializeField]
@@ -108,6 +117,11 @@ public class Player : MonoBehaviour
 
     //看板とかに当たった時に動きを止めるフラグ（今後データ化予定）
     public bool ExplainDisplayFlg = false;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(gameObject); // シーンをまたいでこのオブジェクトを保持する
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -134,12 +148,19 @@ public class Player : MonoBehaviour
             transform.rotation = playerStorage.playerRotation;  // 保存された向きを適用
         }
 
+        //if (playerStorage != null)
+        //{
+        //    Debug.Log("Playerの初期位置: " + playerStorage.initialValue); // ここでデバッグ
+        //    //startingPosition.initialValue = targetPosition;
+        //    transform.position = playerStorage.initialValue;
+        //}
+
         if (playerStorage != null)
         {
-            Debug.Log("Playerの初期位置: " + playerStorage.initialValue); // ここでデバッグ
-            //startingPosition.initialValue = targetPosition;
-            transform.position = playerStorage.initialValue;
+            Debug.Log("Playerの初期位置: " + playerStorage.initialValue);
+            transform.position = playerStorage.initialValue; // 保存された初期位置に移動
         }
+
         //if (text != null)
         //{
         //    text.gameObject.SetActive(false);
@@ -470,5 +491,15 @@ public class Player : MonoBehaviour
             GimicHitFlg = false;
             Debug.Log(GimicHitFlg);
         }
+
+
     }
+
+    //public void SetNextScenePosition(Vector2 newPosition)
+    //{
+    //    if (playerStorage != null)
+    //    {
+    //        playerStorage.initialValue = newPosition;
+    //    }
+    //}
 }

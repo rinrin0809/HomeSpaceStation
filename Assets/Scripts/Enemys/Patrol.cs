@@ -71,7 +71,7 @@ public class Patrol : MonoBehaviour
             //視野外なら
             if (angleToPlayer > fieldOfViewAngle / half)
             {
-                Debug.Log("プレイヤーが条件を満たしました。振り返り準備を開始します。");
+                //Debug.Log("プレイヤーが条件を満たしました。振り返り準備を開始します。");
                 isPreparingToLookAtPlayer = true;
                 StartCoroutine(DelayLookAtPlayer());
             }
@@ -83,7 +83,7 @@ public class Patrol : MonoBehaviour
         yield return new WaitForSeconds(lookAtDelay);
 
         // 振り返り動作の開始
-        Debug.Log("振り返ります。");
+        //Debug.Log("振り返ります。");
         isPreparingToLookAtPlayer = false;
         isLookingAtPlayer = true;
 
@@ -109,7 +109,7 @@ public class Patrol : MonoBehaviour
     private IEnumerator ResetBehaviorAfterDelay()
     {
         yield return new WaitForSeconds(behaviorResetTime);
-        Debug.Log("元の行動に戻ります。");
+        //Debug.Log("元の行動に戻ります。");
 
         isLookingAtPlayer = false;
     }
@@ -123,13 +123,13 @@ public class Patrol : MonoBehaviour
         float distanceToFag = Vector3.Distance(transform.position, randomPatrolFagPosition.position);
         if (distanceToFag < detectionRange)
         {
-            Debug.Log("RandomPatrolFag に到達しました");
+           // Debug.Log("RandomPatrolFag に到達しました");
 
             // ランダムパトロールへの切り替え
             if (randomPositions.Count > 0)
             {
                 randomTarget = randomPositions[Random.Range(0, randomPositions.Count)];
-                Debug.Log($"ランダムターゲット: {randomTarget.name} に移行します");
+                //Debug.Log($"ランダムターゲット: {randomTarget.name} に移行します");
 
                 isRandomPatrol = true;
             }
@@ -163,7 +163,7 @@ public class Patrol : MonoBehaviour
         // ランダムターゲットに到達したかをチェック
         if (Vector3.Distance(transform.position, randomTarget.position) < 0.1f)
         {
-            Debug.Log("ランダムターゲットに到達しました");
+            //Debug.Log("ランダムターゲットに到達しました");
             isRandomPatrol = false; // ランダムパトロール終了
         }
     }

@@ -39,17 +39,17 @@ public class Fov_script : MonoBehaviour
             if (r.collider != null && r.collider.CompareTag(targetname))
             {
                 // ƒvƒŒƒCƒ„[‚ğ”­Œ©I
-                Debug.Log("“G‚Ì‹ŠE‚É“ü‚è‚Ü‚µ‚½");
+                //Debug.Log("“G‚Ì‹ŠE‚É“ü‚è‚Ü‚µ‚½");
                 Debug.DrawRay(fovPoint.position, dir.normalized * range, Color.red);
             }
             else
             {
-                Debug.Log("“G‚Ì‹ŠE‚©‚çŠO‚ê‚Ü‚µ‚½");
+                //Debug.Log("“G‚Ì‹ŠE‚©‚çŠO‚ê‚Ü‚µ‚½");
             }
         }
         else
         {
-            Debug.Log("“G‚Ì‹ŠEŠO‚Å‚·");
+            //Debug.Log("“G‚Ì‹ŠEŠO‚Å‚·");
         }
     }
 
