@@ -1,19 +1,28 @@
 fileFormatVersion: 2
-guid: b12af87f153a8ae4caacfb3800fa6486
+guid: cc0f28a5167572a4da0f423ef5b4dcc3
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6765173268175055119
-    second: Load_btn_0
+      213: -5507558004466063736
+    second: newgame_0
   - first:
-      213: -2137919040449872500
-    second: Load_btn_1
+      213: -7109715929896189399
+    second: newgame_1
   - first:
-      213: 7228981367841890550
-    second: Load_btn_2
+      213: -5206299856095050637
+    second: newgame_2
   - first:
-      213: 5201177187302532364
-    second: Load_btn_3
+      213: -2611206945574771831
+    second: newgame_3
+  - first:
+      213: -5297800119933482243
+    second: newgame_4
+  - first:
+      213: -1215002917760639065
+    second: newgame_5
+  - first:
+      213: -8968135411274599335
+    second: newgame_6
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -109,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Load_btn_0
+      name: newgame_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 11
-        width: 48
-        height: 84
+        x: 21
+        y: 44
+        width: 50
+        height: 97
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -123,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f6157a81c64d12a0800000000000000
-      internalID: -6765173268175055119
+      spriteID: 886e0fbdc293193b0800000000000000
+      internalID: -5507558004466063736
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Load_btn_1
+      name: newgame_1
       rect:
         serializedVersion: 2
-        x: 49
-        y: 2
-        width: 49
-        height: 93
+        x: 88
+        y: 46
+        width: 39
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -144,20 +153,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c8df07bb5f59452e0800000000000000
-      internalID: -2137919040449872500
+      spriteID: 9220a98d707355d90800000000000000
+      internalID: -7109715929896189399
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Load_btn_2
+      name: newgame_2
       rect:
         serializedVersion: 2
-        x: 100
-        y: 3
-        width: 48
-        height: 92
+        x: 140
+        y: 47
+        width: 55
+        height: 83
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -165,20 +174,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6f02226d040825460800000000000000
-      internalID: 7228981367841890550
+      spriteID: 37489437dd18fb7b0800000000000000
+      internalID: -5206299856095050637
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Load_btn_3
+      name: newgame_3
       rect:
         serializedVersion: 2
-        x: 150
-        y: 1
+        x: 219
+        y: 39
         width: 45
-        height: 94
+        height: 99
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -186,8 +195,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c056807481b4e2840800000000000000
-      internalID: 5201177187302532364
+      spriteID: 983abf52e1123cbd0800000000000000
+      internalID: -2611206945574771831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newgame_4
+      rect:
+        serializedVersion: 2
+        x: 284
+        y: 44
+        width: 38
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dfac7502cde6a76b0800000000000000
+      internalID: -5297800119933482243
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newgame_5
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 46
+        width: 57
+        height: 72
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7af50dd9841732fe0800000000000000
+      internalID: -1215002917760639065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newgame_6
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 46
+        width: 38
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9543061db58ca8380800000000000000
+      internalID: -8968135411274599335
       vertices: []
       indices: 
       edges: []
@@ -203,10 +275,13 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Load_btn_0: -6765173268175055119
-      Load_btn_1: -2137919040449872500
-      Load_btn_2: 7228981367841890550
-      Load_btn_3: 5201177187302532364
+      newgame_0: -5507558004466063736
+      newgame_1: -7109715929896189399
+      newgame_2: -5206299856095050637
+      newgame_3: -2611206945574771831
+      newgame_4: -5297800119933482243
+      newgame_5: -1215002917760639065
+      newgame_6: -8968135411274599335
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
