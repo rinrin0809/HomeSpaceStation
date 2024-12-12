@@ -24,44 +24,31 @@ public class InputNumber : MonoBehaviour
 
     private ExportNumber expNum;
 
-    private int selectNumber;
 
     [SerializeField]
     GameObject numberBox;
     string inputValue = "";
-    [SerializeField]
-    List<UnityEngine.UI.Image> image = new List<UnityEngine.UI.Image>();
+    string inputValueWord = "";
     [SerializeField]
     TextMeshProUGUI numberText;
     [SerializeField]
     TextMeshProUGUI resultText;
-    [SerializeField] int answer = 1234;
+    [SerializeField] int anserwer = 1234;
+    [SerializeField] string anserwerword = "abcd";
 
+    [SerializeField]bool ChangeMode = false;
 
-    //int index;
-
-
-    //string[] ofuzake = {
-    //        "だまされたな　ばーかぁ!" ,
-    //        "だから何もないって！",
-    //        "馬鹿だなあ～",
-
-    //};
-    // Start is called before the first frame update
     void Start()
     {
         inputNum.Clear();
 
         numberText.text = "";
         resultText.text = "";
-       
+
         foreach(Transform childin in transform)
         {
             inputNum.Add(childin.gameObject);
         }
-
-        
-
     }
 
     // Update is called once per frame
@@ -142,38 +129,27 @@ public class InputNumber : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.Return))
         {
-          
-           
             string selectedObjectName = inputNum[Num].name;
             ExportNumber exportNum = inputNum[Num].GetComponent<ExportNumber>();
           
             if (exportNum != null)
             {
-                
                 int number = exportNum.ExpNum; // オブジェクトの値を取得
                 string word = exportNum.Exword;
-                Sprite sprite = exportNum.sprite;
-                if (inputValue.Length < 4 && number > 0)
-                {
-                    //inputValue += number.ToString();
-                    //inputValue += word.ToString();
-                    inputValue += sprite.ToString();
-                    //numberText.text = inputValue; // 入力された数字を表示
-                    //numberText.text = inputValue;
-                    numberText.text = inputValue;
-                }
-                //else if ( number == -1)
-                //{
-                //    if (index < ofuzake.Length) 
-                //    {
-                //        resultText.color = Color.red;
-                //        resultText.fontSize = 20;
 
-                //        resultText.text = ofuzake[index];
-                //    }
-                 
-                //    //resultText.text = ofuzake;
-                //}
+                if (inputValue.Length < 4  && number > 0)
+                {
+                    if (ChangeMode == false)
+                    {
+                        inputValue += number.ToString();
+                    }
+                    else if (ChangeMode == true)
+                    {
+                        inputValue += word;
+                    }
+                     numberText.text = inputValue; // 入力された数字を表示
+                }
+             
                 else
                 {
                     Debug.Log("すでに4桁入力されています。");
@@ -193,27 +169,38 @@ public class InputNumber : MonoBehaviour
 
         if (inputValue.Length == 4 && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
         {
-            if (int.Parse(inputValue) == answer)
+            Debug.Log("anserwer (as string): " + anserwerword.ToString());
+            //if (int.Parse(inputValue) == anserwer)
+            if (ChangeMode == false)
             {
-                resultText.color = Color.white;
-                resultText.fontSize = 36;
-                resultText.text = "正解！";
-                Debug.Log("正解！");
+                if (inputValue == anserwer.ToString())
+                {
+                    resultText.text = "正解！";
+                    Debug.Log("正解！");
+                }
+                else
+                {
+                    resultText.text = "不正解";
+                    Debug.Log("不正解");
+                }
             }
-            else
+            else if (ChangeMode == true)
             {
-                resultText.fontSize = 36;
-                resultText.color = Color.white;
-                resultText.text = "不正解";
-                Debug.Log("不正解");
+                if (inputValue == anserwerword.ToString())
+                {
+                    resultText.text = "正解！";
+                    Debug.Log("正解！");
+                }
+                else
+                {
+                    resultText.text = "不正解";
+                    Debug.Log("不正解");
+                }
             }
-
             // 入力値をリセット
             inputValue = "";
-            numberText.text = inputValue;
+           
         }
-
-
         // アイテムの色を更新
         UpdateItemColors();
 

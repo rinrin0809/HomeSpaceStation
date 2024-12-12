@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6115a40227761de4c84401d12cf50049
+guid: 92cbe20188cc6d54da00841e68e3dd07
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -682238443780450454
-    second: gameover_1_0
+      213: -7245167794079346628
+    second: PasswardGimmick2_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gameover_1_0
+      name: PasswardGimmick2_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1280
-        height: 720
+        width: 88
+        height: 142
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a67d95200c33886f0800000000000000
-      internalID: -682238443780450454
+      spriteID: c30dccf174ef37b90800000000000000
+      internalID: -7245167794079346628
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      gameover_1_0: -682238443780450454
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
