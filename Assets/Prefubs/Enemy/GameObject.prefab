@@ -10,13 +10,14 @@ GameObject:
   m_Component:
   - component: {fileID: 6006932110623131608}
   - component: {fileID: 3274897684412602830}
+  - component: {fileID: 1933044686692569192}
   m_Layer: 0
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6006932110623131608
 Transform:
   m_ObjectHideFlags: 0
@@ -49,3 +50,19 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 695aec340c2126542a9522060e46b322, type: 2}
+--- !u!114 &1933044686692569192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 973480462444474264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b320e5d34bb8fe4facb6309cbca29b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  urpPipelineAsset: {fileID: 11400000, guid: 4b095a91ca5e2184990629cb19a42310, type: 2}
+  defaultPipelineAsset: {fileID: 11400000, guid: 3261c40d27fdda64ab8c1a79b46f133e, type: 2}
+  targetSceneName: SkilCheck
+  fullScreenPassFeature: {fileID: 6101318368713831412, guid: 1c92598bf75f2d64a86ea88d249ca71e, type: 2}
