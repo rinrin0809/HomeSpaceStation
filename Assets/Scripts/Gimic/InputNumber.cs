@@ -4,10 +4,14 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
+//using UnityEngine.UIElements;
 
 public class InputNumber : MonoBehaviour
 {
+    public GameObject gimickObj;
+    public GameObject exportPanel;
+    public Image exportImage;
+    public TextMeshProUGUI exportText;
 
     [SerializeField]
     private List<GameObject> inputNum = new List<GameObject>();
@@ -31,20 +35,22 @@ public class InputNumber : MonoBehaviour
     string inputValueWord = "";
     [SerializeField]
     TextMeshProUGUI numberText;
-    [SerializeField]
-    TextMeshProUGUI resultText;
+   
     [SerializeField] int anserwer = 1234;
     [SerializeField] string anserwerword = "abcd";
 
     [SerializeField]bool ChangeMode = false;
 
+    public UnityEngine.UI.Button showButton;
+
     void Start()
     {
+        exportText.color = Color.black;
+        exportImage.color = Color.white;
+        //Hide();
         inputNum.Clear();
 
         numberText.text = "";
-        resultText.text = "";
-
         foreach(Transform childin in transform)
         {
             inputNum.Add(childin.gameObject);
@@ -131,12 +137,12 @@ public class InputNumber : MonoBehaviour
         {
             string selectedObjectName = inputNum[Num].name;
             ExportNumber exportNum = inputNum[Num].GetComponent<ExportNumber>();
-          
+            exportImage.color = Color.white;
             if (exportNum != null)
             {
                 int number = exportNum.ExpNum; // オブジェクトの値を取得
                 string word = exportNum.Exword;
-
+              
                 if (inputValue.Length < 4  && number > 0)
                 {
                     if (ChangeMode == false)
@@ -167,20 +173,31 @@ public class InputNumber : MonoBehaviour
             }
         }
 
+
+        if(inputValue.Length < 4 && Input.GetKeyDown(KeyCode.Space))
+        {
+            inputValue = "";
+            exportText.text = "";
+            exportImage.color = Color.red;
+            Debug.Log("不正解");
+        }
         if (inputValue.Length == 4 && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
         {
-            Debug.Log("anserwer (as string): " + anserwerword.ToString());
+           
             //if (int.Parse(inputValue) == anserwer)
             if (ChangeMode == false)
             {
                 if (inputValue == anserwer.ToString())
                 {
-                    resultText.text = "正解！";
+                    exportText.text = "";
+                    exportImage.color = Color.green;
                     Debug.Log("正解！");
                 }
+                
                 else
                 {
-                    resultText.text = "不正解";
+                    exportText.text = "";
+                    exportImage.color = Color.red;
                     Debug.Log("不正解");
                 }
             }
@@ -188,15 +205,20 @@ public class InputNumber : MonoBehaviour
             {
                 if (inputValue == anserwerword.ToString())
                 {
-                    resultText.text = "正解！";
+                    exportText.text = "";
+                    exportImage.color = Color.green;
                     Debug.Log("正解！");
                 }
-                else
+                  else
                 {
-                    resultText.text = "不正解";
+                    exportText.text = "";
+                    exportImage.color = Color.red;
                     Debug.Log("不正解");
                 }
             }
+          
+            
+
             // 入力値をリセット
             inputValue = "";
            
@@ -215,10 +237,31 @@ public class InputNumber : MonoBehaviour
             if (itemImage != null)
             {
                 // Num番目のアイテムは緑、それ以外は白に設定
-                itemImage.color = (i == Num) ? Color.green : Color.white;
+                itemImage.color = (i == Num) ? Color.red : Color.white;
             }
         }
     }
 
+    public void IsToogle()
+    {
+        if (gimickObj.activeSelf)
+        {
+            Hide();
 
+        }
+        else
+        {
+            Show();
+        }
+    }
+
+    public void Show()
+    {
+        gimickObj.SetActive(true);
+    }
+    
+    public void Hide()
+    {
+        gimickObj.SetActive(false);
+    }
 }
