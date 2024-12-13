@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: 8917111673802462975
     second: SAVE1_0
+  - first:
+      213: 2605616561780883333
+    second: SAVE1_1
+  - first:
+      213: -2005119506692964418
+    second: SAVE1_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,9 +110,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 450
-        height: 50
+        y: 4
+        width: 23
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,10 +126,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SAVE1_1
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 5
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 58ff2d13572092420800000000000000
+      internalID: 2605616561780883333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SAVE1_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 292
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebffb57ae626c24e0800000000000000
+      internalID: -2005119506692964418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -132,6 +180,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       SAVE1_0: 8917111673802462975
+      SAVE1_1: 2605616561780883333
+      SAVE1_2: -2005119506692964418
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
