@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      PasswardGimmick2_0: -7245167794079346628
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

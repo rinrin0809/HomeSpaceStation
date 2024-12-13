@@ -5,6 +5,12 @@ TextureImporter:
   - first:
       213: 1844345943072885356
     second: SAVE2_0
+  - first:
+      213: -3441195291889800020
+    second: SAVE2_1
+  - first:
+      213: -5144505492458985246
+    second: SAVE2_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +52,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -104,9 +110,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 450
-        height: 50
+        y: 5
+        width: 39
+        height: 48
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -120,10 +126,52 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: SAVE2_1
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 7
+        width: 20
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cac69204d1b6e30d0800000000000000
+      internalID: -3441195291889800020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SAVE2_2
+      rect:
+        serializedVersion: 2
+        x: 70
+        y: 0
+        width: 292
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2e8afe8e28b0b98b0800000000000000
+      internalID: -5144505492458985246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -132,6 +180,8 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       SAVE2_0: 1844345943072885356
+      SAVE2_1: -3441195291889800020
+      SAVE2_2: -5144505492458985246
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
