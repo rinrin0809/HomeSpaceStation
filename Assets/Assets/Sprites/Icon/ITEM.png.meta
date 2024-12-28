@@ -1,10 +1,19 @@
 fileFormatVersion: 2
-guid: 1864dd655b354e34a86a56ae5066b03a
+guid: 824c6e1e096f56945aa8f526539bd927
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7122642434281075030
-    second: LoadGameButton_0
+      213: -3529482579323449996
+    second: ITEM_0
+  - first:
+      213: 4681682124215675724
+    second: ITEM_1
+  - first:
+      213: 7368584070596340663
+    second: ITEM_2
+  - first:
+      213: -431064445164672755
+    second: ITEM_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +55,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -96,30 +105,17 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: LoadGameButton_0
+      name: ITEM_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 401
-        height: 58
+        x: 94
+        y: 7
+        width: 23
+        height: 49
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -127,8 +123,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: aae8d82817a472d90800000000000000
-      internalID: -7122642434281075030
+      spriteID: 47d0f7a4b42c40fc0800000000000000
+      internalID: -3529482579323449996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ITEM_1
+      rect:
+        serializedVersion: 2
+        x: 142
+        y: 6
+        width: 43
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4beb2d561da8f040800000000000000
+      internalID: 4681682124215675724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ITEM_2
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 6
+        width: 47
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7bb2f79fb28724660800000000000000
+      internalID: 7368584070596340663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ITEM_3
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 2
+        width: 54
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d09a8a6cb2d840af0800000000000000
+      internalID: -431064445164672755
       vertices: []
       indices: 
       edges: []
@@ -136,7 +195,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -144,7 +203,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      LoadGameButton_0: -7122642434281075030
+      ITEM_0: -3529482579323449996
+      ITEM_1: 4681682124215675724
+      ITEM_2: 7368584070596340663
+      ITEM_3: -431064445164672755
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

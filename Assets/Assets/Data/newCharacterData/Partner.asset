@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Partner
   m_EditorClassIdentifier: 
   charaPost: 2
-  CharacterName: "\u30D5\u30E9\u30F3\u30AF\u30EA\u30F3"
+  CharacterName: 
   sprite: {fileID: 0}

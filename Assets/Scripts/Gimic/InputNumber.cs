@@ -28,11 +28,14 @@ public class InputNumber : MonoBehaviour
 
     private ExportNumber expNum;
 
+    // 入力文字数
+    [SerializeField]
+    private int ResultNum = 4;
 
     [SerializeField]
     GameObject numberBox;
     string inputValue = "";
-    string inputValueWord = "";
+   // string inputValueWord = "";
     [SerializeField]
     TextMeshProUGUI numberText;
    
@@ -138,12 +141,13 @@ public class InputNumber : MonoBehaviour
             string selectedObjectName = inputNum[Num].name;
             ExportNumber exportNum = inputNum[Num].GetComponent<ExportNumber>();
             exportImage.color = Color.white;
+            Debug.Log("受け取り数:" + inputNum[Num]);
             if (exportNum != null)
             {
                 int number = exportNum.ExpNum; // オブジェクトの値を取得
                 string word = exportNum.Exword;
               
-                if (inputValue.Length < 4  && number > 0)
+                if (inputValue.Length < ResultNum  && number > -1)
                 {
                     if (ChangeMode == false)
                     {
@@ -174,14 +178,14 @@ public class InputNumber : MonoBehaviour
         }
 
 
-        if(inputValue.Length < 4 && Input.GetKeyDown(KeyCode.Space))
+        if(inputValue.Length < ResultNum && Input.GetKeyDown(KeyCode.Space))
         {
             inputValue = "";
             exportText.text = "";
             exportImage.color = Color.red;
             Debug.Log("不正解");
         }
-        if (inputValue.Length == 4 && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
+        if (inputValue.Length == ResultNum && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
         {
            
             //if (int.Parse(inputValue) == anserwer)
@@ -242,18 +246,7 @@ public class InputNumber : MonoBehaviour
         }
     }
 
-    public void IsToogle()
-    {
-        if (gimickObj.activeSelf)
-        {
-            Hide();
-
-        }
-        else
-        {
-            Show();
-        }
-    }
+   
 
     public void Show()
     {
