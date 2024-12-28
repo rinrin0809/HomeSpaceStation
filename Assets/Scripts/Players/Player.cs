@@ -76,6 +76,10 @@ public class Player : MonoBehaviour
     //[SerializeField]
     //private string NextScene = "";
 
+    //スキルチェックのスコア
+    [SerializeField]
+    public int Score = 0;
+
     public List<GameObject> GetItemList
     {
         get { return itemList; }
@@ -135,7 +139,7 @@ public class Player : MonoBehaviour
         animatior = GetComponent<Animator>();
 
         Vector3 targetPosition = new Vector3(0.0f, -4.0f, 0.0f);
-       
+
         //if(isstaripos)
         //{
         //    new Vector3(0, 0, 0);
@@ -215,7 +219,11 @@ public class Player : MonoBehaviour
         //}
 
         //イベントが発生している時または看板を読んでいる時は処理をしない
-        if (Event.IsEvent() || ExplainDisplayFlg) return;
+        if (Event != null)
+        {
+            if (Event.IsEvent() || ExplainDisplayFlg) return;
+        }
+
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
         {
@@ -315,7 +323,10 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         //イベントが発生している時または看板を読んでいる時は処理をしない
-        if (Event.IsEvent() || ExplainDisplayFlg) return;
+        if (Event != null)
+        {
+            if (Event.IsEvent() || ExplainDisplayFlg) return;
+        }
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
 
@@ -389,7 +400,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Key" )
+        if (collision.gameObject.tag == "Key")
         {
             //text.gameObject.SetActive(false);
             //Debug.Log("鍵がありません");
@@ -398,9 +409,9 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.gameObject.tag == "Apple" )
+        if (collision.gameObject.tag == "Apple")
         {
-            
+
             //Debug.Log("鍵がありません");
             //isNearItem = false;
             NearItem = null;
@@ -473,12 +484,30 @@ public class Player : MonoBehaviour
             Debug.Log(GimicHitFlg);
         }
 
-        if (other.gameObject.CompareTag("108RoomScene"))
+        if (other.gameObject.CompareTag("ClearExit"))
         {
             //シーン遷移する判定に当たった時のフラグをtrue
             ChangeSceneFlg = true;
-            //フェードアウト後にシーン遷移
-            fadeOutSceneLoader.NewGameCallCoroutine("Title");
+
+            // バッドエンド（0～50未満）
+            if (Score < 50)
+            {
+                fadeOutSceneLoader.NewGameCallCoroutine("BadEnd");
+            }
+
+            // ノーマルエンド（50～75未満）
+            else if (Score < 75)
+            {
+                fadeOutSceneLoader.NewGameCallCoroutine("NormalEnd");
+            }
+
+            // グッドエンド（75～100以下）
+            else if (Score <= 100)
+            {
+                fadeOutSceneLoader.NewGameCallCoroutine("GoodEnd");
+            }
+
+            //fadeOutSceneLoader.NewGameCallCoroutine("Title");
             //fadeOutSceneLoader.FadeOutAndChangeRoomScene("Title");
 
         }

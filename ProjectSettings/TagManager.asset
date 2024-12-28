@@ -15,6 +15,7 @@ TagManager:
   - RandomPatrolFag
   - Transparent Wall
   - PlayerSpawnPosition
+  - ClearExit
   layers:
   - Default
   - TransparentFX
