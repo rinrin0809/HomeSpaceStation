@@ -42,7 +42,8 @@ public class Fov_script : MonoBehaviour
             if (r.collider != null && r.collider.CompareTag(targetname))
             {
                 // プレイヤーを発見！
-                gameover.gameObject.SetActive(true);
+                if(gameover!=null) gameover.gameObject.SetActive(true);
+               
                 //Debug.Log("敵の視界に入りました");
                 Debug.DrawRay(fovPoint.position, dir.normalized * range, Color.red);
             }
