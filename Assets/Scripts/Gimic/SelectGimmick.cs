@@ -15,6 +15,10 @@ public class SelectGimmick : MonoBehaviour
 
     [SerializeField]
     private List<GameObject> Bookshelf = new List<GameObject>();
+    [SerializeField]
+    private List<GameObject> testList = new List<GameObject>();
+   
+    private List<GameObject> testBookList = new List<GameObject>();
 
     private List<bool> selectedFlag = new List<bool>();
     string inputValue = "";
@@ -135,7 +139,6 @@ public class SelectGimmick : MonoBehaviour
                             // 選択済みかどうかをチェック
                             if (selectedFlag[Num])
                             {
-                                Debug.Log("このオブジェクトはすでに選択済みです: " + BookList[Num].name);
                                 break; // 処理を中断
                             }
 
@@ -143,23 +146,23 @@ public class SelectGimmick : MonoBehaviour
 
                             if (shelfImage != null && shelfImage.sprite == null) // 空のImageを探す
                             {
-                                Debug.Log("3 - 空のImage発見");
 
                                 // spriteを設定
                                 targetshlf.SetSprite(shelf, exportNum.sprite);
-                                Debug.Log("spriteを設定しました: " + shelf.name);
 
                                 inputValue += number.ToString();
 
-                                Debug.Log("inputValue:"+inputValue);
 
                                 if (selectedImage!= null)
                                 {
                                     selectedImage.enabled = false;
-                                    Debug.Log("Imageを無効か");
                                 }
                                 // 選択状態を更新
                                 selectedFlag[Num] = true;
+
+                                testList.Add(shelf);
+                                testBookList.Add(shelf);
+
 
                                 break; // 1つ設定したらループを抜ける
                             }
@@ -174,37 +177,31 @@ public class SelectGimmick : MonoBehaviour
 
         else if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            Debug.Log("Backspaceが押されました");
-
-            // Bookshelfの対象スロットを取得
-            ExportNumber targetShelf = Bookshelf[Num].GetComponent<ExportNumber>();
-            if (targetShelf != null)
+            // Bookshelfの対象スロットを逆順に検索
+            for (int i = testList.Count - 1; i >= 0; i--)
             {
-                Image shelfImage = Bookshelf[Num].GetComponent<Image>();
+                GameObject book = testList[i];
+                Image bookImage = Bookshelf[i].GetComponent<Image>();
+                Image selectedImage = BookList[Num].GetComponent<Image>();
 
-                if (shelfImage != null && shelfImage.sprite != null) // Bookshelfが空でない場合
+                if (bookImage != null) // nullでないスロットを見つけたら
                 {
-                    Debug.Log("Bookshelfのスロットに画像があり、元に戻します");
-
-                    // BookListの選択中のスロットに戻す
-                    Image selectedImage = BookList[Num].GetComponent<Image>();
-                    if (selectedImage != null && selectedImage.sprite == null) // 元が空の場合のみ戻す
+                    Debug.Log("name:" + bookImage.name);
+                    bookImage.sprite = null;
+                    // targetShelf.SetRemoved(targetShelf.image); // スロットをnullにする
+                    testList.RemoveAt(i); // インデックスを指定して削除
+                   
+                    if (bookImage.name == testBookList[Num].name)
                     {
-                        float alpha = 100;
-                        Color color = selectedImage.color;
-                        color.a = Mathf.Clamp01(alpha);
-                        selectedImage.color = color;
+                        selectedImage.enabled = true;
+                        Debug.Log("trueになった");
                     }
-
-                    // Bookshelfのスロットを空にする
-                    shelfImage.sprite = null;
-                    Debug.Log("Bookshelfのスロットを空にしました: " + Bookshelf[Num].name);
+                    selectedFlag[i] = false;
+                    break; // 最初に見つけたスロットを削除したらループを抜ける
                 }
-                else
-                {
-                    Debug.Log("Bookshelfのスロットが既に空です。何もしません。");
-                }
+                
             }
+          
         }
 
         if (inputValue.Length < ResultNum && Input.GetKeyDown(KeyCode.Space))
@@ -226,7 +223,6 @@ public class SelectGimmick : MonoBehaviour
                     if (bookImage != null && !bookImage.enabled) // 無効化されている場合のみ処理
                     {
                         bookImage.enabled = true; // Imageを有効化
-                        Debug.Log("BookListの選択オブジェクトのImageを有効化しました: " + BookList[Num].name);
                     }
                 }
                 foreach (GameObject shelf in Bookshelf)
@@ -235,7 +231,6 @@ public class SelectGimmick : MonoBehaviour
                     if (shelfImage != null)
                     {
                         shelfImage.sprite = null; // spriteを削除
-                        Debug.Log($"削除しました: {shelf.name}");
                     }
                 }
                 // 選択フラグをリセット
@@ -254,7 +249,6 @@ public class SelectGimmick : MonoBehaviour
                     if (bookImage != null && !bookImage.enabled) // 無効化されている場合のみ処理
                     {
                         bookImage.enabled = true; // Imageを有効化
-                        Debug.Log("BookListの選択オブジェクトのImageを有効化しました: " + BookList[Num].name);
                     }
                 }
                 foreach (GameObject shelf in Bookshelf)
@@ -263,7 +257,6 @@ public class SelectGimmick : MonoBehaviour
                     if (shelfImage != null)
                     {
                         shelfImage.sprite = null; // spriteを削除
-                        Debug.Log($"削除しました: {shelf.name}");
                     }
                 }
                 // 選択フラグをリセット
@@ -284,8 +277,18 @@ public class SelectGimmick : MonoBehaviour
 
             if (itemImage != null)
             {
+                float alpha = 0.3f;
+                Color colorwhite = itemImage.color;
+                colorwhite = Color.white;
+                colorwhite.a = Mathf.Clamp01(alpha);
+                float alpha2 = 1f;
+                Color colorblack = itemImage.color;
+                colorblack = Color.white;
+                colorblack.a = Mathf.Clamp01(alpha2);
                 // Num番目のアイテムは緑、それ以外は白に設定
-                itemImage.color = (i == Num) ? Color.black : Color.white;
+                //itemImage.color = (i == Num) ? Color.black : Color.white;
+                itemImage.color = (i == Num) ? colorwhite : colorblack;
+
             }
         }
     }

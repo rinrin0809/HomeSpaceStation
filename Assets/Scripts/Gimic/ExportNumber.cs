@@ -25,4 +25,15 @@ public class ExportNumber : MonoBehaviour
             }
         }
     }
+    
+    public void SetRemoved(Image SpImage)
+    {
+        Debug.Log("1");
+         if( SpImage != null)
+        {
+            Debug.Log("a");
+            image = null;
+        }
+    }
+
 }
