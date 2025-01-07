@@ -11,6 +11,9 @@ public class Fov_script : MonoBehaviour
     // ターゲットのTransformは自動で取得
     private Transform target;
 
+    [SerializeField]
+    private GameOverFade gameover;
+
     private string targetname = "Player";
     void Start()
     {
@@ -39,6 +42,7 @@ public class Fov_script : MonoBehaviour
             if (r.collider != null && r.collider.CompareTag(targetname))
             {
                 // プレイヤーを発見！
+                gameover.gameObject.SetActive(true);
                 //Debug.Log("敵の視界に入りました");
                 Debug.DrawRay(fovPoint.position, dir.normalized * range, Color.red);
             }

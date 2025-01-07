@@ -13,6 +13,8 @@ public class GameOverFade : MonoBehaviour
     // フェードアウト
     private FadeOutSceneLoader fadeOutSceneLoader;
 
+    //非表示化
+    private GameOverFade activation;
     void Start()
     {
         fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
