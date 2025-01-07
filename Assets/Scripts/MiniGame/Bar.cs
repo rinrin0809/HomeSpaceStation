@@ -57,7 +57,7 @@ public class Bar : MonoBehaviour
         {
             DisplayResult("Clear");
         }
-        
+
 
         if (hit)
         {
@@ -92,16 +92,18 @@ public class Bar : MonoBehaviour
             }
         }
 
-        if(Input.GetKeyDown(KeyCode.Return))
+        if (Input.GetKeyDown(KeyCode.Return))
         {
             PushFlg = false;
             RandMoveSpeed();
         }
+
+        if (Player.Instance != null) Player.Instance.Score = Score;
     }
 
     private void FixedUpdate()
     {
-        if(!PushFlg)
+        if (!PushFlg)
         {
             if (transform.position.y >= 2.45) direction = -1;
 
