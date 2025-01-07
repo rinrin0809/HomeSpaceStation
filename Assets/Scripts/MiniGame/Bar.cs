@@ -30,7 +30,8 @@ public class Bar : MonoBehaviour
     // ‰ÁŽZ‚·‚é‚Ü‚Å‚ÌŽžŠÔ
     private float MAX_ADD_TIMER = 2.0f;
     private float AddTimer = 2.0f;
-
+    //ãŒÀ
+    public float LimitPosY = 5.0f;
     private void Start()
     {
         RandMoveSpeed();
@@ -105,9 +106,9 @@ public class Bar : MonoBehaviour
     {
         if (!PushFlg)
         {
-            if (transform.position.y >= 2.45) direction = -1;
+            if (transform.position.y >= LimitPosY) direction = -1;
 
-            if (transform.position.y <= -2.45) direction = 1;
+            if (transform.position.y <= -LimitPosY) direction = 1;
 
             transform.position = new Vector3(0,
                 transform.position.y + MoveSpeed * Time.fixedDeltaTime * direction, 0);

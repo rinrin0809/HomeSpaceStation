@@ -16,14 +16,10 @@ public class SelectGimmick : MonoBehaviour
     [SerializeField]
     private List<GameObject> Bookshelf = new List<GameObject>();
 
-    private List<bool> selectedFlag = new List<bool>();
     string inputValue = "";
 
     [SerializeField]
     int answer = 1234;
-    // 入力文字数
-    [SerializeField]
-    private int ResultNum = 4;
 
     private int Num = 0;
 
@@ -37,11 +33,7 @@ public class SelectGimmick : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // BookListと同じサイズの選択状態リストを初期化
-        for (int i = 0; i < BookList.Count; i++)
-        {
-            selectedFlag.Add(false); // 全て未選択状態
-        }
+       
     }
 
     // Update is called once per frame
@@ -119,26 +111,18 @@ public class SelectGimmick : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Return))
         {
             ExportNumber exportNum = BookList[Num].GetComponent<ExportNumber>();
-            Image selectedImage = BookList[Num].GetComponent<Image>();
-
-            if (exportNum != null) 
+            if (exportNum != null)
             {
-                int number = exportNum.ExpNum; // オブジェクトの値を取得
 
-                if (inputValue.Length > -1 )
+                if (inputValue.Length > -1)
                 {
-                   foreach(GameObject shelf in Bookshelf)
+
+
+                    foreach (GameObject shelf in Bookshelf)
                     {
                         ExportNumber targetshlf = Bookshelf[Num].GetComponent<ExportNumber>();
                         if (targetshlf != null)
                         {
-                            // 選択済みかどうかをチェック
-                            if (selectedFlag[Num])
-                            {
-                                Debug.Log("このオブジェクトはすでに選択済みです: " + BookList[Num].name);
-                                break; // 処理を中断
-                            }
-
                             Image shelfImage = shelf.GetComponent<Image>();
 
                             if (shelfImage != null && shelfImage.sprite == null) // 空のImageを探す
@@ -149,133 +133,97 @@ public class SelectGimmick : MonoBehaviour
                                 targetshlf.SetSprite(shelf, exportNum.sprite);
                                 Debug.Log("spriteを設定しました: " + shelf.name);
 
-                                inputValue += number.ToString();
-
-                                Debug.Log("inputValue:"+inputValue);
-
-                                if (selectedImage!= null)
+                                // BookListの現在の選択アイテムのImageを空にする
+                                Image selectedImage = BookList[Num].GetComponent<Image>();
+                                if (selectedImage != null)
                                 {
-                                    selectedImage.enabled = false;
-                                    Debug.Log("Imageを無効か");
+                                    float alpha = 0;
+                                    Color color = selectedImage.color;
+                                    color.a = Mathf.Clamp01(alpha);
+                                    selectedImage.color = color;
+
+                                    Debug.Log("BookListの選択オブジェクトのImageを空にしました: " + BookList[Num].name);
                                 }
-                                // 選択状態を更新
-                                selectedFlag[Num] = true;
+
 
                                 break; // 1つ設定したらループを抜ける
                             }
 
-                        }   
+                        }
                     }
                 }
             }
-         
+
 
         }
 
         else if (Input.GetKeyDown(KeyCode.Backspace))
         {
             Debug.Log("Backspaceが押されました");
-
-            // Bookshelfの対象スロットを取得
-            ExportNumber targetShelf = Bookshelf[Num].GetComponent<ExportNumber>();
-            if (targetShelf != null)
+            // Bookshelfの一番大きいインデックスから空ではないスロットを探す
+            for (int i = Bookshelf.Count - 1; i >= 0; i--) // 後ろからチェック
             {
-                Image shelfImage = Bookshelf[Num].GetComponent<Image>();
+                Image shelfImage = Bookshelf[i].GetComponent<Image>();
 
-                if (shelfImage != null && shelfImage.sprite != null) // Bookshelfが空でない場合
+                if (shelfImage != null && shelfImage.sprite != null) // 空でないスロットを発見
                 {
-                    Debug.Log("Bookshelfのスロットに画像があり、元に戻します");
+                    Debug.Log($"Bookshelfのスロット {i} に画像があり、削除します");
 
-                    // BookListの選択中のスロットに戻す
-                    Image selectedImage = BookList[Num].GetComponent<Image>();
-                    if (selectedImage != null && selectedImage.sprite == null) // 元が空の場合のみ戻す
-                    {
-                        float alpha = 100;
-                        Color color = selectedImage.color;
-                        color.a = Mathf.Clamp01(alpha);
-                        selectedImage.color = color;
-                    }
-
-                    // Bookshelfのスロットを空にする
+                    // 画像を削除する
                     shelfImage.sprite = null;
-                    Debug.Log("Bookshelfのスロットを空にしました: " + Bookshelf[Num].name);
-                }
-                else
-                {
-                    Debug.Log("Bookshelfのスロットが既に空です。何もしません。");
-                }
-            }
-        }
+                    Debug.Log($"Bookshelfのスロット {i} を空にしました");
 
-        if (inputValue.Length < ResultNum && Input.GetKeyDown(KeyCode.Space))
-        {
-            inputValue = "";
-          
-            Debug.Log("不正解");
-        }
-        if (inputValue.Length == ResultNum && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
-        {
-           
-            if (inputValue == answer.ToString())
-            {
-                Debug.Log("正解！");
-                inputValue = "";
-                foreach (GameObject book in BookList)
-                {
-                    Image bookImage = book.GetComponent<Image>();
-                    if (bookImage != null && !bookImage.enabled) // 無効化されている場合のみ処理
+                    // BookListの対応するスロットに戻す
+                    if (i < BookList.Count)
                     {
-                        bookImage.enabled = true; // Imageを有効化
-                        Debug.Log("BookListの選択オブジェクトのImageを有効化しました: " + BookList[Num].name);
+                        Image selectedImage = BookList[i].GetComponent<Image>();
+                        if (selectedImage != null && selectedImage.sprite == null) // 元が空の場合のみ戻す
+                        {
+                            Debug.Log($"BookListのスロット {i} に画像を戻します");
+
+                            selectedImage.sprite = null; // 必要ならspriteを設定
+                            Color color = selectedImage.color;
+                            color.a = 1.0f; // 不透明に戻す
+                            selectedImage.color = color;
+                        }
                     }
+
+                    break; // 最初に見つけたスロットで処理終了
                 }
-                foreach (GameObject shelf in Bookshelf)
-                {
-                    Image shelfImage = shelf.GetComponent<Image>();
-                    if (shelfImage != null)
-                    {
-                        shelfImage.sprite = null; // spriteを削除
-                        Debug.Log($"削除しました: {shelf.name}");
-                    }
-                }
-                // 選択フラグをリセット
-                for (int i = 0; i < selectedFlag.Count; i++)
-                {
-                    selectedFlag[i] = false; // すべて未選択状態にリセット
-                }
+                // Bookshelfの対象スロットを取得
+                //ExportNumber targetShelf = Bookshelf[Num].GetComponent<ExportNumber>();
+                //if (targetShelf != null)
+                //{
+                //    Image shelfImage = Bookshelf[Num].GetComponent<Image>();
+
+                //    if (shelfImage != null && shelfImage.sprite != null) // Bookshelfが空でない場合
+                //    {
+                //        Debug.Log("Bookshelfのスロットに画像があり、元に戻します");
+
+                //        // BookListの選択中のスロットに戻す
+                //        Image selectedImage = BookList[Num].GetComponent<Image>();
+                //        if (selectedImage != null && selectedImage.sprite == null) // 元が空の場合のみ戻す
+                //        {
+                //            float alpha = 100;
+                //            Color color = selectedImage.color;
+                //            color.a = Mathf.Clamp01(alpha);
+                //            selectedImage.color = color;
+                //        }
+
+                //        // Bookshelfのスロットを空にする
+                //        shelfImage.sprite = null;
+                //        Debug.Log("Bookshelfのスロットを空にしました: " + Bookshelf[Num].name);
+                //    }
+                //    else
+                //    {
+                //        Debug.Log("Bookshelfのスロットが既に空です。何もしません。");
+                //    }
+                //}
             }
-            else
-            {
-                Debug.Log("不正解");
-                inputValue = "";
-                foreach (GameObject book in BookList)
-                {
-                    Image bookImage = book.GetComponent<Image>();
-                    if (bookImage != null && !bookImage.enabled) // 無効化されている場合のみ処理
-                    {
-                        bookImage.enabled = true; // Imageを有効化
-                        Debug.Log("BookListの選択オブジェクトのImageを有効化しました: " + BookList[Num].name);
-                    }
-                }
-                foreach (GameObject shelf in Bookshelf)
-                {
-                    Image shelfImage = shelf.GetComponent<Image>();
-                    if (shelfImage != null)
-                    {
-                        shelfImage.sprite = null; // spriteを削除
-                        Debug.Log($"削除しました: {shelf.name}");
-                    }
-                }
-                // 選択フラグをリセット
-                for (int i = 0; i < selectedFlag.Count; i++)
-                {
-                    selectedFlag[i] = false; // すべて未選択状態にリセット
-                }
-            }
-        }
+
             UpdateItemColors();
+        }
     }
-
     private void UpdateItemColors()
     {
         for (int i = 0; i < BookList.Count; i++)
@@ -285,7 +233,7 @@ public class SelectGimmick : MonoBehaviour
             if (itemImage != null)
             {
                 // Num番目のアイテムは緑、それ以外は白に設定
-                itemImage.color = (i == Num) ? Color.black : Color.white;
+                itemImage.color = (i == Num) ? Color.red : Color.white;
             }
         }
     }
