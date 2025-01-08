@@ -21,6 +21,7 @@ public class ExportNumber : MonoBehaviour
             Image image = targetObject.GetComponent<Image>();
             if (image != null)
             {
+                Debug.Log("namesp:" + sprite.name);
                 image.sprite = sprite;
             }
         }
