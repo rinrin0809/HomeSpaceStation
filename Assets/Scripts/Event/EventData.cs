@@ -50,6 +50,7 @@ public class EventData : ScriptableObject
     // 特定のイベントフラグを設定
     public void SetEventFlag(string Name, bool Flg)
     {
+        if (Events == null) return;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EventName == Name)
@@ -62,7 +63,8 @@ public class EventData : ScriptableObject
     // 特定の名前のイベントフラグを取得
     public bool GetNameEventFlg(string Name)
     {
-        for(int i = 0; i < Events.Length; i++)
+        if (Events == null) return false;
+        for (int i = 0; i < Events.Length; i++)
         {
             if(Events[i].EventName == Name)
             {
@@ -75,6 +77,7 @@ public class EventData : ScriptableObject
     //イベントが終了した時のフラグを設定
     public void SetEndEventFlg(string Name, bool Flg)
     {
+        if (Events == null) return;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EventName == Name)
@@ -87,6 +90,7 @@ public class EventData : ScriptableObject
     //イベントが終了した時のフラグを取得
     public bool GetNameEndEventActionFlg(string Name)
     {
+        if (Events == null) return false;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EventName == Name)
@@ -100,6 +104,7 @@ public class EventData : ScriptableObject
     //イベント中に何かカメラの動作とかが必要な時のフラグを設定
     public void SetEventActionEventFlg(string Name, bool Flg)
     {
+        if (Events == null) return;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EventName == Name)
@@ -112,6 +117,7 @@ public class EventData : ScriptableObject
     //イベント中に何かカメラの動作とかが必要な時のフラグを取得
     public bool GetNameEventActionFlg(string Name)
     {
+        if (Events == null) return false;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EventName == Name)
@@ -125,6 +131,7 @@ public class EventData : ScriptableObject
     //イベントの番号設定
     public void SetEventNumber()
     {
+        if (Events == null) return;
         for (int i = 0; i < Size; i++)
         {
             Events[i].EventNumber = i;
@@ -134,6 +141,7 @@ public class EventData : ScriptableObject
     //イベントの名前設定
     public void SetEventName(string[] EventNames)
     {
+        if (Events == null) return;
         for (int i = 0; i < Size; i++)
         {
             Events[i].EventName = EventNames[i];
@@ -143,8 +151,11 @@ public class EventData : ScriptableObject
     //総当たりでイベントが発生しているかチェック
     public bool IsEvent()
     {
+        if (Events == null) return false;
+
         for(int i = 0; i < Events.Length; i++)
         {
+            if(!Events[i].Equals(default(Event)))
             if (Events[i].EventFlag) return true;
         }
 
@@ -161,6 +172,7 @@ public class EventData : ScriptableObject
 
     public void ResetEventflag()
     {
+        if (Events == null) return;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EventFlag == true)
@@ -172,6 +184,7 @@ public class EventData : ScriptableObject
 
     public void ResetEndEventflag()
     {
+        if (Events == null) return;
         for (int i = 0; i < Events.Length; i++)
         {
             if (Events[i].EndEventFlg == true)
@@ -183,7 +196,8 @@ public class EventData : ScriptableObject
 
     public void ResetEventActionflag()
     {
-        for(int i = 0;i<Events.Length; i++)
+        if (Events == null) return;
+        for (int i = 0;i<Events.Length; i++)
         {
             if (Events[i].EventActionFlg == true)
             {

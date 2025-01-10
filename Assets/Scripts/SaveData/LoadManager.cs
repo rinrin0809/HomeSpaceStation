@@ -18,8 +18,6 @@ public class LoadManager : MonoBehaviour
     [SerializeField] public string NextSceneName = "";
     public SaveData data;
 
-    [SerializeField] private bool LoadPlayerFlg = false;
-
     public void SetSideNum(int Num)
     {
         SideNum = Num;
@@ -52,8 +50,12 @@ public class LoadManager : MonoBehaviour
         return LengthNum;
     }
 
+    //NewGame‚ð‘I‘ð‚µ‚½Žž
     [SerializeField]
     public bool NewGamePushFlg = false;
+    //LoadGame‚ð‘I‘ð‚µ‚½Žž
+    [SerializeField]
+    public bool LoadGameFlg = false;
 
     public bool OpenLoadMenuFlg = false;
 
@@ -97,7 +99,7 @@ public class LoadManager : MonoBehaviour
             Vector3 position = new Vector3(data.PosX, data.PosY, data.PosZ);
             GameObj.transform.position = position;
             Inventory.SetInventoryItems(data.InventoryItems);
-            Event.SetEvents(data.EventDatas);
+            if(Event != null)Event.SetEvents(data.EventDatas);
         }
     }
 

@@ -195,6 +195,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 970919809775548405}
     m_Modifications:
+    - target: {fileID: 41290009076699982, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41290009076699982, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 42d162eb785460945a7c1c8b7edc7d6b, type: 3}
     - target: {fileID: 2143141317933665768, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
       propertyPath: m_text
       value: LoadData2
@@ -324,6 +332,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 970919809775548405}
     m_Modifications:
+    - target: {fileID: 41290009076699982, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41290009076699982, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1ad221078c862644ab2b3df433d0b662, type: 3}
     - target: {fileID: 2143141317933665768, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
       propertyPath: m_text
       value: LoadData3
@@ -453,6 +469,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 970919809775548405}
     m_Modifications:
+    - target: {fileID: 41290009076699982, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 41290009076699982, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 21a6aa089eb2c24479d99a84439f5d73, type: 3}
     - target: {fileID: 2143141317933665768, guid: ae25328529b8e9d4ebf33d307907d801, type: 3}
       propertyPath: m_text
       value: LoadData1

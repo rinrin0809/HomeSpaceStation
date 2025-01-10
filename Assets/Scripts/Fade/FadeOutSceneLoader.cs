@@ -16,8 +16,9 @@ public class FadeOutSceneLoader : MonoBehaviour
         if (LoadManager.Instance != null)
         {
             LoadManager.Instance.NewGamePushFlg = true;
+            LoadManager.Instance.LoadGameFlg = false;
             Inventory.ResetInventory();
-            Event.AllResetFlag();
+            if(Event != null) Event.AllResetFlag();
             StartCoroutine(FadeOutAndNewGameOrTitle(Name));
         }
     }
@@ -27,8 +28,11 @@ public class FadeOutSceneLoader : MonoBehaviour
         if (LoadManager.Instance != null)
         {
             LoadManager.Instance.NewGamePushFlg = false;
+            LoadManager.Instance.LoadGameFlg = true;
+            Debug.Log("NewFlg" + LoadManager.Instance.NewGamePushFlg);
+            Debug.Log("LoadFlg" + LoadManager.Instance.LoadGameFlg);
             Inventory.ResetInventory();
-            Event.AllResetFlag();
+            if (Event != null) Event.AllResetFlag();
             StartCoroutine(FadeOutAndLoadScene());
         }
     }
@@ -69,6 +73,7 @@ public class FadeOutSceneLoader : MonoBehaviour
         {
             filePath = LoadManager.Instance.GetFilePathBySideNum(LoadManager.Instance.GetSideNum());
         }
+
         else
         {
             filePath = LoadManager.Instance.GetFilePathByLengthNum(LoadManager.Instance.GetLengthNum());

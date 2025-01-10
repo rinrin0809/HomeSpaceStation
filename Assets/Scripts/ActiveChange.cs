@@ -44,7 +44,6 @@ public class ActiveChange : MonoBehaviour
     {
         if (ActiveObject.activeSelf)
         {
-            this.gameObject.SetActive(false);
             ActiveObject.SetActive(false);
             if (InverseActiveObject != null) InverseActiveObject.SetActive(true);
         }

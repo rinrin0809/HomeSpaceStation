@@ -122,9 +122,21 @@ public class Player : MonoBehaviour
     //看板とかに当たった時に動きを止めるフラグ（今後データ化予定）
     public bool ExplainDisplayFlg = false;
 
+    Transform objectTransform;
+    Vector3 targetPosition;
+
     private void Awake()
     {
-        DontDestroyOnLoad(gameObject); // シーンをまたいでこのオブジェクトを保持する
+        // 既にインスタンスが存在する場合、重複したオブジェクトを破棄する
+        if (Instance != null)
+        {
+            Destroy(gameObject); // 重複している場合は削除
+        }
+        else
+        {
+            Instance = this; // インスタンスが設定されていない場合、現在のオブジェクトをインスタンスとして設定
+            DontDestroyOnLoad(gameObject); // シーンをまたいでこのオブジェクトを保持する
+        }
     }
 
     // Start is called before the first frame update
@@ -138,7 +150,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animatior = GetComponent<Animator>();
 
-        Vector3 targetPosition = new Vector3(0.0f, -4.0f, 0.0f);
+        targetPosition = new Vector3(0.0f, -4.0f, 0.0f);
 
         //if(isstaripos)
         //{
@@ -178,37 +190,7 @@ public class Player : MonoBehaviour
         }
 
         fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
-        Transform objectTransform = gameObject.GetComponent<Transform>();
-
-        if (LoadManager.Instance != null)
-        {
-            if (LoadManager.Instance.NextSceneName != "Title" && LoadManager.Instance.NextSceneName != "Over")
-            {
-                Debug.Log("LoadManager.Instance.NewGamePushFlg" + LoadManager.Instance.NewGamePushFlg);
-
-                //NewGameボタンが押された時のフラグ
-                if (LoadManager.Instance.NewGamePushFlg)
-                {
-
-                    //初期位置の設定
-                    objectTransform.position = targetPosition;
-                    startflg = false;
-
-                    transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
-
-                    Debug.Log(objectTransform.position);
-                }
-
-                //LoadGameボタンが押された時のフラグ
-                else
-                {
-                    // セーブデータを読み込み、プレイヤーの位置を設定
-                    LoadManager.Instance.TitleToGameLoadData();
-                    Debug.Log("Load");
-                }
-            }
-        }
-
+        objectTransform = gameObject.GetComponent<Transform>();
     }
     // Update is called once per frame
     void Update()
@@ -223,6 +205,9 @@ public class Player : MonoBehaviour
         {
             if (Event.IsEvent() || ExplainDisplayFlg) return;
         }
+
+        //セーブデータをロード
+        PlayerLoadData();
 
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
@@ -531,4 +516,43 @@ public class Player : MonoBehaviour
     //        playerStorage.initialValue = newPosition;
     //    }
     //}
+
+    //セーブデータの読み込み
+    private void PlayerLoadData()
+    {
+        if (LoadManager.Instance != null)
+        {
+            if (LoadManager.Instance.NextSceneName != "Title" && LoadManager.Instance.NextSceneName != "Over")
+            {
+                Debug.Log("LoadManager.Instance.NewGamePushFlg" + LoadManager.Instance.NewGamePushFlg);
+
+                //NewGameボタンが押された時のフラグ
+                if (LoadManager.Instance.NewGamePushFlg)
+                {
+                    Debug.Log("OldNew" + LoadManager.Instance.NewGamePushFlg);
+                    //初期位置の設定
+                    objectTransform.position = targetPosition;
+                    startflg = false;
+
+                    transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
+
+                    Debug.Log(objectTransform.position);
+
+                    LoadManager.Instance.NewGamePushFlg = false;
+                    Debug.Log("UpdateNew" + LoadManager.Instance.NewGamePushFlg);
+                }
+
+                //LoadGameボタンが押された時のフラグ
+                else if(LoadManager.Instance.LoadGameFlg)
+                {
+                    Debug.Log("OldLoad" + LoadManager.Instance.LoadGameFlg);
+                    // セーブデータを読み込み、プレイヤーの位置を設定
+                    LoadManager.Instance.TitleToGameLoadData();
+                    LoadManager.Instance.LoadGameFlg = false;
+                    Debug.Log("UpdateNew" + LoadManager.Instance.LoadGameFlg);
+                    Debug.Log("Load");
+                }
+            }
+        }
+    }
 }

@@ -13,8 +13,8 @@ public class UVScrollShader : MonoBehaviour
     void Start()
     {
         // Rendererからマテリアルを取得
-        Renderer renderer = GetComponent<Renderer>();
-        material = renderer.material;
+        //Renderer renderer = GetComponent<Renderer>();
+        //material = renderer.material;
 
         // 初期値を設定
         material.SetFloat("_XSpeed", SpeedX); // X方向のスクロール速度

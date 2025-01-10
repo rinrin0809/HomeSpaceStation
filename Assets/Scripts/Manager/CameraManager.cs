@@ -34,22 +34,25 @@ public class CameraManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //お面の初登場時のカメラ演出
-        if (Event.GetNameEventActionFlg("お面の初登場"))
+        if(Event != null)
         {
-            LockOnEnemyCamera(true);
-        }
+            //お面の初登場時のカメラ演出
+            if (Event.GetNameEventActionFlg("お面の初登場"))
+            {
+                LockOnEnemyCamera(true);
+            }
 
-        //お面の初登場時のカメラ演出（ターゲットをプレイヤーに戻す時）
-        else if (!Event.GetNameEventActionFlg("お面の初登場") && Event.GetNameEventFlg("お面の初登場"))
-        {
-            LockOnEnemyCamera(false);
-        }
+            //お面の初登場時のカメラ演出（ターゲットをプレイヤーに戻す時）
+            else if (!Event.GetNameEventActionFlg("お面の初登場") && Event.GetNameEventFlg("お面の初登場"))
+            {
+                LockOnEnemyCamera(false);
+            }
 
-        else if (!Event.GetNameEventActionFlg("お面の初登場") && !Event.GetNameEventFlg("お面の初登場"))
-        {
-            //プレイヤーにカメラを追従する
-            LockOnPlayerCamera();
+            else if (!Event.GetNameEventActionFlg("お面の初登場") && !Event.GetNameEventFlg("お面の初登場"))
+            {
+                //プレイヤーにカメラを追従する
+                LockOnPlayerCamera();
+            }
         }
     }
 
