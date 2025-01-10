@@ -220,9 +220,6 @@ public class InputNumber : MonoBehaviour
                     Debug.Log("不正解");
                 }
             }
-          
-            
-
             // 入力値をリセット
             inputValue = "";
            

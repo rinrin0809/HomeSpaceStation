@@ -52,6 +52,7 @@ public class SelectGimmick : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         Time.timeScale = 1.0f;
         MoveNum();
     }
@@ -125,6 +126,7 @@ public class SelectGimmick : MonoBehaviour
         {
             ExportNumber exportNum = BookList[Num].GetComponent<ExportNumber>();
             Image selectedImage = BookList[Num].GetComponent<Image>();
+       
 
             if (exportNum != null)
             {
