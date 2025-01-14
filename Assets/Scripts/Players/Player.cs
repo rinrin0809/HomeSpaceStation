@@ -68,7 +68,7 @@ public class Player : MonoBehaviour
 
     private bool startflg = true;
 
-
+    public bool ClearExitFlg = false;
     //シーン遷移
     //public Transform targetPosition; // Inspectorで設定する場合
     //[SerializeField]
@@ -206,11 +206,14 @@ public class Player : MonoBehaviour
             if (Event.IsEvent() || ExplainDisplayFlg) return;
         }
 
+        //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
+        if (ChangeSceneFlg) return;
+        if (ClearExitFlg) return;
         //セーブデータをロード
         PlayerLoadData();
 
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
-        if (SceneManager.GetActiveScene().name == "Game" || SceneManager.GetActiveScene().name == "Game1")
+        if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name == "Over")
         {
             if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
             {
@@ -297,7 +300,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (SceneManager.GetActiveScene().name == "Title" || SceneManager.GetActiveScene().name == "Over")
+        if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name == "Over")
         {
             //シーン遷移する判定に当たった時のフラグをfalse
             ChangeSceneFlg = false;
@@ -314,7 +317,7 @@ public class Player : MonoBehaviour
         }
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
-
+        if (ClearExitFlg) return;
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
         rb.velocity = moveDir * moveSpeed * Time.fixedDeltaTime;
 
@@ -380,6 +383,32 @@ public class Player : MonoBehaviour
             //text.text = "Eボタンでアイテムを拾う";
             NearItem = collision.gameObject;
 
+        }
+
+        if (collision.gameObject.CompareTag("ClearExit"))
+        {
+            ClearExitFlg = true;
+
+            // バッドエンド（0～50未満）
+            if (Player.Instance.Score < 50)
+            {
+                Debug.Log("BadEnd");
+                fadeOutSceneLoader.NewGameCallCoroutine("BadEnd");
+            }
+
+            // ノーマルエンド（50～75未満）
+            else if (Player.Instance.Score < 75)
+            {
+                Debug.Log("NormalEnd");
+                fadeOutSceneLoader.NewGameCallCoroutine("NormalEnd");
+            }
+
+            // グッドエンド（75～100以下）
+            else if (Player.Instance.Score <= 100)
+            {
+                Debug.Log("GoodEnd");
+                fadeOutSceneLoader.NewGameCallCoroutine("GoodEnd");
+            }
         }
     }
 
@@ -468,34 +497,6 @@ public class Player : MonoBehaviour
             GimicHitFlg = true;
             Debug.Log(GimicHitFlg);
         }
-
-        if (other.gameObject.CompareTag("ClearExit"))
-        {
-            //シーン遷移する判定に当たった時のフラグをtrue
-            ChangeSceneFlg = true;
-
-            // バッドエンド（0～50未満）
-            if (Score < 50)
-            {
-                fadeOutSceneLoader.NewGameCallCoroutine("BadEnd");
-            }
-
-            // ノーマルエンド（50～75未満）
-            else if (Score < 75)
-            {
-                fadeOutSceneLoader.NewGameCallCoroutine("NormalEnd");
-            }
-
-            // グッドエンド（75～100以下）
-            else if (Score <= 100)
-            {
-                fadeOutSceneLoader.NewGameCallCoroutine("GoodEnd");
-            }
-
-            //fadeOutSceneLoader.NewGameCallCoroutine("Title");
-            //fadeOutSceneLoader.FadeOutAndChangeRoomScene("Title");
-
-        }
     }
 
     private void OnCollisionExit2D(Collision2D other)
@@ -505,17 +506,7 @@ public class Player : MonoBehaviour
             GimicHitFlg = false;
             Debug.Log(GimicHitFlg);
         }
-
-
     }
-
-    //public void SetNextScenePosition(Vector2 newPosition)
-    //{
-    //    if (playerStorage != null)
-    //    {
-    //        playerStorage.initialValue = newPosition;
-    //    }
-    //}
 
     //セーブデータの読み込み
     private void PlayerLoadData()
@@ -524,33 +515,18 @@ public class Player : MonoBehaviour
         {
             if (LoadManager.Instance.NextSceneName != "Title" && LoadManager.Instance.NextSceneName != "Over")
             {
-                Debug.Log("LoadManager.Instance.NewGamePushFlg" + LoadManager.Instance.NewGamePushFlg);
-
                 //NewGameボタンが押された時のフラグ
                 if (LoadManager.Instance.NewGamePushFlg)
                 {
-                    Debug.Log("OldNew" + LoadManager.Instance.NewGamePushFlg);
-                    //初期位置の設定
-                    objectTransform.position = targetPosition;
-                    startflg = false;
-
-                    transform.position = startingPosition.initialValue; // プレイヤーの位置を保存
-
-                    Debug.Log(objectTransform.position);
-
                     LoadManager.Instance.NewGamePushFlg = false;
-                    Debug.Log("UpdateNew" + LoadManager.Instance.NewGamePushFlg);
                 }
 
                 //LoadGameボタンが押された時のフラグ
                 else if(LoadManager.Instance.LoadGameFlg)
                 {
-                    Debug.Log("OldLoad" + LoadManager.Instance.LoadGameFlg);
                     // セーブデータを読み込み、プレイヤーの位置を設定
                     LoadManager.Instance.TitleToGameLoadData();
                     LoadManager.Instance.LoadGameFlg = false;
-                    Debug.Log("UpdateNew" + LoadManager.Instance.LoadGameFlg);
-                    Debug.Log("Load");
                 }
             }
         }

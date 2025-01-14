@@ -17,10 +17,11 @@ public class SkilCheck : MonoBehaviour
     private float MAX_ADD_TIMER = 2.0f;
     private float AddTimer = 2.0f;
 
+    Bar bar;
     // Start is called before the first frame update
     void Start()
     {
-        
+        bar = GetComponent<Bar>();
     }
 
     // Update is called once per frame

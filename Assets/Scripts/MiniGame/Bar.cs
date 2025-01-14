@@ -6,8 +6,8 @@ public class Bar : MonoBehaviour
 {
     [SerializeField] GameObject parentObject;
     //移動速度
-    private float MIN_MOVE_SPEED = 1.0f;
-    private float MAX_MOVE_SPEED = 1.0f;
+    [SerializeField] private float MIN_MOVE_SPEED = 7.0f;
+    [SerializeField] private float MAX_MOVE_SPEED = 15.0f;
     [SerializeField] private float MoveSpeed = 0.0f;
     //符号反転用
     private int direction = 1;
@@ -37,8 +37,13 @@ public class Bar : MonoBehaviour
     [SerializeField] GameObject SkilCheckObj;
     [SerializeField] GameObject YesOffObj;
 
+    private Vector3 Pos;
+
+    [SerializeField] float PushIntervalTime = 1.0f;
     private void Start()
     {
+        Pos = new Vector3(transform.parent.gameObject.transform.position.x, 0, transform.parent.gameObject.transform.position.z);
+
         parentObject = this.transform.parent.gameObject;
         skilCheck = SkilCheckObj.GetComponent<SkilCheck>();
 
@@ -52,7 +57,6 @@ public class Bar : MonoBehaviour
         //スキルチェックのスコア処理
         SkilCheckScore();
 
-
         if (Input.GetKeyDown(KeyCode.Return))
         {
             PushFlg = false;
@@ -61,10 +65,20 @@ public class Bar : MonoBehaviour
 
         if(OffFlg)
         {
-            OffFlg = false;
-            PushFlg = false;
-            RandMoveSpeed();
-            parentObject.SetActive(false);
+            if(PushIntervalTime < 0.0f)
+            {
+                PushFlg = false;
+                parentObject.SetActive(false);
+                RandMoveSpeed();
+                this.transform.position = Pos;
+                OffFlg = false;
+                PushIntervalTime = 2.0f;
+            }
+        }
+
+        if(PushFlg)
+        {
+            PushIntervalTime -= Time.deltaTime;
         }
     }
 
