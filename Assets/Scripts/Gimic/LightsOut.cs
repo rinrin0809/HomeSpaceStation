@@ -21,7 +21,6 @@ public class LightsOut : MonoBehaviour
     {
         buttons = new Button[gridSize, gridSize];
         isOn = new bool[gridSize, gridSize];
-
         // グリッドにボタンを生成
         for (int x = 0; x < gridSize; x++)
         {
@@ -61,7 +60,7 @@ public class LightsOut : MonoBehaviour
     // ボタンの色を状態に応じて変更
     void UpdateButtonColor(int x, int y)
     {
-        Color color = isOn[x, y] ? Color.yellow : Color.gray;
+        Color color = isOn[x, y] ? Color.gray : Color.yellow;
         buttons[x, y].GetComponent<Image>().color = color;
     }
 }
