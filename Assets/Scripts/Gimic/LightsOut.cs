@@ -7,26 +7,47 @@ public class LightsOut : MonoBehaviour
 {
 
     public GameObject panelprefab;
+    public Button undoButton; // もとに戻すボタン
 
     public int gridSize = 4;
 
     private Button[,] buttons;
-
     private bool[,] isOn;
+    private List<GameObject> newPrefab = new List<GameObject>();
 
+    public GameObject GimmickPanel;
 
+    private int MaxSize;
 
-    // Start is called before the first frame update
+    private int ClearCount = 0;
+
+    [SerializeField]
+    GridLayoutGroup gridCount;
+
+    public int CountMax;
+
     void Start()
+    {
+
+        CreateGrid();
+        // もとに戻すボタンにリスナーを追加
+        undoButton.onClick.AddListener(ClearAllLights);
+    }
+
+    void CreateGrid()
     {
         buttons = new Button[gridSize, gridSize];
         isOn = new bool[gridSize, gridSize];
+
+        MaxSize = gridSize * gridSize;
+
         // グリッドにボタンを生成
         for (int x = 0; x < gridSize; x++)
         {
             for (int y = 0; y < gridSize; y++)
             {
                 GameObject newButton = Instantiate(panelprefab, transform);
+                newPrefab.Add(newButton);
                 int xPos = x;
                 int yPos = y;
 
@@ -35,6 +56,45 @@ public class LightsOut : MonoBehaviour
                 UpdateButtonColor(x, y);
             }
         }
+    }
+
+  
+
+    private void Update()
+    {
+        AreAllButtonsOn();
+        if(AreAllButtonsOn() == true)
+        {
+            ClearCount++;
+            Debug.Log("クリア回数:" + ClearCount);
+            foreach (GameObject obj in newPrefab)
+            {
+                Destroy(obj); // ゲームオブジェクトを削除
+            }
+            newPrefab.Clear();
+            gridCount.constraintCount++;
+            gridSize++;
+            CreateGrid();
+        }
+        if (ClearCount == CountMax)
+        {
+            LevelClear();
+        }
+     
+    }
+    bool AreAllButtonsOn()
+    {
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int y = 0; y < gridSize; y++)
+            {
+                if (!isOn[x, y]) // 一つでもfalseがあればfalseを返す
+                {
+                    return false;
+                }
+            }
+        }
+        return true; // 全てtrueならtrueを返す
     }
 
     // ボタンを押した時に状態を切り替える
@@ -62,5 +122,37 @@ public class LightsOut : MonoBehaviour
     {
         Color color = isOn[x, y] ? Color.gray : Color.yellow;
         buttons[x, y].GetComponent<Image>().color = color;
+       
+    }
+
+    // すべてのライトをクリア
+    void ClearAllLights()
+    {
+        for (int x = 0; x < gridSize; x++)
+        {
+            for (int y = 0; y < gridSize; y++)
+            {
+                isOn[x, y] = false; // すべての状態をオフに
+                UpdateButtonColor(x, y); // 見た目を更新
+               
+            }
+        }
+    }
+ 
+    public void LevelClear()
+    {
+        Hide();
+        ClearAllLights();
+        
+    }
+
+    public void Hide()
+    {
+        GimmickPanel.gameObject.SetActive(false);
+    }
+
+    public void Show()
+    {
+        GimmickPanel.gameObject.SetActive(true);
     }
 }
