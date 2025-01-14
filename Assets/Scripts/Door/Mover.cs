@@ -16,6 +16,7 @@ public class Mover : MonoBehaviour
     private float remainingTime; // 方向反転までの残り時間
     private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
+    private bool isDoorOpen = false;
     // Startは初期化処理
     void Start()
     {
@@ -27,6 +28,17 @@ public class Mover : MonoBehaviour
     public void SetMoveDirection(Vector3 direction)
     {
         moveDirection = direction;
+    }
+    public void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            isDoorOpen = true;
+        }
+        else
+        {
+            isDoorOpen = false;
+        }
     }
 
     // 移動処理
