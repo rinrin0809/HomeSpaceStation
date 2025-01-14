@@ -34,6 +34,9 @@ public class Patrol : MonoBehaviour
     public float detectionRange = 0.5f; // RandomPatrolFag に到達とみなす距離
 
     private int half = 2;
+
+    //アニメーション
+    public Animator animator;
     void Update()
     {
         if (isLookingAtPlayer)
@@ -58,11 +61,11 @@ public class Patrol : MonoBehaviour
 
     private void CheackForPlayer()
     {
-       if (player == null || isPreparingToLookAtPlayer || isLookingAtPlayer) return;
+        if (player == null || isPreparingToLookAtPlayer || isLookingAtPlayer) return;
 
         //プレイヤーとの距離をチェック
         float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if(distanceToPlayer<= detectionDistance)
+        if (distanceToPlayer <= detectionDistance)
         {
             //視野角内にいるかをチェック
             Vector3 directionToPlayer = (player.position - transform.position).normalized;
@@ -123,7 +126,7 @@ public class Patrol : MonoBehaviour
         float distanceToFag = Vector3.Distance(transform.position, randomPatrolFagPosition.position);
         if (distanceToFag < detectionRange)
         {
-           // Debug.Log("RandomPatrolFag に到達しました");
+            // Debug.Log("RandomPatrolFag に到達しました");
 
             // ランダムパトロールへの切り替え
             if (randomPositions.Count > 0)
@@ -136,7 +139,7 @@ public class Patrol : MonoBehaviour
         }
     }
 
-        private void MoveToPosition()
+    private void MoveToPosition()
     {
         if (positions.Count == 0) return;
 
@@ -172,6 +175,9 @@ public class Patrol : MonoBehaviour
     {
         Vector3 direction = (target.position - transform.position).normalized;
 
+        //アニメーションの更新
+        UpdateAnimationParameters(direction);
+
         // 移動
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
 
@@ -181,6 +187,35 @@ public class Patrol : MonoBehaviour
             float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // 90度オフセット
             Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+        }
+    }
+
+    private void UpdateAnimationParameters(Vector3 direction)
+    {
+        if (animator != null)
+        {
+            int directionIndex = GetDirectionIndex(direction);
+            animator.SetInteger("Direction", directionIndex);
+            animator.SetBool("IsMoving", direction.magnitude > 0.1f); // 移動中かどうか
+        }
+    }
+
+    private int GetDirectionIndex(Vector3 direction)
+    {
+        if (direction.magnitude <= 0.1f)
+        {
+            return -1; // Idle状態（変更なし）
+        }
+
+        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
+        {
+            // 左右の動き
+            return direction.x > 0 ? 3 : 2; // 右:3, 左:2
+        }
+        else
+        {
+            // 上下の動き
+            return direction.y > 0 ? 0 : 1; // 上:0, 下:1
         }
     }
 }
