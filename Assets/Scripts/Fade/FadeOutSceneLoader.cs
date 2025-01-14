@@ -11,6 +11,8 @@ public class FadeOutSceneLoader : MonoBehaviour
     [SerializeField] private InventryData Inventory;
     //ƒCƒxƒ“ƒg
     public EventData Event;
+
+    //NewGame‚Ìİ’è
     public void NewGameCallCoroutine(string Name)
     {
         if (LoadManager.Instance != null)
