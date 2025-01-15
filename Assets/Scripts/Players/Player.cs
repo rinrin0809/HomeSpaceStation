@@ -104,9 +104,10 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private ItemDisplay itemDisplay;
-
-    //鍵を持っている時（仮）
-    public bool HasKeyFlg = false;
+    public ItemDisplay GetItemDisplay
+    {
+        get { return itemDisplay; }
+    }
     //ギミックに当たった時（仮）
     public bool GimicHitFlg = false;
 
@@ -285,7 +286,7 @@ public class Player : MonoBehaviour
                 //text.text = "アイテムを拾いました";
                 itemList.Add(NearItem);
                 itemDisplay.PickUpItem(itemHolder.itemData);
-                HasKeyFlg = true;
+
                 NearItem.gameObject.SetActive(false);
             }
             else

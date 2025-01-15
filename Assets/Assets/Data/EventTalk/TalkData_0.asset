@@ -42,3 +42,5 @@ MonoBehaviour:
     Conversations: "\u672C\u5F53\u306B\u3042\u308A\u304C\u3068\u3046\u3054\u3056\u3044\u307E\u3059\uFF01\uFF01"
   - charadata: {fileID: 11400000, guid: fa3d7b93635c1f347ba9b8773294ad34, type: 2}
     Conversations: "\u3061\u3087\u3046\u30692\u90E8\u5C4B\u7A7A\u3044\u3066\u304A\u308A\u307E\u3059\u306E\u3067\u3001\n\u3054\u6848\u5185\u3044\u305F\u3057\u307E\u3059\u306D\u3002"
+  - charadata: {fileID: 11400000, guid: 890a5786c4d990846b575d13ce0af4d3, type: 2}
+    Conversations: "\u9375\u3092\u62FE\u3063\u305F"
