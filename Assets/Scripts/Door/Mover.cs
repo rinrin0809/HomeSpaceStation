@@ -78,6 +78,7 @@ public class Mover : MonoBehaviour
             isAtLimit = false;
         }
 
+        // リミット未到着でスペースキーが押されっていたなら
         if (!isAtLimit && isMoving)
         {
             // オブジェクトを移動
