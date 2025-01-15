@@ -39,6 +39,9 @@ public class SelectGimmick : MonoBehaviour
 
     int NumCount = 0;
 
+    // 正解フラグ
+    public bool Ans = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -245,6 +248,7 @@ public class SelectGimmick : MonoBehaviour
                     selectedFlag[i] = false; // すべて未選択状態にリセット
                   
                 }
+                Ans = true;
                 testList.Clear();
             }
             else
@@ -276,6 +280,7 @@ public class SelectGimmick : MonoBehaviour
                 testList.Clear();
             }
         }
+        Ans = false;
         UpdateItemColors();
     }
 

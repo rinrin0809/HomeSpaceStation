@@ -16,7 +16,7 @@ public class Mover : MonoBehaviour
     private float remainingTime; // 方向反転までの残り時間
     private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
-    private bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
+    public bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
 
     // Startは初期化処理
     void Start()
