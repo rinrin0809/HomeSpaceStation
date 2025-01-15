@@ -53,7 +53,12 @@ public class ActionEvent : MonoBehaviour
 
     //[SerializeField] 
     private float textSpeed = 0.05f;
-     // 一文字づつ表示する早さ
+
+    //追加するアイテム
+    [SerializeField] 
+    private GameObject AddItem = null;
+
+    // 一文字づつ表示する早さ
     void Start()
     {
         // Canvasの取得
@@ -100,6 +105,24 @@ public class ActionEvent : MonoBehaviour
                 finishtalk = true; // 会話終了フラグを立てる
                 //透明の壁判定削除
                 Event.SetEventActionEventFlg("女将との会話", false);
+
+                if (AddItem != null)
+                {
+                    ItemDisplay itemHolder = AddItem.GetComponent<ItemDisplay>();
+                    if (itemHolder != null && itemHolder.itemData != null && Player.Instance != null)
+                    {
+                        Player.Instance.GetItemList.Add(AddItem);
+                        if (itemHolder.itemData == null)
+                        {
+                            Debug.Log("ItemData Null");
+                        }
+
+                        else
+                        {
+                            Player.Instance.GetItemDisplay.PickUpItem(itemHolder.itemData);
+                        }
+                    }
+                }
                 text.text = "";
             }
 
