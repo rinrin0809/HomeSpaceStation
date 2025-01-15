@@ -16,7 +16,8 @@ public class Mover : MonoBehaviour
     private float remainingTime; // 方向反転までの残り時間
     private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
-    private bool isDoorOpen = false;
+    private bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
+
     // Startは初期化処理
     void Start()
     {
@@ -28,17 +29,6 @@ public class Mover : MonoBehaviour
     public void SetMoveDirection(Vector3 direction)
     {
         moveDirection = direction;
-    }
-    public void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            isDoorOpen = true;
-        }
-        else
-        {
-            isDoorOpen = false;
-        }
     }
 
     // 移動処理
@@ -88,10 +78,29 @@ public class Mover : MonoBehaviour
             isAtLimit = false;
         }
 
-        if(!isAtLimit)
+        if (!isAtLimit && isMoving)
         {
             // オブジェクトを移動
             transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
         }
+    }
+
+    // Updateメソッドでスペースボタン入力を処理
+    void Update()
+    {
+        // スペースボタンが押された場合
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            isMoving = true; // 移動を開始
+        }
+
+        // スペースボタンが離された場合
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            isMoving = false; // 移動を停止
+        }
+
+        // 移動処理を呼び出す
+        Move();
     }
 }
