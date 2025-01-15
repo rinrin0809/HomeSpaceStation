@@ -187,15 +187,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 5945422900321468602, guid: 0d770fcb2cee0174fb424f1cb55e723f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -296,6 +296,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: -4178046375966092550, guid: 46a2448149521674380096f540035070, type: 3}
   image: {fileID: 2597181119658251368}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &2672378267407941198
 GameObject:
   m_ObjectHideFlags: 0
@@ -388,6 +392,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: 0}
   image: {fileID: 7011435502459384508}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &3655254611984859497
 GameObject:
   m_ObjectHideFlags: 0
@@ -480,6 +488,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: -6470460504253458178, guid: 9cce628e95374b64c8a97296bafb0123, type: 3}
   image: {fileID: 8132708473396754796}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &3825547231906281390
 GameObject:
   m_ObjectHideFlags: 0
@@ -572,6 +584,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: -4178046375966092550, guid: 1e134f39d719dfa489cb5206f654439c, type: 3}
   image: {fileID: 1792340615490187298}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &4664371277904377723
 GameObject:
   m_ObjectHideFlags: 0
@@ -728,6 +744,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: 0}
   image: {fileID: 8565575528794438832}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &6308631482119841926
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,6 +876,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: 6937817954938267909, guid: 22bc638f7c178bd4e8dcea5bf6e0ef3a, type: 3}
   image: {fileID: 3660880829319224486}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &8128539555329094305
 GameObject:
   m_ObjectHideFlags: 0
@@ -948,6 +972,10 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: 0}
   image: {fileID: 1818631357710283082}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
 --- !u!1 &8835247130522646565
 GameObject:
   m_ObjectHideFlags: 0
@@ -1116,3 +1144,7 @@ MonoBehaviour:
   Exword: 
   sprite: {fileID: 0}
   image: {fileID: 5831219539788811637}
+  panelPos: {fileID: 0}
+  angleZ: 0
+  CorrectAnswer: 0
+  a: 90.00001
