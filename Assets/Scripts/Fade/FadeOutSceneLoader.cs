@@ -55,7 +55,6 @@ public class FadeOutSceneLoader : MonoBehaviour
             fadePanel.color = Color.Lerp(startColor, endColor, t); // パネルの色を変更してフェードアウト
             yield return null;                                     // 1フレーム待機
         }
-
         fadePanel.color = endColor;  // フェードが完了したら最終色に設定
     }
 
