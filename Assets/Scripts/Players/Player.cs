@@ -173,7 +173,7 @@ public class Player : MonoBehaviour
 
         if (playerStorage != null)
         {
-            Debug.Log("Player‚Ì‰ŠúˆÊ’u: " + playerStorage.initialValue);
+            Debug.Log("Player‚Ì‰ŠúˆÊ’u: " + playerStorage.initialValue);w
             transform.position = playerStorage.initialValue; // •Û‘¶‚³‚ê‚½‰ŠúˆÊ’u‚ÉˆÚ“®
         }
 
