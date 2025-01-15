@@ -57,8 +57,10 @@ public class UIInventoryPage : MonoBehaviour
         for (int i = 0; i < inventorysize; i++)
         {
             UIInventoryItem uiItem = Instantiate(slotPrefab, Vector3.zero, Quaternion.identity);
+            Debug.Log("slot¶¬");
             uiItem.transform.SetParent(contentPanel);
             listUIItems.Add(uiItem);
+            Debug.Log("listCoutnt:" + listUIItems.Count);
         }
     }
 
@@ -126,7 +128,7 @@ public class UIInventoryPage : MonoBehaviour
         if (inventory.GetInventoryItems().Count == 0) return;
 
         time--;
-        if (MenuManager.Instance.GetActiveMenu() == MenuType.ItemMenu)
+        //if (MenuManager.Instance.GetActiveMenu() == MenuType.ItemMenu)
         {
             if (Num > 0)
             {

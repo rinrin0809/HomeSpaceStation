@@ -33,22 +33,26 @@ public class InventoryController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(MenuManager.Instance.GetOpenMenuFlg())
+        if (MenuManager.Instance != null)
         {
-            obj.SetActive(true);
-            OnClick();
-        }
+            if (MenuManager.Instance.GetOpenMenuFlg())
+            {
+                obj.SetActive(true);
+                OnClick();
+            }
 
-        else
-        {
-            obj.SetActive(false);
+            else
+            {
+                obj.SetActive(false);
+            }
         }
+        
     }
 
     private void PrepareUI()
     {
         inventoryUI.InitializeInventoryUI(inventoryData.Size);
-        //Debug.Log("サイズをセット" + inventoryData.Size);
+        Debug.Log("サイズをセット" + inventoryData.Size);
     }
     
     public void ToggleInventoryUI()

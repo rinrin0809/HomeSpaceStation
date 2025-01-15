@@ -292,12 +292,6 @@ public class Player : MonoBehaviour
             {
                 //text.text = "ƒAƒCƒeƒ€‚ª‚ ‚è‚Ü‚¹‚ñ";
             }
-            //Debug.Log(NearItem.name + "‚ðŽó‚¯Žæ‚è‚Ü‚·");
-
-
-            //inventory.AddItem()
-            //Destroy(NearItem);
-
         }
 
         if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name == "Over")

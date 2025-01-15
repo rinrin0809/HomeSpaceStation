@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,22 +18,42 @@ public class LightsOut : MonoBehaviour
     private List<GameObject> newPrefab = new List<GameObject>();
 
     public GameObject GimmickPanel;
-
-    private int MaxSize;
-
     private int ClearCount = 0;
-
     [SerializeField]
     GridLayoutGroup gridCount;
-
     public int CountMax;
+    public GameObject TextBox;
+
+    public Button DebugButton;
 
     void Start()
     {
-
+      
         CreateGrid();
         // もとに戻すボタンにリスナーを追加
         undoButton.onClick.AddListener(ClearAllLights);
+        
+        // debug用
+        if(DebugButton != null)
+        {
+            DebugButton.onClick.AddListener(DebugMode);
+        }
+       
+    }
+
+   
+
+    private void DebugMode()
+    {
+        foreach (GameObject obj in newPrefab)
+        {
+            Destroy(obj); // ゲームオブジェクトを削除
+        }
+        newPrefab.Clear();
+        gridCount.constraintCount++;
+        gridSize++;
+        CreateGrid();
+        ClearCount++;
     }
 
     void CreateGrid()
@@ -39,7 +61,6 @@ public class LightsOut : MonoBehaviour
         buttons = new Button[gridSize, gridSize];
         isOn = new bool[gridSize, gridSize];
 
-        MaxSize = gridSize * gridSize;
 
         // グリッドにボタンを生成
         for (int x = 0; x < gridSize; x++)
@@ -149,6 +170,7 @@ public class LightsOut : MonoBehaviour
     public void Hide()
     {
         GimmickPanel.gameObject.SetActive(false);
+        TextBox.gameObject.SetActive(true);
     }
 
     public void Show()
