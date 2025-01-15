@@ -35,13 +35,15 @@ public class Patrol : MonoBehaviour
 
     private int half = 2;
 
+    public Vector3 CurrentDirection { get; private set; } // 現在の移動方向を公開
+
     //アニメーション
     public Animator animator;
     void Update()
     {
         if (isLookingAtPlayer)
         {
-            LookPlayer();
+            //LookPlayer();
         }
         else
         {
@@ -98,16 +100,16 @@ public class Patrol : MonoBehaviour
         resetBehaviorCoroutine = StartCoroutine(ResetBehaviorAfterDelay());
     }
 
-    private void LookPlayer()
-    {
-        if (player == null) return;
+    //private void LookPlayer()
+    //{
+    //    if (player == null) return;
 
-        //プレイヤーの方向を向く
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
-        float targetAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg - 90f;
-        Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-    }
+    //    //プレイヤーの方向を向く
+    //    Vector3 directionToPlayer = (player.position - transform.position).normalized;
+    //    float targetAngle = Mathf.Atan2(directionToPlayer.y, directionToPlayer.x) * Mathf.Rad2Deg - 90f;
+    //    Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
+    //    transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    //}
 
     private IEnumerator ResetBehaviorAfterDelay()
     {
@@ -174,9 +176,7 @@ public class Patrol : MonoBehaviour
     private void MoveAndRotateTowards(Transform target)
     {
         Vector3 direction = (target.position - transform.position).normalized;
-
-        //アニメーションの更新
-        UpdateAnimationParameters(direction);
+        CurrentDirection = direction; // 現在の移動方向を更新
 
         // 移動
         transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
@@ -184,38 +184,44 @@ public class Patrol : MonoBehaviour
         // スムーズにターゲット方向を向く
         if (direction.magnitude > 0.1f)
         {
-            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f; // 90度オフセット
+            float targetAngle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
             Quaternion targetRotation = Quaternion.Euler(0, 0, targetAngle);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
         }
+
+        // アニメーション更新
+        SetAnimationParameters(direction);
     }
 
-    private void UpdateAnimationParameters(Vector3 direction)
+    private void SetAnimationParameters(Vector3 direction)
     {
-        if (animator != null)
+        if (animator == null) return;
+
+        // 移動していない場合はアニメーション停止
+        if (direction.magnitude < 0.1f)
         {
-            int directionIndex = GetDirectionIndex(direction);
-            animator.SetInteger("Direction", directionIndex);
-            animator.SetBool("IsMoving", direction.magnitude > 0.1f); // 移動中かどうか
+            animator.SetBool("IsMoving", false);
+            return;
         }
+
+        animator.SetBool("IsMoving", true);
+
+        // 水平方向と垂直方向の値を設定
+        animator.SetFloat("Horizontal", direction.x);
+        animator.SetFloat("Vertical", direction.y);
     }
 
-    private int GetDirectionIndex(Vector3 direction)
+    private void OnDrawGizmos()
     {
-        if (direction.magnitude <= 0.1f)
-        {
-            return -1; // Idle状態（変更なし）
-        }
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, detectionDistance);
 
-        if (Mathf.Abs(direction.x) > Mathf.Abs(direction.y))
-        {
-            // 左右の動き
-            return direction.x > 0 ? 3 : 2; // 右:3, 左:2
-        }
-        else
-        {
-            // 上下の動き
-            return direction.y > 0 ? 0 : 1; // 上:0, 下:1
-        }
+        Vector3 forward = transform.up;
+        Vector3 leftBoundary = Quaternion.Euler(0, 0, -fieldOfViewAngle / 2) * forward * detectionDistance;
+        Vector3 rightBoundary = Quaternion.Euler(0, 0, fieldOfViewAngle / 2) * forward * detectionDistance;
+
+        Gizmos.color = Color.blue;
+        Gizmos.DrawLine(transform.position, transform.position + leftBoundary);
+        Gizmos.DrawLine(transform.position, transform.position + rightBoundary);
     }
 }
