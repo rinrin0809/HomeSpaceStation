@@ -268,7 +268,7 @@ public class SelectGimmick : MonoBehaviour
                     }
                 }
                 // 選択フラグをリセット
-                for (int i = 0; i < selectedFlag.Count; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     selectedFlag[i] = false; // すべて未選択状態にリセット
                     
