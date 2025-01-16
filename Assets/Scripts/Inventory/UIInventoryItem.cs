@@ -11,8 +11,8 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
     // アイテム名の表示テキスト
     [SerializeField]
     private TMP_Text itemNameText;
-
-
+    [SerializeField]
+    Image ItemImage;
     // 選択しているのをわかりやすくするUI
     //[SerializeField]
     //private Image borderImage;
@@ -41,10 +41,11 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
         itemNameText.text = "";
     }
 
-    public void SetData(string ItemName)
+    public void SetData(string ItemName,Sprite ItemSprite)
     {
         //Debug.Log("3");
         itemNameText.text = ItemName;
+        ItemImage.sprite = ItemSprite;
         empty = string.IsNullOrEmpty(ItemName);
       
     }

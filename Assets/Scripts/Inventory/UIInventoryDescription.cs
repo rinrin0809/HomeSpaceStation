@@ -13,7 +13,10 @@ public class UIInventoryDescription : MonoBehaviour
     // アイテム説明
     [SerializeField]
     private TMP_Text description;
-    
+    //スプライト
+    [SerializeField]
+    Image image;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -27,10 +30,11 @@ public class UIInventoryDescription : MonoBehaviour
         description.text = "";
     }
 
-    public void SetDescription(string itemName, string itemdescription)
+    public void SetDescription(string itemName, string itemdescription,Sprite ItemSprite)
     {
         ItemName.text = itemName;
         description.text = itemdescription;
+        image.sprite = ItemSprite;
     }
 
     
