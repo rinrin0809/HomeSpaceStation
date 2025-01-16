@@ -10,7 +10,7 @@ public class IconMove : MonoBehaviour
     //矢印で選択できる数の最大値
     [SerializeField] int MaxPosNum;
     //移動時のインターバルの時間上限
-    const float MAX_TIME = 63.0f;
+    const float MAX_TIME = 7.0f;
     //移動時のインターバルの時間
     float Time = 0.0f;
     //X座標の補正値

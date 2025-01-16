@@ -156,7 +156,7 @@ public class MenuManager : MonoBehaviour
             string FileName = "";
             if (LoadManager.Instance != null)
             {
-                switch (LoadManager.Instance.GetSideNum())
+                switch (LoadManager.Instance.GetLengthNum())
                 {
                     case 0:
                         FileName = LoadManager.Instance.LoadPath("/PlayerData1.json");
