@@ -90,7 +90,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ExpNum: 1
   Exword: 
-  sprite: {fileID: -6470460504253458178, guid: 9cce628e95374b64c8a97296bafb0123, type: 3}
+  sprite: {fileID: 6937817954938267909, guid: 22bc638f7c178bd4e8dcea5bf6e0ef3a, type: 3}
   image: {fileID: 5203030069916170464}
   panelPos: {fileID: 0}
   angleZ: 0
@@ -956,6 +956,7 @@ MonoBehaviour:
   inputValue: 
   answer: 1234
   ResultNum: 4
+  Ans: 0
 --- !u!1 &8428140952690140931
 GameObject:
   m_ObjectHideFlags: 0

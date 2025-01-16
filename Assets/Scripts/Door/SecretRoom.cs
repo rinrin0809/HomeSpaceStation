@@ -7,24 +7,21 @@ public class SecretRoom : MonoBehaviour
     public GameObject door;  // 扉のゲームオブジェクト
     public Vector3 openPosition;  // 扉が開いたときの位置
     public float openSpeed = 2f;  // 扉が開く速度
-    private bool isOpening = false;
+    public bool isOpening = false;
 
-    private SelectGimmick SG;  // Mover クラスへの参照
+    private SelectGimmick SG;  // SelectGimmick クラスへの参照
 
     // Start is called before the first frame update
+    [System.Obsolete]
     void Start()
     {
+        Debug.Log("開始時 " + door.transform.localPosition);
         if (door == null)
         {
             Debug.LogError("Door not assigned in the inspector!");
         }
 
-        // Mover コンポーネントを取得
-        SG = FindObjectOfType<SelectGimmick>();  // シーン内の Mover を取得
-        if (SG == null)
-        {
-            Debug.LogError("Mover not found in the scene!");
-        }
+        SG = FindObjectOfType<SelectGimmick>();  // シーン内の SelectGimmick を取得
     }
 
     // Update is called once per frame
@@ -37,9 +34,9 @@ public class SecretRoom : MonoBehaviour
         }
 
         // 扉を開ける処理
-        if (isOpening)
+        if (isOpening == true)
         {
-            door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * Time.deltaTime);
+            door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * 0.033f);
         }
     }
 

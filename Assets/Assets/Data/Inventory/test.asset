@@ -13,10 +13,10 @@ MonoBehaviour:
   m_Name: test
   m_EditorClassIdentifier: 
   inventoryItems:
-  - item: {fileID: 0}
-    ItemFlg: 0
-    SpriteRenderFlag: 0
-  - item: {fileID: 0}
+  - item: {fileID: 11400000, guid: 029d9038dc3498a46a91feb329f9eb4e, type: 2}
+    ItemFlg: 1
+    SpriteRenderFlag: 1
+  - item: {fileID: 11400000, guid: 6b44b89f61f017f44a38d4d65f4e8cbc, type: 2}
     ItemFlg: 0
     SpriteRenderFlag: 0
   - item: {fileID: 0}
