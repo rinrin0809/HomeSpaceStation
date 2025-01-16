@@ -16,7 +16,7 @@ public class Mover : MonoBehaviour
     private float remainingTime; // 方向反転までの残り時間
     private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
-    private bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
+    public bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
 
     // Startは初期化処理
     void Start()
@@ -90,7 +90,7 @@ public class Mover : MonoBehaviour
     void Update()
     {
         // スペースボタンが押された場合
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             isMoving = true; // 移動を開始
         }

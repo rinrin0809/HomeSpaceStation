@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class SelectGimmick : MonoBehaviour
 {
-    //public GameObject Book;
+    public GameObject Book;
 
     [SerializeField]
     private List<GameObject> BookList = new List<GameObject>();
@@ -223,6 +223,7 @@ public class SelectGimmick : MonoBehaviour
 
             if (inputValue == answer.ToString())
             {
+                Ans = true;
                 Debug.Log("正解！");
                 inputValue = "";
                 foreach (GameObject book in BookList)
@@ -247,12 +248,13 @@ public class SelectGimmick : MonoBehaviour
                     selectedFlag[i] = false; // すべて未選択状態にリセット
                   
                 }
-                Ans = true;
+                Book.gameObject.SetActive(false);
                 testList.Clear();
             }
             else
             {
                 Debug.Log("不正解");
+                Ans = false;
                 inputValue = "";
                 foreach (GameObject book in BookList)
                 {
@@ -276,7 +278,7 @@ public class SelectGimmick : MonoBehaviour
                     selectedFlag[i] = false; // すべて未選択状態にリセット
                     
                 }
-                Ans = false;
+                
                 testList.Clear();
             }
         }
