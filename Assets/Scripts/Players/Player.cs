@@ -80,6 +80,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     public int Score = 0;
 
+    //プレイヤーのセーブデータを更新するフラグ
+    public bool UpdateSaveDataFlg = false;
+
     public List<GameObject> GetItemList
     {
         get { return itemList; }
@@ -517,11 +520,12 @@ public class Player : MonoBehaviour
                 }
 
                 //LoadGameボタンが押された時のフラグ
-                else if(LoadManager.Instance.LoadGameFlg)
+                else if(LoadManager.Instance.LoadGameFlg && UpdateSaveDataFlg)
                 {
                     // セーブデータを読み込み、プレイヤーの位置を設定
                     LoadManager.Instance.TitleToGameLoadData();
                     LoadManager.Instance.LoadGameFlg = false;
+                    UpdateSaveDataFlg = false;
                 }
             }
         }

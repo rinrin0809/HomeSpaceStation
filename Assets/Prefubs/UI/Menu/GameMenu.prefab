@@ -208,7 +208,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1955448553306655712, guid: a8209ac212ffac14db55af5857b21f0b, type: 3}
+  m_Sprite: {fileID: -3451699440861859892, guid: e5d93593802b29c4e926744ae7bcd7c7, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -291,7 +291,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -1955448553306655712, guid: a8209ac212ffac14db55af5857b21f0b, type: 3}
+  m_Sprite: {fileID: -8860338052756213318, guid: 640005ee54a1da34cb8c2b2bfd1974a3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1046,7 +1046,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7c152d95f676e54499613c8fd17acccd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6dcdc09d6a5070446b346c3cbd39af55, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1179,7 +1179,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8ba525d4fcca3ab4ba8621459f6e460e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4cc7cf085afd04c4d85d86a78d848329, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 824c6e1e096f56945aa8f526539bd927, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 655e4b6c5339fc647a21a79b4f6a482f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2213,7 +2213,7 @@ PrefabInstance:
     - target: {fileID: 871397152871634898, guid: 19aa61e158fe448479fef93fe6f2b30f, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: -1955448553306655712, guid: a8209ac212ffac14db55af5857b21f0b, type: 3}
+      objectReference: {fileID: -8860338052756213318, guid: 640005ee54a1da34cb8c2b2bfd1974a3, type: 3}
     - target: {fileID: 871397152871634898, guid: 19aa61e158fe448479fef93fe6f2b30f, type: 3}
       propertyPath: m_Color.b
       value: 1

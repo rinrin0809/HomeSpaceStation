@@ -736,11 +736,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6710211975063067097, guid: e63e2b54bc9f5794ea95aa7532f53337, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.003480355
+      value: -0.0000049763926
       objectReference: {fileID: 0}
     - target: {fileID: 6710211975063067097, guid: e63e2b54bc9f5794ea95aa7532f53337, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0034651072
+      value: 0.000009029514
       objectReference: {fileID: 0}
     - target: {fileID: 7710375722643526902, guid: e63e2b54bc9f5794ea95aa7532f53337, type: 3}
       propertyPath: m_fontAsset
