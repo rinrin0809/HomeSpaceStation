@@ -41,6 +41,8 @@ public class SelectGimmick : MonoBehaviour
 
     public bool Ans = false;
 
+    float alpha = 0.3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,12 +51,13 @@ public class SelectGimmick : MonoBehaviour
         {
             selectedFlag.Add(false); // 全て未選択状態
         }
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-
         Time.timeScale = 1.0f;
         MoveNum();
     }
@@ -133,12 +136,14 @@ public class SelectGimmick : MonoBehaviour
             if (exportNum != null)
             {
                 int number = exportNum.ExpNum; // オブジェクトの値を取得
-
+               
+               
                 if (inputValue.Length > -1)
                 {
                     foreach (GameObject shelf in Bookshelf)
                     {
                         ExportNumber targetshlf = Bookshelf[Num].GetComponent<ExportNumber>();
+
                         if (targetshlf != null)
                         {
                             // 選択済みかどうかをチェック
@@ -148,13 +153,12 @@ public class SelectGimmick : MonoBehaviour
                             }
 
                             Image shelfImage = shelf.GetComponent<Image>();
-
+                            //if(shelfImage.color.a==0.3f && shelfImage ==null )
                             if (shelfImage != null && shelfImage.sprite == null) // 空のImageを探す
                             {
-
+                                shelfImage.color = Color.white;
                                 // spriteを設定
                                 targetshlf.SetSprite(shelf, exportNum.sprite);
-
                                 inputValue += number.ToString();
 
 
@@ -201,6 +205,7 @@ public class SelectGimmick : MonoBehaviour
                             selectedImage.enabled = true; // Imageを有効にする
                             bookImage.sprite = null;
                             selectedFlag[j] = false;
+                            bookImage.color = Color.gray;
                             Debug.Log("trueになった: " + selectedImage.name);
                         }
                         break; // 一致するオブジェクトが見つかったらループを抜ける
@@ -293,10 +298,10 @@ public class SelectGimmick : MonoBehaviour
 
             if (itemImage != null)
             {
-                float alpha = 0.3f;
+                float alpha1 = 0.3f;
                 Color colorwhite = itemImage.color;
                 colorwhite = Color.white;
-                colorwhite.a = Mathf.Clamp01(alpha);
+                colorwhite.a = Mathf.Clamp01(alpha1);
                 float alpha2 = 1f;
                 Color colorblack = itemImage.color;
                 colorblack = Color.white;
@@ -310,4 +315,3 @@ public class SelectGimmick : MonoBehaviour
 
 
 }
-
