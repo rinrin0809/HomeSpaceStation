@@ -253,7 +253,6 @@ public class SelectGimmick : MonoBehaviour
                     selectedFlag[i] = false; // すべて未選択状態にリセット
                   
                 }
-                Book.gameObject.SetActive(false);
                 testList.Clear();
             }
             else

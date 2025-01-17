@@ -4,29 +4,53 @@ using UnityEngine;
 
 public class G_hit : MonoBehaviour
 {
+    public SelectGimmick selectGimmickScript;
+    // ギミックを制御するための参照
     public GameObject gimmick;
-    // プレイヤーがコライダに入ったときにアクションを実行
-    void OnTriggerEnter2D(Collider2D other)
+
+    // プレイヤーがコライダに入ったかどうかを判定するフラグ
+    private bool isPlayerInRange = false;
+
+    // プレイヤーがコライダに入ったときの処理
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        // プレイヤーのタグを確認（プレイヤーには "Player" タグを付けている前提）
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+        // プレイヤーがコライダに入ったとき
+        if (other.CompareTag("Player"))
         {
-            // プレイヤーがコライダに入ったときのアクション
-            Debug.Log("プレイヤーがコライダに入りました！");
-            // ここにアクションを追加する
-            // 例: 扉を開ける、ダメージを与えるなど
-            gimmick.gameObject.SetActive(true);
+            isPlayerInRange = true;
+            Debug.Log("プレイヤーがコライダに入った！");
         }
     }
 
-    // オプションで、プレイヤーがコライダから出たときにアクションを実行したい場合
-    void OnTriggerExit2D(Collider2D other)
+    // プレイヤーがコライダから出たときの処理
+    private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") && Input.GetKeyDown(KeyCode.Space))
+        // プレイヤーがコライダから出たとき
+        if (other.CompareTag("Player"))
         {
-            Debug.Log("プレイヤーがコライダから出ました！");
-            // ここに終了時のアクションを追加する
-            gimmick.gameObject.SetActive(false);
+            isPlayerInRange = false;
+            Debug.Log("プレイヤーがコライダから出た！");
+        }
+    }
+
+    // Updateは毎フレーム呼ばれる
+    private void Update()
+    {
+        // プレイヤーがコライダに入っていて、スペースキーが押された場合
+        if (isPlayerInRange && Input.GetKeyDown(KeyCode.Space))
+        {
+            Debug.Log("スペースキーが押された！ギミックをアクティブにします。");
+
+            // ギミックをアクティブにする
+            if (gimmick != null)
+            {
+                gimmick.SetActive(true);
+            }
+        }
+        if (selectGimmickScript != null && selectGimmickScript.Ans)
+        {
+            Time.timeScale = 1;
+            gimmick.SetActive(false); // ギミックを非表示にする
         }
     }
 }

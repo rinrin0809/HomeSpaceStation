@@ -9,10 +9,9 @@ public class SecretRoom : MonoBehaviour
     public float openSpeed = 2f;  // 扉が開く速度
     public bool isOpening = false;
 
-    private SelectGimmick SG;  // SelectGimmick クラスへの参照
+    public SelectGimmick SG;  // SelectGimmick クラスへの参照
 
     // Start is called before the first frame update
-    [System.Obsolete]
     void Start()
     {
         Debug.Log("開始時 " + door.transform.localPosition);
@@ -20,14 +19,11 @@ public class SecretRoom : MonoBehaviour
         {
             Debug.LogError("Door not assigned in the inspector!");
         }
-
-        SG = FindObjectOfType<SelectGimmick>();  // シーン内の SelectGimmick を取得
     }
 
     // Update is called once per frame
     void Update()
     {
-        // Mover の isMoving フラグが true なら扉を開ける
         if (SG != null && SG.Ans)
         {
             OpenDoor();
