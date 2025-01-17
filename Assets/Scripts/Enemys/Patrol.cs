@@ -40,7 +40,9 @@ public class Patrol : MonoBehaviour
 
     public Animator animator; // アニメーター参照
 
+    public Fov_script fovScript;
 
+    
 
     void Update()
     {
@@ -53,39 +55,62 @@ public class Patrol : MonoBehaviour
         {
             CheckForBackDetection();
 
-
-            // ランダム巡回中か、通常巡回かを選択
-            if (isRandomPatrol)
+            if (!isMovementStopped)
             {
-                MoveToRandomPosition();
-            }
-            else
-            {
-                CheckForRandomPatrolFag(); // ランダム巡回フラグのチェック
-                MoveToPosition(); // 通常巡回
+                // ランダム巡回中か、通常巡回かを選択
+                if (isRandomPatrol)
+                {
+                    MoveToRandomPosition();
+                }
+                else
+                {
+                    CheckForRandomPatrolFag(); // ランダム巡回フラグのチェック
+                    MoveToPosition(); // 通常巡回
+                }
             }
 
-            // プレイヤーが視野内にいるかをチェック
-            CheckForPlayer();
+                // プレイヤーが視野内にいるかをチェック
+                CheckForPlayer();
         }
     }
 
     // プレイヤーが視野内にいるかチェック
     private void CheckForPlayer()
     {
-        if (player == null || isPreparingToLookAtPlayer || isLookingAtPlayer) return;
+        //// プレイヤーが設定されていない場合は何もしない
+        //if (player == null || isPreparingToLookAtPlayer || isLookingAtPlayer) return;
 
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (distanceToPlayer <= detectionDistance) // 検知距離内か確認
+        //// プレイヤーとの距離を計算
+        //float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        //if (distanceToPlayer <= detectionDistance) // 検知距離内か確認
+        //{
+        //    // プレイヤーの方向を計算
+        //    Vector3 directionToPlayer = (player.position - transform.position).normalized;
+        //    float angleToPlayer = Vector3.Angle(transform.up, directionToPlayer);
+
+        //    // 視野内か確認
+        //    if (angleToPlayer <= fieldOfViewAngle / 2) 
+        //    {
+        //        isPreparingToLookAtPlayer = true;
+        //        StartCoroutine(DelayLookAtPlayer()); // プレイヤー注視準備開始
+        //    }
+        //}
+
+        if (fovScript == null || isPreparingToLookAtPlayer || isLookingAtPlayer) return;
+
+        if (fovScript.IsPlayerInFieldOfView(transform, fieldOfViewAngle, detectionDistance)) // Fov_scriptを使用して判定
         {
-            Vector3 directionToPlayer = (player.position - transform.position).normalized;
-            float angleToPlayer = Vector3.Angle(transform.up, directionToPlayer);
+            // 動きを止める
+            isMovementStopped = true;
 
-            if (angleToPlayer <= fieldOfViewAngle / 2) // 視野内か確認
-            {
-                isPreparingToLookAtPlayer = true;
-                StartCoroutine(DelayLookAtPlayer()); // プレイヤー注視準備開始
-            }
+            // プレイヤーを注視する処理
+            isPreparingToLookAtPlayer = true;
+            StartCoroutine(DelayLookAtPlayer());
+        }
+        else
+        {
+            // プレイヤーが視野から外れた場合は動きを再開
+            isMovementStopped = false;
         }
     }
 
@@ -203,48 +228,66 @@ public class Patrol : MonoBehaviour
 
     private void CheckForBackDetection()
     {
-        if (IsPlayerInBackField())
+        // プレイヤーが視野内にいる場合
+        if (fovScript.IsPlayerInFieldOfView(transform, fieldOfViewAngle, detectionDistance))
         {
-          
-            // 必要に応じてアニメーションや追加の挙動をここで設定
-            Debug.Log("振り向き判定: プレイヤーが背後にいます！");
+            // 動きを止める
+            if (!isMovementStopped)
+            {
+                isMovementStopped = true;
+                Debug.Log("プレイヤー視認: 動き停止");
+            }
+
+            // プレイヤーを注視する処理
+            isPreparingToLookAtPlayer = true;
+            StartCoroutine(DelayLookAtPlayer());
+        }
+        else
+        {
+            // プレイヤーが視野から外れた場合は動きを再開
+            if (isMovementStopped)
+            {
+                isMovementStopped = false;
+                Debug.Log("プレイヤー視界外: 動き再開");
+            }
         }
     }
 
+    
     // プレイヤーが背後にいる場合、振り向く処理
-    private IEnumerator TurnAround()
-    {
-        isMovementStopped = true;
+    //private IEnumerator TurnAround()
+    //{
+    //    isMovementStopped = true;
 
-        // 少し止まってから回転開始
-        yield return new WaitForSeconds(0.5f);
+    //    // 少し止まってから回転開始
+    //    yield return new WaitForSeconds(0.5f);
 
-        // プレイヤーの方向を計算
-        Vector3 directionToPlayer = (player.position - transform.position).normalized;
+    //    // プレイヤーの方向を計算
+    //    Vector3 directionToPlayer = (player.position - transform.position).normalized;
 
-        // 回転の目標値を計算
-        Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, directionToPlayer);
+    //    // 回転の目標値を計算
+    //    Quaternion targetRotation = Quaternion.LookRotation(Vector3.forward, directionToPlayer);
 
-        // 滑らかに回転する処理
-        float timeToRotate = 1f; // 回転にかける時間（秒）
-        float elapsedTime = 0f;
+    //    // 滑らかに回転する処理
+    //    float timeToRotate = 1f; // 回転にかける時間（秒）
+    //    float elapsedTime = 0f;
 
-        while (elapsedTime < timeToRotate)
-        {
-            // 時間をかけて回転
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
-            elapsedTime += Time.deltaTime;
+    //    while (elapsedTime < timeToRotate)
+    //    {
+    //        // 時間をかけて回転
+    //        transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+    //        elapsedTime += Time.deltaTime;
 
-            yield return null; // フレームごとに処理を続ける
-        }
+    //        yield return null; // フレームごとに処理を続ける
+    //    }
 
-        // 最終的にターゲット回転に到達
-        transform.rotation = targetRotation;
+    //    // 最終的にターゲット回転に到達
+    //    transform.rotation = targetRotation;
 
-        // 少し待ってから動き再開
-        yield return new WaitForSeconds(0.5f);
-        isMovementStopped = false;
-    }
+    //    // 少し待ってから動き再開
+    //    yield return new WaitForSeconds(0.5f);
+    //    isMovementStopped = false;
+    //}
 
     // アニメーションパラメータを設定
     private void SetAnimationParameters(Vector3 direction)
@@ -262,21 +305,43 @@ public class Patrol : MonoBehaviour
         animator.SetFloat("Vertical", direction.y);
     }
 
-    // デバッグ用の視野角を描画
     private void OnDrawGizmos()
     {
-        // 既存の視野角のデバッグ表示
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, detectionDistance);
+        //if (!Application.isPlaying) return;
 
+        // 現在の進行方向に基づいて視野を描画
+        Gizmos.color = Color.green; // 前方視野を緑色で描画
+        DrawFieldOfView(transform.position, transform.forward, fieldOfViewAngle, detectionDistance);
 
-        //// 背後検知範囲のデバッグ表示
-        //Gizmos.color = Color.red;
-        //Vector3 back = -transform.up;
-        //Vector3 backLeftBoundary = Quaternion.Euler(0, 0, backFieldOfViewAngle / 2) * back * backDetectionDistance;
-        //Vector3 backRightBoundary = Quaternion.Euler(0, 0, -backFieldOfViewAngle / 2) * back * backDetectionDistance;
+        // 背後視野を赤色で描画
+        Gizmos.color = Color.red;
+        DrawFieldOfView(transform.position, -CurrentDirection, backFieldOfViewAngle, backDetectionDistance);
+    }
 
-        //Gizmos.DrawLine(transform.position, transform.position + backLeftBoundary);
-        //Gizmos.DrawLine(transform.position, transform.position + backRightBoundary);
+    private void DrawFieldOfView(Vector3 origin, Vector3 direction, float angle, float distance)
+    {
+        // 中心方向を計算
+        Vector3 forward = direction.normalized * distance;
+
+        // 左右の境界線を計算
+        Vector3 leftBoundary = Quaternion.Euler(0, -angle / 2, 0) * forward;
+        Vector3 rightBoundary = Quaternion.Euler(0, angle / 2, 0) * forward;
+
+        // 円弧を描画
+        Gizmos.DrawRay(origin, leftBoundary);
+        Gizmos.DrawRay(origin, rightBoundary);
+
+        // 円弧を細分化して滑らかに描画
+        int segments = 20; // 円弧の細分化数
+        Vector3 previousPoint = origin + leftBoundary;
+
+        for (int i = 1; i <= segments; i++)
+        {
+            float step = i / (float)segments;
+            float currentAngle = -angle / 2 + step * angle;
+            Vector3 nextPoint = origin + (Quaternion.Euler(0, currentAngle, 0) * forward);
+            Gizmos.DrawLine(previousPoint, nextPoint);
+            previousPoint = nextPoint;
+        }
     }
 }
