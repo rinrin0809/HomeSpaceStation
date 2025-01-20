@@ -16,8 +16,8 @@ public class InventoryController : MonoBehaviour
     // 仮置きのインベントリを開くボタン
     [SerializeField]
     private Button inventoryButton;
-    [SerializeField]
-    private Button inventoryMenuButton;
+    //[SerializeField]
+    //private Button inventoryMenuButton;
     [SerializeField]
     GameObject obj;
 
@@ -26,7 +26,7 @@ public class InventoryController : MonoBehaviour
     {
         PrepareUI();
         if(inventoryButton) inventoryButton.onClick.AddListener(OnClickButton);
-        if(inventoryMenuButton) inventoryMenuButton.onClick.AddListener(OnClickButton);
+        //if(inventoryMenuButton) inventoryMenuButton.onClick.AddListener(OnClickButton);
         inventoryUI.gameObject.SetActive(false);
     }
 
@@ -87,7 +87,7 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Backspace) && MenuManager.Instance.GetOpenItemMenuFlg())
         {
             Debug.Log("Closing only the Item Menu, keeping Main Menu active");
-            if (inventoryMenuButton) inventoryMenuButton.onClick.Invoke();  // Toggle item menu button if necessary
+            //if (inventoryMenuButton) inventoryMenuButton.onClick.Invoke();  // Toggle item menu button if necessary
             MenuManager.Instance.BackToMenu();
         }
     }

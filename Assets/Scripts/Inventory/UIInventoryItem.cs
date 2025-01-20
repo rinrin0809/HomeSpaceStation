@@ -26,6 +26,7 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
     public void Awake()
     {
         ResetData();
+        ItemImage.gameObject.SetActive(false);
     }
 
     public void ResetData()
@@ -44,6 +45,7 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
     public void SetData(string ItemName,Sprite ItemSprite)
     {
         //Debug.Log("3");
+        ItemImage.gameObject.SetActive(true);
         itemNameText.text = ItemName;
         ItemImage.sprite = ItemSprite;
         empty = string.IsNullOrEmpty(ItemName);

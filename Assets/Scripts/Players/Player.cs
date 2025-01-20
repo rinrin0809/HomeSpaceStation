@@ -82,6 +82,8 @@ public class Player : MonoBehaviour
 
     //プレイヤーのセーブデータを更新するフラグ
     public bool UpdateSaveDataFlg = false;
+    //更新するフラグ(trueの時は更新処理をするフラグ)
+    public bool UpdateFlg = true;
 
     public List<GameObject> GetItemList
     {
@@ -199,6 +201,7 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!UpdateFlg) return;
         //if (BGMSoundData.BGM.Title != null)
         //{
         //    AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
@@ -308,6 +311,12 @@ public class Player : MonoBehaviour
     // 一定時間毎に呼ばれる関数
     void FixedUpdate()
     {
+        if (!UpdateFlg) return;
+
+        else
+        {
+            isMoving = false;
+        }
         //イベントが発生している時または看板を読んでいる時は処理をしない
         if (Event != null)
         {
@@ -317,7 +326,6 @@ public class Player : MonoBehaviour
         if (ChangeSceneFlg) return;
         if (ClearExitFlg) return;
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
-        rb.velocity = moveDir * moveSpeed * Time.fixedDeltaTime;
 
         //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
         //スタミナ最小値より大きい時かつスタミナが0になっていない時

@@ -45,6 +45,7 @@ public class ActiveChange : MonoBehaviour
         if (ActiveObject.activeSelf)
         {
             ActiveObject.SetActive(false);
+            if(Player.Instance)Player.Instance.UpdateFlg = true;
             if (InverseActiveObject != null) InverseActiveObject.SetActive(true);
         }
 

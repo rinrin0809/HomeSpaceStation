@@ -100,12 +100,15 @@ public class MenuManager : MonoBehaviour
                 MainMenuPanel.SetActive(false);
             }
             Time.timeScale = 0;
+
+            Player.Instance.UpdateFlg = false;
         }
 
         //OpenMenuFlg‚ªfalse‚Ì‚Íƒƒjƒ…[‚ğ•Â‚¶‚é
         else
         {
             CloseMenu();
+            Player.Instance.UpdateFlg = true;
         }
     }
 

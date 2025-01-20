@@ -444,7 +444,7 @@ GameObject:
   - component: {fileID: 1462181904}
   - component: {fileID: 1462181903}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: MoveSynopsis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -465,7 +465,7 @@ MonoBehaviour:
   text: {fileID: 656833087}
   image: {fileID: 1097283877}
   Speed: 10
-  TextFlg: 0
+  TextFlg: 1
 --- !u!4 &1462181904
 Transform:
   m_ObjectHideFlags: 0
