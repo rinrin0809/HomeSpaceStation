@@ -65,9 +65,9 @@ public class UIInventoryPage : MonoBehaviour
     }
 
     // 説明文更新
-    internal void UpdateDescription(string name, string description,Sprite ItemSprite)
+    internal void UpdateDescription(string name, string description/*,Sprite ItemSprite*/)
     {
-        itemDescription.SetDescription(name, description, ItemSprite);
+        itemDescription.SetDescription(name, description/*, ItemSprite*/);
 
     }
 
@@ -191,7 +191,9 @@ public class UIInventoryPage : MonoBehaviour
         if (inventory.GetInventoryItems()[Num].item != null)
         {
             // アイテムの説明呼び出し
-            UpdateDescription(ShowName, inventory.GetInventoryItems()[Num].item.Descripton, inventory.GetInventoryItems()[Num].item.ItemSprite);
+            string itemname = inventory.GetInventoryItems()[Num].item.name;
+            string itenDes = inventory.GetInventoryItems()[Num].item.Descripton;
+            UpdateDescription(itemname, itenDes);
         }
     }
 

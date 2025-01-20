@@ -37,11 +37,13 @@ public class GameObjectOn : MonoBehaviour
         if(OnFlg && Input.GetKeyDown(KeyCode.Space))
         {
             OnObject.SetActive(true);
+            Player.Instance.UpdateFlg = false;
         }
 
         else if(!OnFlg)
         {
             OnObject.SetActive(false);
+            Player.Instance.UpdateFlg = true;
         }
     }
 }
