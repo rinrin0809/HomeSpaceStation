@@ -30,9 +30,10 @@ public class UIInventoryDescription : MonoBehaviour
         description.text = "";
     }
 
-    public void SetDescription(string itemName, string itemdescription)
+    public void SetDescription(string itemName, string itemdescription,Sprite itemImage)
     {
         ItemName.text = itemName;
         description.text = itemdescription;
+        image.sprite = itemImage;
     }
 }
