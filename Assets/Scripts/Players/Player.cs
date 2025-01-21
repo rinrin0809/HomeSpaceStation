@@ -220,7 +220,7 @@ public class Player : MonoBehaviour
         PlayerLoadData();
 
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
-        if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name == "Over")
+        if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name != "Over")
         {
             if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
             {
@@ -301,7 +301,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name == "Over")
+        if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name != "Over")
         {
             //シーン遷移する判定に当たった時のフラグをfalse
             ChangeSceneFlg = false;

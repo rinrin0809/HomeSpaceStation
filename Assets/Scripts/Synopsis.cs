@@ -9,16 +9,24 @@ public class Synopsis : MonoBehaviour
     [SerializeField]
     TextMeshProUGUI text;
 
-    [SerializeField]
-    Image image;
+    public Image image;
 
     private Vector3 Pos;
 
     [SerializeField]
     float Speed = 5.0f;
 
+    private float MAX_SPEED = 125.0f;
+    private float NORMAL_SPEED = 15.0f;
+
     [SerializeField]
     bool TextFlg = false;
+
+    [SerializeField]
+    bool SpacePushFlg = false;
+
+    private RectTransform rectTransform;
+
     void Start()
     {
         if (TextFlg)
@@ -42,7 +50,7 @@ public class Synopsis : MonoBehaviour
         if (TextFlg == true)
         {
             // TextMeshProUGUIÇÃRectTransformÇëÄçÏ
-            RectTransform rectTransform = text.GetComponent<RectTransform>();
+            rectTransform = text.GetComponent<RectTransform>();
             Vector3 newPosition = rectTransform.anchoredPosition;
             newPosition.y = Pos.y;
             rectTransform.anchoredPosition = newPosition;
@@ -50,10 +58,33 @@ public class Synopsis : MonoBehaviour
         else
         {
             // ImageÇÃRectTransformÇëÄçÏ
-            RectTransform rectTransform = image.GetComponent<RectTransform>();
+            rectTransform = image.GetComponent<RectTransform>();
             Vector3 newPosition = rectTransform.anchoredPosition;
             newPosition.y = Pos.y;
             rectTransform.anchoredPosition = newPosition;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (SpacePushFlg)
+            {
+                SpacePushFlg = false;
+            }
+
+            else
+            {
+                SpacePushFlg = true;
+            }
+        }
+
+        if(SpacePushFlg)
+        {
+            Speed = MAX_SPEED;
+        }
+
+        else
+        {
+            Speed = NORMAL_SPEED;
         }
     }
 

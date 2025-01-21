@@ -53,10 +53,10 @@ public class FadeOutSceneLoader : MonoBehaviour
             elapsedTime += Time.deltaTime;                        // 経過時間を増やす
             float t = Mathf.Clamp01(elapsedTime / fadeDuration);  // フェードの進行度を計算
             fadePanel.color = Color.Lerp(startColor, endColor, t); // パネルの色を変更してフェードアウト
-            if(elapsedTime >= 0.99f) Player.Instance.UpdateSaveDataFlg = true;
+            if(elapsedTime >= 0.99f && Player.Instance != null) Player.Instance.UpdateSaveDataFlg = true;
             yield return null;                                     // 1フレーム待機
         }
-        Player.Instance.UpdateSaveDataFlg = false;
+        if (Player.Instance != null) Player.Instance.UpdateSaveDataFlg = false;
         fadePanel.color = endColor;  // フェードが完了したら最終色に設定
     }
 

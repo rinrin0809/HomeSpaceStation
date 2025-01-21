@@ -87,6 +87,7 @@ public class InventoryController : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Backspace) && MenuManager.Instance.GetOpenItemMenuFlg())
         {
             Debug.Log("Closing only the Item Menu, keeping Main Menu active");
+            inventoryUI.gameObject.SetActive(false);
             //if (inventoryMenuButton) inventoryMenuButton.onClick.Invoke();  // Toggle item menu button if necessary
             MenuManager.Instance.BackToMenu();
         }
