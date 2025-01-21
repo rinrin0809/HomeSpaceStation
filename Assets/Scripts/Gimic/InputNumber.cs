@@ -30,10 +30,7 @@ public class InputNumber : MonoBehaviour
 
     // 入力文字数
     [SerializeField]
-    private int ResultNum = 7;
-    [SerializeField]
-    private int answerNum = 4;
-
+    private int ResultNum = 4;
 
     [SerializeField]
     GameObject numberBox;
@@ -180,36 +177,15 @@ public class InputNumber : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+
+        if(inputValue.Length < ResultNum && Input.GetKeyDown(KeyCode.Space))
         {
-            if (ChangeMode == false)
-            {
-                if (inputValue.Length < answerNum || inputValue != anserwer.ToString())
-                {
-                    inputValue = "";
-                    exportText.text = "";
-                    exportImage.color = Color.red;
-                    Debug.Log("不正解");
-                }
-            }
-            else if (ChangeMode == true)
-            {
-                if (inputValue.Length < answerNum || inputValue != anserwerword.ToString())
-                {
-                    inputValue = "";
-                    exportText.text = "";
-                    exportImage.color = Color.red;
-                    Debug.Log("不正解");
-                }
-            }
-
-
+            inputValue = "";
+            exportText.text = "";
+            exportImage.color = Color.red;
+            Debug.Log("不正解");
         }
-       
-
-
-
-        if (inputValue.Length == answerNum && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
+        if (inputValue.Length == ResultNum && Input.GetKeyDown(KeyCode.Space)) // Spaceで判定
         {
            
             //if (int.Parse(inputValue) == anserwer)
@@ -235,13 +211,12 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.green;
-                    Debug.Log("あんさー："+anserwerword);
+                    Debug.Log("正解！");
                 }
                   else
                 {
                     exportText.text = "";
                     exportImage.color = Color.red;
-                    Debug.Log("あんさー：" + anserwerword);
                     Debug.Log("不正解");
                 }
             }

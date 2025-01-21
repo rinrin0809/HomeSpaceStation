@@ -65,19 +65,19 @@ public class UIInventoryPage : MonoBehaviour
     }
 
     // 説明文更新
-    internal void UpdateDescription(string name, string description, Sprite ItemSprite)
+    internal void UpdateDescription(string name, string description/*,Sprite ItemSprite*/)
     {
-        itemDescription.SetDescription(name, description, ItemSprite);
+        itemDescription.SetDescription(name, description/*, ItemSprite*/);
 
     }
 
-    internal void UpdateData(int itemIndex, string itemName/*, Sprite ItemSprite*/)
+    internal void UpdateData(int itemIndex, string itemName, Sprite ItemSprite)
     {
 
         if (listUIItems.Count > itemIndex != null)
         {
            
-            listUIItems[itemIndex].SetData(itemName/*, ItemSprite*/);
+            listUIItems[itemIndex].SetData(itemName, ItemSprite);
         }
     }
 
@@ -91,7 +91,7 @@ public class UIInventoryPage : MonoBehaviour
             {
                 InventoryItem item = updateInventory[i]; // インベントリ内のアイテム
                 UIInventoryItem uiItem = listUIItems[i]; // UiInventoryItemのリストから対応するUIInventoryItemを取得
-                uiItem.SetData(item.item.name/*,item.item.ItemSprite*/);
+                uiItem.SetData(item.item.name,item.item.ItemSprite);
 
 
             }
@@ -193,8 +193,7 @@ public class UIInventoryPage : MonoBehaviour
             // アイテムの説明呼び出し
             string itemname = inventory.GetInventoryItems()[Num].item.name;
             string itenDes = inventory.GetInventoryItems()[Num].item.Descripton;
-            Sprite itemImage = inventory.GetInventoryItems()[Num].item.ItemSprite;
-            UpdateDescription(itemname, itenDes,itemImage);
+            UpdateDescription(itemname, itenDes);
         }
     }
 

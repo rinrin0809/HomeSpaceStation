@@ -70,7 +70,7 @@ public class InventoryController : MonoBehaviour
             {
                
                 inventoryUI.UpdateData(item.Key,
-                    item.Value.item.Name/*,item.Value.item.ItemSprite*/);
+                    item.Value.item.Name,item.Value.item.ItemSprite);
             }
         }
     }

@@ -42,12 +42,12 @@ public class UIInventoryItem : MonoBehaviour, IPointerClickHandler
         itemNameText.text = "";
     }
 
-    public void SetData(string ItemName/*,Sprite ItemSprite*/)
+    public void SetData(string ItemName,Sprite ItemSprite)
     {
         //Debug.Log("3");
         ItemImage.gameObject.SetActive(true);
         itemNameText.text = ItemName;
-        //ItemImage.sprite = ItemSprite;
+        ItemImage.sprite = ItemSprite;
         empty = string.IsNullOrEmpty(ItemName);
       
     }
