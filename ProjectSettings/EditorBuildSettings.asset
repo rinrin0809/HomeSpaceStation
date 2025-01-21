@@ -59,5 +59,20 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/test/TestEnemy.unity
     guid: 77d3f461fd3019e428097b81ce51abce
+  - enabled: 1
+    path: "Assets/Scenes/New Map/\u30C8\u30A4\u30EC(B1).unity"
+    guid: 22a0b71df0b6ce1439723b640df4337d
+  - enabled: 1
+    path: "Assets/Scenes/New Map/\u30ED\u30C3\u30AB\u30FC\u30EB\u30FC\u30E0(B1).unity"
+    guid: b02e2e707c5eac44896a42e67b0ea232
+  - enabled: 1
+    path: "Assets/Scenes/New Map/\u79D8\u5BC6\u306E\u90E8\u5C4B(B1).unity"
+    guid: 102afa5af3448b04b84d383231cfb646
+  - enabled: 1
+    path: "Assets/Scenes/New Map/\u8CC7\u6599\u5BA4(B1).unity"
+    guid: 35b489966c7de2149adc386558fb975b
+  - enabled: 1
+    path: "Assets/Scenes/New Map/\u8CC7\u6599\u5BA4(B2).unity"
+    guid: 365b3c64e6726c64d9c35b2f79cafa8b
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0
