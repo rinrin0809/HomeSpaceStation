@@ -29,7 +29,7 @@ public class UIInventoryPage : MonoBehaviour
     private int Num = 0;
 
     //移動時のインターバルの時間上限
-    const float MAX_TIME = 100.0f;
+    const float MAX_TIME = 10.0f;
     //移動時のインターバルの時間
     float time = MAX_TIME;
 

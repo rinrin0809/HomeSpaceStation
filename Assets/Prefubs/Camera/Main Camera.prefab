@@ -12,7 +12,11 @@ GameObject:
   - component: {fileID: 575338778319715618}
   - component: {fileID: 8504167901061347709}
   - component: {fileID: 4795505522016010819}
+<<<<<<< HEAD
+  - component: {fileID: -7817509693409007555}
+=======
   - component: {fileID: 1349091692446820180}
+>>>>>>> f8d9fe8c8d3684a41a91e824d9753d123196fa29
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -110,7 +114,11 @@ MonoBehaviour:
   Enemy: {fileID: 0}
   cameraSpeed: 0.5
   Event: {fileID: 0}
+<<<<<<< HEAD
+--- !u!114 &-7817509693409007555
+=======
 --- !u!114 &1349091692446820180
+>>>>>>> f8d9fe8c8d3684a41a91e824d9753d123196fa29
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
