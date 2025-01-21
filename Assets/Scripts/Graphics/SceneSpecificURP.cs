@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement; // 必須
 
 public class SceneSpecificURP : MonoBehaviour
 {
-    public string targetSceneName = "SkilCheck"; // 対象シーンの名前
+    public string targetSceneName = "WinterVacation"; // 対象シーンの名前
 
     void Start()
     {

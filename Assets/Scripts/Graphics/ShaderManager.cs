@@ -10,7 +10,7 @@ public class ShaderManager : MonoBehaviour
     public Material renderer;
 
     [SerializeField]
-    private string SkillCheck= "SkilCheck";
+    private string SkillCheck= "WinterVacation";
     void Start()
     {
         renderer = GetComponent<Material>();
