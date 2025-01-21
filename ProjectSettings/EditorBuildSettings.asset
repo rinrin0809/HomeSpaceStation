@@ -59,5 +59,8 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/test/TestEnemy.unity
     guid: 77d3f461fd3019e428097b81ce51abce
+  - enabled: 1
+    path: "Assets/Scenes/New Map/\u30C8\u30A4\u30EC(B1).unity"
+    guid: 22a0b71df0b6ce1439723b640df4337d
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

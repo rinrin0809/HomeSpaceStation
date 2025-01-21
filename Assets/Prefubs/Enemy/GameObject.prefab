@@ -62,7 +62,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b320e5d34bb8fe4facb6309cbca29b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  urpPipelineAsset: {fileID: 11400000, guid: 4b095a91ca5e2184990629cb19a42310, type: 2}
-  defaultPipelineAsset: {fileID: 11400000, guid: 3261c40d27fdda64ab8c1a79b46f133e, type: 2}
-  targetSceneName: SkilCheck
-  fullScreenPassFeature: {fileID: 6101318368713831412, guid: 1c92598bf75f2d64a86ea88d249ca71e, type: 2}
+  urpPipelineAsset: {fileID: 0}
+  defaultPipelineAsset: {fileID: 0}
+  targetSceneName: 
+  fullScreenPassFeature: {fileID: 0}

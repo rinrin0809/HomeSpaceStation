@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSpawnManager : MonoBehaviour
 {
 
-    public static string spawnPointTag = "PlayerSpawnPosition"; // 初期位置を設定するオブジェクトのタグ
+    public  string spawnPointTag = "PlayerSpawnPosition"; // 初期位置を設定するオブジェクトのタグ
 
     private void Awake()
     {
