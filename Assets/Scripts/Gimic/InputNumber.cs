@@ -273,10 +273,14 @@ public class InputNumber : MonoBehaviour
     public void Show()
     {
         gimickObj.SetActive(true);
+        inputValue = "";
+        exportText.text = "";
     }
     
     public void Hide()
     {
         gimickObj.SetActive(false);
+        inputValue = "";
+        exportText.text = "";
     }
 }
