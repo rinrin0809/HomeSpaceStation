@@ -74,5 +74,8 @@ EditorBuildSettings:
   - enabled: 1
     path: "Assets/Scenes/New Map/\u8CC7\u6599\u5BA4(B2).unity"
     guid: 365b3c64e6726c64d9c35b2f79cafa8b
+  - enabled: 1
+    path: Assets/Scenes/Synopsis/Synopsis.unity
+    guid: b9645fcdba430e342b444d042e5772ce
   m_configObjects: {}
   m_UseUCBPForAssetBundles: 0

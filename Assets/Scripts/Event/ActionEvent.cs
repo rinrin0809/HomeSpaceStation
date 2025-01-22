@@ -22,7 +22,7 @@ public class ActionEvent : MonoBehaviour
     public TextMeshProUGUI nametext;
 
     string conversationText;
-    string nameText;
+    string nameString;
 
     public GameObject textBox;
 
@@ -167,11 +167,13 @@ public class ActionEvent : MonoBehaviour
             Debug.Log("！マーク表示");
             // 会話データのインデックスを取得して会話内容表示
             conversationText = TestTalkManager.Instance.GetTalk(talkEventIndex, actionEventIndex);
-            nameText = TestTalkManager.Instance.GetTalkName(talkEventIndex, actionEventIndex);
+            nameString = TestTalkManager.Instance.GetTalkName(talkEventIndex, actionEventIndex);
 
             // 一文字ずつ表示
             if (displayTextCoroutine != null) StopCoroutine(displayTextCoroutine);
             displayTextCoroutine = StartCoroutine(DisplayText(conversationText, text));
+            Debug.Log(nameString);
+            nametext.text = nameString;
 
             //if (!string.IsNullOrEmpty(nameText))
             //{

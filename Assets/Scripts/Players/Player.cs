@@ -131,6 +131,9 @@ public class Player : MonoBehaviour
     Transform objectTransform;
     Vector3 targetPosition;
 
+    //NewGameが押された時に初期位置を設定するフラグ
+    public bool NewGameSpownFlg = false;
+
     private void Awake()
     {
         // 既にインスタンスが存在する場合、重複したオブジェクトを破棄する
@@ -215,6 +218,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         if (!UpdateFlg) return;
+
+        //初期位置の設定
+        NewGameSpownPlayer();
+
         //if (BGMSoundData.BGM.Title != null)
         //{
         //    AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
@@ -563,6 +570,16 @@ public class Player : MonoBehaviour
         {
             GimicHitFlg = false;
             Debug.Log(GimicHitFlg);
+        }
+    }
+
+    //NewGameが押された時の初期位置に設定
+    private void NewGameSpownPlayer()
+    {
+        if(NewGameSpownFlg && SceneManager.GetActiveScene().name == "Floor(B1)")
+        {
+            this.gameObject.transform.position = new Vector3(172.09f, -28.69f,0.0f);
+            NewGameSpownFlg = false;
         }
     }
 
