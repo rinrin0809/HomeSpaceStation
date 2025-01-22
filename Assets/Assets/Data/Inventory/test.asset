@@ -19,13 +19,16 @@ MonoBehaviour:
   - item: {fileID: 11400000, guid: 50b96550670bf2b4aa9ed866a977276f, type: 2}
     ItemFlg: 0
     SpriteRenderFlag: 0
-  - item: {fileID: 11400000, guid: 3b5dffa2fd652624d80b21b038228afe, type: 2}
+  - item: {fileID: 11400000, guid: 6b44b89f61f017f44a38d4d65f4e8cbc, type: 2}
     ItemFlg: 0
     SpriteRenderFlag: 0
-  - item: {fileID: 11400000, guid: 3e23741c3d2c8a54295ddaadb2b67176, type: 2}
+  - item: {fileID: 11400000, guid: 6b44b89f61f017f44a38d4d65f4e8cbc, type: 2}
     ItemFlg: 0
     SpriteRenderFlag: 0
-  - item: {fileID: 11400000, guid: bb2e1dd47a83f6b43936b0721751553b, type: 2}
+  - item: {fileID: 11400000, guid: 6b44b89f61f017f44a38d4d65f4e8cbc, type: 2}
     ItemFlg: 0
     SpriteRenderFlag: 0
-  Size: 20
+  - item: {fileID: 0}
+    ItemFlg: 0
+    SpriteRenderFlag: 0
+  Size: 15
