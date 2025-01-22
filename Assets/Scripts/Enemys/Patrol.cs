@@ -33,7 +33,9 @@ public class Patrol : MonoBehaviour
    
     bool isPlayerVisible;
 
-   
+    [SerializeField]
+    private Transform reversePoint; // 巡回反転ポイント
+
     private void Update()
     {
         // 停止中の処理
@@ -81,7 +83,20 @@ public class Patrol : MonoBehaviour
         // ターゲット地点に到達したら次の地点に進む
         if (Vector3.Distance(transform.position, target.position) < 0.1f)
         {
-            currentTargetIndex = (currentTargetIndex + 1) % positions.Count;
+            //currentTargetIndex = (currentTargetIndex + 1) % positions.Count;
+
+            // もしターゲットが reversePoint に一致するなら巡回ルートを反転
+            if (reversePoint != null && target.position == reversePoint.position)
+            {
+                positions.Reverse(); // 巡回ルートを反転
+                currentTargetIndex = 1; // 反転後の次のポイントへ
+                Debug.Log("巡回ルートを反転！");
+            }
+            else
+            {
+                // 反転しない場合は通常の巡回を続行
+                currentTargetIndex = (currentTargetIndex + 1) % positions.Count;
+            }
         }
     }
 
@@ -126,6 +141,15 @@ public class Patrol : MonoBehaviour
         UpdateAnimationDirection(direction);
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == reversePoint)
+        {
+           
+            // 衝突時に何かしらの処理を実行したい場合は、ここに記述
+            Debug.Log("巡回方向を逆転しました");
+        }
+    }
     // アニメーションの方向を更新
     private void UpdateAnimationDirection(Vector3 direction)
     {
