@@ -58,9 +58,23 @@ public class BGMSoundData
 {
     public enum BGM
     {
-        
-        Title,// これがラベルになる
-        
+        // これがラベルになる
+        Title,   // タイトル
+       
+        // エンディングごとのBGM
+        Good,   // 最高のエンディング
+        Normal, // 普通のエンディング
+        Bad,     // 最悪なエンディング
+
+        // 部屋ごとのBGM
+        B1RoomBgm,
+        B2RoomBgm,
+        B3RoomBgm,
+
+        // ギミックごとのBGM（あれば）
+        SkillCheckBgm,
+
+
     }
 
     public BGM bgm;
@@ -75,7 +89,15 @@ public class SESoundData
 {
     public enum SE
     {
-        DoorOpen, // これがラベルになる
+        // これがラベルになる
+        DoorOpen,             // ドアが開くとき
+        LightsOutPlaySE,    // LightsOutプレイ時
+        PasswordSE,          // パスワードのボタンを押したとき
+        CorrectSE,             // 正解時のSE
+        WrongSE,              // 不正解時のSE
+        AlarmSE,               // 警備員に見つかったときのアラーム音
+
+
     }
 
     public SE se;
