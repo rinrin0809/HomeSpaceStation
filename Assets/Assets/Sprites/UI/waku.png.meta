@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 28cd95bab47bdcf40b00e941c5a5549b
+guid: 2840ca9f417a0be41a32c3e95ae53dd4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7597718922481534308
-    second: IteamMenu_0
+      213: 5096240091147787456
+    second: waku_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: IteamMenu_0
+      name: waku_0
       rect:
         serializedVersion: 2
         x: 3
@@ -114,8 +114,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c9a793af4ea7f8690800000000000000
-      internalID: -7597718922481534308
+      spriteID: 0ccd7f2ac5b79b640800000000000000
+      internalID: 5096240091147787456
       vertices: []
       indices: 
       edges: []
@@ -130,8 +130,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      IteamMenu_0: -7597718922481534308
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
