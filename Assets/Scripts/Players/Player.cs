@@ -190,6 +190,19 @@ public class Player : MonoBehaviour
 
         stamina = 100.0f;
 
+        // タグ "SliderTag" が付いたすべてのオブジェクトを取得
+        GameObject[] sliderObjects = GameObject.FindGameObjectsWithTag("StaminaGause");
+
+        // オブジェクトが見つかったかチェック
+        if (sliderObjects.Length > 0)
+        {
+            // 0番目のオブジェクトを取得
+            GameObject firstSliderObject = sliderObjects[0];
+
+            // Slider コンポーネントを取得
+            slider = firstSliderObject.GetComponent<Slider>();
+        }
+
         if (slider != null)
         {
             slider.value = stamina;
@@ -352,10 +365,10 @@ public class Player : MonoBehaviour
     {
         if (!UpdateFlg) return;
 
-        else
-        {
-            isMoving = false;
-        }
+        //else
+        //{
+        //    isMoving = false;
+        //}
         //イベントが発生している時または看板を読んでいる時は処理をしない
         if (Event != null)
         {
