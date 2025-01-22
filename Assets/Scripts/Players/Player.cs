@@ -222,7 +222,30 @@ public class Player : MonoBehaviour
         //シーン遷移する判定に当たった時のフラグfalseの時かつメニューを開いていない時
         if (SceneManager.GetActiveScene().name != "Title" && SceneManager.GetActiveScene().name != "Over")
         {
-            if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
+            //デバッグ用
+            if (MenuManager.Instance != null)
+            {
+                if (!ChangeSceneFlg)
+                {
+                    if (!MenuManager.Instance.GetOpenFlg())
+                    {
+                        //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+                        //スタミナ最小値より大きい時かつスタミナが0になっていない時
+                        if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+                            stamina >= minStamina && !zeroStaminaFlg)
+                        {
+                            AnimMove(dashAnimSpeed);
+                        }
+
+                        else
+                        {
+                            AnimMove(animSpeed);
+                        }
+                    }
+                }
+            }
+
+            else
             {
                 //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
                 //スタミナ最小値より大きい時かつスタミナが0になっていない時
@@ -237,6 +260,22 @@ public class Player : MonoBehaviour
                     AnimMove(animSpeed);
                 }
             }
+
+            //if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
+            //{
+            //    //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+            //    //スタミナ最小値より大きい時かつスタミナが0になっていない時
+            //    if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+            //        stamina >= minStamina && !zeroStaminaFlg)
+            //    {
+            //        AnimMove(dashAnimSpeed);
+            //    }
+
+            //    else
+            //    {
+            //        AnimMove(animSpeed);
+            //    }
+            //}
 
         }
 

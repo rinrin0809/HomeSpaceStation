@@ -34,12 +34,25 @@ public class Bar : MonoBehaviour
     [SerializeField] private bool OffFlg = false;
 
     private SkilCheck skilCheck;
+
     [SerializeField] GameObject SkilCheckObj;
+
     [SerializeField] GameObject YesOffObj;
 
     private Vector3 Pos;
 
     [SerializeField] float PushIntervalTime = 1.0f;
+
+    //Goodエフェクトのオブジェクト
+    [SerializeField]
+    private GameObject GoodEffect;
+    //Greateエフェクトのオブジェクト
+    [SerializeField]
+    private GameObject GreatEffect;
+    //Badエフェクトのオブジェクト
+    [SerializeField]
+    private GameObject BadObject;
+
     private void Start()
     {
         Pos = new Vector3(transform.parent.gameObject.transform.position.x, 0, transform.parent.gameObject.transform.position.z);
@@ -110,18 +123,21 @@ public class Bar : MonoBehaviour
         {
             GreatHit = true;
             GoodHit = false;
+            GreatEffect.SetActive(true);
         }
 
         else if (transform.position.y >= -0.73f && transform.position.y <= 0.75f)
         {
             GoodHit = true;
             GreatHit = false;
+            GoodEffect.SetActive(true);
         }
 
         else
         {
             GoodHit = false;
             GreatHit = false;
+            BadObject.SetActive(true);
         }
 
         if (GoodHit || GreatHit)
