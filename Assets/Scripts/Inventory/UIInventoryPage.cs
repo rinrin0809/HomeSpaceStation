@@ -109,16 +109,25 @@ public class UIInventoryPage : MonoBehaviour
         itemDescription.ResetDescription();
         Debug.Log("true");
         Time.timeScale = 0.0f;
+
+        foreach(Transform child in contentPanel)
+        {
+            if (child.gameObject.active==false)
+            {
+                child.gameObject.SetActive(true);
+                Debug.Log("aaa");
+            }
+        }
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
-        // 全スロットのデータをリセット
-        foreach (var item in listUIItems)
-        {
-            item.ResetData();
-        }
+        //// 全スロットのデータをリセット
+        //foreach (var item in listUIItems)
+        //{
+        //    item.ResetData();
+        //}
         Time.timeScale = 1.0f;
     }
 
@@ -159,6 +168,39 @@ public class UIInventoryPage : MonoBehaviour
                 }
             }
 
+            // 右キー（DまたはRightArrow）でインデックスを+3
+            if (Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                if (time < 0.0f)
+                {
+                    time = MAX_TIME;
+
+                    Num += 3; // 3つ次の列へ移動
+                    if (Num >= inventory.GetInventoryItems().Count)
+                    {
+                        // 範囲を超えたら最初の要素に戻る
+                        Num = Num % inventory.GetInventoryItems().Count;
+                    }
+                }
+            }
+
+            // 左キー（AまたはLeftArrow）でインデックスを-3
+            if (Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                if (time < 0.0f)
+                {
+                    time = MAX_TIME;
+
+
+                    Num -= 3; // 3つ前の列へ移動
+                    if (Num < 0)
+                    {
+                        // 範囲を超えたら最後の要素に戻る
+                        Num = inventory.GetInventoryItems().Count + Num;
+                    }
+                }
+            }
+
             if (Num < listUIItems.Count - 1)
             {
                 if (Input.GetKeyDown(KeyCode.DownArrow) || Input.GetKeyDown(KeyCode.S))
@@ -176,6 +218,8 @@ public class UIInventoryPage : MonoBehaviour
                     }
                 }
             }
+
+           
 
             if (Input.GetKeyDown(KeyCode.Backspace))
             {

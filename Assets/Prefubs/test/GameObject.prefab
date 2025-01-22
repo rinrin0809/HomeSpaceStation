@@ -50,7 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemNameText: {fileID: 8404239794446912616}
-  ItemImage: {fileID: 7493610698684382604}
+  ItemImage: {fileID: 0}
 --- !u!1001 &3514731484865297750
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -81,11 +81,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4928923955818082622, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
       propertyPath: m_fontSize
-      value: 24
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 4928923955818082622, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 2811a0cfa77299d498daf6717ad6f4ae, type: 2}
+    - target: {fileID: 4928923955818082622, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
       propertyPath: m_fontSizeBase
-      value: 24
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 4928923955818082622, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: -3385652970755889823, guid: 2811a0cfa77299d498daf6717ad6f4ae, type: 2}
+    - target: {fileID: 4928923955818082622, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5580355418559944907, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
       propertyPath: m_SizeDelta.x
@@ -194,17 +206,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7133494023282997861, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
   m_PrefabInstance: {fileID: 3514731484865297750}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7493610698684382604 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6284899258371981530, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}
-  m_PrefabInstance: {fileID: 3514731484865297750}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &8404239794446912616 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4928923955818082622, guid: 1e14bb97f6204134f87e8f0483f7ab8c, type: 3}

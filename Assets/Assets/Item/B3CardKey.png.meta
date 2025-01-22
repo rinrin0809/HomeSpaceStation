@@ -130,7 +130,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      B3CardKey_0: 7246178849794009215
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
