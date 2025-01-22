@@ -18,6 +18,9 @@ TagManager:
   - ClearExit
   - NextSceneObject
   - StaminaGause
+  - BackLokerPos
+  - BackToiletPos
+  - BackReference
   layers:
   - Default
   - TransparentFX

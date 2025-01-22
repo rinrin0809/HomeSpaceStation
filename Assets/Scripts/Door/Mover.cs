@@ -90,10 +90,10 @@ public class Mover : MonoBehaviour
     void Update()
     {
         // スペースボタンが押された場合
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            isMoving = true; // 移動を開始
-        }
+        //if (Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    isMoving = true; // 移動を開始
+        //}
 
         // スペースボタンが離された場合
         if (Input.GetKeyUp(KeyCode.Space))
