@@ -16,6 +16,8 @@ TagManager:
   - Transparent Wall
   - PlayerSpawnPosition
   - ClearExit
+  - NextSceneObject
+  - StaminaGause
   layers:
   - Default
   - TransparentFX

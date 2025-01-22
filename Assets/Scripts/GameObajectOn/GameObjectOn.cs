@@ -40,7 +40,7 @@ public class GameObjectOn : MonoBehaviour
             Player.Instance.UpdateFlg = false;
         }
 
-        else if(!OnFlg)
+        else if(!OnFlg || OnFlg && Input.GetKeyDown(KeyCode.Backspace))
         {
             OnObject.SetActive(false);
             Player.Instance.UpdateFlg = true;
