@@ -341,7 +341,7 @@ MonoBehaviour:
   randomPatrolChance: 0.5
   fieldOfViewAngle: 90
   detectionDistance: 3
-  player: {fileID: 0}
+  player: {fileID: 3232244489291204205, guid: f895f6da1f44961468ac9f931f869fdb, type: 3}
   fovScript: {fileID: 2835936991361892522}
   stopDuration: 8
   animator: {fileID: 1764879380425949881}
