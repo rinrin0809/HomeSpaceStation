@@ -46,13 +46,8 @@ public class SceneChanger : MonoBehaviour
     {
         if (OnFlg && Input.GetKeyDown(KeyCode.Space))
         {
-            Player.Instance.UpdateFlg = false;
-            fadeOutSceneLoader.NewGameCallCoroutine(NextSceneName);
-        }
-
-        else if (!OnFlg || OnFlg && Input.GetKeyDown(KeyCode.Backspace))
-        {
             Player.Instance.UpdateFlg = true;
+            fadeOutSceneLoader.NewGameCallCoroutine(NextSceneName);
         }
     }
 }

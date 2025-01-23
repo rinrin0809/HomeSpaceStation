@@ -84,7 +84,11 @@ public class Player : MonoBehaviour
     public bool UpdateSaveDataFlg = false;
     //更新するフラグ(trueの時は更新処理をするフラグ)
     public bool UpdateFlg = true;
-
+    //ミニゲームの時に位置を設定するフラグ
+    [SerializeField]
+    bool MiniGameFlg = false;
+    //ミニゲームの時の位置
+    Vector3 MiniGamePos = new Vector3(0.0f, 0.0f, 0.0f);
     public List<GameObject> GetItemList
     {
         get { return itemList; }
@@ -371,7 +375,8 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         if (!UpdateFlg) return;
-
+        //ミニゲームの時の初期位置の設定
+        MiniGameSetPos();
         //else
         //{
         //    isMoving = false;
@@ -580,6 +585,31 @@ public class Player : MonoBehaviour
         {
             this.gameObject.transform.position = new Vector3(172.09f, -28.69f,0.0f);
             NewGameSpownFlg = false;
+        }
+    }
+
+    //ミニゲームの時の初期位置の設定
+    private void MiniGameSetPos()
+    {
+        if (SceneManager.GetActiveScene().name == "SkillCheck")
+        {
+            if (!MiniGameFlg) // まだミニゲームの位置に変更していない場合
+            {
+                MiniGameFlg = true;
+                this.gameObject.transform.position = new Vector3(172.09f, 50.69f, 0.0f);
+            }
+        }
+        else
+        {
+            if (MiniGameFlg) // ミニゲームから戻った場合
+            {
+                this.gameObject.transform.position = MiniGamePos;
+                MiniGameFlg = false; // 一度だけ位置を戻す
+            }
+            else
+            {
+                MiniGamePos = this.gameObject.transform.position; // 現在の位置を保存
+            }
         }
     }
 
