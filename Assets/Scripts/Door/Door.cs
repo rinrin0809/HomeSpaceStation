@@ -31,6 +31,7 @@ public class Door : MonoBehaviour
 
             // Mover スクリプトを取得して移動方向を設定
             Mover mover = doorObject.targetObject.GetComponent<Mover>();
+            #region Mover
             if (mover != null)
             {
                 switch (doorObject.direction)
@@ -53,6 +54,7 @@ public class Door : MonoBehaviour
             {
                 Debug.LogWarning("ターゲットオブジェクトにMoverスクリプトがアタッチされていません: " + doorObject.targetObject.name);
             }
+            #endregion
         }
     }
 
@@ -63,9 +65,8 @@ public class Door : MonoBehaviour
         {
             if (doorObject.targetObject == null)
                 continue;
-
-            // Mover スクリプトを取得して移動を実行
             Mover mover = doorObject.targetObject.GetComponent<Mover>();
+            // Mover スクリプトを取得して移動を実行
             if (mover != null)
             {
                 mover.Move();

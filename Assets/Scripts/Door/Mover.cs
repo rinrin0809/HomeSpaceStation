@@ -9,20 +9,36 @@ public class Mover : MonoBehaviour
     public float rightLimit = 10000f; // 右の移動制限
     public float topLimit = 10000f;   // 上の移動制限
     public float bottomLimit = -10000f; // 下の移動制限
-    public float timeToChangeDirection = 3.0f; // 方向を変えるまでの時間
+    public float timeToChangeDirection = 1.0f; // 方向を変えるまでの時間
     private Vector3 moveDirection; // 移動方向
 
-    private bool isAtLimit = false; // リミットに到達したかどうかのフラグ
+    public bool isAtLimit = false; // リミットに到達したかどうかのフラグ
     private float remainingTime; // 方向反転までの残り時間
     private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
     public bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
 
+    private float customTime = 0f; // 自分で管理する時間
+
     // Startは初期化処理
     void Start()
     {
-        remainingTime = timeToChangeDirection; // 初期化
-        moveDirection = Vector3.right; // 初期移動方向（デフォルト）
+        // シーン遷移後もオブジェクトを保持
+        DontDestroyOnLoad(gameObject);
+
+        // PlayerPrefsで前回の状態を復元
+        if (PlayerPrefs.HasKey("RemainingTime"))
+        {
+            remainingTime = PlayerPrefs.GetFloat("RemainingTime");
+            moveDirection = new Vector3(PlayerPrefs.GetFloat("MoveDirectionX"),
+                                         PlayerPrefs.GetFloat("MoveDirectionY"),
+                                         0); // 保存されていた方向を復元
+        }
+        else
+        {
+            remainingTime = timeToChangeDirection; // 初期値
+            moveDirection = Vector3.right; // 初期移動方向
+        }
     }
 
     // 移動方向を設定
@@ -43,7 +59,7 @@ public class Mover : MonoBehaviour
             if (!isNearLimit)
             {
                 isNearLimit = true; // リミットに近づいたときにフラグを立てる
-                remainingTime = timeToChangeDirection; // 残り時間をリセット
+                customTime = 0f; // カスタムタイマーをリセット
             }
 
             // リミットに到達した場合、位置をスムーズにリミットに合わせる
@@ -51,7 +67,7 @@ public class Mover : MonoBehaviour
             float newY = Mathf.Clamp(currentPos.y, bottomLimit, topLimit);
 
             // 位置をリミットに向かって徐々に変更
-            transform.position = Vector3.MoveTowards(currentPos, new Vector3(newX, newY, currentPos.z), moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(currentPos, new Vector3(newX, newY, currentPos.z), moveSpeed * 0.033f);
 
             // リミットに到達したフラグをセット
             isAtLimit = true;
@@ -61,24 +77,24 @@ public class Mover : MonoBehaviour
             isNearLimit = false; // リミットを離れたらフラグをリセット
         }
 
-        // リミットに近づいた後、時間を減少させる
+        // リミットに近づいた後、カスタムタイマーを増加させる
         if (isAtLimit)
         {
-            remainingTime -= Time.deltaTime;
+            customTime += Time.deltaTime; // 手動で時間を増加させる
         }
 
         // 方向を反転させるタイミング
-        if (remainingTime <= 0.0f && isAtLimit)
+        if (customTime >= timeToChangeDirection && isAtLimit)
         {
             // 方向を反転
             moveDirection = -moveDirection;
-            // 時間をリセット
-            remainingTime = timeToChangeDirection;
+            // タイマーをリセット
+            customTime = 0f;
 
             isAtLimit = false;
         }
 
-        // リミット未到着でスペースキーが押されっていたなら
+        // リミット未到着でスペースキーが押されていたなら
         if (!isAtLimit && isMoving)
         {
             // オブジェクトを移動
@@ -89,12 +105,6 @@ public class Mover : MonoBehaviour
     // Updateメソッドでスペースボタン入力を処理
     void Update()
     {
-        // スペースボタンが押された場合
-        //if (Input.GetKeyDown(KeyCode.Space))
-        //{
-        //    isMoving = true; // 移動を開始
-        //}
-
         // スペースボタンが離された場合
         if (Input.GetKeyUp(KeyCode.Space))
         {
@@ -103,5 +113,15 @@ public class Mover : MonoBehaviour
 
         // 移動処理を呼び出す
         Move();
+    }
+
+    // シーン遷移前に状態を保存
+    void OnApplicationQuit()
+    {
+        // 現在の状態を保存
+        PlayerPrefs.SetFloat("RemainingTime", remainingTime);
+        PlayerPrefs.SetFloat("MoveDirectionX", moveDirection.x);
+        PlayerPrefs.SetFloat("MoveDirectionY", moveDirection.y);
+        PlayerPrefs.Save();
     }
 }
