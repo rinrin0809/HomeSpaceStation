@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu]
 public class CharacterData : ScriptableObject
@@ -14,6 +15,12 @@ public class CharacterData : ScriptableObject
     public SpriteRenderer sprite;
 
 
+
+    [field: TextArea]
+    [SerializeField]
+    private string CharaDirection; // —V‚Ñ
+    [SerializeField]
+    private Sprite image;
 
 }
 
@@ -28,6 +35,9 @@ public class CharacterPost
         frendboy, // ålŒö‚Ì—F’B
         frendGarl, // —F’B‚Ì”Ş—
         okami,   // —«
+
+
+        Azki,   // ‚ ‚¸‚«‚¿‚á‚ñ(‰¼)
     }
 
 
