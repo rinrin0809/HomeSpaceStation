@@ -33,9 +33,8 @@ public class Patrol : MonoBehaviour
 
    
     bool isPlayerVisible;
-
     [SerializeField]
-    private Transform reversePoint; // 巡回反転ポイント
+    private List<Transform> reversePoints; // 巡回反転ポイントのリスト
 
     private void Awake()
     {
@@ -130,7 +129,7 @@ public class Patrol : MonoBehaviour
             //currentTargetIndex = (currentTargetIndex + 1) % positions.Count;
 
             // もしターゲットが reversePoint に一致するなら巡回ルートを反転
-            if (reversePoint != null && target.position == reversePoint.position)
+            if ( reversePoints.Contains(target))
             {
                 positions.Reverse(); // 巡回ルートを反転
                 currentTargetIndex = 1; // 反転後の次のポイントへ
@@ -190,7 +189,7 @@ public class Patrol : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject == reversePoint)
+        if (reversePoints.Contains(other.transform))
         {
            
             // 衝突時に何かしらの処理を実行したい場合は、ここに記述
