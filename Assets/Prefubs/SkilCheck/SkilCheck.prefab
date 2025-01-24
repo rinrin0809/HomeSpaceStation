@@ -99,10 +99,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7318a56b0d21f7b4f83fc96a6d416ec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resultText: {fileID: 486639820355103815}
+  parentObject: {fileID: 0}
+  MIN_MOVE_SPEED: 7
+  MAX_MOVE_SPEED: 15
+  MoveSpeed: 0
   DelayTime: 500
   Duration: 100
   LimitPosY: 2.45
+  OffFlg: 0
+  SkilCheckObj: {fileID: 0}
+  YesOffObj: {fileID: 0}
+  PushIntervalTime: 1
+  GoodEffect: {fileID: 0}
+  GreatEffect: {fileID: 0}
+  BadObject: {fileID: 0}
 --- !u!1 &1079226894095089853
 GameObject:
   m_ObjectHideFlags: 0
