@@ -49,11 +49,11 @@ public class Fov_script : MonoBehaviour
 
         if (player == null)
         {
-            Debug.LogError("プレイヤーが見つからない！");
+            ///Debug.LogError("プレイヤーが見つからない！");
         }
         else
         {
-            Debug.Log($"見つけたプレイヤー: {player.name} (ID: {player.GetInstanceID()})");
+           // Debug.Log($"見つけたプレイヤー: {player.name} (ID: {player.GetInstanceID()})");
         }
     }
 
