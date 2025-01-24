@@ -14,16 +14,14 @@ public class Mover : MonoBehaviour
 
     public bool isAtLimit = false; // リミットに到達したかどうかのフラグ
     private float remainingTime; // 方向反転までの残り時間
-    private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
     public bool RockFlg = false; //カギがかかっている時のフラグ
     public bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
 
-    private float customTime = 0f; // 自分で管理する時間
-
     // Startは初期化処理
     void Start()
     {
+        isAtLimit = true;
         // シーン遷移後もオブジェクトを保持
         DontDestroyOnLoad(gameObject);
 
@@ -57,12 +55,6 @@ public class Mover : MonoBehaviour
         // リミットに近づいた場合の処理
         if (currentPos.x <= leftLimit || currentPos.x >= rightLimit || currentPos.y <= bottomLimit || currentPos.y >= topLimit)
         {
-            if (!isNearLimit)
-            {
-                isNearLimit = true; // リミットに近づいたときにフラグを立てる
-                customTime = 0f; // カスタムタイマーをリセット
-            }
-
             // リミットに到達した場合、位置をスムーズにリミットに合わせる
             float newX = Mathf.Clamp(currentPos.x, leftLimit, rightLimit);
             float newY = Mathf.Clamp(currentPos.y, bottomLimit, topLimit);
@@ -73,24 +65,12 @@ public class Mover : MonoBehaviour
             // リミットに到達したフラグをセット
             isAtLimit = true;
         }
-        else
-        {
-            isNearLimit = false; // リミットを離れたらフラグをリセット
-        }
-
-        // リミットに近づいた後、カスタムタイマーを増加させる
-        if (isAtLimit)
-        {
-            customTime += Time.deltaTime; // 手動で時間を増加させる
-        }
 
         // 方向を反転させるタイミング
-        if (customTime >= timeToChangeDirection && isAtLimit)
+        if (Time.deltaTime > timeToChangeDirection && isAtLimit)
         {
             // 方向を反転
             moveDirection = -moveDirection;
-            // タイマーをリセット
-            customTime = 0f;
 
             isAtLimit = false;
         }
@@ -104,14 +84,14 @@ public class Mover : MonoBehaviour
     }
 
     // Updateメソッドでスペースボタン入力を処理
-    void Update()
+    /*void Update()
     {
         // スペースボタンが離された場合
         if (Input.GetKeyUp(KeyCode.Space))
         {
             isMoving = false; // 移動を停止
         }
-    }
+    }*/
 
     // シーン遷移前に状態を保存
     void OnApplicationQuit()
