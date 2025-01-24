@@ -67,7 +67,7 @@ public class Door : MonoBehaviour
                 continue;
             Mover mover = doorObject.targetObject.GetComponent<Mover>();
             // Mover スクリプトを取得して移動を実行
-            if (mover != null)
+            if (mover != null && !mover.RockFlg)
             {
                 mover.Move();
             }

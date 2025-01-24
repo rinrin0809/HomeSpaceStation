@@ -21,6 +21,7 @@ TagManager:
   - BackLokerPos
   - BackToiletPos
   - BackReference
+  - Door
   layers:
   - Default
   - TransparentFX

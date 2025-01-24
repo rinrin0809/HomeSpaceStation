@@ -562,7 +562,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("108RoomColl"))
+        if (other.gameObject.CompareTag("108RoomColl") || other.gameObject.CompareTag("Door"))
         {
             GimicHitFlg = true;
             Debug.Log(GimicHitFlg);
@@ -571,7 +571,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("108RoomColl"))
+        if (other.gameObject.CompareTag("108RoomColl") || other.gameObject.CompareTag("Door"))
         {
             GimicHitFlg = false;
             Debug.Log(GimicHitFlg);

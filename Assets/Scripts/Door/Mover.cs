@@ -16,6 +16,7 @@ public class Mover : MonoBehaviour
     private float remainingTime; // 方向反転までの残り時間
     private bool isNearLimit = false; // リミットに近づいているかどうかのフラグ
 
+    public bool RockFlg = false; //カギがかかっている時のフラグ
     public bool isMoving = false; // スペースキーが押されたときだけ動かすフラグ
 
     private float customTime = 0f; // 自分で管理する時間
@@ -110,9 +111,6 @@ public class Mover : MonoBehaviour
         {
             isMoving = false; // 移動を停止
         }
-
-        // 移動処理を呼び出す
-        Move();
     }
 
     // シーン遷移前に状態を保存
