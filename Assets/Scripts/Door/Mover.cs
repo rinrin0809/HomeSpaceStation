@@ -22,8 +22,6 @@ public class Mover : MonoBehaviour
     void Start()
     {
         isAtLimit = true;
-        // シーン遷移後もオブジェクトを保持
-        DontDestroyOnLoad(gameObject);
 
         // PlayerPrefsで前回の状態を復元
         if (PlayerPrefs.HasKey("RemainingTime"))
@@ -55,19 +53,19 @@ public class Mover : MonoBehaviour
         // リミットに近づいた場合の処理
         if (currentPos.x <= leftLimit || currentPos.x >= rightLimit || currentPos.y <= bottomLimit || currentPos.y >= topLimit)
         {
-            // リミットに到達した場合、位置をスムーズにリミットに合わせる
+            // リミットに到達した場合、位置をリミットに合わせる
             float newX = Mathf.Clamp(currentPos.x, leftLimit, rightLimit);
             float newY = Mathf.Clamp(currentPos.y, bottomLimit, topLimit);
 
-            // 位置をリミットに向かって徐々に変更
-            transform.position = Vector3.MoveTowards(currentPos, new Vector3(newX, newY, currentPos.z), moveSpeed * 0.033f);
+            // 位置をリミットに合わせる
+            transform.position = new Vector3(newX, newY, currentPos.z);
 
             // リミットに到達したフラグをセット
             isAtLimit = true;
         }
 
         // 方向を反転させるタイミング
-        if (Time.deltaTime > timeToChangeDirection && isAtLimit)
+        if (isAtLimit)
         {
             // 方向を反転
             moveDirection = -moveDirection;
@@ -81,25 +79,5 @@ public class Mover : MonoBehaviour
             // オブジェクトを移動
             transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
         }
-    }
-
-    // Updateメソッドでスペースボタン入力を処理
-    /*void Update()
-    {
-        // スペースボタンが離された場合
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            isMoving = false; // 移動を停止
-        }
-    }*/
-
-    // シーン遷移前に状態を保存
-    void OnApplicationQuit()
-    {
-        // 現在の状態を保存
-        PlayerPrefs.SetFloat("RemainingTime", remainingTime);
-        PlayerPrefs.SetFloat("MoveDirectionX", moveDirection.x);
-        PlayerPrefs.SetFloat("MoveDirectionY", moveDirection.y);
-        PlayerPrefs.Save();
     }
 }

@@ -45,8 +45,14 @@ public class DoorOpenPosition : MonoBehaviour
 
     #region 時間制限で制御
     public bool hasPressedSpace = false; // Spaceキーが押されたかどうかのフラグ
-    private float timeBetweenInputs = 5.0f; // 入力を受け付けるまでの待機時間（秒）
-    public float time = 0.0f;
+    private float timeBetweenInputs; // 入力を受け付けるまでの待機時間（秒）
+    public float time;
+
+    private void Start()
+    {
+        time = 2.0f;
+        timeBetweenInputs = 5.0f;
+    }
     void Update()
     {
         if (isPlayerInRangeOpenDoor && Input.GetKeyDown(KeyCode.Space) && !hasPressedSpace)
