@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Patrol : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class Patrol : MonoBehaviour
     public float fieldOfViewAngle = 90f; // 前方視野角
     public float detectionDistance = 5f; // プレイヤー検知距離
   
-    public Transform player; // プレイヤーのTransform
+    public GameObject player; // プレイヤーのTransform
     public Fov_script fovScript; // 視野制御用スクリプト
 
     private int currentTargetIndex = 0; // 現在の巡回ポイント
@@ -36,8 +37,49 @@ public class Patrol : MonoBehaviour
     [SerializeField]
     private Transform reversePoint; // 巡回反転ポイント
 
+    private void Awake()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        FindPlayer();
+    }
+
+    private void Start()
+    {
+        FindPlayer();
+    }
+
+    private void FindPlayer()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        if (player == null)
+        {
+            player = FindObjectOfType<Player>()?.gameObject;
+        }
+
+        if (player == null)
+        {
+            Debug.LogError("プレイヤーが見つからない！");
+        }
+        else
+        {
+            Debug.Log($"見つけたプレイヤー: {player.name} (ID: {player.GetInstanceID()})");
+        }
+    }
+
     private void Update()
     {
+
+       //Debug.Log($"停止中: isStopped={isStopped}, stopTimer={stopTimer}"); // デバッグログ
         // 停止中の処理
         if (isStopped)
         {
@@ -51,9 +93,11 @@ public class Patrol : MonoBehaviour
             return; // 停止中はそれ以上の処理を行わない
         }
 
-        isPlayerVisible = fovScript != null && fovScript.IsPlayerInFieldOfView(player, transform, fieldOfViewAngle, detectionDistance);
+        //isPlayerVisible = ;
+
+       // Debug.Log($"プレイヤー視認チェック: {isPlayerVisible}, プレイヤーとの距離: {Vector3.Distance(transform.position, player.position)}");
         // 視認チェック
-        if (isPlayerVisible)
+        if (fovScript != null && fovScript.IsPlayerInFieldOfView(player.transform, transform, fieldOfViewAngle, detectionDistance))
         {
             StopAndDetectPlayer();
             return; // 視認した場合、他の処理を中断
@@ -121,6 +165,7 @@ public class Patrol : MonoBehaviour
         // ターゲットへの方向を計算
         Vector3 direction = (target.position - transform.position).normalized;
 
+        //Debug.Log($"Patrolが更新: CurrentDirection={fovScript.CurrentDirection}");
         //// 視野の方向を更新
         if (fovScript != null)
         {
@@ -130,6 +175,8 @@ public class Patrol : MonoBehaviour
         // パトロール時に視野を更新
         if (fovScript != null)
         {
+            // 視野方向を現在の移動方向に設定
+            fovScript.CurrentDirection = direction;
             fovScript.UpdateVisionDirection(direction); // 現在の移動方向を視野に反映
         }
 
@@ -183,14 +230,14 @@ public class Patrol : MonoBehaviour
         isStopped = true; // 停止フラグを設定
         stopTimer = stopDuration; // 停止タイマーをリセット
 
-        // Debug.Log($"停止処理を開始しました: isStopped={isStopped}, stopTimer={stopTimer}");
+       // Debug.Log($"停止処理を開始しました: isStopped={isStopped}, stopTimer={stopTimer}");
       
         // アニメーションを停止状態に設定
         if (animator != null)
         {
             animator.SetBool("IsMoving", false);
         }
-        Debug.Log($"停止: {stopDuration}秒");
+       // Debug.Log($"停止: {stopDuration}秒");
     }
 
   

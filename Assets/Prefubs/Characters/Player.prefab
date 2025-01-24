@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 1958414418195044891}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.50769997, y: -0.72720003, z: 0}
+  m_LocalPosition: {x: 19, y: -3, z: 0}
   m_LocalScale: {x: 1.7393191, y: 1.586633, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 7364682651488144517, guid: ef18bf3c9e4ac0240b2e653f8a074a6d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -135,12 +135,17 @@ MonoBehaviour:
   isNearItem: 0
   itemList: []
   startingPosition: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
+  ClearExitFlg: 0
+  Score: 0
+  UpdateSaveDataFlg: 0
+  UpdateFlg: 1
   inventory: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
   itemDisplay: {fileID: 0}
-  HasKeyFlg: 0
   GimicHitFlg: 0
+  ChangeSceneFlg: 0
   playerStorage: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
   ExplainDisplayFlg: 0
+  NewGameSpownFlg: 0
 --- !u!61 &4613261802184867360
 BoxCollider2D:
   m_ObjectHideFlags: 0

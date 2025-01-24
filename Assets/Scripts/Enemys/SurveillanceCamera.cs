@@ -54,7 +54,7 @@ public class SurveillanceCamera : MonoBehaviour
             {
                 // プレイヤーを発見！
                // Debug.Log("敵の視界に入りました");
-                Debug.DrawRay(fovPoint.position, dir.normalized * range, Color.red);
+                //Debug.DrawRay(fovPoint.position, dir.normalized * range, Color.red);
             }
             else
             {
