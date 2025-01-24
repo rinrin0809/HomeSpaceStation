@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 19, y: -3, z: 0}
-  m_LocalScale: {x: 1.7393191, y: 1.586633, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -139,6 +139,7 @@ MonoBehaviour:
   Score: 0
   UpdateSaveDataFlg: 0
   UpdateFlg: 1
+  MiniGameFlg: 0
   inventory: {fileID: 11400000, guid: e50ee795eb181d7488d9960f6f2d5ad7, type: 2}
   itemDisplay: {fileID: 0}
   GimicHitFlg: 0

@@ -284,23 +284,6 @@ public class Player : MonoBehaviour
                     AnimMove(animSpeed);
                 }
             }
-
-            //if (!ChangeSceneFlg && !MenuManager.Instance.GetOpenFlg())
-            //{
-            //    //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
-            //    //スタミナ最小値より大きい時かつスタミナが0になっていない時
-            //    if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
-            //        stamina >= minStamina && !zeroStaminaFlg)
-            //    {
-            //        AnimMove(dashAnimSpeed);
-            //    }
-
-            //    else
-            //    {
-            //        AnimMove(animSpeed);
-            //    }
-            //}
-
         }
 
         else
