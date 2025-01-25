@@ -6,7 +6,8 @@ public class DoorOpenPosition : MonoBehaviour
 {
     public GameObject OpenDoor;
     private bool isPlayerInRangeOpenDoor = false;
-    public Mover move;
+    //public Mover move;
+    public NewMover move;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -59,7 +60,7 @@ public class DoorOpenPosition : MonoBehaviour
         {
             Debug.Log("スペースキーが押された！ギミックをアクティブにします。");
 
-            move.isMoving = true;
+            move.isOpening = true;
 
             time = 2.0f;
 
@@ -72,7 +73,7 @@ public class DoorOpenPosition : MonoBehaviour
 
         if (hasPressedSpace && time < 0)
         {
-            move.isMoving = false;
+            //move.isOpening = false;
         }
         time -= Time.deltaTime;
     }
