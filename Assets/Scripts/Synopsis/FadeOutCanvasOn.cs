@@ -11,6 +11,8 @@ public class FadeOutCanvasOn : MonoBehaviour
 
     FadeOutSceneLoader fadeOutSceneLoader;
 
+    int Count = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,12 @@ public class FadeOutCanvasOn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (rectTransform.anchoredPosition.y >= 1000)
+        if(Input.GetKeyDown(KeyCode.Space))
+        {
+            Count += 1;
+        }
+
+        if (rectTransform.anchoredPosition.y >= 1000 || Count >= 2)
         {
             if (fadeOutSceneLoader != null) fadeOutSceneLoader.NewGameCallCoroutine("Floor(B1)");
         }
