@@ -341,12 +341,12 @@ MonoBehaviour:
   speed: 8
   randomPatrolChance: 0.5
   fieldOfViewAngle: 90
-  detectionDistance: 3
+  detectionDistance: 10
   player: {fileID: 0}
   fovScript: {fileID: 2835936991361892522}
   stopDuration: 8
   animator: {fileID: 1764879380425949881}
-  reversePoint: {fileID: 0}
+  reversePoints: []
 --- !u!95 &1764879380425949881
 Animator:
   serializedVersion: 7
