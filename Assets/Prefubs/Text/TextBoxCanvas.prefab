@@ -134,6 +134,18 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 903927269288979489, guid: ea11775c405759046b555e3941582f89, type: 3}
+    - target: {fileID: 3243330116564901195, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3243330116564901195, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 3243330116564901195, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4701675970542361817, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
       propertyPath: m_Name
       value: textbox
@@ -223,6 +235,10 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6802022820721947114, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6802022820721947114, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -239,8 +255,16 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 6802022820721947114, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+    - target: {fileID: 6802022820721947114, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 6802022820721947114, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9135286301464237978, guid: 57ef0f921e473074b95875f372b7895f, type: 3}
       propertyPath: m_Color.a

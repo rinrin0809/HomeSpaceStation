@@ -11,6 +11,13 @@ public class FadeOutCanvasOn : MonoBehaviour
 
     FadeOutSceneLoader fadeOutSceneLoader;
 
+    [SerializeField]
+    GameObject FastObj;
+
+    [SerializeField]
+    GameObject SkipObj;
+
+    [SerializeField]
     int Count = 0;
 
     // Start is called before the first frame update
@@ -22,9 +29,28 @@ public class FadeOutCanvasOn : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        switch (Count)
         {
-            Count += 1;
+            case 0:
+                SkipObj.SetActive(false);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Count++;
+                }
+                break;
+
+            case 1:
+                FastObj.SetActive(false);
+                SkipObj.SetActive(true);
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
+                    Count++;
+                }
+                break;
+
+            case 2:
+                
+                break;
         }
 
         if (rectTransform.anchoredPosition.y >= 1000 || Count >= 2)

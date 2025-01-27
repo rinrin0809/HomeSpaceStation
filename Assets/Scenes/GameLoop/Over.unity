@@ -2439,6 +2439,7 @@ MonoBehaviour:
   - {fileID: 1675434643}
   - {fileID: 673472462}
   MaxPosNum: 0
+  MAX_TIME: 60
   MaxSideNum: 2
   MaxLengthNum: 2
 --- !u!1001 &1476800138
@@ -2880,6 +2881,7 @@ MonoBehaviour:
   - {fileID: 477814}
   - {fileID: 1752675352}
   MaxPosNum: 0
+  MAX_TIME: 60
   MaxSideNum: 1
   MaxLengthNum: 1
 --- !u!114 &1734525885
