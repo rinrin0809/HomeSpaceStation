@@ -16,3 +16,4 @@ MonoBehaviour:
   CharacterName: 
   sprite: {fileID: 0}
   CharaDirection: 
+  image: {fileID: -4530010888186299685, guid: 97cd4072fee8e7f4aa6b04da58c3976e, type: 3}

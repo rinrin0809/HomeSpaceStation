@@ -67,16 +67,16 @@ public class ActionEvent : MonoBehaviour
         textBox.gameObject.SetActive(false);
 
         // Canvasの存在確認
-        if (canvas != null)
-        {
-            exclamationMarkClone = Instantiate(exclamationMark,canvas.transform);
-            exclamationMarkClone.transform.localScale *= scale;
-            exclamationMarkClone.SetActive(false);
-        }
-        else
-        {
-            Debug.Log("canvasがない");
-        }
+        //if (canvas != null)
+        //{
+        //    exclamationMarkClone = Instantiate(exclamationMark,canvas.transform);
+        //    exclamationMarkClone.transform.localScale *= scale;
+        //    exclamationMarkClone.SetActive(false);
+        //}
+        //else
+        //{
+        //    Debug.Log("canvasがない");
+        //}
     }
 
     // Update is called once per frame
@@ -84,11 +84,11 @@ public class ActionEvent : MonoBehaviour
     {
         if(InitilizeFlg)
         {
-            Event.SetEventActionEventFlg("女将との会話", true);
+            Event.SetEventActionEventFlg("潜入後", true);
             InitilizeFlg = false;
         }
 
-        exclamationMarkClone.transform.position = Camera.main.WorldToScreenPoint(ActionObject.transform.position + offset);
+        //exclamationMarkClone.transform.position = Camera.main.WorldToScreenPoint(ActionObject.transform.position + offset);
       
 
         // 会話を進める
@@ -104,7 +104,7 @@ public class ActionEvent : MonoBehaviour
                 Debug.Log("会話終了");
                 finishtalk = true; // 会話終了フラグを立てる
                 //透明の壁判定削除
-                Event.SetEventActionEventFlg("女将との会話", false);
+                Event.SetEventActionEventFlg("潜入後", false);
 
                 if (AddItem != null)
                 {
@@ -163,7 +163,7 @@ public class ActionEvent : MonoBehaviour
         {
             Debug.Log("actionIndex : " + talkEventIndex);
             textBox.gameObject.SetActive(true);
-            exclamationMarkClone.SetActive(true);
+            //exclamationMarkClone.SetActive(true);
             Debug.Log("！マーク表示");
             // 会話データのインデックスを取得して会話内容表示
             conversationText = TestTalkManager.Instance.GetTalk(talkEventIndex, actionEventIndex);
@@ -179,7 +179,6 @@ public class ActionEvent : MonoBehaviour
             //{
 
             //}
-
 
             //text.text = conversationText;
             //nametext.text = nameText;
@@ -202,10 +201,10 @@ public class ActionEvent : MonoBehaviour
                 Debug.Log("テキストボックス非表示");
             }
             
-            if (exclamationMarkClone == true)
-            {
-                exclamationMarkClone.SetActive(false);
-            }
+            //if (exclamationMarkClone == true)
+            //{
+            //    exclamationMarkClone.SetActive(false);
+            //}
            
             //text.text = conversationText;
             Debug.Log("！マーク非表示");
@@ -214,10 +213,6 @@ public class ActionEvent : MonoBehaviour
             UpdatefinishFlag();
         }
     }
-
-   
-    
-
 
     private void UpdatefinishFlag()
     {
@@ -242,7 +237,6 @@ public class ActionEvent : MonoBehaviour
             yield return new WaitForSeconds(textSpeed);
         }
     }
-   
 }
 
 [System.Serializable]

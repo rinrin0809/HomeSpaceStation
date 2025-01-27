@@ -6,7 +6,8 @@ public class RockCollision : MonoBehaviour
 {
     private Player player;
 
-    private Mover mover;
+    //private Mover mover;
+    private NewMover mover;
 
     [SerializeField]
     public string ItemName = "";
@@ -14,7 +15,7 @@ public class RockCollision : MonoBehaviour
     void Start()
     {
         player = FindObjectOfType<Player>();
-        mover = this.gameObject.GetComponent<Mover>();
+        mover = this.gameObject.GetComponent<NewMover>();
     }
 
     void Update()
