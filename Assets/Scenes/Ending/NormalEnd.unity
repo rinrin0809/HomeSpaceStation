@@ -119,6 +119,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &12615980 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8094135821361444625, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
+  m_PrefabInstance: {fileID: 175350195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &175350195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -155,6 +166,10 @@ PrefabInstance:
       propertyPath: m_hasFontAssetChanged
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3112384817797123170, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3506357046032564396, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
       propertyPath: m_Name
       value: TextBoxCanvas
@@ -176,9 +191,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: f8b30f2280a7ef84e82573cee65899d9, type: 2}
     - target: {fileID: 5834000381578613089, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5834000381578613089, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: -7336692101151488524, guid: f8b30f2280a7ef84e82573cee65899d9, type: 2}
+    - target: {fileID: 5834000381578613089, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 3539992575
+      objectReference: {fileID: 0}
     - target: {fileID: 5834000381578613089, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0
@@ -300,6 +323,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5741138150675004498, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
   m_PrefabInstance: {fileID: 175350195}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &175350201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3112384817797123170, guid: 0e4d9680a70926c4bb42aa967cff9557, type: 3}
+  m_PrefabInstance: {fileID: 175350195}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 175350199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &201948096
 GameObject:
   m_ObjectHideFlags: 0
@@ -633,6 +667,14 @@ PrefabInstance:
       propertyPath: nametext
       value: 
       objectReference: {fileID: 175350197}
+    - target: {fileID: 7791687120885413937, guid: 325d5db6c4875b944b0bcf1b07beefe9, type: 3}
+      propertyPath: nameBoxImage
+      value: 
+      objectReference: {fileID: 12615980}
+    - target: {fileID: 7791687120885413937, guid: 325d5db6c4875b944b0bcf1b07beefe9, type: 3}
+      propertyPath: textBoxImage
+      value: 
+      objectReference: {fileID: 175350201}
     - target: {fileID: 7791687120885413937, guid: 325d5db6c4875b944b0bcf1b07beefe9, type: 3}
       propertyPath: talkEventIndex
       value: 2

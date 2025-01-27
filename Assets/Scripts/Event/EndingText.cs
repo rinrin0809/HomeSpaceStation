@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EndingText : MonoBehaviour
 {
     public Vector3 offset = new Vector3(0, 1, 0);
 
-    private GameObject exclamationMarkClone; // クローン参照
     [SerializeField]
     private Canvas canvas; // canvas 参照
     float scale = 0.5f;
@@ -21,6 +21,11 @@ public class EndingText : MonoBehaviour
     string nameString;
 
     public GameObject textBox;
+
+    public Image textBoxImage;
+    public Image nameBoxImage;
+    public float textAlphaSpeed = 1.3f;
+
 
     public int talkEventIndex = 0;
     public int actionEventIndex = 0;
@@ -41,6 +46,10 @@ public class EndingText : MonoBehaviour
     private float textSpeed = 0.05f;
 
     public float interactionDistance = 2f; // プレイヤーとのインタラクション距離
+
+    public float AlphaTime = 3.0f;
+
+    public bool FinishSpaceFlg = false;
 
     void Start()
     {
@@ -100,6 +109,30 @@ public class EndingText : MonoBehaviour
             else
             {
                 nametext.text = nextName;
+            }
+        }
+
+        if(finishtalk && Input.GetKeyDown(KeyCode.Space))
+        {
+            FinishSpaceFlg = true;
+        }
+
+        if(FinishSpaceFlg)
+        {
+            AlphaTime -= 2.0f * Time.deltaTime;
+            if (AlphaTime <= 0.0f)
+            {
+                Color startColor = textBoxImage.color;
+                startColor.a -= textAlphaSpeed * Time.deltaTime;
+                textBoxImage.color = startColor;
+
+                Color TextColor = text.color;
+                TextColor.a -= textAlphaSpeed * Time.deltaTime;
+                text.color = TextColor;
+
+                Color nameColor = nametext.color;
+                nameColor.a -= textAlphaSpeed * Time.deltaTime;
+                nametext.color = nameColor;
             }
         }
     }
