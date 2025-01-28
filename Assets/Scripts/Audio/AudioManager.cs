@@ -62,7 +62,8 @@ public class BGMSoundData
     {
         // これがラベルになる
         Title,   // タイトル
-       
+        Synopsis, //あらすじ
+
         // エンディングごとのBGM
         Good,   // 最高のエンディング
         Normal, // 普通のエンディング
