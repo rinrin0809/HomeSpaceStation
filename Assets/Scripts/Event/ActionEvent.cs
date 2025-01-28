@@ -26,6 +26,7 @@ public class ActionEvent : MonoBehaviour
 
     public GameObject textBox;
 
+    public BoxCollider2D boxCollider;
     
 
     // 会話全体のリストのインデックス
@@ -103,6 +104,10 @@ public class ActionEvent : MonoBehaviour
             {
                 Debug.Log("会話終了");
                 finishtalk = true; // 会話終了フラグを立てる
+
+                boxCollider = gameObject.GetComponent<BoxCollider2D>();
+                boxCollider.enabled = false;
+
                 //透明の壁判定削除
                 Event.SetEventActionEventFlg("潜入後", false);
 
@@ -210,6 +215,7 @@ public class ActionEvent : MonoBehaviour
             Debug.Log("！マーク非表示");
             testFlag = false;
             Debug.Log("flag" + testFlag);
+
             UpdatefinishFlag();
         }
     }
