@@ -26,6 +26,7 @@ public class ActionEvent : MonoBehaviour
 
     public GameObject textBox;
 
+    public Player player;
     public BoxCollider2D boxCollider;
     
 
@@ -43,6 +44,9 @@ public class ActionEvent : MonoBehaviour
     public bool finishtalk = false; 
 
     public bool testFlag = false;
+
+    //会話中かどうか
+    public bool inconversation = false;
 
     string characterName;
 
@@ -98,13 +102,14 @@ public class ActionEvent : MonoBehaviour
             //string nextConversation = TestTalkManager.Instance.GetTalk(taklEventIndex, actionEventIndex + 1);
             string nextConversation = TestTalkManager.Instance.GetTalk(talkEventIndex, actionEventIndex+1);
             string nextName = TestTalkManager.Instance.GetTalkName(talkEventIndex, actionEventIndex+1);
+            inconversation = true;
 
             actionEventIndex++;
             if (string.IsNullOrEmpty(nextConversation))
             {
                 Debug.Log("会話終了");
                 finishtalk = true; // 会話終了フラグを立てる
-
+                inconversation = false;
                 boxCollider = gameObject.GetComponent<BoxCollider2D>();
                 boxCollider.enabled = false;
 

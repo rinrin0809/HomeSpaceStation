@@ -39,7 +39,7 @@ public class Player : MonoBehaviour
 
     // アニメーション
     [SerializeField]
-    private Animator animatior;
+    private Animator animator;
     [SerializeField]
     private float animSpeed = 1.0f;
     private float dashAnimSpeed = 2.0f;
@@ -62,6 +62,8 @@ public class Player : MonoBehaviour
     // 仮インベントリ
     [SerializeField]
     private List<GameObject> itemList = new List<GameObject>();
+
+    public ActionEvent actionEvent;
 
     //シーン移動
     public VectorValue startingPosition;
@@ -161,7 +163,7 @@ public class Player : MonoBehaviour
         Event.Initialize();
 
         rb = GetComponent<Rigidbody2D>();
-        animatior = GetComponent<Animator>();
+        animator = GetComponent<Animator>();
 
         targetPosition = new Vector3(0.0f, -4.0f, 0.0f);
 
@@ -374,38 +376,50 @@ public class Player : MonoBehaviour
         if (ClearExitFlg) return;
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
 
-        //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
-        //スタミナ最小値より大きい時かつスタミナが0になっていない時
-        if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
-            stamina > minStamina && !zeroStaminaFlg)
+        if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation)
         {
-            //移動処理
-            Move(dashMoveSpeed, Time.fixedDeltaTime);
-
-            if (horizontal != 0 || vertical != 0)
+            //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+            //スタミナ最小値より大きい時かつスタミナが0になっていない時
+            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+            stamina > minStamina && !zeroStaminaFlg)
             {
-                if (stamina > minStamina)
+                //移動処理
+                Move(dashMoveSpeed, Time.fixedDeltaTime);
+
+                if (horizontal != 0 || vertical != 0)
                 {
-                    stamina -= staminaSpeed * Time.fixedDeltaTime;
+                    if (stamina > minStamina)
+                    {
+                        stamina -= staminaSpeed * Time.fixedDeltaTime;
+                    }
+                }
+
+                else
+                {
+                    //Hキーが押されている時にスタミナを減らしたくなければコメントアウト
+                    stamina += staminaSpeed * Time.fixedDeltaTime;
                 }
             }
-
             else
             {
-                //Hキーが押されている時にスタミナを減らしたくなければコメントアウト
-                stamina += staminaSpeed * Time.fixedDeltaTime;
+                //移動処理
+                Move(moveSpeed, Time.fixedDeltaTime);
+                if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation) Move(moveSpeed, Time.fixedDeltaTime);
+
+                if (stamina < maxStamina)
+                {
+                    stamina += staminaSpeed * Time.fixedDeltaTime;
+                }
             }
+            animator.enabled = true;
         }
-
-        else
+        else if (!actionEvent.finishtalk && actionEvent.inconversation)
         {
-            //移動処理
-            Move(moveSpeed, Time.fixedDeltaTime);
 
-            if (stamina < maxStamina)
-            {
-                stamina += staminaSpeed * Time.fixedDeltaTime;
-            }
+            AnimMove(0);
+            DontMove(0, 0f);
+            isMoving = false;
+            animator.enabled = false; // 停止 // 一時停止
         }
     }
 
@@ -504,7 +518,7 @@ public class Player : MonoBehaviour
     private void AnimMove(float AnimSpeed)
     {
         // アニメーションの再生スピード
-        animatior.speed = AnimSpeed;
+        animator.speed = AnimSpeed;
 
         // 仮移動
         horizontal = Input.GetAxisRaw("Horizontal");
@@ -519,12 +533,12 @@ public class Player : MonoBehaviour
         if (horizontal != 0 || vertical != 0)
         {
             //Debug.Log(isMoving);
-            animatior.SetFloat("InputX", horizontal);
-            animatior.SetFloat("InputY", vertical);
+            animator.SetFloat("InputX", horizontal);
+            animator.SetFloat("InputY", vertical);
             if (!isMoving)
             {
                 isMoving = true;
-                animatior.SetBool("IsMoving", isMoving);
+                animator.SetBool("IsMoving", isMoving);
             }
         }
         else
@@ -532,16 +546,21 @@ public class Player : MonoBehaviour
             if (isMoving)
             {
                 isMoving = false;
-                animatior.SetBool("IsMoving", isMoving);
+                animator.SetBool("IsMoving", isMoving);
             }
         }
     }
 
     //移動処理
-    private void Move(float moveSpeed, float deltaTime)
+    public void Move(float moveSpeed, float deltaTime)
     {
         rb.velocity = moveDir * moveSpeed * deltaTime;
     }
+    public void DontMove(float moveSpeed, float deltaTime)
+    {
+        rb.velocity = moveDir * moveSpeed * deltaTime;
+    }
+
 
     private void OnCollisionEnter2D(Collision2D other)
     {
