@@ -29038,11 +29038,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 736204169751323769, guid: 28a0972c36862f445b7f5c1bc7032c06, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.00024748826
+      value: 0.0008576056
       objectReference: {fileID: 0}
     - target: {fileID: 736204169751323769, guid: 28a0972c36862f445b7f5c1bc7032c06, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.0002624382
+      value: -0.0008652337
       objectReference: {fileID: 0}
     - target: {fileID: 2341183683573982594, guid: 28a0972c36862f445b7f5c1bc7032c06, type: 3}
       propertyPath: m_AnchorMax.x
@@ -29181,7 +29181,6 @@ SceneRoots:
   - {fileID: 179539532}
   - {fileID: 1720458427}
   - {fileID: 2139550508}
-  - {fileID: 79247792}
   - {fileID: 2064395664}
   - {fileID: 1578526015}
   - {fileID: 923604828}
@@ -29190,15 +29189,16 @@ SceneRoots:
   - {fileID: 56684653}
   - {fileID: 262461264}
   - {fileID: 792530187}
-  - {fileID: 253364787}
   - {fileID: 340667313}
   - {fileID: 1912556282}
   - {fileID: 667175880}
   - {fileID: 1508394231}
   - {fileID: 1633859343}
   - {fileID: 1456011472}
+  - {fileID: 79247792}
   - {fileID: 8272285727359005050}
   - {fileID: 1746535705}
+  - {fileID: 253364787}
   - {fileID: 376391951}
   - {fileID: 7845173751842493359}
   - {fileID: 1699173126}
