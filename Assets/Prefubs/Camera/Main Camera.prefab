@@ -109,7 +109,7 @@ MonoBehaviour:
   target: {fileID: 0}
   Enemy: {fileID: 0}
   cameraSpeed: 0.5
-  Event: {fileID: 0}
+  Event: {fileID: 11400000, guid: f18b04dc65d6eec40b67688b7da3189e, type: 2}
 --- !u!114 &-7817509693409007555
 MonoBehaviour:
   m_ObjectHideFlags: 0

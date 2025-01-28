@@ -2171,6 +2171,7 @@ MonoBehaviour:
   - {fileID: 3942191727392272120}
   - {fileID: 4629445427180681735}
   MaxPosNum: 0
+  MAX_TIME: 60
   MaxSideNum: 2
   MaxLengthNum: 2
 --- !u!114 &6058234027025723319
@@ -2409,6 +2410,10 @@ PrefabInstance:
     - target: {fileID: 5666914952472801192, guid: 19aa61e158fe448479fef93fe6f2b30f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -106
+      objectReference: {fileID: 0}
+    - target: {fileID: 5793294043435574353, guid: 19aa61e158fe448479fef93fe6f2b30f, type: 3}
+      propertyPath: MAX_TIME
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 5793294043435574353, guid: 19aa61e158fe448479fef93fe6f2b30f, type: 3}
       propertyPath: MaxSideNum
@@ -2893,6 +2898,7 @@ MonoBehaviour:
   - {fileID: 4443000257663282924}
   - {fileID: 7599381425819464872}
   MaxPosNum: 0
+  MAX_TIME: 60
   MaxSideNum: 2
   MaxLengthNum: 2
 --- !u!114 &4807062961478124184
