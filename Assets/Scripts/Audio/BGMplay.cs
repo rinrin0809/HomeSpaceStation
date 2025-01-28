@@ -10,7 +10,7 @@ public class BGMplay : MonoBehaviour
     void Start()
     {
         AudioManager.Instance.PlayBGM(selectedBgm);
-        
+        AudioManager.Instance.SelectedBgm = selectedBgm;
     }
 
      public void StopBGM()

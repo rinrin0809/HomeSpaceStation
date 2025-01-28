@@ -66,6 +66,7 @@ public class FadeOutSceneLoader : MonoBehaviour
     {
         yield return StartCoroutine(FadeOut());
         SceneManager.LoadScene(Name);
+        if(AudioManager.Instance != null) AudioManager.Instance.StopBGM(AudioManager.Instance.SelectedBgm);
     }
 
     // プレイヤーデータのロードとシーン遷移処理
