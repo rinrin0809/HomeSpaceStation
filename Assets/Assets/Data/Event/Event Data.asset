@@ -12,5 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a20e944a13d3a9047a9296237ad00898, type: 3}
   m_Name: Event Data
   m_EditorClassIdentifier: 
-  Events: []
+  Events:
+  - EventName: "\u8ECA\u6545\u969C"
+    EventNumber: 0
+    EventFlag: 0
+    EndEventFlg: 0
+    EventActionFlg: 0
   Size: 8
