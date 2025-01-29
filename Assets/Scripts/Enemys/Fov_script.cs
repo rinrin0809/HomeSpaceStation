@@ -72,7 +72,11 @@ public class Fov_script : MonoBehaviour
 
             if (sightCounter >= sightThreshold)
             {
-                game.gameObject.SetActive(true); // ゲームオーバーを発動
+                if (game != null)
+                {
+                    game.gameObject.SetActive(true); // ゲームオーバーを発動
+                }
+                
                 //Debug.Log("ゲームオーバーを発動！");
             }
         }
