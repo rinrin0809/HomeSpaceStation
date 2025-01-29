@@ -91,6 +91,8 @@ public class Player : MonoBehaviour
     bool MiniGameFlg = false;
     //ミニゲームの時の位置
     Vector3 MiniGamePos = new Vector3(0.0f, 0.0f, 0.0f);
+    //actionEventの取得制限用フラグ
+    private bool GetActFlg = true;
     public List<GameObject> GetItemList
     {
         get { return itemList; }
@@ -227,6 +229,15 @@ public class Player : MonoBehaviour
 
         //初期位置の設定
         NewGameSpownPlayer();
+
+        if(SceneManager.GetActiveScene().name == "Floor(B1)")
+        {
+            if(GetActFlg)
+            {
+                actionEvent = FindObjectOfType<ActionEvent>();
+                GetActFlg = false;
+            }
+        }
 
         //if (BGMSoundData.BGM.Title != null)
         //{
@@ -376,50 +387,54 @@ public class Player : MonoBehaviour
         if (ClearExitFlg) return;
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
 
-        if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation)
+        if (actionEvent != null)
         {
-            //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
-            //スタミナ最小値より大きい時かつスタミナが0になっていない時
-            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
-            stamina > minStamina && !zeroStaminaFlg)
+            if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation)
             {
-                //移動処理
-                Move(dashMoveSpeed, Time.fixedDeltaTime);
-
-                if (horizontal != 0 || vertical != 0)
+                //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+                //スタミナ最小値より大きい時かつスタミナが0になっていない時
+                if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+                stamina > minStamina && !zeroStaminaFlg)
                 {
-                    if (stamina > minStamina)
+                    //移動処理
+                    Move(dashMoveSpeed, Time.fixedDeltaTime);
+
+                    if (horizontal != 0 || vertical != 0)
                     {
-                        stamina -= staminaSpeed * Time.fixedDeltaTime;
+                        if (stamina > minStamina)
+                        {
+                            stamina -= staminaSpeed * Time.fixedDeltaTime;
+                        }
+                    }
+
+                    else
+                    {
+                        //Hキーが押されている時にスタミナを減らしたくなければコメントアウト
+                        stamina += staminaSpeed * Time.fixedDeltaTime;
                     }
                 }
-
                 else
                 {
-                    //Hキーが押されている時にスタミナを減らしたくなければコメントアウト
-                    stamina += staminaSpeed * Time.fixedDeltaTime;
+                    //移動処理
+                    //Move(moveSpeed, Time.fixedDeltaTime);
+                    if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation) Move(moveSpeed, Time.fixedDeltaTime);
+
+                    if (stamina < maxStamina)
+                    {
+                        stamina += staminaSpeed * Time.fixedDeltaTime;
+                    }
                 }
+                animator.enabled = true;
             }
-            else
+
+            else if (!actionEvent.finishtalk && actionEvent.inconversation)
             {
-                //移動処理
-                Move(moveSpeed, Time.fixedDeltaTime);
-                if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation) Move(moveSpeed, Time.fixedDeltaTime);
 
-                if (stamina < maxStamina)
-                {
-                    stamina += staminaSpeed * Time.fixedDeltaTime;
-                }
+                AnimMove(0);
+                DontMove(0, 0f);
+                isMoving = false;
+                animator.enabled = false; // 停止 // 一時停止
             }
-            animator.enabled = true;
-        }
-        else if (!actionEvent.finishtalk && actionEvent.inconversation)
-        {
-
-            AnimMove(0);
-            DontMove(0, 0f);
-            isMoving = false;
-            animator.enabled = false; // 停止 // 一時停止
         }
     }
 
@@ -585,7 +600,7 @@ public class Player : MonoBehaviour
     {
         if(NewGameSpownFlg && SceneManager.GetActiveScene().name == "Floor(B1)")
         {
-            this.gameObject.transform.position = new Vector3(172.09f, -28.69f,0.0f);
+            this.gameObject.transform.position = new Vector3(172.09f, -27.69f,0.0f);
             NewGameSpownFlg = false;
         }
     }
