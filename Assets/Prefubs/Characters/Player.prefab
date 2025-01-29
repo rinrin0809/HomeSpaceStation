@@ -129,11 +129,12 @@ MonoBehaviour:
   stamina: 0
   slider: {fileID: 0}
   rb: {fileID: 3413675006601124385}
-  animatior: {fileID: 0}
+  animator: {fileID: 0}
   animSpeed: 0.5
   isMoving: 0
   isNearItem: 0
   itemList: []
+  actionEvent: {fileID: 5842629476342579094, guid: 62c7fa1cd985fda4c9629322881b1088, type: 3}
   startingPosition: {fileID: 11400000, guid: 5d894d65711eaaf498df1ad85be28f80, type: 2}
   ClearExitFlg: 0
   Score: 0
