@@ -26,6 +26,15 @@ public class LightsOut : MonoBehaviour
 
     public Button DebugButton;
 
+    // タイトル用
+    [SerializeField]
+    private Button Button3x3;
+    [SerializeField]
+    private Button  Button4x4;
+    [SerializeField]
+    private Button Button5x5;
+  
+
     void Start()
     {
       
@@ -38,7 +47,12 @@ public class LightsOut : MonoBehaviour
         {
             DebugButton.onClick.AddListener(DebugMode);
         }
-       
+
+        // タイトル用
+        if (Button3x3 != null) Button3x3.onClick.AddListener(Onclick3x3);
+        if (Button4x4 != null) Button4x4.onClick.AddListener(Onclick4x4);
+        if (Button5x5 != null) Button5x5.onClick.AddListener(Onclick5x5);
+
     }
 
    
@@ -177,4 +191,42 @@ public class LightsOut : MonoBehaviour
     {
         GimmickPanel.gameObject.SetActive(true);
     }
+
+
+    // タイトル用
+    private void Onclick3x3()
+    {
+        foreach (GameObject obj in newPrefab)
+        {
+            Destroy(obj); // ゲームオブジェクトを削除
+        }
+        gridCount.constraintCount=3;
+        gridSize=3;
+        CreateGrid();
+
+    }
+
+    private void Onclick4x4()
+    {
+        foreach (GameObject obj in newPrefab)
+        {
+            Destroy(obj); // ゲームオブジェクトを削除
+        }
+        gridCount.constraintCount = 4;
+        gridSize = 4;
+        CreateGrid();
+    }
+
+    private void Onclick5x5()
+    {
+        foreach (GameObject obj in newPrefab)
+        {
+            Destroy(obj); // ゲームオブジェクトを削除
+        }
+        gridCount.constraintCount = 5;
+        gridSize = 5;
+        CreateGrid();
+    }
+
+
 }
