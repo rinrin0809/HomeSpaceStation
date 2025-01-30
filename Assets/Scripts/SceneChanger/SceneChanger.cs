@@ -11,7 +11,7 @@ public class SceneChanger : MonoBehaviour
     string NextSceneName;
 
     // フェードアウト
-    private FadeOutSceneLoader fadeOutSceneLoader;
+    public FadeOutSceneLoader fadeOutSceneLoader;
 
     void Start()
     {
@@ -23,31 +23,37 @@ public class SceneChanger : MonoBehaviour
     {
         //ゲームオブジェクトの有効化
         On();
+        
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             OnFlg = true;
+            Debug.Log("true");
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            OnFlg = false;
-        }
-    }
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+
+    //    if (collision.gameObject.CompareTag("Player"))
+    //    {
+    //        OnFlg = false;
+    //    }
+    //}
 
     //ゲームオブジェクトの有効化
     private void On()
     {
-        if (OnFlg && Input.GetKeyDown(KeyCode.Space))
+        if (Player.Instance.SkilFlg == true || OnFlg == true)
         {
-            Player.Instance.UpdateFlg = true;
-            fadeOutSceneLoader.NewGameCallCoroutine(NextSceneName);
+            if(Input.GetKeyDown(KeyCode.Space))
+            {
+                Player.Instance.ClearExitFlg = true;
+                fadeOutSceneLoader.NewGameCallCoroutine(NextSceneName);
+            }
         }
     }
 }

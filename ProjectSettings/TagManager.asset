@@ -23,6 +23,8 @@ TagManager:
   - BackReference
   - Door
   - EventCollision
+  - Apple
+  - SkillCheck
   layers:
   - Default
   - TransparentFX

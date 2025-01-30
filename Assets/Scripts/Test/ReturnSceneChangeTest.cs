@@ -16,9 +16,9 @@ public class ReturnSceneChangeTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            fadeOutSceneLoader.NewGameCallCoroutine("WinterVacation");
+            fadeOutSceneLoader.NewGameCallCoroutine("Floor(B3)");
         }
     }
 }

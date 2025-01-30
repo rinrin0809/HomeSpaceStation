@@ -141,6 +141,7 @@ public class Player : MonoBehaviour
 
     //NewGameが押された時に初期位置を設定するフラグ
     public bool NewGameSpownFlg = false;
+    public bool SkilFlg = false;
 
     private void Awake()
     {
@@ -201,6 +202,28 @@ public class Player : MonoBehaviour
 
         stamina = 100.0f;
 
+        
+        objectTransform = gameObject.GetComponent<Transform>();
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if (!UpdateFlg) return;
+
+        //初期位置の設定
+        NewGameSpownPlayer();
+
+        fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
+
+        if (SceneManager.GetActiveScene().name == "Floor(B1)")
+        {
+            if(GetActFlg)
+            {
+                actionEvent = FindObjectOfType<ActionEvent>();
+                GetActFlg = false;
+            }
+        }
+
         // タグ "SliderTag" が付いたすべてのオブジェクトを取得
         GameObject[] sliderObjects = GameObject.FindGameObjectsWithTag("StaminaGause");
 
@@ -219,26 +242,6 @@ public class Player : MonoBehaviour
             slider.value = stamina;
         }
 
-        fadeOutSceneLoader = FindObjectOfType<FadeOutSceneLoader>();
-        objectTransform = gameObject.GetComponent<Transform>();
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        if (!UpdateFlg) return;
-
-        //初期位置の設定
-        NewGameSpownPlayer();
-
-        if(SceneManager.GetActiveScene().name == "Floor(B1)")
-        {
-            if(GetActFlg)
-            {
-                actionEvent = FindObjectOfType<ActionEvent>();
-                GetActFlg = false;
-            }
-        }
-
         //if (BGMSoundData.BGM.Title != null)
         //{
         //    AudioManager.Instance.PlayBGM(BGMSoundData.BGM.Title);
@@ -252,7 +255,6 @@ public class Player : MonoBehaviour
 
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
-        if (ClearExitFlg) return;
         //セーブデータをロード
         PlayerLoadData();
 
@@ -384,7 +386,6 @@ public class Player : MonoBehaviour
         }
         //シーン遷移する判定に当たった時のフラグがtrueの時は処理をしない
         if (ChangeSceneFlg) return;
-        if (ClearExitFlg) return;
         //rigidbody2d.velocity = moveDir * moveSpeed * Time.deltaTime;
 
         if (actionEvent != null)
@@ -460,33 +461,37 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Apple")
         {
-            //Debug.Log("アップルがある");
+            Debug.Log("アップルがある");
             //text.gameObject.SetActive(true);
             //text.text = "Eボタンでアイテムを拾う";
-            NearItem = collision.gameObject;
+            //NearItem = collision.gameObject;
 
         }
 
-        if (collision.gameObject.CompareTag("ClearExit"))
+        if (collision.gameObject.tag == "SkillCheck")
         {
+            SkilFlg = true;
             ClearExitFlg = true;
+        }
 
+        if (collision.gameObject.tag == "ClearExit" && ClearExitFlg)
+        {
             // バッドエンド（0～50未満）
-            if (Player.Instance.Score < 50)
+            if (Score < 50)
             {
                 Debug.Log("BadEnd");
                 fadeOutSceneLoader.NewGameCallCoroutine("BadEnd");
             }
 
             // ノーマルエンド（50～75未満）
-            else if (Player.Instance.Score < 75)
+            else if (Score < 75)
             {
                 Debug.Log("NormalEnd");
                 fadeOutSceneLoader.NewGameCallCoroutine("NormalEnd");
             }
 
             // グッドエンド（75～100以下）
-            else if (Player.Instance.Score <= 100)
+            else if (Score <= 100)
             {
                 Debug.Log("GoodEnd");
                 fadeOutSceneLoader.NewGameCallCoroutine("GoodEnd");
@@ -512,6 +517,11 @@ public class Player : MonoBehaviour
             //isNearItem = false;
             NearItem = null;
 
+        }
+
+        if (collision.gameObject.tag == "SkillCheck")
+        {
+            //SkilFlg = false;
         }
     }
 

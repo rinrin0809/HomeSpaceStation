@@ -18,7 +18,7 @@ public class IconOff : MonoBehaviour
     void Start()
     {
         //初期化
-        ObjColor = new Color(0.0f,0.0f,0.0f,1.0f);
+        ObjColor = new Color(1.0f,1.0f,1.0f,1.0f);
         //消すオブジェクトのイメージ取得
         ObjImage = GameObj.GetComponent<Image>();
     }
