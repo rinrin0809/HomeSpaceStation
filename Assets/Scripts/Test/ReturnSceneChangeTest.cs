@@ -18,7 +18,7 @@ public class ReturnSceneChangeTest : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Backspace))
         {
-            fadeOutSceneLoader.NewGameCallCoroutine("Floor(B3)");
+            fadeOutSceneLoader.NoResetCallCoroutine("Floor(B3)");
         }
     }
 }

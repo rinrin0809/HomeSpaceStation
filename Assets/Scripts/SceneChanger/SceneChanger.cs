@@ -52,7 +52,7 @@ public class SceneChanger : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space))
             {
                 Player.Instance.ClearExitFlg = true;
-                fadeOutSceneLoader.NewGameCallCoroutine(NextSceneName);
+                fadeOutSceneLoader.NoResetCallCoroutine(NextSceneName);
             }
         }
     }

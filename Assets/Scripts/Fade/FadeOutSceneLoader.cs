@@ -27,6 +27,14 @@ public class FadeOutSceneLoader : MonoBehaviour
         }
     }
 
+    public void NoResetCallCoroutine(string Name)
+    {
+        if (LoadManager.Instance != null)
+        {
+            StartCoroutine(FadeOutAndNewGameOrTitle(Name));
+        }
+    }
+
     public void LoadGameCallCoroutine()
     {
         if (LoadManager.Instance != null)
