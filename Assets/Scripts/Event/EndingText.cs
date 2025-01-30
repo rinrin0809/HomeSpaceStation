@@ -24,9 +24,11 @@ public class EndingText : MonoBehaviour
 
     public Image textBoxImage;
     public Image nameBoxImage;
+    public Image EndingNameImage;
+
     public float textAlphaSpeed = 1.3f;
-
-
+    public float EndingNameAlphaSpeed = 1.1f;
+    
     public int talkEventIndex = 0;
     public int actionEventIndex = 0;
 
@@ -61,7 +63,7 @@ public class EndingText : MonoBehaviour
     {
         if (InitilizeFlg)
         {
-            Event.SetEventActionEventFlg("êˆì¸å„", true);
+            Event.SetEventActionEventFlg("é‘åÃè·", true);
             InitilizeFlg = false;
         }
 
@@ -90,7 +92,7 @@ public class EndingText : MonoBehaviour
             {
                 Debug.Log("âÔòbèIóπ");
                 finishtalk = true;
-                Event.SetEventActionEventFlg("êˆì¸å„", false);
+                Event.SetEventActionEventFlg("é‘åÃè·", false);
                 text.text = "";
             }
             else
@@ -133,6 +135,11 @@ public class EndingText : MonoBehaviour
                 Color nameColor = nametext.color;
                 nameColor.a -= textAlphaSpeed * Time.deltaTime;
                 nametext.color = nameColor;
+
+                Color EndingNameColor = EndingNameImage.color;
+                EndingNameColor.a += EndingNameAlphaSpeed * Time.deltaTime;
+                EndingNameImage.color = EndingNameColor;
+                EndingNameImage.color = EndingNameColor;
             }
         }
     }

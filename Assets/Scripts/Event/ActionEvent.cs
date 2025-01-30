@@ -89,7 +89,7 @@ public class ActionEvent : MonoBehaviour
     {
         if(InitilizeFlg)
         {
-            Event.SetEventActionEventFlg("ö“üŒã", true);
+            Event.SetEventActionEventFlg("ÔŒÌá", true);
             InitilizeFlg = false;
         }
 
@@ -114,7 +114,7 @@ public class ActionEvent : MonoBehaviour
                 boxCollider.enabled = false;
 
                 //“§–¾‚Ì•Ç”»’èíœ
-                Event.SetEventActionEventFlg("ö“üŒã", false);
+                Event.SetEventActionEventFlg("ÔŒÌá", false);
 
                 if (AddItem != null)
                 {

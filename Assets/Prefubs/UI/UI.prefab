@@ -364,3 +364,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameObj: {fileID: 4228952042855838719}
+  ObjColor: {r: 1, g: 1, b: 1, a: 0}

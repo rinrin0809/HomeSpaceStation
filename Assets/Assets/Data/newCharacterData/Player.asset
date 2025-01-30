@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: Player
   m_EditorClassIdentifier: 
   charaPost: 0
-  CharacterName: "\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8X"
+  CharacterName: "\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8S"
   sprite: {fileID: 0}
+  CharaDirection: 
+  image: {fileID: 0}

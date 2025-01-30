@@ -35,6 +35,9 @@ public class UIInventoryPage : MonoBehaviour
 
     private string ShowName = "";
 
+    [SerializeField]
+    private Item USBitem;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -123,11 +126,7 @@ public class UIInventoryPage : MonoBehaviour
     public void Hide()
     {
         gameObject.SetActive(false);
-        //// 全スロットのデータをリセット
-        //foreach (var item in listUIItems)
-        //{
-        //    item.ResetData();
-        //}
+       
         Time.timeScale = 1.0f;
     }
 
@@ -254,5 +253,16 @@ public class UIInventoryPage : MonoBehaviour
                 itemImage.color = (i == Num) ? Color.green : Color.white;
             }
         }
+    }
+
+    public void InventoryAddUSB(Item usb)
+    {
+        
+        inventory.AddItem(usb, true);
+    }
+
+    public void RemoveUSB(Item usb)
+    {
+        inventory.RemoveItemByName(usb.name);
     }
 }

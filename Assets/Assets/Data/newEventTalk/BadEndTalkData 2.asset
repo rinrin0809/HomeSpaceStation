@@ -57,7 +57,7 @@ MonoBehaviour:
   - charadata: {fileID: 11400000, guid: 974ac71a1a95bbb4abf702944e86142f, type: 2}
     Conversations: "\u30D1\u30F3\u30FB\u30FB\u30FB"
   - charadata: {fileID: 11400000, guid: 974ac71a1a95bbb4abf702944e86142f, type: 2}
-    Conversations: "\u30B6\u30FC\u30B6\u30FC\u30FB\u30FB\u30FB\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8X\u3092\u59CB\u672B\u3057\u307E\u3057\u305F\u3002"
+    Conversations: "\u30B6\u30FC\u30B6\u30FC\u30FB\u30FB\u30FB\u30A8\u30FC\u30B8\u30A7\u30F3\u30C8S\u3092\u59CB\u672B\u3057\u307E\u3057\u305F\u3002"
   - charadata: {fileID: 11400000, guid: 0a1a85cdd0a6e0b40a50eaacde01e9b5, type: 2}
     Conversations: "\u305D\u3046\u304B...\u3088\u304F\u3084\u3063\u305F\u3002\u3067\u306F\u305D\u306E\u307E\u307E\u5E1D\u56FD\u306E\u6F5C\u5165\u3092\u7D9A\u3051\u3066\u304F\u308C"
   - charadata: {fileID: 11400000, guid: 974ac71a1a95bbb4abf702944e86142f, type: 2}

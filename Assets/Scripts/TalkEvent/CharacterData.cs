@@ -35,7 +35,7 @@ public class CharacterPost
         frendboy, // ålŒö‚Ì—F’B
         frendGarl, // —F’B‚Ì”Ş—
         okami,   // —«
-
+        monster, //ÀŒ±¶•¨
 
         Azki,   // ‚ ‚¸‚«‚¿‚á‚ñ(‰¼)
     }
