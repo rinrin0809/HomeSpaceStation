@@ -9,6 +9,7 @@ public class NewMover : MonoBehaviour
     public float openSpeed = 2f;  // î‡Ç™äJÇ≠ë¨ìx
     public bool isOpening = false;
     public bool RockFlg = false;
+    public InputNumber inputnumber;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +25,10 @@ public class NewMover : MonoBehaviour
     {
         // î‡ÇäJÇØÇÈèàóù
         if (isOpening == true && !RockFlg)
+        {
+            door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * 0.033f);
+        }
+        if (isOpening == true && !inputnumber)
         {
             door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * 0.033f);
         }

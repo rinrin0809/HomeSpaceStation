@@ -49,6 +49,8 @@ public class InputNumber : MonoBehaviour
 
     public UnityEngine.UI.Button showButton;
 
+    public bool Ans = false;
+
     void Start()
     {
         exportText.color = Color.black;
@@ -219,6 +221,7 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.green;
+                    Ans = true;
                     Debug.Log("ê≥âÅI");
                 }
                 
@@ -226,6 +229,7 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.red;
+                    Ans = false;
                     Debug.Log("ïsê≥â");
                 }
             }
