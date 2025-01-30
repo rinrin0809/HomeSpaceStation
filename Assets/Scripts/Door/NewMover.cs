@@ -8,7 +8,7 @@ public class NewMover : MonoBehaviour
     public Vector3 openPosition;  // 扉が開いたときの位置
     public float openSpeed = 2f;  // 扉が開く速度
     public bool isOpening = false;
-    public bool RockFlg = false;
+    public bool RockFlg = true;
     public InputNumber inputnumber;
     // Start is called before the first frame update
     void Start()

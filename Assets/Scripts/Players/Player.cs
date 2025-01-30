@@ -417,7 +417,7 @@ public class Player : MonoBehaviour
                 else
                 {
                     //移動処理
-                    //Move(moveSpeed, Time.fixedDeltaTime);
+                    Move(moveSpeed, Time.fixedDeltaTime);
                     if (actionEvent.finishtalk && !actionEvent.inconversation || !actionEvent.finishtalk && !actionEvent.inconversation) Move(moveSpeed, Time.fixedDeltaTime);
 
                     if (stamina < maxStamina)
@@ -435,6 +435,42 @@ public class Player : MonoBehaviour
                 DontMove(0, 0f);
                 isMoving = false;
                 animator.enabled = false; // 停止 // 一時停止
+            }
+        }
+
+        else
+        {
+            //シフトキーが押されたか(コメントアウトしてるのは右のシフトキー)
+            //スタミナ最小値より大きい時かつスタミナが0になっていない時
+            if (Input.GetKey(KeyCode.LeftShift) /*|| Input.GetKey(KeyCode.RightShift)*/ &&
+            stamina > minStamina && !zeroStaminaFlg)
+            {
+                //移動処理
+                Move(dashMoveSpeed, Time.fixedDeltaTime);
+
+                if (horizontal != 0 || vertical != 0)
+                {
+                    if (stamina > minStamina)
+                    {
+                        stamina -= staminaSpeed * Time.fixedDeltaTime;
+                    }
+                }
+
+                else
+                {
+                    //Hキーが押されている時にスタミナを減らしたくなければコメントアウト
+                    stamina += staminaSpeed * Time.fixedDeltaTime;
+                }
+            }
+            else
+            {
+                //移動処理
+                Move(moveSpeed, Time.fixedDeltaTime);
+
+                if (stamina < maxStamina)
+                {
+                    stamina += staminaSpeed * Time.fixedDeltaTime;
+                }
             }
         }
     }
@@ -521,7 +557,7 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "SkillCheck")
         {
-            //SkilFlg = false;
+            SkilFlg = false;
         }
     }
 
