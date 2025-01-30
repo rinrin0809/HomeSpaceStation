@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: B1FReferenceCardKey
   m_EditorClassIdentifier: 
   <Name>k__BackingField: "B1F\u8CC7\u6599\u5BA4\u306E\u30AB\u30AE"
-  <Descripton>k__BackingField: "B1F\u8CC7\u6599\u5BA4\u3068\u66F8\u3044\u3066\u3042\u308B\u30AB\u30FC\u30C9\u30AD\u30FC"
+  <Descripton>k__BackingField: "\u8CC7\u6599\u5BA4\u3068\u66F8\u3044\u3066\u3042\u308B\u30AB\u30FC\u30C9\u30AD\u30FC"
   <ItemSprite>k__BackingField: {fileID: 8316026145763058638, guid: 25eadf9bba34df2418cb9f64dd0f0f20, type: 3}
