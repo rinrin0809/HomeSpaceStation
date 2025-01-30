@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3234537712136798095}
   - component: {fileID: 519393331938484032}
   - component: {fileID: 9161896828475029555}
+  - component: {fileID: 1626377464821214312}
   m_Layer: 0
   m_Name: B2FReferenceCardKey
   m_TagString: Key
@@ -148,3 +149,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 0.0001, y: 0.0001}
   m_EdgeRadius: 0
+--- !u!114 &1626377464821214312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5939366346153470745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d77f18cb72b6c84ab882d31956f8c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exclamationMark: {fileID: 2196039460391287515, guid: 9a498c4d6ac638f448836deac4d94cc0, type: 3}
+  ActionObject: {fileID: 8282303138171124447}
+  offset: {x: 0, y: 1.5, z: 0}
+  canvas: {fileID: 0}

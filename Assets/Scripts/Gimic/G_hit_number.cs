@@ -44,7 +44,7 @@ public class G_hit_number : MonoBehaviour
                 gimmick.SetActive(true);
             }
         }
-        if (inputumber != null && inputumber.Ans)
+        if (inputumber != null && inputumber.Ans || Input.GetKeyDown(KeyCode.Backspace))
         {
             Time.timeScale = 1;
             gimmick.SetActive(false); // ギミックを非表示にする

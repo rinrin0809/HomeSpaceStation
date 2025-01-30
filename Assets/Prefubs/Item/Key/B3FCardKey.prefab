@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3559234240074376193}
   - component: {fileID: 8535049666712295340}
   - component: {fileID: 1316368434052069944}
+  - component: {fileID: -2290115399842593728}
   m_Layer: 0
   m_Name: B3FCardKey
   m_TagString: Key
@@ -148,3 +149,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &-2290115399842593728
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 269114257709071687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d77f18cb72b6c84ab882d31956f8c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exclamationMark: {fileID: 2196039460391287515, guid: 9a498c4d6ac638f448836deac4d94cc0, type: 3}
+  ActionObject: {fileID: 913743670007825661}
+  offset: {x: 0, y: 1.5, z: 0}
+  canvas: {fileID: 0}

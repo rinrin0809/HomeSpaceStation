@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8585153849379736228}
   - component: {fileID: 7855840301001604853}
   - component: {fileID: 7686911458888064165}
+  - component: {fileID: 3974087801559366552}
   m_Layer: 0
   m_Name: LokerCardKey
   m_TagString: Key
@@ -148,3 +149,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &3974087801559366552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3983330014458932725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d77f18cb72b6c84ab882d31956f8c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exclamationMark: {fileID: 2196039460391287515, guid: 9a498c4d6ac638f448836deac4d94cc0, type: 3}
+  ActionObject: {fileID: 8151587581879200302}
+  offset: {x: 0, y: 1.5, z: 0}
+  canvas: {fileID: 0}

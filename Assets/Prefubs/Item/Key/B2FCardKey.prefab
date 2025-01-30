@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2482723127279525683}
   - component: {fileID: 9047702648832026916}
   - component: {fileID: 5852274760313189617}
+  - component: {fileID: 4099507900598514322}
   m_Layer: 0
   m_Name: B2FCardKey
   m_TagString: Key
@@ -148,3 +149,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4099507900598514322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362299127617387465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d77f18cb72b6c84ab882d31956f8c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  exclamationMark: {fileID: 2196039460391287515, guid: 9a498c4d6ac638f448836deac4d94cc0, type: 3}
+  ActionObject: {fileID: 4566639639588661061}
+  offset: {x: 0, y: 1.5, z: 0}
+  canvas: {fileID: 0}

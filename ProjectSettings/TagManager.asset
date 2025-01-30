@@ -25,6 +25,7 @@ TagManager:
   - EventCollision
   - Apple
   - SkillCheck
+  - BackSecretPos
   layers:
   - Default
   - TransparentFX

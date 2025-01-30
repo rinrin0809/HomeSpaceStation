@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6224114424728195418}
   - component: {fileID: 3639190524454976657}
   - component: {fileID: 7302135180813434227}
+  - component: {fileID: 6534991138011731459}
   m_Layer: 0
   m_Name: MonsterCore
   m_TagString: Key
@@ -148,3 +149,15 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6534991138011731459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432878146086451875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d77f18cb72b6c84ab882d31956f8c96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

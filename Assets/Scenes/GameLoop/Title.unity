@@ -2235,7 +2235,6 @@ MonoBehaviour:
   Buttons:
   - {fileID: 1784604576}
   - {fileID: 667017362}
-  TitleCanvas: {fileID: 0}
 --- !u!114 &935214176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2252,7 +2251,7 @@ MonoBehaviour:
   - {fileID: 1594652828}
   - {fileID: 909201415}
   MaxPosNum: 0
-  MAX_TIME: 60
+  MAX_TIME: 110
   MaxSideNum: 0
   MaxLengthNum: 1
 --- !u!114 &935214177
@@ -3458,7 +3457,7 @@ MonoBehaviour:
   - {fileID: 1067631461}
   - {fileID: 1533944738}
   MaxPosNum: 0
-  MAX_TIME: 60
+  MAX_TIME: 110
   MaxSideNum: 2
   MaxLengthNum: 2
 --- !u!114 &1320594757
@@ -3478,7 +3477,6 @@ MonoBehaviour:
   - {fileID: 1092735929}
   - {fileID: 1687034974}
   - {fileID: 2142980464}
-  TitleCanvas: {fileID: 2093122560}
 --- !u!1001 &1349313539
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5321,6 +5319,10 @@ PrefabInstance:
     - target: {fileID: 739525905126925802, guid: f895f6da1f44961468ac9f931f869fdb, type: 3}
       propertyPath: NextScene
       value: Floor(B2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 739525905126925802, guid: f895f6da1f44961468ac9f931f869fdb, type: 3}
+      propertyPath: moveSpeed
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 739525905126925802, guid: f895f6da1f44961468ac9f931f869fdb, type: 3}
       propertyPath: actionEvent
