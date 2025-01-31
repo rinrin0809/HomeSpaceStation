@@ -53,6 +53,7 @@ public class Bar : MonoBehaviour
     [SerializeField]
     private GameObject BadObject;
 
+
     private void Start()
     {
         Pos = new Vector3(transform.parent.gameObject.transform.position.x, 0, transform.parent.gameObject.transform.position.z);
@@ -61,6 +62,8 @@ public class Bar : MonoBehaviour
         skilCheck = SkilCheckObj.GetComponent<SkilCheck>();
 
         RandMoveSpeed();
+
+        skilCheck.Score = Player.Instance.Score;
     }
 
     private void Update()

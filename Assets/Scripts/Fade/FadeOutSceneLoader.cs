@@ -17,11 +17,20 @@ public class FadeOutSceneLoader : MonoBehaviour
     {
         if (LoadManager.Instance != null)
         {
+            Debug.Log("tttt");
             LoadManager.Instance.NewGamePushFlg = true;
             if(Player.Instance != null) Player.Instance.NewGameSpownFlg = true;
             LoadManager.Instance.LoadGameFlg = false;
             Inventory.ResetInventory();
             if(Event != null) Event.AllResetFlag();
+            StartCoroutine(FadeOutAndNewGameOrTitle(Name));
+        }
+    }
+
+    public void NoResetCallCoroutine(string Name)
+    {
+        if (LoadManager.Instance != null)
+        {
             StartCoroutine(FadeOutAndNewGameOrTitle(Name));
         }
     }

@@ -91,7 +91,7 @@ public class SaveManager : MonoBehaviour
         string DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
 
         // MaterialExporter フォルダのパスを取得
-        string FolderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
+        string FolderPath = Path.Combine(DesktopPath, "4008", "SaveData");
 
         // フォルダが存在しない場合は作成
         if (!Directory.Exists(FolderPath))

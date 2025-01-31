@@ -447,7 +447,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 9212275650587600386, guid: c0cd83755cc7b194c9949f2e46c6f981, type: 3}
+  m_Sprite: {fileID: 7509288284597144792, guid: 69450a5bba4ffc746acbe50daaa70c63, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -501,6 +501,9 @@ MonoBehaviour:
   CountMax: 4
   TextBox: {fileID: 0}
   DebugButton: {fileID: 8193771964039537227}
+  Button3x3: {fileID: 0}
+  Button4x4: {fileID: 0}
+  Button5x5: {fileID: 0}
 --- !u!1 &8772601204642870554
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,7 +56,7 @@ public class DoorOpenPosition : MonoBehaviour
     }
     void Update()
     {
-        if (isPlayerInRangeOpenDoor && Input.GetKeyDown(KeyCode.Space) && !hasPressedSpace)
+        if (isPlayerInRangeOpenDoor && Input.GetKeyDown(KeyCode.Space) && !hasPressedSpace && !move.RockFlg)
         {
             Debug.Log("スペースキーが押された！ギミックをアクティブにします。");
 
