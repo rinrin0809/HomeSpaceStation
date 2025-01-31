@@ -162,7 +162,7 @@ public class LoadManager : MonoBehaviour
     public string LoadPath(string Name)
     {
         string DesktopPath = System.Environment.GetFolderPath(System.Environment.SpecialFolder.Desktop);
-        string FolderPath = Path.Combine(DesktopPath, "HomeSpaceStation", "SaveData");
+        string FolderPath = Path.Combine(DesktopPath, "4008", "SaveData");
         string JsonPath = FolderPath + Name;
         return JsonPath;
     }

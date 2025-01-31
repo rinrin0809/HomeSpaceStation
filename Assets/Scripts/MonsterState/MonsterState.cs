@@ -15,12 +15,19 @@ public class MonsterState : MonoBehaviour
     public GameObject CoreObject;
 
     public string ItemName = "";
+    public string ChangeStateItemName = "";
 
     private State NowState = State.Max;
+
+    public Animator animator;
+    public RuntimeAnimatorController newAnimatorController;
+
     // Start is called before the first frame update
     void Start()
     {
         TransitionNoCoreState();
+
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -70,6 +77,29 @@ public class MonsterState : MonoBehaviour
 
     private void UpdateCoreState()
     {
+        for (int i = 0; i < Player.Instance.GetInventory().GetSize(); i++)
+        {
+            foreach (var item in Player.Instance.GetInventory().GetCurrentInventoryState())
+            {
+                // インベントリのアイテムを取得して、アイテムの名前でチェック
+                if (item.Value.item.Name == ChangeStateItemName)
+                {
+                    ChangeController();
+                }
+            }
+        }
+    }
 
+    private void ChangeController()
+    {
+        if (newAnimatorController != null)
+        {
+            animator.runtimeAnimatorController = newAnimatorController;
+            Debug.Log("Animator Controller Changed!");
+        }
+        else
+        {
+            Debug.LogWarning("New Animator Controller is not assigned.");
+        }
     }
 }

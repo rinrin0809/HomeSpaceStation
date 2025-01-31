@@ -23,6 +23,9 @@ TagManager:
   - BackReference
   - Door
   - EventCollision
+  - Apple
+  - SkillCheck
+  - BackSecretPos
   layers:
   - Default
   - TransparentFX

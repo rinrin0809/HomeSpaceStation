@@ -49,6 +49,8 @@ public class InputNumber : MonoBehaviour
 
     public UnityEngine.UI.Button showButton;
 
+    public bool Ans = false;
+
     void Start()
     {
         exportText.color = Color.black;
@@ -205,7 +207,7 @@ public class InputNumber : MonoBehaviour
 
 
         }
-       
+
 
 
 
@@ -219,6 +221,7 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.green;
+                    Ans = true;
                     Debug.Log("正解！");
                 }
                 
@@ -226,6 +229,7 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.red;
+                    Ans = false;
                     Debug.Log("不正解");
                 }
             }
@@ -235,12 +239,14 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.green;
+                    Ans = true;
                     Debug.Log("あんさー："+anserwerword);
                 }
                   else
                 {
                     exportText.text = "";
                     exportImage.color = Color.red;
+                    Ans = false;
                     Debug.Log("あんさー：" + anserwerword);
                     Debug.Log("不正解");
                 }

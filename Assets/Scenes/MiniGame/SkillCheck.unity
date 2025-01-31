@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1933044686692569192, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
+      propertyPath: targetSceneName
+      value: SkillCheak
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933044686692569192, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
+      propertyPath: urpPipelineAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b095a91ca5e2184990629cb19a42310, type: 2}
+    - target: {fileID: 1933044686692569192, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
+      propertyPath: defaultPipelineAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: faa2d959bbdbd7b408e8e78cdb0e61b7, type: 2}
     - target: {fileID: 6006932110623131608, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.1959434
@@ -574,7 +586,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &804123888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,6 +762,7 @@ MonoBehaviour:
   - {fileID: 1416527537}
   - {fileID: 646650309}
   MaxPosNum: 2
+  MAX_TIME: 7
   MaxSideNum: 0
   MaxLengthNum: 2
 --- !u!1 &914146402
@@ -1070,7 +1083,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &968609508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1135,8 +1148,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -350, y: -175}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: -312.4149, y: -196.08788}
+  m_SizeDelta: {x: 175.1702, y: 57.8242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1152271383
 MonoBehaviour:
@@ -1151,14 +1164,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.6778043, g: 1, b: 0.57924527, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 252172acd82210c45a6a08abde9f8e04, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1583,6 +1596,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeInCanvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6824599067746798686, guid: a86f30ca83b8bff4f830dcb26ce80279, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1674,7 +1691,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1782703869
 MonoBehaviour:
   m_ObjectHideFlags: 0
