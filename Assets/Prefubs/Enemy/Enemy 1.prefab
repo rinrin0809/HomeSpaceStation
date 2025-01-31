@@ -72,11 +72,16 @@ MonoBehaviour:
   player: {fileID: 1958414418195044891, guid: f895f6da1f44961468ac9f931f869fdb, type: 3}
   sightCounter: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   sightThreshold: 1
 =======
   sightThreshold: 3
 >>>>>>> da9f8d868c34e1b446fc4a01242a338fd5bd15be
   game: {fileID: 4181664946914727710, guid: 99499ea638441f1409094f769c050738, type: 3}
+=======
+  sightThreshold: 3
+  game: {fileID: 0}
+>>>>>>> parent of d0c4020c (敵修正)
 --- !u!50 &691357191697292206
 Rigidbody2D:
   serializedVersion: 4
