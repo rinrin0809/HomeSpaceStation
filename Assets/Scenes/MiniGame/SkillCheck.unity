@@ -135,6 +135,18 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1933044686692569192, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
+      propertyPath: targetSceneName
+      value: SkillCheak
+      objectReference: {fileID: 0}
+    - target: {fileID: 1933044686692569192, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
+      propertyPath: urpPipelineAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b095a91ca5e2184990629cb19a42310, type: 2}
+    - target: {fileID: 1933044686692569192, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
+      propertyPath: defaultPipelineAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: faa2d959bbdbd7b408e8e78cdb0e61b7, type: 2}
     - target: {fileID: 6006932110623131608, guid: 3335814e4a3c66c4296a67a6c750bc27, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.1959434
@@ -1583,6 +1595,10 @@ PrefabInstance:
     - target: {fileID: 6824599067746798686, guid: a86f30ca83b8bff4f830dcb26ce80279, type: 3}
       propertyPath: m_Name
       value: FadeInCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6824599067746798686, guid: a86f30ca83b8bff4f830dcb26ce80279, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

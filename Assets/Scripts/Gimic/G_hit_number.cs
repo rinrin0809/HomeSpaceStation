@@ -6,6 +6,7 @@ public class G_hit_number : MonoBehaviour
 {
     public InputNumber inputumber;
     public GameObject gimmick;
+    public GameObject kabe;
     // プレイヤーがコライダに入ったかどうかを判定するフラグ
     private bool isPlayerInRange = false;
 
@@ -44,10 +45,11 @@ public class G_hit_number : MonoBehaviour
                 gimmick.SetActive(true);
             }
         }
-        if (inputumber != null && inputumber.Ans || Input.GetKeyDown(KeyCode.Backspace))
+        if (/*inputumber != null &&*/ inputumber.Ans || Input.GetKeyDown(KeyCode.Backspace))
         {
             Time.timeScale = 1;
             gimmick.SetActive(false); // ギミックを非表示にする
+            kabe.SetActive(false);
         }
     }
 }

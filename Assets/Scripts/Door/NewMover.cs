@@ -30,11 +30,10 @@ public class NewMover : MonoBehaviour
             {
                 door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * 0.033f);
             }
-            if (isOpening == true && !inputnumber)
-            {
-                door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * 0.033f);
-            }
         }
-       
+        if (!inputnumber.Ans)
+        {
+            door.transform.localPosition = Vector3.Lerp(door.transform.localPosition, openPosition, openSpeed * 0.033f);
+        }
     }
 }

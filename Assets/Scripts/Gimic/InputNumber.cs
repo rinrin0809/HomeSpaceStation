@@ -207,7 +207,7 @@ public class InputNumber : MonoBehaviour
 
 
         }
-       
+
 
 
 
@@ -239,12 +239,14 @@ public class InputNumber : MonoBehaviour
                 {
                     exportText.text = "";
                     exportImage.color = Color.green;
+                    Ans = true;
                     Debug.Log("あんさー："+anserwerword);
                 }
                   else
                 {
                     exportText.text = "";
                     exportImage.color = Color.red;
+                    Ans = false;
                     Debug.Log("あんさー：" + anserwerword);
                     Debug.Log("不正解");
                 }
