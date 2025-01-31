@@ -71,8 +71,8 @@ MonoBehaviour:
   detectionDistance: 10
   player: {fileID: 0}
   sightCounter: 0
-  sightThreshold: 3
-  game: {fileID: 0}
+  sightThreshold: 1
+  game: {fileID: 4181664946914727710, guid: 99499ea638441f1409094f769c050738, type: 3}
 --- !u!50 &691357191697292206
 Rigidbody2D:
   serializedVersion: 4
